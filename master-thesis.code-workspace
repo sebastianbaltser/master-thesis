@@ -4,5 +4,13 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"cSpell.words": [
+			"Castagna",
+			"counterparty",
+			"Duffie",
+			"Hillion",
+			"riskless"
+		]
+	}
 }
