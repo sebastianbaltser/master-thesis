@@ -37,6 +37,7 @@ tempCodeRunnerFile.py
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+*.run.xml
 
 ###Microsoft office:
 *.tmp
