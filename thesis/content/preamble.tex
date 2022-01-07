@@ -1,0 +1,44 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[left=3.00cm, right=3.00cm, top=3.00cm, bottom=3.00cm]{geometry}
+
+\usepackage{subfiles}
+
+\usepackage{parskip}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools} % For \innertext{}
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01}
+
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage[backend=biber, bibstyle = numeric, citestyle=authoryear-comp]{biblatex}
+\bibliography{bibfile}
+\usepackage[bottom]{footmisc} % Force footnotes to bottom
+\usepackage{tocbibind}
+\usepackage{csquotes}
+
+\usepackage[page]{appendix}
+
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{../graphics/}}
+
+\numberwithin{equation}{section}
+
+\usepackage{fancyhdr}
+\fancypagestyle{primary-page-style}{
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\lhead{}
+	\rhead{\today}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\rfoot{Page \thepage\ of \pageref{LastPage}}
+}
+
+\pagestyle{primary-page-style}
