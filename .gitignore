@@ -1,0 +1,51 @@
+#Dropbox laver denne fil, som ikke kan hentes i Windows
+Icon[
+]
+
+#Så slipper vi for at få fejl på den her hele tiden:
+thesis/*.pdf
+
+tempCodeRunnerFile.py
+.DS_Store
+.DS_Store?
+
+#Filer dannet af LaTeX:
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.bcf
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz
+
+###Microsoft office:
+*.tmp
+
+# Word temporary
+~$*.doc*
+
+# Word Auto Backup File
+Backup of *.doc*
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
