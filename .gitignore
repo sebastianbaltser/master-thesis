@@ -35,6 +35,8 @@ tempCodeRunnerFile.py
 *.mtc1
 *.out
 *.synctex.gz
+*.fls
+*.fdb_latexmk
 
 ###Microsoft office:
 *.tmp
