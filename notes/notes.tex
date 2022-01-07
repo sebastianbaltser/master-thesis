@@ -1,0 +1,167 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english, danish]{babel}
+\usepackage[left=3.00cm, right=3.00cm, top=3.00cm, bottom=3.00cm]{geometry}
+\usepackage{parskip}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bbm}
+
+\begin{document}
+    \section{Thesis Ideas}
+        \begin{itemize}
+            \item Define the framework from Andersen Duffie Song and go through the sections of Hillion but using an interest rate swap instead of an option.
+            \item Has the debate on whether FVA should be accounted for in the prices or not been settled? If it is still an ongoing discussion we could open the dissertation with a that discussion, presenting arguments from each side. 
+            \item How should FVA be defined and interpreted? What are the implications, pros/cons, etc. of the three different definitions defined by Hillion?
+            \item Should prices be adjusted for FVA or should they not.
+        \end{itemize}
+
+    \section{Funding Value Adjustments}
+        FVA is the cost to the dealer's shareholders for financing upfront counterparty cash payments, variation margin payments, and collateral requirements. This cost to shareholders is offset at least in part by a change in the value of dealer creditor claims. The sum of these value effects on shareholders and creditors is a change in the value of the dealer's frictional financial distress costs. 
+
+    \section{Andersen Duffie Song Model}
+
+        Anderen, Duffie and Song show that funding value adjustments are the costs to the shareholders for financing up-front counterparty cash payments and collateral requirements, and they derive the price that makes the shareholders indifferent to a new derivative trade.
+        
+        The firm considers buying a quantity $q$ of a new position and they want to know the impact of this investments on the firm's shareholders. The investments cost for $q$ units is $U(q)$. The payoff of the investment at time $1$ is given by $Y=Y_{1} + Y_{2}$, where $Y_{1}^{-}$ is secured and $Y_{2}^{-}$ is unsecured.
+
+        To finance the cost $U(q)$ the firm must issue new debt, which has a credit spread of $s(q)$. If $U(q) <0$ the firm receives the cash and uses it to retire debt. The contractual new debt payback at time 1 is then $(R+s(q))U(q)$. Shareholders receive $A + qY - L - U(q)(R+s(q))$ unless this amount is negative, in which case the firm defaults and shareholders get nothing. The marginal increase in the value of the firm's equity per unit investment, is therefore:
+            \begin{align}
+                G &= \frac{\partial \mathbb{E}^{\mathbb{Q}}\left[\delta(A + qY - L - U(q)(R+s(q)))^{+}\right] }{\partial q} \\
+                \intertext{And due to Proposition 1:}
+                &= p^{\ast}\pi + \delta \text{Cov}\left(\mathbbm{1}_{D}, Y\right)  - \Phi
+            \end{align}
+        where:
+            \begin{enumerate}
+                \item $p^{\ast}=\mathbb{P}^{\mathbb{Q}}\left(D^{c}\right) $ is the risk-neutral survival probability of the bank (firm???).
+                \item $\pi = \delta \mathbb{E}^{\mathbb{Q}}\left[Y\right] - u $ is the marginal profit on the trade for a hypothetical risk-free dealer.
+                \item $\text{Cov}\left(\mathbbm{1}_{D}, Y\right)$ is the marginal cost of asset substitution to shareholders of investing in an asset whose payoff is positively correlated with the firm's default, given that shareholders give up all payoffs to creditors in the event of default. 
+                \item $\Phi = p^{\ast}\delta u S$ is defined to be the FVA. This is the present value to shareholders of their share of the net financing costs, $uS$. Shareholders pay these financing costs iff the firm survives.
+            \end{enumerate}
+
+        \subsection{How Funding Costs Affect Swap Valuation}
+            How does FVA impact the swap prices that a dealer would quote for its shareholders to break even. A swap is a contract that promises some underlying floating payment $X$ in exchange for some fixed payment $K$. The dealer pays fixed and receives floating and thus receives $X-K$ at time $1$, before considering counterparty default. 
+
+            \subsubsection{Valuing Unsecured Swaps with Up-Front Payments}
+                In this section the swap is assumed to be fully unsecured, i.e. not covered by collateral. $B$ is the client default event at which the dealer recovers $\beta$ of $(X-K)^{+}$.
+
+                A position of size $q$ requires the dealer to make an initial payment of $U(q)$. Positive payments is preferably funded by excess balance sheet cash, and negative payments is preferably used to retire equity. This is not possible in practice due to constraints, therefore positive payments are financed by issuing debt. If the dealer does not default the payment to the dealer at time 1, per unit notional position is:
+                    \begin{equation}
+                        Y = y(K) \equiv X - K \gamma (X-K)^{+}
+                    \end{equation}
+                With $\gamma=(1-\beta)\mathbbm{1}_{B}$ being the fractional counterparty default loss. The effective payoff at time 1 of the swap to the dealer, including potential default of the dealer, is:
+                    \begin{equation}
+                        \mathcal{C}(q) 
+                            = \underbrace{q(X-K)}_{\text{No defaults}}
+                            - \underbrace{q\gamma(X-K)^{+}}_{\text{Client defaults}}
+                            + \underbrace{(1-\kappa\rho(q))}_{\text{Pro rata}}
+                            \underbrace{q(X-K)^{-}}_{\text{Dealer defaults}}
+                            \mathbbm{1}_{\mathcal{D}(q)}
+                    \end{equation}
+                with $\mathcal{D}(q)$ is the dealers default event after considering the new position. The fair value of the swap is $\mathcal{V}(q) = \delta \mathbb{E}^{\mathbb{Q}}\left[\mathcal{C}(q)\right] $.
+
+                Proposition $2$ shows that the marginal value $v=\frac{\partial \mathcal{V}(q)}{\partial q} |_{q=0}$ of the swap payoff at time 1, after paying $U(q)$, does not depend on the financing strategy. But in general the value $\mathcal{V}(q)$ depends on the financing method since the financing method influences the default distress costs, $\kappa$. 
+
+                If $\kappa=1$, choosing $q$ such that $U(q)=v$ makes a total claimant on the dealer's balance sheet indifferent to entering the swap transaction. The dealer will try to maximize shareholder value. Under debt financing the upfront payment for the swap that is breakeven for dealer shareholders, i.e. $G=0$, is:
+                    \begin{equation}
+                        v^{\ast} = \frac{\mathbb{E}^{\mathbb{Q}}\left[Y\right]}{R+S} - \frac{\text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D}, Y\right)}{p^{\ast}\left(R+S\right) }
+                    \end{equation}
+                If the dealer's default indicator and the swap cash flow are uncorrelated under the risk free measure, then:
+                    \begin{equation}
+                        v^{\ast} = (v - \text{DVA})\frac{R}{R+S} 
+                    \end{equation}
+                meaning that the shareholder breakeven upfront price for entering the swap is an adjustment of the fair market value, $v$, that:
+                    \begin{enumerate}
+                        \item \textbf{Removes the DVA from $v$.} This reflects the lack of any shareholder benefit from paying the swap counterparty less than the contractually promised amount when the dealer defaults. Because shareholders receive nothing at default.
+                        \item \textbf{Substitues the dealer's unsecured discount rate $R+S$ for the risk-free rate $R$.} This reflects the funding cost to shareholders, who must pay the credit spread $S$ to the new creditors without gaining any marginal benefit ($G=0$) from the "right" to default on the new debt.
+                    \end{enumerate}
+                $v^{\ast} - v$ is the net shareholder cost of entering the swap. When $\kappa=1$ this amount is entirely transferred to the dealer's creditors. If $\kappa<1$ the cost is not entirely transferred to the dealer's creditors. 
+
+            \subsubsection{Dealer Quotation and FVA for Unsecured Swaps}
+                The dealer would not trade the swap unless the upfront payment to the dealer is at least $v^{\ast}$, in which case the firm as a whole would make a trading profit of $v-v^{\ast}$. DVA always decreases $v^{\ast}$ relative to $v$ but the funding component depends on DVA relative to $v$:
+                    \begin{itemize}
+                        \item $v < \text{DVA}$: The funding cost component increases $v^{\ast}$ relative to $v$. 
+                        \item $v > \text{DVA}$: The funding cost component decreases $v^{\ast}$ relative to $v$.
+                    \end{itemize}
+
+        \subsection{Valuation Adjustments for Long-Term Swaps}
+            The dealer defaults at time $\tau_{D}$ with conditional mean arrival rate $\lambda_{D}(t)$ at time $t$. The fractional loss to the creditor claim in this case is $\ell_{D}(t) \in [0, 1]$. The dealer's short term credit spread is $S_{t} = \lambda_{D}(t)\ell_{D}(t)$ at time $t$. The client swap counterparty has the same default risk characteristics but denoted with subscript $C$.
+
+            The market value of the default-free version of the swap at time $t<T$ is:
+                \begin{equation}
+                    V_{t} = \mathbb{E}_{t}^{\mathbb{Q}}\left[\sum_{j=\eta(t)+1}^{N} \delta_{t,t_{j}}C_{j}\right] 
+                \end{equation}
+            The CVA and DVA are:
+                \begin{align}
+                    \text{CVA} &= \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\{T > \tau_{C} ~\vee~ \tau_{D} > \tau_{C}\}} \delta_{0,\tau_{C}} \ell_{C} V(\tau_{C})^{+}
+                    \right]  \\
+                    \text{DVA} &= \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\{T > \tau_{D} ~\vee~ \tau_{C} > \tau_{D}\}} \delta_{0,\tau_{D}} \ell_{D} V(\tau_{D})^{+}
+                    \right] 
+                \end{align}
+            The market value of the swap, i.e. the total value of the swap cash flows to both equity and debt claimants, is:
+                \begin{equation}
+                    v \equiv V_{0} - \text{CVA} - \text{DVA}
+                \end{equation}
+            No FVA is assignable to this total swap market value. The market value is thus obtained by subtracting the CVA net of the DVA from the value $V_{0}$ of a default-free swap. The upfront payment $v^{\ast}$ that would leave shareholders indifferent to the swap transaction is approximated by:
+                \begin{equation}
+                    v^{\ast} \approx V_{0} - \text{CVA} - \Phi(V_{0}) - \Psi = v - \text{DVA} - \Phi(V_{0}) - \Psi
+                \end{equation}
+            $\Phi(V_{0})$ is the FVA and $\Psi$ is the MVA. The DVA is subtracted from the market value since it is of no value to shareholders. 
+        
+    \section{Hillion}
+        The goal of this paper is to examine the issue of funding and derivatives valuation using a simple corporate finance approach. The paper argues that:
+            \begin{enumerate}
+                \item Funding costs and benefits should not be accounted for in the valuation of derivatives.
+                \item The derivatives' funding costs and benefits leave the market value of the bank unaffected.
+                \item The derivatives' funding costs and benefits generate wealth transfers between the shareholders and the creditors.
+            \end{enumerate}
+
+        \subsection{Funding Costs Adjustments}
+            In this section, the bank, B, is assumed to purchase the option contract from the riskless counterparty, C. The new asset on the bank's balance sheet raises credit and funding issues.
+
+            When the option's upfront is payed, there is no counterparty credit risk to neither B or C, since C is riskless and B does not have any outstanding debt to C. The option is a derivative receivable to the bank.
+
+            The bank must decide to fund the purchase by issuing new debt or by issuing new equity.
+
+            \subsubsection{Debt Funding}
+                New debt has a cost above the risk-free rate. The issue is to determine whether the bank should pay less for the option contract by an amount equal to the funding cost. To the new creditors the option is a zero NPV investment, since the debt that they are buying must be fairly priced. To the legacy creditors, the option is a positive net-present-value investment. To the shareholders, the option is a negative NPV investment.
+
+                Since projects with a NPV of zero do not create value and the Modigliani-Miller irrelevance Proposition suggests that the value of a firm is not affected by financing decisions, the increase in the legacy debt value must be exactly offset by an equal decrease in the equity value, if the derivative contract must have no impact on the bank value. Thus wealth is transferred from the shareholders to the legacy creditors. For this reason the price of the option payed by the bank cannot be less FVA, since that would create value for the bank at the expense of the counterparty.
+
+                Three definitions and interpretations of FCA emerge:
+                    \begin{enumerate}
+                        \item Funding costs are the present value of the excess funding costs paid by the shareholders. These funding costs are borne by the shareholders as long as the bank does not default. These costs are offset by the gains earned by the legacy creditors when the bank defaults. 
+                        \item Funding costs are the \textit{expected} loss experienced by the shareholders, that is, the decrease in the equity value at time 0, due to the derivative. This corresponds to the wealth transfer from the shareholders to the bondholders. This interpretation captures the expected funding costs, i.e., the funding costs times the probability that the bank does not default. \textit{This is the definition used by Andersen Duffie Song.}
+                        \item Funding costs are the difference between the derivative's value and it's price, with the latter calculated to make the shareholders indifferent. This funding cost is paid by the counterparty as a donation to the bank. Like the shareholders, the new creditors are entering an investment with zero NPV, but the legacy creditors are better of by the donation. 
+                    \end{enumerate}
+
+            \subsubsection{Equity Funding}
+                In the previous section the option premium is funded by issuing debt. The issue now is whether the previous results is affected by the funding instrument.
+
+                Three conclusions emerge:
+                    \begin{enumerate}
+                        \item The value of the derivative contracts should not be adjusted for funding costs, regardless if the funding is from debt or equity.
+                        \item The value of the bank is not affected by the funding costs required by derivative receivables. Derivative contracts make the legacy creditors better off at the expense of the shareholders, regardless if the funding is from debt or equity.
+                        \item Shareholders are worse off with equity funding than with debt funding, because creditors does not have to share with other creditors in the default state, which increases the value of debt even further.
+                    \end{enumerate}
+
+     \section{Ruiz}
+
+     \section{Castagna}
+        The price and the value of a derivative is not necessarily the same.
+
+        \begin{description}
+            \item[Price:] The terms that both parties agree upon when closing the deal. When both parties have an even bargaining power, they have to acknowledge the other parties risks and costs, so that the final price includes the total net risks and costs borne by both parties.
+            \item[Value:] The total of the production costs, which are the present value of the costs paid to attain the intermediate and final pay-off until the expiry, considering also the costs and the losses due to counterparty credit risk, funding and liquidity premium.
+        \end{description}
+
+        When both parties operate in a perfect and frictionless market, where there are no transaction costs and counterparty risks, the price and the value of a contract will be identical.
+
+        The FVA is the discounted value of the spread paid by the bank over the risk-free interest rate to finance the net amount of cash needed for the collateral account and the underlying assset position in the dynamic replication strategy.
+\end{document}
