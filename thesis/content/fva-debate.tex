@@ -2,5 +2,14 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
+    \section{The FVA Debate}
 
+    \subsection{Summary of the FVA Debate}
+        Theoreticans and practitioners have long been debating the use of Funding Value Adjustments (FVA) when determining the prices of derivatives. The discussion is specifically whether an FVA should be made to account for the funding costs of entities buying or selling derivatives. The paper of \cite{HullWhiteFVA} argues FVA should generally not be made, but provides a summary of the debate that serves as a good starting point for further discussion of the topic. This summary is paraprashed in the the following paragraphs where the arguments of different parties are presented:
+
+        \begin{description}
+            \item[Traders] The traders selling or buying derivatives will incur the funding cost of the derivative as charged by the funding desk of the bank. For derivatives that requires funding this will amount to a loss for the traders, unless they take into account the funding cost when pricing the derivatives. In other words traders must make an FVA. 
+            \item[Accountants] The accountants seek to value derivatives at their exit price, i.e. the price that clears the market, which is dependent on how other market participants price the transaction. To determine the value of derivatives accountants uses the notion of \textit{fair value}. The fair value of a derivative is defined as \textit{the price that would be received from the sale of an asset or paid to transfer a liability in an orderly transaction between market participants at the measurement date}\footcite{IFRS13}. In addition, the fair value is clearly described in \cite{IFRS13} as being market based and not entity based, which rules out using the entity specific funding cost when evaluting prices. From the accountants point of view making an FVA can lead to multiple fair values for the same transaction, why they oppose this practice.
+            \item[Theoreticians] Theoreticans argue that finance theory requires that the discount rate for a project should be determined by the risk of the project. This conflicts with the practice of using an FVA in derivatives pricing, which corresponds to replacing the risk-free rate by the higher funding cost of the entity doing the derivatives pricing. Thus theoreticans claims that there is no theoretical basis for making an FVA.s
+        \end{description}
 \end{document}
