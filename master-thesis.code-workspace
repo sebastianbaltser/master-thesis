@@ -10,7 +10,8 @@
 			"counterparty",
 			"Duffie",
 			"Hillion",
-			"riskless"
+			"riskless",
+			"uncollateralized"
 		]
 	}
 }
