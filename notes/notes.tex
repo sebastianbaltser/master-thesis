@@ -164,4 +164,17 @@
         When both parties operate in a perfect and frictionless market, where there are no transaction costs and counterparty risks, the price and the value of a contract will be identical.
 
         The FVA is the discounted value of the spread paid by the bank over the risk-free interest rate to finance the net amount of cash needed for the collateral account and the underlying asset position in the dynamic replication strategy.
+
+    \section{Hull and White}
+        Different stakeholders have different opinions on how to account for the funding costs. Traders are determined that the derivatives desk are charged the funding costs, and to not make a loss on the traders P\&L. To account for this they make an FVA on the pricing of the derivatives. Accountants state that to determine the value of derivatives we have to look at the fair value of such. However, the fair value is measured entirely on the market, and not specified to each entity distributing the derivatives. Finally, the theoreticians state that in the risk-neutral world pricing a derivative should only be valued as the expected cash flows discounted by the risk free discount rate. The funding costs are "fixed" in the sense the they can vary from different entities (and derivatives?).
+
+        "Finance theory argues that this practice makes risky projects seem relatively more attractive and projects with very little risk seem relatively less attractive."
+
+        The same way that the counterparty's risk is gathered in the CVA value, the market participant's own risk of defaulting is gathered in the DVA value. The same setup is applicable when funding costs are included. We then divide DVA into DVA1 and DVA2, which refer to the risk of default due to derivatives obligations and funding costs respectively.
+        \begin{equation}
+            \text{Portfolio value} = NDV - CVA + DVA1 + DVA2 - FVA
+        \end{equation}
+        For transactions that are totally uncollateralized, both FVA and DVA2 additive across the transactions. 
+
+        The inclusion of FVA in the fair value can allow for arbitrage as an end user buying an option from a bank with high funding costs and then selling the same option to a bank with low funding costs can provide a profit for all three parties.
 \end{document}
