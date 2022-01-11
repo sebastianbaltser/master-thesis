@@ -177,4 +177,29 @@
         For transactions that are totally uncollateralized, both FVA and DVA2 additive across the transactions. 
 
         The inclusion of FVA in the fair value can allow for arbitrage as an end user buying an option from a bank with high funding costs and then selling the same option to a bank with low funding costs can provide a profit for all three parties.
+
+        \textbf{SB's notes:} \\
+        Should a FVA be made or not when valuing derivatives? The participants in the discussion can roughly be split up into three groups, each having different arguments and opinions:
+
+        \begin{description}
+            \item[The trader] The trader is charged the funding cost by the funding desk and must therefore make FVA. If he doesn't it will show a loss on trades that require funding.
+            
+            \item[The accountant] "Fair value is a market-based measurement, not an entity-specific measurement". Since FVA is taking into account different funding costs for different entities, FVA should not be made. Otherwise different banks will price the same transaction differently.
+            
+            \item[The theoretican] The discount rate for a project should be determined by the risk of the project. The funding cost is irrelevant. Since the discount rate is used for calculating the derivative price, the funding cost is irrelevant to the derivative price, and an FVA should not be made.
+        \end{description}
+
+            Hull \& White definition of FVA: The FVA is the difference between the no-default-value (NDV) obtained when using the risk free rate and the NDV obtained when using discounting at the dealer's funding costs. Credit risk is taken into account by CVA and DVA, which yields the portfolio value:
+            \begin{equation}
+                \text{Portfolio value} = \text{NDV} - \text{CVA} + \text{DVA} - \text{FVA}
+            \end{equation}
+
+            Per the example: The valuation of a derivative depends on two interest rates. 1) The rate at which a position in the underlying asset can be funded and 2) the rate at which a position in the derivative can be funded. Hedging the derivative might require buying one unit of the underlying stock, which needs to be funded at some rate. Buying the derivative might require paying the counterparty, which also needs to be funded at some, potentially different, rate.
+            
+            \textbf{The European Call option example:} Why is the quoted price to another dealer higher than the quoted price to an end-user?
+            
+            When assesing the value of a risk-free project, the risk-free rate must be used for discounting, i.e. not the funding rate. Banks will enter into different projects of varying risk, but over time the average cost of funding should remain approximately the same. Entering into risk-free projects will enable the bank to enter into riskier-than-average projects.
+            
+            \textbf{The Fair Value argument:} The fair value us the price that would be received to sell an asset in an orderly transaction between market participants at the measurement date. While different entities might have different funding costs, that is not relevant for the fair value of a product. The funding cost influences only the private value of a product.
+
 \end{document}
