@@ -152,6 +152,26 @@
                     \end{enumerate}
 
      \section{Ruiz}
+        There are two discussions nested in the FVA debate: 1) Whether FVA can create arbitrage opportunities and 2) whether including DVA and FVA is double-counting.
+
+        CVA is driven by how much it costs to hedge out the default risk from a counterpart. The CVA can be seen as the difference in cost between hedging default risk from a riskless counterparty and hedging default risk from the actual counterparty. The liability side of CVA, i.e. DVA, can be seen as the cost of ensuring that we do not default. In an ideal world this cost is going to be exactly the same as the cost to our counterparty for hedging their credit-exposure to us. 
+
+        We have a derivatives portfolio with a risky counterparty that is worth $\$100$ in our favor. Suddenly the credit spread of the counterparty rises from $100bp$ to $1000bp$, and we decide that we want to close our position. The counterparty will agree to close the position by paying us $\$80$ and we agree to these terms, since the would rather lose $\$20$ now than risking losing it all at a later time. The counterparty has thus monetized it's part of it's DVA, which is possible since it was more expensive for us to buy credit protection for a company with a credit spread of $1000bp$.
+
+        There can be two sources of FVA:
+        \begin{description}
+            \item[FVA from collateral asymmetry:] A dealer sells an OTC derivative to a counterparty with whom it has a CSA agreement such that collateral is posted each day/week/month. The dealer pays $OIS$ for the collateral posted. The dealer still faces the market risk from the derivative so it creates a market risk hedge at the exchange. The exchange requires full collateralization. Any collateral that needs to be posted to the exchange must be borrowed from the dealer's funding institution. The price of borrowing from the funding institution is $OIS + \text{funding spread}$, which is of course the dealers funding cost. The collateral posted at the exchange earns $OIS$. Some of the collateral to the exchange can be covered by the collateral posted by the counterparty, but there is a asymmetry between these collateral postings since the counterparty only marks to market every day/week/month. The difference between the two collateral postings is the amount needed to be borrowed from the funding institution and the dealer will therefore lose it's funding spread on the amount borrowed. 
+            
+            Therefore a dealer is going to have a funding cost due to the asymmetry between collateral needs between the OTC derivative and the hedging sides. Dealers need to account for this by putting the funding cost as an adjustment to the value of the OTC derivative.
+
+            \item[FVA from derivative cashflow] The assumptions in the BS model states that an unlimited amount of cash can be bought and sold at the risk-free rate. However cashflows from derivatives must be funded at a non-risk rate. Buying options will require funding the option premium by borrowing from the funding institution at the rate $OIS + \text{funding spread}$. Receiving cashflows e.g. from a swap can lower the funding needs elsewhere in the instution and will therefore effectively earn a rate of $OIS + \text{funding spread}$ by reducing the amount needed to be borrowed from the funding institution.
+        \end{description}
+
+        For the reasons mentioned it is common for institutions to reduce the price of a deal with an FVA component such that:
+            \begin{equation}
+                V = P_{risk-free} - CVA - FVA
+            \end{equation}
+        However this could be viewed as double-counting, since the liability side of CVA (DVA) can be viewed as a funding component.  
 
      \section{Castagna}
         The price and the value of a derivative is not necessarily the same.
