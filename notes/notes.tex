@@ -163,6 +163,26 @@
             On the other hand, the value of the FVA, $V^{FVA}$, is the expected positive exposure one the entire portfolio 
             \item[Double-counting from the perspective of Andrew Green]  
         \end{description}
+        There are two discussions nested in the FVA debate: 1) Whether FVA can create arbitrage opportunities and 2) whether including DVA and FVA is double-counting.
+
+        CVA is driven by how much it costs to hedge out the default risk from a counterpart. The CVA can be seen as the difference in cost between hedging default risk from a riskless counterparty and hedging default risk from the actual counterparty. The liability side of CVA, i.e. DVA, can be seen as the cost of ensuring that we do not default. In an ideal world this cost is going to be exactly the same as the cost to our counterparty for hedging their credit-exposure to us. 
+
+        We have a derivatives portfolio with a risky counterparty that is worth $\$100$ in our favor. Suddenly the credit spread of the counterparty rises from $100bp$ to $1000bp$, and we decide that we want to close our position. The counterparty will agree to close the position by paying us $\$80$ and we agree to these terms, since the would rather lose $\$20$ now than risking losing it all at a later time. The counterparty has thus monetized it's part of it's DVA, which is possible since it was more expensive for us to buy credit protection for a company with a credit spread of $1000bp$.
+
+        There can be two sources of FVA:
+        \begin{description}
+            \item[FVA from collateral asymmetry:] A dealer sells an OTC derivative to a counterparty with whom it has a CSA agreement such that collateral is posted each day/week/month. The dealer pays $OIS$ for the collateral posted. The dealer still faces the market risk from the derivative so it creates a market risk hedge at the exchange. The exchange requires full collateralization. Any collateral that needs to be posted to the exchange must be borrowed from the dealer's funding institution. The price of borrowing from the funding institution is $OIS + \text{funding spread}$, which is of course the dealers funding cost. The collateral posted at the exchange earns $OIS$. Some of the collateral to the exchange can be covered by the collateral posted by the counterparty, but there is a asymmetry between these collateral postings since the counterparty only marks to market every day/week/month. The difference between the two collateral postings is the amount needed to be borrowed from the funding institution and the dealer will therefore lose it's funding spread on the amount borrowed. 
+            
+            Therefore a dealer is going to have a funding cost due to the asymmetry between collateral needs between the OTC derivative and the hedging sides. Dealers need to account for this by putting the funding cost as an adjustment to the value of the OTC derivative.
+
+            \item[FVA from derivative cashflow] The assumptions in the BS model states that an unlimited amount of cash can be bought and sold at the risk-free rate. However cashflows from derivatives must be funded at a non-risk rate. Buying options will require funding the option premium by borrowing from the funding institution at the rate $OIS + \text{funding spread}$. Receiving cashflows e.g. from a swap can lower the funding needs elsewhere in the instution and will therefore effectively earn a rate of $OIS + \text{funding spread}$ by reducing the amount needed to be borrowed from the funding institution.
+        \end{description}
+
+        For the reasons mentioned it is common for institutions to reduce the price of a deal with an FVA component such that:
+            \begin{equation}
+                V = P_{risk-free} - CVA - FVA
+            \end{equation}
+        However this could be viewed as double-counting, since the liability side of CVA (DVA) can be viewed as a funding component.  
 
      \section{Castagna}
         The price and the value of a derivative is not necessarily the same.
@@ -177,6 +197,16 @@
         The FVA is the discounted value of the spread paid by the bank over the risk-free interest rate to finance the net amount of cash needed for the collateral account and the underlying asset position in the dynamic replication strategy.
 
     \section{Hull and White}
+    \subsection{Is FVA a Cost for Derivatives Desks}
+        For risk-free projects the risk-free valuation paradigm requires the use of the risk-free rate as the discount-rate. It would make sense then to use the risk-free rate for discouting fully collateralized transactions, since these are risk-free through the collateral. Nontheless some banks use the OIS rate for discounting, with the argument that the transactions are funded at the OIS rate. 
+
+        An argument for FVA is the use of hedging and the funding cost that hedging requires. However hedging is a zero net present value investment, so entering into a hedge should not affect valuation. The valuation of an investment should depend on the risk of the project, not on the riskiness of the firm that makes the investment. Since the funding cost is directly related to the riskiness of the firm this is to say that an FVA is not appropriate when pricing investments. 
+
+        Suppose a company has a funding rate of $r_{f} + 200bp$ and meets an opportunity to take on a nearly risk-free investment with a return of $r_{f} + 80bp$. The discount rate for the stand-alone investment is $r_{f} + 30bp$. Hull and White argues that the investment should be made since $H*(r_{f} + 80bp) / (r_{f} + 30bp) - H > 0$, i.e. the funding rate should be ignored. The investment will create shareholder value by decreasing the overall riskiness of the company, since the new investment is less risky than the average riskiness of the company's existing investments. Decreasing the overall riskiness also subsequently decreases the funding rate of the company. 
+
+        Castagna argues that the example above only works when the funding rate of the company is the fair rate of return on the investment, $r_{f} + 30bp$. If the company has a funding rate of $r_{f} + 200bp$ the decrease in the funding rate by taking on the investment is more than offset by the loss incurred by the company in funding the return of $r_{f} + 80bp$ at an even higher rate.
+    
+    \subsection{FVA and Fair Value}
         Different stakeholders have different opinions on how to account for the funding costs. Traders are determined that the derivatives desk are charged the funding costs, and to not make a loss on the traders P\&L. To account for this they make an FVA on the pricing of the derivatives. Accountants state that to determine the value of derivatives we have to look at the fair value of such. However, the fair value is measured entirely on the market, and not specified to each entity distributing the derivatives. Finally, the theoreticians state that in the risk-neutral world pricing a derivative should only be valued as the expected cash flows discounted by the risk free discount rate. The funding costs are "fixed" in the sense the they can vary from different entities (and derivatives?).
 
         "Finance theory argues that this practice makes risky projects seem relatively more attractive and projects with very little risk seem relatively less attractive."
@@ -188,4 +218,29 @@
         For transactions that are totally uncollateralized, both FVA and DVA2 additive across the transactions.
 
         The inclusion of FVA in the fair value can allow for arbitrage as an end user buying an option from a bank with high funding costs and then selling the same option to a bank with low funding costs can provide a profit for all three parties.
+
+        \textbf{SB's notes:} \\
+        Should a FVA be made or not when valuing derivatives? The participants in the discussion can roughly be split up into three groups, each having different arguments and opinions:
+
+        \begin{description}
+            \item[The trader] The trader is charged the funding cost by the funding desk and must therefore make FVA. If he doesn't it will show a loss on trades that require funding.
+            
+            \item[The accountant] "Fair value is a market-based measurement, not an entity-specific measurement". Since FVA is taking into account different funding costs for different entities, FVA should not be made. Otherwise different banks will price the same transaction differently.
+            
+            \item[The theoretican] The discount rate for a project should be determined by the risk of the project. The funding cost is irrelevant. Since the discount rate is used for calculating the derivative price, the funding cost is irrelevant to the derivative price, and an FVA should not be made.
+        \end{description}
+
+            Hull \& White definition of FVA: The FVA is the difference between the no-default-value (NDV) obtained when using the risk free rate and the NDV obtained when using discounting at the dealer's funding costs. Credit risk is taken into account by CVA and DVA, which yields the portfolio value:
+            \begin{equation}
+                \text{Portfolio value} = \text{NDV} - \text{CVA} + \text{DVA} - \text{FVA}
+            \end{equation}
+
+            Per the example: The valuation of a derivative depends on two interest rates. 1) The rate at which a position in the underlying asset can be funded and 2) the rate at which a position in the derivative can be funded. Hedging the derivative might require buying one unit of the underlying stock, which needs to be funded at some rate. Buying the derivative might require paying the counterparty, which also needs to be funded at some, potentially different, rate.
+            
+            \textbf{The European Call option example:} Why is the quoted price to another dealer higher than the quoted price to an end-user?
+            
+            When assesing the value of a risk-free project, the risk-free rate must be used for discounting, i.e. not the funding rate. Banks will enter into different projects of varying risk, but over time the average cost of funding should remain approximately the same. Entering into risk-free projects will enable the bank to enter into riskier-than-average projects.
+            
+            \textbf{The Fair Value argument:} The fair value us the price that would be received to sell an asset in an orderly transaction between market participants at the measurement date. While different entities might have different funding costs, that is not relevant for the fair value of a product. The funding cost influences only the private value of a product.
+
 \end{document}
