@@ -155,15 +155,6 @@
      \section{Ruiz}
         Funding risk arises wherever a cashflow occurs in an institution. If this is an outflow it needs to be funded, and if it's an inflow it can either reduce the funding needed, or be lent out. Ruiz talks about two distinguishable main sources of funding risk:
 
-        \begin{description}
-            \item[Double-counting from the perspective of Ruiz]
-            When accounting for both CVA and FVA, we do \textbf{not} double-count the default probability. The confusion may arise from the fact that the liability side of the CVA can be understood as the funding part of CVA. The liability side of the CVA, $V^{CVA_l}$, is the cost of ensuring that we do not default. It's used to account for the cost of hedging against default risk by the counterparty. This value can be approximated as sum across each expected negative exposure, $ENE_{t}$, on the CDS multiplied by the credit spread. That is, cumulated on each group of transactions with a single counterparty, how much the dealer on average can owe if they default multiplied by the premium that the protection buyer pays at each time period until maturity in order to insure against a credit event:
-            \begin{equation}
-                V^{CVA_l} \approx \sum_{t=1}^{T} ENE_{t} \cdot s^{CDS}
-            \end{equation}
-            On the other hand, the value of the FVA, $V^{FVA}$, is the expected positive exposure one the entire portfolio 
-            \item[Double-counting from the perspective of Andrew Green]  
-        \end{description}
         There are two discussions nested in the FVA debate: 1) Whether FVA can create arbitrage opportunities and 2) whether including DVA and FVA is double-counting.
 
         CVA is driven by how much it costs to hedge out the default risk from a counterpart. The CVA can be seen as the difference in cost between hedging default risk from a riskless counterparty and hedging default risk from the actual counterparty. The liability side of CVA, i.e. DVA, can be seen as the cost of ensuring that we do not default. In an ideal world this cost is going to be exactly the same as the cost to our counterparty for hedging their credit-exposure to us. 
@@ -183,7 +174,21 @@
             \begin{equation}
                 V = P_{risk-free} - CVA - FVA
             \end{equation}
-        However this could be viewed as double-counting, since the liability side of CVA (DVA) can be viewed as a funding component.  
+        However this could be viewed as double-counting, since the liability side of CVA (DVA) can be viewed as a funding component.
+        
+        \begin{description}
+            \item[Double-counting from the perspective of Ruiz]
+            When accounting for both CVA and FVA, we do \textbf{not} double-count the default probability. The confusion may arise from the fact that the liability side of the CVA can be understood as the funding part of CVA. The liability side of the CVA, $V^{CVA_l}$, is the cost of ensuring that we do not default. It's used to account for the cost of hedging against default risk by the counterparty. This value can be approximated as sum across each expected negative exposure, $ENE$, on the CDS multiplied by the credit spread. That is, cumulated on each group of transactions with a single counterparty, how much the dealer on average can owe if they default multiplied by the premium that the protection buyer pays at each time period until maturity in order to insure against a credit event:
+            \begin{equation}
+                V^{CVA_l} \approx \sum_{\text{nettingset}} ENE_{\text{nettingset}} \cdot s^{CDS}
+            \end{equation}
+            On the other hand, the value of the FVA, $V^{FVA}$, is the computed as the sum of the expected positive exposure on the entire portfolio, $EPE$, and the initial margin requirement, $IM$, multiplied by the funding spread, $s^{fund}$:
+            \begin{equation}
+                V^{FVA} \approx (EPE_{\text{portfolio}}+IM)\cdot s^{fund}
+            \end{equation}
+            The $EPE$ represents how much on average the dealer can be owed, if the counterparty defaults.
+            \item[Double-counting from the perspective of Andrew Green]  
+        \end{description}
 
      \section{Castagna}
         The price and the value of a derivative is not necessarily the same.
