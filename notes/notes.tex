@@ -186,8 +186,12 @@
             \begin{equation}
                 V^{FVA} \approx (EPE_{\text{portfolio}}+IM)\cdot s^{fund}
             \end{equation}
-            The $EPE$ represents how much on average the dealer can be owed, if the counterparty defaults.
-            \item[Double-counting from the perspective of Andrew Green]  
+            The $EPE$ represents how much on average the dealer can be owed, if the counterparty defaults. Ruiz argues, that these two calculation are completely different measurements.
+            \item[Double-counting from the perspective of Andrew Green]
+            Consider a risky counterparty, $C$, to the dealer (who for simplicity reasons is considered riskfree). The counterparty borrows a premium, $P$, paid by the dealer today, and the dealer then receives a cashflow, $K$, at maturity time, $T$. Here, the counterparty obviously receives a DVA benefit on the bond from the risk that it might default between today and time $T$, $(\tau_C < T)$ while the dealer faces a CVA cost associated with the agreement, again due to the counterparty's risk of defaulting. The discount rate is assumed to comprise the riskfree rate as well as the funding spread, $s_{C} = \gamma_C + \lambda_C$, where $\gamma_C$ is the bond-CDS basis, and $\lambda_C$ is the default intensity for the countreparty. Also, the recovery rate is assumed to be zero. From the dealers perspective, the value of the transaction is:
+            \begin{equation}
+                V = \mathbb{E}\left[e^{rT}K \mathbbm{1}_{\{\tau_C > T\}}\right] - P
+            \end{equation}
         \end{description}
 
      \section{Castagna}
