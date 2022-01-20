@@ -5,14 +5,11 @@
 \input{\subfolder/preamble.tex}
 
 \begin{document}
-	\subfile{\subfolder/frontpage}
-	
-	\setcounter{page}{1}
-	\begingroup%\setstretch{1.231}
-		\tableofcontents
-	\endgroup
+	\renewcommand{\subfolder}{"content/beginning"}
+	\subfile{\subfolder/beginning}
 	
 	\newpage
+	\renewcommand{\subfolder}{"content"}
 	\subfile{\subfolder/fva-debate}
 
 	\renewcommand{\subfolder}{"content/theory"}
@@ -22,7 +19,7 @@
 	\newpage
 		\printbibliography \label{references}
 		\addcontentsline{toc}{part}{References} %Add references to ToC
-	
+
 	\newpage
 		\addcontentsline{toc}{part}{Appendices} %Add appendices to ToC
 		\subfile{\subfolder/appendices.tex}
