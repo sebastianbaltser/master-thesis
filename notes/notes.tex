@@ -325,5 +325,115 @@
             When assessing the value of a risk-free project, the risk-free rate must be used for discounting, i.e. not the funding rate. Banks will enter into different projects of varying risk, but over time the average cost of funding should remain approximately the same. Entering into risk-free projects will enable the bank to enter into riskier-than-average projects.
             
             \textbf{The Fair Value argument:} The fair value us the price that would be received to sell an asset in an orderly transaction between market participants at the measurement date. While different entities might have different funding costs, that is not relevant for the fair value of a product. The funding cost influences only the private value of a product.
+    
+    \section{Pricing Debt and Equity as Options}
+    \subsection{The single period model}
+        We are currently at time $0$ and at time $1$ there are $S$ possible states, denoted:
+            \begin{equation}
+                \Omega = \{\omega_{1}, \dots, \omega_{S}\}
+            \end{equation}
+        The true probability of a state occuring is denoted $p_{i} = \mathbb{P}\left(\{\omega_{i}\}\right)$. An model asset has a random payoff at time $1$ denoted $d=(d_{1}, \dots, d_{S})$, where $d_{i}$ is the payoff if $\omega_{i}$ is realized. The price of the asset at time $0$ is $\pi(d)$. The Arrow-Debreu price is the price of a claim that pays 1 in a particular state, and is denoted $\psi_{i}$ for the claim that pays $1$ when $\omega_{i}$ is realized and zero otherwise. The state price vector is denoted $\psi = (\psi_{i}, \dots, \psi_{S})$.
+
+        Any payoff vector can be priced using the state price vector, i.e. a security with the payoff $d$ has the price:
+            \begin{equation}
+                \pi(d) = d_{1}\psi_{1} + \cdots + d_{S}\psi_{S}
+            \end{equation}
+        A riskless bond that pays $1$ in each state has the price $d_{0} = \omega_{1} + \cdots + \omega_{S}$ and the riskless interest rate can then be defined as:
+            \begin{equation}
+                r = \frac{1}{d_{0}} - 1
+            \end{equation}
+        For a security with payoff $d$ and price $\pi(d)$ the vector of gross returns and rate of returns can be defined as:
+            \begin{align}
+                R(d) &= \left(\frac{d_{1}}{\pi(d)}, \dots, \frac{d_{S}}{\pi(d)} \right) \\
+                r(d) &= \left(\frac{d_{1}}{\pi(d)} - 1, \dots, \frac{d_{S}}{\pi(d)} - 1\right)
+            \end{align}
+        Giving rise to the expected gross return and expected rate of return:
+            \begin{align}
+                ER(d) &= \frac{p_{1}d_{1} + \cdots + p_{S}d_{S}}{\pi(d)} \\
+                Er(d) &= ER(d) - 1
+            \end{align}
+        The Arrow-Debreu prices and the riskless rate also defines the risk-neutral probability distribution $\mathbb{Q}$:
+            \begin{equation}
+                q_{i} = (1 + r)\psi_{i}
+            \end{equation}
+        The price of the security with payoff $d$ can be rewritten in terms of the riskless rate and the risk neutral probability:
+            \begin{equation}
+                \pi(d) = \frac{d_{1}q_{1} + \cdots + d_{S}q_{S}}{1+r} = \frac{\mathbb{E}^{\mathbb{Q}}\left[d\right]}{1+r} 
+            \end{equation}
+        The price of a security can also be represented using a state-price deflator, $m$:
+            \begin{equation}
+                m_{i} = \frac{q_{i}}{p_{i}(1+r)} 
+            \end{equation}
+        in the following way:
+            \begin{equation}
+                \pi(d) = p_{1}d_{1}m_{1} + \cdots + p_{S}d_{S}m_{S}
+            \end{equation}
+
+    \subsection{Modigliani-Miller Theorem Version 1}
+        Consider an economy with states $(\omega_{1}, \dots, \omega_{S})$ and state prices $\psi = (\psi_{1}, \dots, \psi_{S})$, as well as a bank which can invest in risky assets but requires funding to do so. Funding can be obtained through equity and deposits. 
+
+        In the first example owners are willing to invest an amount of equity $S_{0}$ in the bank and the bank can attract deposits worth $D_{0}$. After obtaining the deposits, the bank can invest in risky assets worth $A_{0}$, where:
+            \begin{equation}
+                A_{0} = S_{0} + D_{0}
+            \end{equation}
+        At time $1$ depositors receives the face value, $D_{0}$ plus an interest rate depend on the size of deposits, denoted $\rho_{D_{0}}$. The bank might default in which case the depositors will not receive the entire promised amount. 
+
+        With $A$ being the vector of time $1$ payoffs from the assets in which the bank has invested at time $0$, the price of the assets are:
+            \begin{equation}
+                A_{0} = \psi_{1}A_{1} + \cdots + \psi_{S}A_{S}
+            \end{equation}
+        The payoff to depositors is denoted $D$ and when $\omega_{i}$ is realized it is:
+            \begin{equation}
+                D_{i} = \min\left(D_{0}(1+\rho(D_{0})),\; A_{i}\right)
+            \end{equation}
+        I.e. the payoff to depositors is the promised payoff unless the assets are worth less than that in which case the depositors take over the bank. If deposits are prices according to the market value, the bank must offer $\rho(D_{0})$ satisfying:
+            \begin{equation}
+                D_{0} = \psi_{1}D_{1} + \cdots + \psi_{S}D_{S}
+            \end{equation}
+        Assuming that this is the case the payoff to the bank equity in state $i$ at time $1$ is:
+            \begin{equation}
+                S_{i} = \left(A_{i} - D_{0}(1+\rho(D_{0}))\right)^{+}
+            \end{equation}
+        I.e. equity receives the remaining assets after paying deposits or receives nothing if the bank defaults. Using the relation $S_{i} + D_{i} = A_{i}$ it can be stated that:
+            \begin{gather}
+                \pi(S) + \pi(D) = \pi(A) \\
+                \Leftrightarrow \qquad \pi(S)=\pi(A)-\pi(D) = A_{0} - D_{0} = S_{0}
+            \end{gather}
+        Hence, the value of bank equity, $\pi(S)$, is independent of the amount of deposits attracted, $D_{0}$, when the deposits are priced at market rates. Therefore equity holders have no incentive to lever up the bank, since it will not change the time $0$ value of equity. Note however that if the assets in which the bank invests are risky, the riskiness of equity will depend on the chosen level of deposit funding.
+
+    \subsection{Modigliani-Miller Theorem Version 2}
+        Consider one bank with the funding profile:
+            \begin{equation}
+                A_{0} = S_{0} + D_{0}
+            \end{equation}
+        and another bank with the same total asset value but a different funding profile:
+            \begin{equation}
+                A_{0} = S_{0}' + D_{0}'
+            \end{equation}
+        Assuming that the cash flow of assets at time $1$ is divided and split between the cash flow to depositors and equity, i.e.:
+            \begin{equation}
+                A_{i} = S_{i} + D_{i} = S_{i}'+D_{i}'
+            \end{equation}
+        then the total value of the bank payoffs at time $0$ is $A_{0}$ and:
+            \begin{equation}
+                A_{0} = \pi(S) + \pi(D) = \pi(S') + \pi(D')
+            \end{equation}
+        Thus the value of the bank does not depend on the funding profile. 
+
+        Denoting the fraction of the bank's assets that is financed by equity as $w = S_{0} / A_{0}$, and the expected return on equity as $Er(S)$. Then the total funding rate for the banks can be written as the expected return on assets from equity plus the expected return on assets from deposits. The bank must pay the return on assets and deposits, therefore they contribute to the banks funding rate:
+            \begin{align}
+                wEr(S) + (1-w)Er(D) 
+                    &= w \frac{\mathbb{E}\left[S\right]}{S_{0}} + (1-w)\frac{\mathbb{E}\left[D\right]}{D_{0}} \\ 
+                    &= \frac{S_{0}}{A_{0}} \frac{\mathbb{E}\left[S\right]}{S_{0}} + \frac{D_{0}}{A_{0}} \frac{\mathbb{E}\left[D\right]}{D_{0}} \\ 
+                    &= \frac{\mathbb{E}\left[S\right] + \mathbb{E}\left[D\right]}{A_{0}} \\
+                    &= \frac{\mathbb{E}\left[A\right]}{A_{0}}
+            \end{align}
+        And likewise:
+            \begin{align}
+                w'Er(S') + (1-w')Er(D') = \frac{\mathbb{E}\left[A\right]}{A_{0}}
+            \end{align}
+        Note first that equity is riskier than debt, therefore equity should have a higher expected return than debt. Increasing the leverage by obtaining additional deposits will increase the returns required by the depositors, $\rho(D_{0})$, since higher leverage implies that debt is riskier. Likewise decreasing the leverage will decrease the returns required by the depositors, while simultaneously decreasing the required return on equity since the bank risk decreases with leverage. Therefore, it would seem that decreasing the leverage should reduce the total funding cost, since both the funding cost on debt and on equity decreases. However, decreasing the leverage requires an increase in the fraction of equity funding, which is a more expensive funding method. The increase in relative equity funding precisely offsets the decrease in funding rates from debt and equity stemming from the decrease in risk. 
+
+        The conclusion is that the total funding rate is independent of the funding profile, i.e. the mix of debt and equity. 
 
 \end{document}
