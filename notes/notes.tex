@@ -184,7 +184,7 @@
         However this could be viewed as double-counting, since the liability side of CVA (DVA) can be viewed as a funding component.
         
         \begin{description}
-            \item[Double-counting from the perspective of Ruiz]
+            \item[Double-counting - Ruiz]
             When accounting for both CVA and FVA, we do \textbf{not} double-count the default probability. The confusion may arise from the fact that the liability side of the CVA can be understood as the funding part of CVA. The liability side of the CVA, $V^{CVA_l}$, is the cost of ensuring that we do not default. It's used to account for the cost of hedging against default risk by the counterparty. This value can be approximated as sum across each expected negative exposure, $ENE$, on the CDS multiplied by the credit spread. That is, cumulated on each group of transactions with a single counterparty, how much the dealer on average can owe if they default multiplied by the premium that the protection buyer pays at each time period until maturity in order to insure against a credit event:
             \begin{equation}
                 V^{CVA_l} \approx \sum_{\text{nettingset}} ENE_{\text{nettingset}} \cdot s^{CDS}
@@ -194,11 +194,77 @@
                 V^{FVA} \approx (EPE_{\text{portfolio}}+IM)\cdot s^{fund}
             \end{equation}
             The $EPE$ represents how much on average the dealer can be owed, if the counterparty defaults. Ruiz argues, that these two calculation are completely different measurements.
-            \item[Double-counting from the perspective of Andrew Green]
+            \item[Double-counting - Andrew Green]
             Consider a risky counterparty, $C$, to the dealer (who for simplicity reasons is considered riskfree). The counterparty borrows a premium, $P$, paid by the dealer today, and the dealer then receives a cashflow, $K$, at maturity time, $T$. Here, the counterparty obviously receives a DVA benefit on the bond from the risk that it might default between today and time $T$, $(\tau_C < T)$ while the dealer faces a CVA cost associated with the agreement, again due to the counterparty's risk of defaulting. The discount rate is assumed to comprise the riskfree rate as well as the funding spread, $s_{C} = \gamma_C + \lambda_C$, where $\gamma_C$ is the bond-CDS basis, and $\lambda_C$ is the default intensity for the countreparty. Also, the recovery rate is assumed to be zero. From the dealers perspective, the value of the transaction is:
-            \begin{equation}
-                V = \mathbb{E}\left[e^{rT}K \mathbbm{1}_{\{\tau_C > T\}}\right] - P
-            \end{equation}
+            \begin{align}
+                V_{L} &= \mathbb{E}\left[
+                    e^{rT}K \mathbbm{1}_{\{\tau_C > T\}}
+                \right] - P \\
+                &= e^{-rT} K e^{-\lambda_{C}T} - P
+            \end{align}
+            The dealer discounts the cash flow at the risk free rate, $r$. Had the counterparty been risk free the value to the dealer would be:
+                \begin{align}
+                    V_{L}^{\ast} = e^{-rT}K - P
+                \end{align}
+            Yielding the CVA:
+                \begin{align}
+                    \text{CVA}_{L} 
+                        &= V^{\ast}_{L} - V_{L} \\
+                        & = e^{-rT}K(1-e^{-\lambda_{C}T})
+                \end{align}
+            The counterparty discounts the cash flow at the discounting rate and to that party the transaction has the value:
+                \begin{align}
+                    V_{C} 
+                    &= - \left(
+                        \mathbb{E}\left[
+                            e^{-(r+s_{C})T}K \mathbbm{1}_{\{\tau_{C}>T\}}
+                        \right] - P
+                    \right) \\
+                    &= - e^{-rT}Ke^{-2\lambda_{C}T} e^{-\gamma_{C}T} + P
+                \end{align}
+            The unadjusted value, i.e. the value without credit risk and funding spread, would be: 
+                \begin{align}
+                    V_{C}^{\ast} 
+                    &= -e^{-rT}K + P
+                \end{align}
+            Why the total price adjustments, $\text{XVA} = \text{CVA} + \text{DVA} + \text{FVA}$ would be:
+                \begin{align}
+                    \text{XVA}_{C}
+                    &= V_{C}^{\ast} - V_{C} \\
+                    &= -e^{-rT}K(1 - e^{-2\lambda_{C}T}e^{-\gamma_{C}T})
+                \end{align}
+            Had the funding costs been ignored the value to the counterparty would be:
+                \begin{align}
+                    V_{C}' 
+                    &= - \left(
+                        \mathbb{E}\left[
+                            e^{-rT}K \mathbbm{1}_{\{\tau_{C} > T\}} 
+                        \right] - P
+                    \right) \\
+                    &= - e^{-rT}Ke^{-\lambda_{C}} + P
+                \end{align}
+            And the DVA could be obtained as:
+                \begin{align}
+                    \text{DVA}_{C} 
+                    &= V_{C}' - V_{C}\ast \\
+                    &= - e^{-rT}Ke^{-\lambda_{C}} + P
+                    -(-e^{-rT}K + P) \\
+                    &= -e^{rT}K (1 - e^{-\lambda_{C}})
+                \end{align}
+            which is exactly equal to $-\text{CVA}_{L}$. These two values being exactly the same with the signs flipped ensures that the valuation is symmetric between the two parties. When considering the funding costs the valuation is asymmetric, but the concerning fact is that the total price adjustment to $V_{C}$, $\text{XVA}_{C}$, contains 2 times the default intensity of the counterparty, $\lambda_{C}$. This must mean that the FVA is also accounting for the default intensity, implying that there is an overlap between FVA and DVA.
+
+            Asymmetric valuation means that the two parties will never agree on the value of the transaction, even at trade inception.
+            
+            KPMG states that conceptually FVA can be thought of as consisting of three elements according to the following equation:
+                \begin{equation}
+                    \text{FVA} = \text{FVA}_{\text{cost}} + \text{FVA}_{\text{benefit}} + \text{FVA}_{\text{buffer}}
+                \end{equation}
+            For the purposes of this discussion $\text{FVA}_{\text{buffer}}$ can be ignored. $\text{FVA}_{\text{cost}}$ will reduce the value of the derivative as percieved by an entity, while $\text{FVA}_{\text{benefit}}$ will increase it. $\text{FVA}_{\text{cost}}$ is calculated on the expected positive exposure, EPE, and $\text{FVA}_{\text{benefit}}$ is calculated on the ENE. According to KMPG $\text{FVA}_{\text{benefit}}$ has an obvious potential overlap with $DVA$.
+            
+            It would seem like Ruiz is defining the $\text{FVA}_{\text{cost}}$ since he is using EPE to calculate it. His conclusion is that there is no overlap. In the example by Andrew Green, the funding costs $s_{C}$ are increasing the value of the derivative as percieved by $C$ and so the example seems to be concerning $\text{FVA}_{\text{benefit}}$. Green reaches the conclusion that there is an overlap. 
+
+            If Ruiz and Green are actually referring to two different parts of $\text{FVA}$ then their two conclusions are not necessarily opposites. In addition to the equation from KPMG, the funding costs between Ruiz and Green also seem different. Green uses the funding rate to discount future cashflows, while Ruiz seems more like comparing different interest rates. 
+
         \end{description}
 
      \section{Castagna}
