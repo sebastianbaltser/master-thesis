@@ -436,4 +436,140 @@
 
         The conclusion is that the total funding rate is independent of the funding profile, i.e. the mix of debt and equity. 
 
+    \subsection{Example}
+        \textit{Prøv derefter at konstruere et projekt som er næsten risikofrit, men som har et lovet yield på 30bp over risikofri rente, når det er korrekt prisfastsat, men antag at det tilbydes til en lavere pris, som betyder at det har et (lovet) yield på 80 bp over risikofri rente. Lav også virksomheden således at dens gæld har lovet yield på 200 bp over risikofri rente.}
+
+        \textit{Vis at det er en god ide for virksomheden at gå ind i projektet, idet summen af gæld og egenkapital stiger mere end udgiften til projektet, men overvej om det kan finansieres alene ved gældsudstedelse eller aktiefinansiering.} 
+
+        Consider a bank considering an almost riskfree project with a time $0$ value of $A_{0}^{\ast}$ and a theoretical yield of $r_{f} + 30bp$. However the project trades at a discount, $A_{0}$, such that the yield is $r_{f} + 80bp$. The bank can obtain deposits at a funding rate of $\rho(D_{0}) = r_{f} + 200bp$.
+
+        The bank must obtain the funding needed for the project through a mix of deposits and issuance of equity, i.e. the budget constraint takes the form:
+            \begin{equation}
+                A_{0} = S_{0} + D_{0}
+            \end{equation}
+
+        The bank must use some equity funding in order to fund the project, since the funding rate of debt is higher than the yield of the project. Funding completely from debt would therefore result in a negative return. 
+
+        We are unable to argue against the firm being completely unlevered, i.e. funding the project entirely through equity. Equity funding should be more expensive than debt funding, so there should be a tradeoff, but we are not sure how this materializes. 
+        
+        \textit{Hvad skal man love nye aktionærer/gældshavere for at de vil finansiere? Problemet i disse sager er, at gevinsten ved projektet ikke altid tilfalder dem der finansierer. Free-rider problemer - ringer det en klokke? Ellers må vi snakke, men først skal I forstå vedhæftede.}
+
+        The shareholders has a claim on a fraction $\frac{S_{0}}{A_{0}^{\ast}}$ of the bank. The shareholders paid a fraction $\frac{S_{0}}{A_{0}}$ of the project costs, but their share of the bank is diluted since the project traded at a discount. The funding rate of the project to the shareholders equals the fraction of the bank owned by the shareholders, $\frac{S_{0}}{A_{0}^{\ast}}$, multiplied by the expected return on equity, $Er(S)$. The funding rate of the project to the creditors equals the fraction of the price paid by the creditors, $\frac{D_{0}}{A_{0}}$, times the funding rate, $Er(D)$. The total funding rate is therefore:
+            \begin{align}
+                \frac{S_{0}}{A_{0}^{\ast}} Er(S)
+                + \frac{D_{0}}{A_{0}} Er(D) 
+                &= \frac{S_{0}}{A_{0}^{\ast}} 
+                    \frac{\mathbb{E}\left[S\right]}{S_{0}}
+                + \frac{D_{0}}{A_{0}} 
+                    \frac{\mathbb{E}\left[D\right]}{D_{0}} \\
+                &= \frac{\mathbb{E}\left[S\right]}{A_{0}^{\ast}}
+                    + \frac{\mathbb{E}\left[D\right]}{A_{0}} 
+                \intertext{The relation between the value and the price of the project, $A_{0}^{\ast} = A_{0}\frac{1.008}{1.003}$, can be substituted in:}
+                &= \frac{\mathbb{E}\left[S\right]}{A_{0}\frac{1.008}{1.003}}
+                    + \frac{\mathbb{E}\left[D\right]}{A_{0}} \\
+                &= \frac{
+                    \frac{1.003}{1.008}\mathbb{E}\left[S\right]
+                    + \mathbb{E}\left[D\right]
+                }{
+                    A_{0}
+                }
+            \end{align}
+
+        The funding rate if the project had not been trading at a discount:
+        \begin{align}
+            \frac{S_{0}}{A_{0}^{\ast}} Er(S)
+            + \frac{D_{0}}{A_{0}^{\ast}} Er(D) 
+            &= \frac{S_{0}}{A_{0}^{\ast}} 
+                \frac{\mathbb{E}\left[S\right]}{S_{0}}
+            + \frac{D_{0}}{A_{0}^{\ast}} 
+                \frac{\mathbb{E}\left[D\right]}{D_{0}} \\
+            &= \frac{
+                \mathbb{E}\left[S\right] + \mathbb{E}\left[D\right]
+            }{
+                A_{0}^{\ast}
+            }
+        \end{align}
+
+        The total funding costs for the project at a discount can be obtained by multiplying the price of the project by the funding rate:
+            \begin{equation}
+                A_{0}
+                \frac{
+                    \frac{1.003}{1.008}\mathbb{E}\left[S\right]
+                    + \mathbb{E}\left[D\right]
+                }{
+                    A_{0}
+                }
+                = \frac{1.003}{1.008}\mathbb{E}\left[S\right]
+                + \mathbb{E}\left[D\right]
+            \end{equation}
+        Total funding costs for the project at the theoretical price:
+            \begin{equation}
+                A_{0}^{\ast} 
+                \frac{
+                \mathbb{E}\left[S\right] + \mathbb{E}\left[D\right]
+                }{
+                    A_{0}^{\ast}  
+                } 
+                = \mathbb{E}\left[S\right] 
+                    + \mathbb{E}\left[D\right]
+            \end{equation}
+        All else being equal, the funding cost paid to shareholders are less when the project trades at a discount, than if the project had been trading at the theoretical price. It would seem like the shareholder bears the full cost of the fact that the project can be funded at a discount. 
+        \newpage
+        \rule{\textwidth}{1px}
+
+        The payoff to the depositors is:
+            \begin{equation}
+                D_{1} = \min\left(
+                    D_{0}(1 + r_{f} + 200bp), \;
+                    A_{0}(1 + r_{f} + 80bp)
+                \right)
+            \end{equation}
+        The value of the bank equity is the following:
+            \begin{equation}
+                S_{1} = \left(
+                    A_{0}(1 + r_{f} + 80bp) - D_{0}(1+r_{f} + 200bp)
+                \right)^{+}
+            \end{equation}
+        When investing in the project the bank earns the discount cashing in a return of: 
+        \begin{equation}
+            A_{0}^{\ast} - A_{0} = A_{0}\frac{1+r_{f} + 80bp}{1+r_{f} + 30bp} - A_{0} = A_{0}\frac{50bp}{1+r_{f}+30bp}
+        \end{equation}
+        at time $0$. Therefore, the sum of time $0$ values of the debt- and equity are different from the time $0$ value of the assets:
+            \begin{equation}
+                \pi(S) + \pi(D) = A_{0}
+            \end{equation}
+
+        
+        Consider a bank considering an almost riskfree project paying $100$ at time $1$ with a theoretical yield of $30bp$, i.e. a time $0$ value of $99.70$. However the project trades at a discount, $99.21$, such that the yield is $80bp$. The bank can obtain deposits at a funding rate of $\rho = 200bp$. 
+        
+        The bank must obtain the funding needed for the project through a mix of deposits and issuance of equity, i.e.:
+            \begin{equation}
+                99.21 = S_{0} + D_{0}
+            \end{equation}
+
+        The payoff to the depositors is:
+            \begin{equation}
+                D_{1} = \min\left(
+                    D_{0}(1 + 200bp), \;
+                    100
+                \right)
+            \end{equation}
+        The value of the bank equity is the following:
+            \begin{equation}
+                S_{1} = \left(
+                    100 - D_{0}(1 + 200bp)
+                \right)^{+}
+            \end{equation}
+        Denoting the time $0$ value of the equity payoff and the debt payoff as respectively $\pi(S)$ and $\pi(D)$, we have that:
+            \begin{gather}
+                \pi(S) + \pi(D) = \pi(A) = 99.70 \\
+                \Leftrightarrow \qquad \pi(S) = 99.70 - D_{0} > 99.21 - D_{0} = S_{0}
+            \end{gather}
+        The funding rate for the bank is:
+            \begin{align}
+                \frac{S_{0}}{99.21} \frac{\mathbb{E}\left[S_{1}\right]}{S_{0}} 
+                + \frac{D_{0}}{99.21} \frac{\mathbb{E}\left[D_{1}\right]}{D_{0}} 
+                &= \frac{\mathbb{E}\left[S_{1}\right]}{99.21} 
+                + \frac{\mathbb{E}\left[D_{1}\right]}{99.21}
+            \end{align}
 \end{document}
