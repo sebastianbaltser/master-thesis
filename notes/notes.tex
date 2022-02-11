@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{float}
 \usepackage{bbm}
 
 \begin{document}
@@ -571,5 +572,100 @@
                 + \frac{D_{0}}{99.21} \frac{\mathbb{E}\left[D_{1}\right]}{D_{0}} 
                 &= \frac{\mathbb{E}\left[S_{1}\right]}{99.21} 
                 + \frac{\mathbb{E}\left[D_{1}\right]}{99.21}
+            \end{align}
+    \subsection{Example Single Period Model}
+        Consider the economy defined by a single period model with the states $\Omega = \{\omega_{1}, \dots, \omega_{5}\}$ and the following properties:
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l|rr}
+                    $i$ & $\mathbb{P}\left(\omega_{i}\right) $ & $\psi_{i}$ \\
+                    \hline
+                    $1$ & $0.10$ & $0.07$ \\
+                    $2$ & $0.30$ & $0.25$ \\
+                    $3$ & $0.30$ & $0.28$ \\
+                    $4$ & $0.25$ & $0.27$ \\
+                    $5$ & $0.05$ & $0.11$ \\
+                \end{tabular}
+            \end{table}
+
+        Yielding a risk free rate of $r_{f} = 2.04\%$.
+
+        A bank operates in this economy and invests in risky assets with payoff $A_{i}$ in state $\omega_{i}$. The bank is financed by equity and deposits. Depositors will be paid an amount of $D_{0}(1+\rho(D_{0}))$ if the assets can support it and otherwise take over the remaining assets of the bank. Shareholders will receive a payoff equal to the residual between the assets and the debt. Consider the bank has been funded by debt such that the face value of debt is $D_{l}^{FV} = D_{0}(1+\rho(D_{0})) = 80$. This gives rise to the following payoff structure:
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l|rrrrr}
+                    $i$ & 1 & 2 & 3 & 4 & 5 \\ 
+                    \hline
+                    $A_{i}$ & 120 & 110 & 100 & 95 & 60 \\
+                    $D_{i}$ & 80 & 80 & 80 & 80 & 60 \\
+                    $S_{i}$ & 40 & 30 & 20 & 15 & 0
+                \end{tabular}
+            \end{table}
+        The associated present value of the payoffs are the sumproduct between the Arrow-Debreu prices and the payoffs, i.e.:
+            \begin{equation}
+                \pi(A) = \sum_{i=1}^{5} A_{i}\psi_{i} = 96.15 
+                \qquad 
+                \pi(D) = \sum_{i=1}^{5} D_{i}\psi_{i} = 76.20 
+                \qquad 
+                \pi(S) = \sum_{i=1}^{5} S_{i}\psi_{i} = 19.95 
+            \end{equation}
+
+    \subsubsection{Project 1}
+            \newcommand{\legacydebt}{D_{i}^{l}}
+            \newcommand{\newdebt}{\tilde{D}_{i}}
+            \newcommand{\legacyfacevalue}{D_{FV}^{l}}
+            \newcommand{\newfacevalue}{\tilde{D}_{FV}}
+        Assume that the bank faces a new possible project. The project is sure to return a payoff of $1$, but still yields $80bp$ above the risk free rate such that the price of the project is $1 / (1 + r_{f} + 80bp) = 0.97$. The bank can finance the project by obtaining additional deposits from new creditors. The bank should issue bonds at a price of $0.97$ in order to fully finance the project. The bond will rank pari passu with the existing debt, such that the loss rate experienced in case of default is equal between the legacy and new creditors. Denoting the legacy debt by $\legacydebt$ and the new debt by $\newdebt$ Hence the loss rate should satisfy:
+            \begin{equation}
+                L = \frac{\legacydebt}{ \legacyfacevalue} = \frac{\newdebt}{\newfacevalue}
+            \end{equation}
+
+        The payoff recovered in default states is thus:
+            \begin{equation}
+                \legacydebt = A_{i} \frac{\legacyfacevalue}{\legacyfacevalue + \newfacevalue} 
+                \qquad 
+                \newdebt = A_{i} \frac{\newfacevalue}{\legacyfacevalue + \newfacevalue} 
+                = A_{i} \left(1 - \frac{\legacyfacevalue}{\legacyfacevalue + \newfacevalue} \right)
+            \end{equation}
+        To maximize the value for the bank and at the same time ensuring that the trade is worthwhile for the new creditors the face value $\newfacevalue$ should be chosen in such a way that the present value of the future expected payoff $\pi(\tilde{D}) = \sum_{i=1}^{5} \newdebt \psi_{i}$ equals the initial investment made by the new creditors at time 0. To finance the new project the initial investment should be $0.97$. By inspection, the set $\{\omega_{1}, \dots, \omega_{4}\}$ contains the no-default states, while $\{\omega_{5}\}$ contains the default states. Thus the following equation must be satisfied:
+            \begin{align}
+                0.97 &= \sum_{i=1}^{4} \newdebt \psi_{i} + \tilde{D}_{5}\psi_{5} \\
+                &= \sum_{i=1}^{4} \newfacevalue \psi_{i} + A_{5} \left(1 - \frac{\legacyfacevalue}{\legacyfacevalue + \newfacevalue} \right)\psi_{5} \\ 
+                &= \sum_{i=1}^{4} \newfacevalue \psi_{i} + A_{i} \frac{\newfacevalue}{\legacyfacevalue + \newfacevalue} \psi_{5} \\ 
+                &= \newfacevalue (0.07+0.25+0.28+0.27) + 61 * \frac{\newfacevalue}{80 + \newfacevalue} 0.11
+            \end{align}
+        Solving for the positive face value, $\newfacevalue$, yields the solution:
+            \begin{equation}
+                \newfacevalue = 1.02053
+            \end{equation}
+
+        The new project and its financing, the newly issued debt, has some implications on the firm value, the legacy creditors as well as the shareholders. Starting with the legacy creditors: In no-default states they are still paid in full the original face value of their debt, $\legacyfacevalue$. In default states the asset base has been increased by the new project, but the legacy creditors will have to share the remaining assets pari passu with the new creditors. In the single default state, $\omega_{5}$, the payoff to legacy creditors is:
+            \begin{equation}
+                D_{5}^{l} = A_{5} \frac{\legacyfacevalue}{\legacyfacevalue + \newfacevalue} = 61 * \frac{80}{80 + 1.02053} = 60.23
+            \end{equation}
+        which is higher than the pre-project payoff, i.e. the legacy creditors is better of. The new value of their debt is $\pi(D^{l}) = \sum_{i=1}^{5} D_{i}^{l} \psi_{i} = 76.23$, which is an increase of $0.0255$ from the original value.
+
+        Turning now to the shareholders: In the default state, $\omega_{5}$, the shareholders are still not paid anything. In the no-default states the shareholders still receive the residual of the asset value after creditors have been paid. This payoff is reduced by the funding paid to the new creditors, $\newfacevalue - 1 = 0.0205$, such that the new present value of the shareholder payoff is $\pi(\tilde{D}) = 19.93$, a decrease of $0.0179$.
+
+        Clearly the new project is a negative NPV investment for the shareholders and a positive NPV for the for the legacy debitors. The asset base of the bank increases by the theoretical fair value of the project, which is the payoff discounted by the Arrow Debreu prices, $1*\sum_{i=1}^{5} \psi_{i} = 0.98$. The aggregate wealth increases by an amount $0.0255 - 0.0179 = 0.0076$, compared to the case where the riskfree project had a yield spread of zero. The increase in aggregate wealth is exactly the discount on the project from the theoretical fair value, $0.98 - \frac{1}{1 + 80bp + r_{f}} = 0.0076$. A larger fraction of the discount has been distributed to the shareholders than to the legacy creditors, such that the loss experienced by the shareholders from entering into the project is less than before.
+
+        The project's funding costs could be defined as the present value of the additional funding costs paid by the shareholders on the financing. That is the present value of the excess interest paid by the bank due to credit risk, i.e. the credit spread multiplied by the bond price and the discounting factor:
+            \begin{align}
+                \text{FVA} 
+                    &= \left(\frac{\newfacevalue}{0.97} - r_{f} - 1\right) * 0.97 * \frac{1}{1 + r_{f}} \\
+                    &= 0.0291 * 0.97 * 0.98 \\
+                    &= 0.0277
+            \end{align}
+        When the bank does not default the funding costs are borne by the shareholders, why the present value of the shareholder payoffs, $\pi(S)$, are adjusted by the expected funding costs. Since the entire credit spread is compensation for default risk the FVA exactly equals the DVA which is defined as the present value of the new creditor's expected positive exposure, $\newfacevalue$, times the expected loss rate, $\sum_{i=1}^{5} \left(1 - \frac{\tilde{D}_{i}}{\newfacevalue}\right) * \psi_{i}$:
+            \begin{align}
+                \text{DVA} 
+                    &= \frac{1}{1 + r_{f}} 
+                        * \newfacevalue 
+                        * \sum_{i=1}^{5} \left(
+                            1 - \frac{\tilde{D}_{i}}{\newfacevalue}
+                        \right) 
+                        * \psi_{i} \\
+                    &= 0.98 * 1.0205 * 0.0277 \\
+                    &= 0.0277
             \end{align}
 \end{document}
