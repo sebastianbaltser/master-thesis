@@ -1,9 +1,11 @@
 import math
 import pytest
+from itertools import repeat
 from spm.spm import (
     State,
     SinglePeriodEconomy,
     Asset,
+    DebtPariPassu,
 )
 
 
@@ -66,3 +68,55 @@ class TestAsset:
         asset = Asset(asset_values)
         for state, value in asset_values.items():
             assert asset[state] == value
+
+
+class TestDebtPariPassu:
+    test_states_1 = [State(1, 0.07), State(2, 0.25), State(3, 0.28), State(4, 0.27), State(5, 0.11)]
+    test_asset_values_1 = [120, 110, 100, 95, 60]
+    test_asset_1 = Asset(dict(zip(test_states_1, test_asset_values_1)))
+    test_face_value_1 = [105, 80, 60]
+    test_present_values_1 = [93.85, 76.20, 58.80]
+
+    test_states_2 = [State(1, 0.25), State(2, 0.30)]
+    test_asset_values_2 = [120, 90]
+    test_asset_2 = Asset(dict(zip(test_states_2, test_asset_values_2)))
+    test_face_value_2 = [120, 90]
+    test_present_values_2 = [57.00, 49.50]
+
+    @pytest.mark.parametrize("asset, face_value, expected", [
+        *zip(repeat(test_asset_1), test_face_value_1, test_present_values_1),
+        *zip(repeat(test_asset_2), test_face_value_2, test_present_values_2),
+    ])
+    def test_present_value(self, asset, face_value, expected):
+        debt = DebtPariPassu(asset, face_value=face_value)
+
+        assert math.isclose(debt.present_value, expected)
+
+    @pytest.mark.parametrize("asset, present_value, expected", [
+        *zip(repeat(test_asset_1), test_present_values_1, test_face_value_1),
+        *zip(repeat(test_asset_2), test_present_values_2, test_face_value_2),
+    ])
+    def test_face_value(self, asset, present_value, expected):
+        debt = DebtPariPassu(asset, present_value=present_value)
+
+        assert math.isclose(debt.face_value, expected)
+
+    @pytest.mark.parametrize("asset, face_value, other_face_value, expected", [
+        (test_asset_1, 1.0, 110, 0.860541),
+        (test_asset_1, 1.0, 100, 0.916535),
+        (test_asset_1, 1.0,  80, 0.951481),
+    ])
+    def test_pari_passu_present_value(self, asset, face_value, other_face_value, expected):
+        debt = DebtPariPassu(asset, face_value=face_value, other_face_value=other_face_value)
+
+        assert math.isclose(debt.present_value, expected, rel_tol=1e-5)
+
+    @pytest.mark.parametrize("asset, present_value, other_face_value, expected", [
+        (test_asset_1, 0.860541, 110, 1.0),
+        (test_asset_1, 0.916535, 100, 1.0),
+        (test_asset_1, 0.951481,  80, 1.0),
+    ])
+    def test_pari_passu_face_value(self, asset, present_value, other_face_value, expected):
+        debt = DebtPariPassu(asset, present_value=present_value, other_face_value=other_face_value)
+
+        assert math.isclose(debt.face_value, expected, rel_tol=1e-5)
