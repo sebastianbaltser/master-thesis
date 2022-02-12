@@ -3,6 +3,7 @@ import pytest
 from spm.spm import (
     State,
     SinglePeriodEconomy,
+    Asset,
 )
 
 
@@ -55,3 +56,13 @@ class TestSinglePeriodEconomy:
     def test_risk_free_rate(self, economy, expected):
         economy = SinglePeriodEconomy(economy)
         assert math.isclose(economy.risk_free_rate, expected)
+
+
+class TestAsset:
+    @pytest.mark.parametrize("asset_values", [
+        {State(1, 0.10): 0.10, State(2, 0.20): 0.20},
+    ])
+    def test_getitem(self, asset_values):
+        asset = Asset(asset_values)
+        for state, value in asset_values.items():
+            assert asset[state] == value
