@@ -81,6 +81,10 @@ class Asset:
     def states(self):
         return self.values.keys()
 
+    @property
+    def present_value(self) -> float:
+        return sum(state.present_value(value) for state, value in self)
+
     def __str__(self):
         string = "States Values:\n"
         for state, value in self:

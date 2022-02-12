@@ -61,16 +61,6 @@ class TestSinglePeriodEconomy:
         assert math.isclose(economy.risk_free_rate, expected)
 
 
-class TestAsset:
-    @pytest.mark.parametrize("asset_values", [
-        {State(1, 0.10): 0.10, State(2, 0.20): 0.20},
-    ])
-    def test_getitem(self, asset_values):
-        asset = Asset(asset_values)
-        for state, value in asset_values.items():
-            assert asset[state] == value
-
-
 test_states_1 = [State(1, 0.07), State(2, 0.25), State(3, 0.28), State(4, 0.27), State(5, 0.11)]
 test_asset_values_1 = [120, 110, 100, 95, 60]
 test_asset_1 = Asset(dict(zip(test_states_1, test_asset_values_1)))
@@ -82,6 +72,23 @@ test_asset_values_2 = [120, 90]
 test_asset_2 = Asset(dict(zip(test_states_2, test_asset_values_2)))
 test_face_value_2 = [120, 90]
 test_present_values_2 = [57.00, 49.50]
+
+
+class TestAsset:
+    @pytest.mark.parametrize("asset_values", [
+        {State(1, 0.10): 0.10, State(2, 0.20): 0.20},
+    ])
+    def test_getitem(self, asset_values):
+        asset = Asset(asset_values)
+        for state, value in asset_values.items():
+            assert asset[state] == value
+
+    @pytest.mark.parametrize("asset, expected", [
+        (test_asset_1, 96.15),
+        (test_asset_2, 57.00),
+    ])
+    def test_present_value(self, asset, expected):
+        assert math.isclose(asset.present_value, expected)
 
 
 class TestDebtPariPassu:
