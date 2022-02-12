@@ -98,6 +98,19 @@ class Derivative(abc.ABC):
         pass
 
 
+class Equity(Derivative):
+    def __init__(self, underlying: Asset, debt_face_value: float):
+        super().__init__(underlying)
+        self.debt_face_value = debt_face_value
+
+    @property
+    def present_value(self) -> float:
+        return sum(state.present_value(self.payoff(state)) for state in self.underlying.states)
+
+    def payoff(self, state: State) -> float:
+        return max(self.underlying[state] - self.debt_face_value, 0)
+
+
 class DebtPariPassu(Derivative):
     def __init__(self, underlying: Asset, present_value: float = None, face_value: float = None,
                  other_face_value: float = 0):

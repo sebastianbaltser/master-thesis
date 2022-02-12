@@ -2,6 +2,7 @@ import math
 import pytest
 from itertools import repeat
 from spm.spm import (
+    Equity,
     State,
     SinglePeriodEconomy,
     Asset,
@@ -70,19 +71,20 @@ class TestAsset:
             assert asset[state] == value
 
 
+test_states_1 = [State(1, 0.07), State(2, 0.25), State(3, 0.28), State(4, 0.27), State(5, 0.11)]
+test_asset_values_1 = [120, 110, 100, 95, 60]
+test_asset_1 = Asset(dict(zip(test_states_1, test_asset_values_1)))
+test_face_value_1 = [105, 80, 60]
+test_present_values_1 = [93.85, 76.20, 58.80]
+
+test_states_2 = [State(1, 0.25), State(2, 0.30)]
+test_asset_values_2 = [120, 90]
+test_asset_2 = Asset(dict(zip(test_states_2, test_asset_values_2)))
+test_face_value_2 = [120, 90]
+test_present_values_2 = [57.00, 49.50]
+
+
 class TestDebtPariPassu:
-    test_states_1 = [State(1, 0.07), State(2, 0.25), State(3, 0.28), State(4, 0.27), State(5, 0.11)]
-    test_asset_values_1 = [120, 110, 100, 95, 60]
-    test_asset_1 = Asset(dict(zip(test_states_1, test_asset_values_1)))
-    test_face_value_1 = [105, 80, 60]
-    test_present_values_1 = [93.85, 76.20, 58.80]
-
-    test_states_2 = [State(1, 0.25), State(2, 0.30)]
-    test_asset_values_2 = [120, 90]
-    test_asset_2 = Asset(dict(zip(test_states_2, test_asset_values_2)))
-    test_face_value_2 = [120, 90]
-    test_present_values_2 = [57.00, 49.50]
-
     @pytest.mark.parametrize("asset, face_value, expected", [
         *zip(repeat(test_asset_1), test_face_value_1, test_present_values_1),
         *zip(repeat(test_asset_2), test_face_value_2, test_present_values_2),
@@ -120,3 +122,15 @@ class TestDebtPariPassu:
         debt = DebtPariPassu(asset, present_value=present_value, other_face_value=other_face_value)
 
         assert math.isclose(debt.face_value, expected, rel_tol=1e-5)
+
+
+class TestEquity:
+    @pytest.mark.parametrize("asset, debt_face_value, expected", [
+        (test_asset_1, 120,  0.00),
+        (test_asset_1, 105,  2.30),
+        (test_asset_1,  80, 19.95),
+    ])
+    def test_present_value(self, asset, debt_face_value, expected):
+        equity = Equity(asset, debt_face_value)
+
+        assert math.isclose(equity.present_value, expected)
