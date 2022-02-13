@@ -49,6 +49,9 @@ class States:
     def states(self):
         return self._states.keys()
 
+    def __eq__(self, other: "States") -> bool:
+        return self._states == other._states
+
     def __add__(self, other: "States") -> "States":
         states = self._states.keys() | other._states.keys()
         return self.__class__({state: self._states.get(state, 0) + other._states.get(state, 0) for state in states})
