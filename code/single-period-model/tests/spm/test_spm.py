@@ -162,6 +162,17 @@ class TestDebtPariPassu:
 
         assert math.isclose(debt.face_value, expected, rel_tol=1e-5)
 
+    @pytest.mark.parametrize("asset, face_value, expected", [
+        (test_asset_1, 120, 0.248050),
+        (test_asset_1, 110, 0.152436),
+        (test_asset_1, 100, 0.084011),
+        (test_asset_1,  80, 0.049869),
+    ])
+    def test_bond_yield(self, asset, face_value, expected):
+        debt = DebtPariPassu(asset, face_value=face_value)
+
+        assert math.isclose(debt.bond_yield, expected, rel_tol=1e-5)
+
 
 class TestEquity:
     @pytest.mark.parametrize("asset, debt_face_value, expected", [

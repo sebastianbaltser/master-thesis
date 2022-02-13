@@ -182,3 +182,7 @@ class DebtPariPassu(Derivative):
 
     def payoff(self, state: State) -> float:
         return self.face_value * self.recovery_rate(self.underlying[state], self.face_value)
+
+    @functools.cached_property
+    def bond_yield(self) -> float:
+        return self.face_value / self.present_value - 1
