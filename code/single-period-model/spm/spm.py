@@ -4,8 +4,10 @@ import functools
 from scipy import optimize
 
 from typing import (
+    Collection,
     Dict,
     Any,
+    Union,
 )
 
 
@@ -31,7 +33,10 @@ class State:
 
 
 class States:
-    def __init__(self, states: Dict[State, Any]):
+    def __init__(self, states: Union[Dict[State, Any], Collection], values: Collection[Any] = None):
+        if values is not None:
+            states = dict(zip(states, values))
+
         self.states = states
 
     def __getitem__(self, item):
