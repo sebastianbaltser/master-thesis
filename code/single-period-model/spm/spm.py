@@ -42,6 +42,9 @@ class States:
     def __getitem__(self, item):
         return self._states[item]
 
+    def __iter__(self):
+        return iter(self._states.items())
+
     @property
     def states(self):
         return self._states.keys()
