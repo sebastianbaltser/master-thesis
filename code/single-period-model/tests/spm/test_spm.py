@@ -35,6 +35,23 @@ class TestState:
         assert math.isclose(state.present_value(future_value), expected)
 
 
+test_states_1 = [State(1, 0.07), State(2, 0.25), State(3, 0.28), State(4, 0.27), State(5, 0.11)]
+test_probabilities_1 = [1/5]*5
+test_economy_1 = SinglePeriodEconomy(dict(zip(test_states_1, test_probabilities_1)))
+test_asset_values_1 = [120, 110, 100, 95, 60]
+test_asset_1 = Asset(dict(zip(test_states_1, test_asset_values_1)))
+test_face_value_1 = [105, 80, 60]
+test_present_values_1 = [93.85, 76.20, 58.80]
+
+test_states_2 = [State(1, 0.25), State(2, 0.30)]
+test_probabilities_2 = [1/2]*2
+test_economy_2 = SinglePeriodEconomy(dict(zip(test_states_2, test_probabilities_2)))
+test_asset_values_2 = [120, 90]
+test_asset_2 = Asset(dict(zip(test_states_2, test_asset_values_2)))
+test_face_value_2 = [120, 90]
+test_present_values_2 = [57.00, 49.50]
+
+
 class TestSinglePeriodEconomy:
     @pytest.mark.parametrize("economy_probabilities, error_match", [
         ([0.5, 0.4], "must sum to 1.0"),
@@ -60,18 +77,12 @@ class TestSinglePeriodEconomy:
         economy = SinglePeriodEconomy(economy)
         assert math.isclose(economy.risk_free_rate, expected)
 
-
-test_states_1 = [State(1, 0.07), State(2, 0.25), State(3, 0.28), State(4, 0.27), State(5, 0.11)]
-test_asset_values_1 = [120, 110, 100, 95, 60]
-test_asset_1 = Asset(dict(zip(test_states_1, test_asset_values_1)))
-test_face_value_1 = [105, 80, 60]
-test_present_values_1 = [93.85, 76.20, 58.80]
-
-test_states_2 = [State(1, 0.25), State(2, 0.30)]
-test_asset_values_2 = [120, 90]
-test_asset_2 = Asset(dict(zip(test_states_2, test_asset_values_2)))
-test_face_value_2 = [120, 90]
-test_present_values_2 = [57.00, 49.50]
+    @pytest.mark.parametrize("economy, expected_risk_neutral_probabilities", [
+        (test_economy_1, dict(zip(test_states_1, [0.0714, 0.2551, 0.2857, 0.2755, 0.1122]))),
+    ])
+    def test_risk_neutral_probability(self, economy, expected_risk_neutral_probabilities):
+        for state, probability in expected_risk_neutral_probabilities.items():
+            assert math.isclose(economy.risk_neutral_probability(state), probability, rel_tol=1e-3)
 
 
 class TestAsset:

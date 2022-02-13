@@ -58,6 +58,12 @@ class SinglePeriodEconomy:
     def risk_free_rate(self):
         return 1.0 / self.discount_factor
 
+    def risk_neutral_probability(self, state: State) -> float:
+        return self.risk_free_rate * state.state_price
+
+    def risk_neutral_expectation(self, values: Dict[State, float]) -> float:
+        return sum(self.risk_neutral_probability(state) * value for state, value in values.items())
+
 
 class Payoffs:
     def __init__(self, payoffs: Dict[State, float]):
