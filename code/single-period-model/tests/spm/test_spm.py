@@ -75,6 +75,8 @@ test_present_values_2 = [57.00, 49.50]
 
 
 class TestAsset:
+    states = [State(1, 0.10), State(2, 0.20), State(3, 0.30), State(4, 0.40), State(5, 0.50)]
+
     @pytest.mark.parametrize("asset_values", [
         {State(1, 0.10): 0.10, State(2, 0.20): 0.20},
     ])
@@ -89,6 +91,25 @@ class TestAsset:
     ])
     def test_present_value(self, asset, expected):
         assert math.isclose(asset.present_value, expected)
+
+    @pytest.mark.parametrize("left, right, expected", [
+        (Asset({states[0]: 10, states[1]: 20}), Asset({states[0]: 1, states[1]: 2}),
+         Asset({states[0]: 11, states[1]: 22})),
+        (Asset({states[0]: 10, states[1]: 20}), Asset({states[0]: 1}),
+         Asset({states[0]: 11, states[1]: 20})),
+        (Asset({states[0]: 10, states[1]: 20}), 2,
+         Asset({states[0]: 12, states[1]: 22})),
+    ])
+    def test_add(self, left, right, expected):
+        assert left + right == expected
+
+    @pytest.mark.parametrize("left, right", [
+        (Asset({states[0]: 10, states[1]: 20}), Asset({states[2]: 2})),
+        (Asset({states[0]: 10, states[1]: 20}), Asset({states[0]: 1, states[2]: 2})),
+    ])
+    def test_add_raises_if_right_is_not_subset(self, left, right):
+        with pytest.raises(ValueError, match="must be a subset"):
+            left + right
 
 
 class TestDebtPariPassu:

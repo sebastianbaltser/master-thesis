@@ -77,6 +77,20 @@ class Asset:
     def __iter__(self):
         return iter(self.values.items())
 
+    def __eq__(self, other):
+        return self.values == other.values
+
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            if other.states <= self.states:
+                new_values = {state: self[state] + other.values.get(state, 0) for state in self.states}
+                return self.__class__(new_values)
+            else:
+                raise ValueError("States in right operand must be a subset of states in left operand")
+        else:
+            new_values = {state: self[state] + other for state in self.states}
+            return self.__class__(new_values)
+
     @property
     def states(self):
         return self.values.keys()
