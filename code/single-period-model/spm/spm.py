@@ -57,9 +57,9 @@ class States:
         return self.__class__({state: self._states.get(state, 0) + other._states.get(state, 0) for state in states})
 
     def __str__(self):
-        string = "States: \n"
+        string = ''
         for state, value in self._states.items():
-            string += f"\t{state}, Value: {value}\n"
+            string += f"State: {state.state_id}, Value: {value}\n"
 
         return string
 
