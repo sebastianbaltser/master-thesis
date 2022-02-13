@@ -150,7 +150,7 @@ class Asset:
         return string
 
     def __repr__(self):
-        return "Asset({})".format(self.values)
+        return f"Asset({self.values!r})"
 
 
 class Derivative(abc.ABC):
