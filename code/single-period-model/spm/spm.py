@@ -92,6 +92,9 @@ class Asset:
 
         return string
 
+    def __repr__(self):
+        return "Asset({})".format(self.values)
+
 
 class Derivative(abc.ABC):
     def __init__(self, underlying: Asset):
