@@ -4,6 +4,7 @@ from itertools import repeat
 from spm.spm import (
     Equity,
     State,
+    States,
     SinglePeriodEconomy,
     Asset,
     DebtPariPassu,
@@ -37,17 +38,17 @@ class TestState:
 
 test_states_1 = [State(1, 0.07), State(2, 0.25), State(3, 0.28), State(4, 0.27), State(5, 0.11)]
 test_probabilities_1 = [1/5]*5
-test_economy_1 = SinglePeriodEconomy(dict(zip(test_states_1, test_probabilities_1)))
+test_economy_1 = SinglePeriodEconomy(States(test_states_1, test_probabilities_1))
 test_asset_values_1 = [120, 110, 100, 95, 60]
-test_asset_1 = Asset(dict(zip(test_states_1, test_asset_values_1)))
+test_asset_1 = Asset(States(test_states_1, test_asset_values_1))
 test_face_value_1 = [105, 80, 60]
 test_present_values_1 = [93.85, 76.20, 58.80]
 
 test_states_2 = [State(1, 0.25), State(2, 0.30)]
 test_probabilities_2 = [1/2]*2
-test_economy_2 = SinglePeriodEconomy(dict(zip(test_states_2, test_probabilities_2)))
+test_economy_2 = SinglePeriodEconomy(States(test_states_2, test_probabilities_2))
 test_asset_values_2 = [120, 90]
-test_asset_2 = Asset(dict(zip(test_states_2, test_asset_values_2)))
+test_asset_2 = Asset(States(test_states_2, test_asset_values_2))
 test_face_value_2 = [120, 90]
 test_present_values_2 = [57.00, 49.50]
 
@@ -58,7 +59,7 @@ class TestSinglePeriodEconomy:
         ([0.2, 0.9, -0.1], "must be between 0 and 1"),
     ])
     def test_invalid_probability(self, economy_probabilities, error_match):
-        economy = {State(i, 0.1): p for i, p in enumerate(economy_probabilities)}
+        economy = States({State(i, 0.1): p for i, p in enumerate(economy_probabilities)})
         with pytest.raises(ValueError, match=error_match):
             SinglePeriodEconomy(economy)
 
@@ -67,14 +68,14 @@ class TestSinglePeriodEconomy:
         ({State(1, 0.35): 0.3, State(2, 0.35): 0.3, State(3, 0.20): 0.4}, 0.90),
     ])
     def test_discount_factor(self, economy, expected):
-        economy = SinglePeriodEconomy(economy)
+        economy = SinglePeriodEconomy(States(economy))
         assert math.isclose(economy.discount_factor, expected)
 
     @pytest.mark.parametrize("economy, expected", [
         ({State(1, 0.50): 0.5, State(2, 0.48): 0.5}, 1.0/0.98),
     ])
     def test_risk_free_rate(self, economy, expected):
-        economy = SinglePeriodEconomy(economy)
+        economy = SinglePeriodEconomy(States(economy))
         assert math.isclose(economy.risk_free_rate, expected)
 
     @pytest.mark.parametrize("economy, expected_risk_neutral_probabilities", [
@@ -104,19 +105,19 @@ class TestAsset:
         assert math.isclose(asset.present_value, expected)
 
     @pytest.mark.parametrize("left, right, expected", [
-        (Asset({states[0]: 10, states[1]: 20}), Asset({states[0]: 1, states[1]: 2}),
-         Asset({states[0]: 11, states[1]: 22})),
-        (Asset({states[0]: 10, states[1]: 20}), Asset({states[0]: 1}),
-         Asset({states[0]: 11, states[1]: 20})),
-        (Asset({states[0]: 10, states[1]: 20}), 2,
-         Asset({states[0]: 12, states[1]: 22})),
+        (Asset(States({states[0]: 10, states[1]: 20})), Asset(States({states[0]: 1, states[1]: 2})),
+         Asset(States({states[0]: 11, states[1]: 22}))),
+        (Asset(States({states[0]: 10, states[1]: 20})), Asset(States({states[0]: 1})),
+         Asset(States({states[0]: 11, states[1]: 20}))),
+        (Asset(States({states[0]: 10, states[1]: 20})), 2,
+         Asset(States({states[0]: 12, states[1]: 22}))),
     ])
     def test_add(self, left, right, expected):
         assert left + right == expected
 
     @pytest.mark.parametrize("left, right", [
-        (Asset({states[0]: 10, states[1]: 20}), Asset({states[2]: 2})),
-        (Asset({states[0]: 10, states[1]: 20}), Asset({states[0]: 1, states[2]: 2})),
+        (Asset(States({states[0]: 10, states[1]: 20})), Asset(States({states[2]: 2}))),
+        (Asset(States({states[0]: 10, states[1]: 20})), Asset(States({states[0]: 1, states[2]: 2}))),
     ])
     def test_add_raises_if_right_is_not_subset(self, left, right):
         with pytest.raises(ValueError, match="must be a subset"):

@@ -68,14 +68,14 @@ class States:
 
 
 class SinglePeriodEconomy:
-    def __init__(self, states: Dict[State, float]):
+    def __init__(self, states: States):
         self.validate_states(states)
         self.states = states
 
     @staticmethod
-    def validate_states(states: Dict[State, float]) -> None:
+    def validate_states(states: States) -> None:
         total_probability = 0.0
-        for state, probability in states.items():
+        for state, probability in states:
             if not 0 <= probability <= 1:
                 raise ValueError(f"Probability must be between 0 and 1, but was {probability} for state {state}")
             total_probability += probability
@@ -85,14 +85,14 @@ class SinglePeriodEconomy:
 
     def __str__(self):
         string = "States:\n"
-        for state, probability in self.states.items():
+        for state, probability in self.states:
             string += f"\t{state}, Probability: {probability}\n"
 
         return string
 
     @property
     def discount_factor(self):
-        return sum(state.state_price for state in self.states.keys())
+        return sum(state.state_price for state in self.states.states)
 
     @property
     def risk_free_rate(self):
@@ -101,12 +101,12 @@ class SinglePeriodEconomy:
     def risk_neutral_probability(self, state: State) -> float:
         return self.risk_free_rate * state.state_price
 
-    def risk_neutral_expectation(self, values: Dict[State, float]) -> float:
-        return sum(self.risk_neutral_probability(state) * value for state, value in values.items())
+    def risk_neutral_expectation(self, values: States) -> float:
+        return sum(self.risk_neutral_probability(state) * value for state, value in values)
 
 
 class Payoffs:
-    def __init__(self, payoffs: Dict[State, float]):
+    def __init__(self, payoffs: States):
         self.payoffs = payoffs
 
     def __getitem__(self, item):
@@ -114,14 +114,14 @@ class Payoffs:
 
 
 class Asset:
-    def __init__(self, values: Dict[State, float]):
+    def __init__(self, values: States):
         self.values = values
 
     def __getitem__(self, item):
         return self.values[item]
 
     def __iter__(self):
-        return iter(self.values.items())
+        return iter(self.values)
 
     def __eq__(self, other):
         return self.values == other.values
@@ -129,17 +129,16 @@ class Asset:
     def __add__(self, other):
         if isinstance(other, self.__class__):
             if other.states <= self.states:
-                new_values = {state: self[state] + other.values.get(state, 0) for state in self.states}
-                return self.__class__(new_values)
+                return self.__class__(self.values + other.values)
             else:
                 raise ValueError("States in right operand must be a subset of states in left operand")
         else:
-            new_values = {state: self[state] + other for state in self.states}
-            return self.__class__(new_values)
+            new_values = {state: value + other for state, value in self.values}
+            return self.__class__(States(new_values))
 
     @property
     def states(self):
-        return self.values.keys()
+        return self.values.states
 
     @property
     def present_value(self) -> float:
