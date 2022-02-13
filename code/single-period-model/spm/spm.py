@@ -145,11 +145,7 @@ class Asset:
         return sum(state.present_value(value) for state, value in self)
 
     def __str__(self):
-        string = "States Values:\n"
-        for state, value in self:
-            string += f"\t{state}, Value: {value}\n"
-
-        return string
+        return str(self.values)
 
     def __repr__(self):
         return f"Asset({self.values!r})"
