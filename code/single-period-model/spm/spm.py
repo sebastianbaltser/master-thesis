@@ -37,24 +37,28 @@ class States:
         if values is not None:
             states = dict(zip(states, values))
 
-        self.states = states
+        self._states = states
 
     def __getitem__(self, item):
-        return self.states[item]
+        return self._states[item]
+
+    @property
+    def states(self):
+        return self._states.keys()
 
     def __add__(self, other: "States") -> "States":
-        states = self.states.keys() | other.states.keys()
-        return self.__class__({state: self.states.get(state, 0) + other.states.get(state, 0) for state in states})
+        states = self._states.keys() | other._states.keys()
+        return self.__class__({state: self._states.get(state, 0) + other._states.get(state, 0) for state in states})
 
     def __str__(self):
         string = "States: \n"
-        for state, value in self.states.items():
+        for state, value in self._states.items():
             string += f"\t{state}, Value: {value}\n"
 
         return string
 
     def __repr__(self):
-        return f"States({self.states})"
+        return f"States({self._states})"
 
 
 class SinglePeriodEconomy:
