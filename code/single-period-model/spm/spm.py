@@ -3,7 +3,10 @@ import logging
 import functools
 from scipy import optimize
 
-from typing import Dict
+from typing import (
+    Dict,
+    Any,
+)
 
 
 class State:
@@ -25,6 +28,28 @@ class State:
 
     def present_value(self, value: float) -> float:
         return self.state_price * value
+
+
+class States:
+    def __init__(self, states: Dict[State, Any]):
+        self.states = states
+
+    def __getitem__(self, item):
+        return self.states[item]
+
+    def __add__(self, other: "States") -> "States":
+        states = self.states.keys() | other.states.keys()
+        return self.__class__({state: self.states.get(state, 0) + other.states.get(state, 0) for state in states})
+
+    def __str__(self):
+        string = "States: \n"
+        for state, value in self.states.items():
+            string += f"\t{state}, Value: {value}\n"
+
+        return string
+
+    def __repr__(self):
+        return f"States({self.states})"
 
 
 class SinglePeriodEconomy:
