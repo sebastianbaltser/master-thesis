@@ -174,6 +174,24 @@ class TestDebtPariPassu:
 
         assert math.isclose(debt.bond_yield, expected, rel_tol=1e-5)
 
+    @pytest.mark.parametrize("asset, face_value, expected", [
+        (test_asset_1, 100, States(test_states_1, [100, 100, 100, 95, 60])),
+        (test_asset_1,  80, States(test_states_1, [80, 80, 80, 80, 60])),
+    ])
+    def test_payoff_without_other_debt(self, asset, face_value, expected):
+        debt = DebtPariPassu(asset, face_value=face_value)
+        assert debt.payoff == expected
+
+    @pytest.mark.parametrize("asset, face_value, other_face_value, expected", [
+        (test_asset_1, 100, 10, States(test_states_1, [100, 100, 90.9091, 86.3636, 54.5455])),
+        (test_asset_1,  80, 10, States(test_states_1, [80, 80, 80, 80, 53.3333])),
+    ])
+    def test_payoff_with_other_debt(self, asset, face_value, other_face_value, expected):
+        debt = DebtPariPassu(asset, face_value=face_value, other_face_value=other_face_value)
+        assert debt.payoff.states == expected.states
+        for state in expected.states:
+            assert math.isclose(debt.payoff[state], expected[state], rel_tol=1e-4)
+
 
 class TestEquity:
     @pytest.mark.parametrize("asset, debt_face_value, expected", [
