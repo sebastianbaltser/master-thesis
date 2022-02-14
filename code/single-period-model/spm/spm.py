@@ -137,7 +137,15 @@ class Payoffs:
 
 
 class Asset:
-    def __init__(self, values: States):
+    """
+    Represents an asset in a single period economy.
+
+    Args:
+        values (States):
+            An instance of ``States`` mapping States to values of the asset.
+
+    """
+    def __init__(self, values):
         self.values = values
 
     def __getitem__(self, item):
