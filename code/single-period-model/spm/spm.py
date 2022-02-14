@@ -192,7 +192,17 @@ class Derivative(abc.ABC):
 
 
 class Equity(Derivative):
-    def __init__(self, underlying: Asset, debt_face_value: float):
+    """
+    Represents an equity derivative in a single period economy.
+
+    Args:
+        underlying (Asset):
+            An instance of ``Asset`` representing the underlying asset in which
+            the equity is owned.
+        debt_face_value (float):
+            The amount of debt owed by the asset.
+    """
+    def __init__(self, underlying, debt_face_value):
         super().__init__(underlying)
         self.debt_face_value = debt_face_value
 
@@ -201,6 +211,7 @@ class Equity(Derivative):
         return sum(state.present_value(self.payoff(state)) for state in self.underlying.states)
 
     def payoff(self, state: State) -> float:
+        """The payoff is the remaining underlying value after debt payment"""
         return max(self.underlying[state] - self.debt_face_value, 0)
 
 
