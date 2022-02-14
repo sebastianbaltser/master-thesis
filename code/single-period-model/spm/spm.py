@@ -216,8 +216,23 @@ class Equity(Derivative):
 
 
 class DebtPariPassu(Derivative):
-    def __init__(self, underlying: Asset, present_value: float = None, face_value: float = None,
-                 other_face_value: float = 0):
+    """
+    Represents a debt claim from an asset ranking pari passu with other debt.
+
+    Args:
+        underlying (Asset):
+            The asset from which the debt is being claimed.
+        present_value (float):
+            The present value of the debt claim. If unspecified, ``face_value`` should be
+            specified and the present value is calculated as the present value of the payoffs.
+        face_value (float):
+            The promised payoff of the debt claim. If unspecified, ``present_value`` should be
+            specified and the face value is chosen such that the present value of the claim
+            equals the value specified in ``present_value``.
+        other_face_value (float):
+            The promised payoff of other debt claimed from the asset.
+    """
+    def __init__(self, underlying, present_value=None, face_value=None, other_face_value=0):
         super().__init__(underlying)
         self._present_value = present_value
         self._face_value = face_value
@@ -262,4 +277,5 @@ class DebtPariPassu(Derivative):
 
     @functools.cached_property
     def bond_yield(self) -> float:
+        """The gross yield of the bond."""
         return self.face_value / self.present_value - 1
