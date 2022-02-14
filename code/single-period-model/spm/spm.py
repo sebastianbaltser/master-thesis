@@ -186,8 +186,9 @@ class Derivative(abc.ABC):
     def __init__(self, underlying: Asset):
         self.underlying = underlying
 
+    @property
     @abc.abstractmethod
-    def payoff(self, state: State) -> float:
+    def payoff(self) -> States:
         pass
 
 
@@ -208,11 +209,12 @@ class Equity(Derivative):
 
     @property
     def present_value(self) -> float:
-        return sum(state.present_value(self.payoff(state)) for state in self.underlying.states)
+        return sum(state.present_value(payoff) for state, payoff in self.payoff)
 
-    def payoff(self, state: State) -> float:
+    @property
+    def payoff(self):
         """The payoff is the remaining underlying value after debt payment"""
-        return max(self.underlying[state] - self.debt_face_value, 0)
+        return States({state: max(value - self.debt_face_value, 0) for state, value in self.underlying})
 
 
 class DebtPariPassu(Derivative):
@@ -272,8 +274,11 @@ class DebtPariPassu(Derivative):
     def recovery_rate(self, underlying_value, face_value) -> float:
         return min(1.0, underlying_value / (face_value + self.other_face_value))
 
-    def payoff(self, state: State) -> float:
-        return self.face_value * self.recovery_rate(self.underlying[state], self.face_value)
+    @property
+    def payoff(self):
+        return States(
+            {state: self.face_value * self.recovery_rate(value, self.face_value) for state, value in self.underlying}
+        )
 
     @functools.cached_property
     def bond_yield(self) -> float:

@@ -58,7 +58,7 @@ def main():
     print("\nFunding Value Adjustments")
     print(f"FVA 1: {(new_debt.face_value - new_debt.present_value*gross_risk_free_rate) / gross_risk_free_rate:.4f}")
     expected_loss_rate = economy.risk_neutral_expectation(
-        States({state: (1 - new_debt.payoff(state) / new_debt.face_value) for state in states})
+        States({state: (1 - payoff / new_debt.face_value) for state, payoff in new_debt.payoff})
     )
     debit_value_adjustment = expected_loss_rate * new_debt.face_value / gross_risk_free_rate
     print(f"DVA: {debit_value_adjustment:.4f}")
@@ -92,7 +92,7 @@ def main():
     donation_size = wealth_transfer/no_default_probability * gross_risk_free_rate/(gross_risk_free_rate+credit_spread)
     print(f"FVA 3: {donation_size:.4f}")
     expected_loss_rate = economy.risk_neutral_expectation(
-        States({state: (1 - new_debt.payoff(state) / new_debt.face_value) for state in states})
+        States({state: (1 - payoff / new_debt.face_value) for state, payoff in new_debt.payoff})
     )
     debit_value_adjustment = expected_loss_rate * new_debt.face_value / gross_risk_free_rate
     print(f"DVA: {debit_value_adjustment:.4f}")
