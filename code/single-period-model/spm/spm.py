@@ -79,7 +79,15 @@ class States:
 
 
 class SinglePeriodEconomy:
-    def __init__(self, states: States):
+    """
+    Represents an economy specified by a single period model. The model is specified by
+    state prices and transition probabilities.
+
+    Args:
+        states (States):
+            An instance of ``States`` mapping States to transition probabilities.
+    """
+    def __init__(self, states):
         self.validate_states(states)
         self.states = states
 
@@ -103,16 +111,20 @@ class SinglePeriodEconomy:
 
     @property
     def discount_factor(self):
+        """The discount factor is the sum of state prices."""
         return sum(state.state_price for state in self.states.states)
 
     @property
     def risk_free_rate(self):
+        """The risk free rate is the inverse of the discount factor."""
         return 1.0 / self.discount_factor
 
     def risk_neutral_probability(self, state: State) -> float:
+        """Returns the risk neutral transition probability of a state."""
         return self.risk_free_rate * state.state_price
 
     def risk_neutral_expectation(self, values: States) -> float:
+        """Returns the risk neutral expectation of a set of an instance of ``States``."""
         return sum(self.risk_neutral_probability(state) * value for state, value in values)
 
 
