@@ -33,7 +33,18 @@ class State:
 
 
 class States:
-    def __init__(self, states: Union[Dict[State, Any], Collection], values: Collection[Any] = None):
+    """
+    A mapping from instances of ``State`` to values.
+
+    Args:
+        states (Dict[State, Any] | Collection[State]):
+            A dictionary mapping instances of ``State`` to values. If a collection the
+            parameter ``values`` should be specified.
+        values (Collection[Any]):
+            A collection of values. If a dictionary is specified in the parameter ``states``
+            the parameter ``values`` should not be specified.
+    """
+    def __init__(self, states, values=None):
         if values is not None:
             states = dict(zip(states, values))
 
