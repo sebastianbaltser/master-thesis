@@ -10,6 +10,7 @@
 			"collateralization",
 			"counterparties",
 			"counterparty",
+			"Debreu",
 			"Duffie",
 			"Hillion",
 			"Kjaer",
@@ -17,7 +18,7 @@
 			"Passu",
 			"rehypothication",
 			"riskless",
-			"uncollateralized"
+			"uncollateralized",
 		],
 		"terminal.integrated.env.windows": {
 			"PYTHONPATH": "${workspaceFolder}\\code\\single-period-model"
