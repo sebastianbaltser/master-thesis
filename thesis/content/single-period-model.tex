@@ -41,6 +41,46 @@
 
         These issues will be assessed by the means of examples in the following sections.
 
+    \subsection{Funding costs of riskfree project}
+        Consider the economy defined by a single period model with $5$ states, and the following properties:
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l|rrrrr}
+                    $i$ & 1 & 2 & 3 & 4 & 5 \\
+                    \hline
+                    $\psi_{i}$ & $0.06$ & $0.24$ & $0.29$ & $0.28$ & $0.12$ \\
+                \end{tabular}
+            \end{table}
+        implying a discount factor of $d_{0} = 0.99$ and a risk free interest rate of $r_{f} = 1.0101\%$. A firm operates in this economy and invests in risky assets which are funded by equity and debt deposits and returns payoff specified shortly. The bank has been funded by debt such that the face value of debt is $D_{FV} = 80$, which gives rise to the following payoff structure:
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{l|rrrrr}
+                $i$ & 1 & 2 & 3 & 4 & 5 \\
+                \hline
+                $A_{i}$ & 120 & 110 & 100 & 95 & 60 \\
+                $D_{i}$ & 80 & 80 & 80 & 80 & 60 \\
+                $S_{i}$ & 40 & 30 & 20 & 15 & 0
+            \end{tabular}
+        \end{table}
+        The associated present values of the payoffs, $A$, $D$ and $S$, are the dot product between the payoff vector and the state price vector:
+            \begin{equation}
+                \pi(A) = A'\psi = 96.40
+                \qquad \pi(D) = D'\psi = 76.80
+                \qquad \pi(S) = S'\psi = 19.60
+            \end{equation}
+
+        Assume that the bank faces a new riskfree project in which it can invest. The project is riskfree in the sense that the payoff is known with certainty at time 0, so:
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l|rrrrr}
+                    $i$ & 1 & 2 & 3 & 4 & 5 \\
+                    \hline
+                    $Y_{i}$ & $10$ & $10$ & $10$ & $10$ & $10$
+                \end{tabular}
+            \end{table}
+        which implies a present value of $Y_{0} = 15d_{0} = 9.90$, since the project is merely an investment in the riskfree asset. Obtaining the payoff requires an upfront cost equal to the fair value of the project, $\pi(Y) = Y_{0}$. The bank can either obtain the funding required by issuing debt or by selling equity. The former case is examined in the following section and the latter in the section after that.
+
+
     \section{Equity funding}
         We now assume that the premium paid by the bank to the counterparty is funded with new equity instead of taking on debt from a new creditor. Obviously this will create a dilution, and the value of the already existing shares owned by the legacy shareholders will be reduced. We still suppose that the counterparty of the new project which the bank enters is risk free meaning that the payoff at time 1, $Y$, is known with certainty. What differences from funding a project with new creditors does this take have?
 
