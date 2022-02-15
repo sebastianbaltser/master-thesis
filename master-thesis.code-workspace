@@ -22,6 +22,9 @@
 		},
 		"terminal.integrated.env.osx": {
 			"PYTHONPATH": "${workspaceFolder}/code/single-period-model"
-		}
+		},
+		"python.analysis.extraPaths": [
+			"./code/single-period-model"
+		]
 	}
 }
