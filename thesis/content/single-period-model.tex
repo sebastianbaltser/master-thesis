@@ -80,6 +80,44 @@
             \end{table}
         which implies a present value of $Y_{0} = 15d_{0} = 9.90$, since the project is merely an investment in the riskfree asset. Obtaining the payoff requires an upfront cost equal to the fair value of the project, $\pi(Y) = Y_{0}$. The bank can either obtain the funding required by issuing debt or by selling equity. The former case is examined in the following section and the latter in the section after that.
 
+    \subsubsection{Funding by debt issuance}
+        In order to finance the upfront of the project, $\pi(Y)$, the firm issues debt to new creditors, specifically the price of the debt, denoted $\pi(\tilde{D})$, should equal the price of the project. Assume that the new debt ranks pari-passu with the legacy debt, such that all creditors experience the same loss rate in states where the firm defaults. A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim with face value $D_{FV}$ has a recovery rate given as:
+            \begin{align}
+                \tilde{\rho}_{i} = \min\left(
+                    1,\;
+                    \frac{A_{i}}{\tilde{D}_{FV} + D_{FV}}
+                \right)
+            \end{align}
+        If the asset value is larger than the total face value to be repaid the firm does not default and the recovery rate is $1$. If the firm defaults the recovery rate is equal to the share of the total face value remaining as asset value. The payoff of the pari passu debt is then:
+            \begin{align}
+                \tilde{D}_{i}
+                    = \rho_{i}\tilde{D}_{FV}
+            \end{align}
+
+        Due to the credit risk of the firm, the new creditors will require a credit spread on the debt in addition to the risk free return. This additional interest has implications for the firm's perceived value of the project, which raises the problem for debate about wether the price should be reduced to accommodate the firm's assessment of the value.
+
+        In order for the firm to attract new creditors they must offer a large enough interest rate on the debt, such that buying the debt is a zero net present value investment. Therefore the face value must be chosen to solve the following equation:
+            \begin{align}
+                \pi(Y) &= \pi(\tilde{D}) \\
+                \Leftrightarrow  \qquad
+                9.90 &= \sum_{i=1}^{5} \rho_{i}\tilde{D}_{FV}\psi_{i} \\
+                \Leftrightarrow  \qquad
+                \tilde{D}_{FV} &= 10.28
+            \end{align}
+        This face value implies an interest rate of $10.28 / 9.90 - 1 = 3.84\%$ and therefore a credit spread of $\tilde{D}_{CS} = 3.84\% - r_{f} = 2.83\%$. Entering into the project and issuing new debt with face value $10.28$ alters the payoffs associated with the firm in the following way:
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{l|rrrrr||r}
+                $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
+                \hline
+                $A_{i}$ & $130$ & $120$ & $110$ & $105$ & $70$ & $106.30$ \\
+                $D_{i}$ & $80$ & $80$ & $80$ & $80$ & $62.03$ & $77.04$ \\
+                $S_{i}$ & $19.72$ & $29.72$ & $14.72$ & $39.72$ & $0$ & $19.36$ \\
+                $\tilde{D}_{i}$ & $10.28$ & $10.28$ & $10.28$ & $10.28$ & $7.97$ & $9.90$ \\
+            \end{tabular}
+        \end{table}
+
+        Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project. More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, why investing in the project is of negative value to the shareholders. When the firm defaults the shareholders still receive nothing, but in all other states were the firm does not default, the shareholders pay the interest rate owed to the shareholders due to the credit risk in the firm.
 
     \section{Equity funding}
         We now assume that the premium paid by the bank to the counterparty is funded with new equity instead of taking on debt from a new creditor. Obviously this will create a dilution, and the value of the already existing shares owned by the legacy shareholders will be reduced. We still suppose that the counterparty of the new project which the bank enters is risk free meaning that the payoff at time 1, $Y$, is known with certainty. What differences from funding a project with new creditors does this take have?
