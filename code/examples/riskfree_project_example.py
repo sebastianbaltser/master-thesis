@@ -55,6 +55,7 @@ def main():
 
     credit_spread = (legacy_debt.bond_yield - risk_free_rate)
 
+    print(f"Firm present value: {firm.present_value:.3f}")
     print(f"Equity present value: {new_equity.present_value:.3f}")
     print(f"\tChange in equity value: {new_equity.present_value - equity.present_value:.3f}")
     state_is_no_default = States({state: total_face_value <= value for state, value in firm})
@@ -66,6 +67,8 @@ def main():
     print(f"\tADS marginal value to shareholders of debt financing: {marginal_value_to_shareholders:.3f}")
     print(f"Legacy debt present value: {legacy_debt.present_value:.3f}")
     print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.3f}")
+    print(f"Equity payoff:\n{new_equity.payoff}")
+    print(f"Legacy debt payoff:\n{legacy_debt.payoff}")
     print(f"New debt payoff:\n{new_debt.payoff}")
     print(f"New debt present value: {new_debt.present_value:.3f}")
     print(f"New debt face value: {new_debt.face_value:.3f}")
