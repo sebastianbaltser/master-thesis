@@ -27,6 +27,9 @@
 		},
 		"python.analysis.extraPaths": [
 			"./code/single-period-model"
+		],
+		"cSpell.enableFiletypes": [
+			"!python"
 		]
 	}
 }
