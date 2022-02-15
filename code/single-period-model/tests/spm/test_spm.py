@@ -211,3 +211,11 @@ class TestEquity:
     def test_payoff(self, asset, debt_face_value, expected):
         equity = Equity(asset, debt_face_value)
         assert equity.payoff == expected
+
+    @pytest.mark.parametrize("asset, equity_share, expected", [
+        (test_asset_1, 0.50, States(test_states_1, [20, 15, 10, 7.50, 0])),
+        (test_asset_1, 0.25, States(test_states_1, [10, 7.5, 5, 3.75, 0]))
+    ])
+    def test_payoff_with_equity_share(self, asset, equity_share, expected):
+        equity = Equity(asset, debt_face_value=80, equity_share=equity_share)
+        assert equity.payoff == expected

@@ -203,9 +203,10 @@ class Equity(Derivative):
         debt_face_value (float):
             The amount of debt owed by the asset.
     """
-    def __init__(self, underlying, debt_face_value):
+    def __init__(self, underlying, debt_face_value, equity_share=1.0):
         super().__init__(underlying)
         self.debt_face_value = debt_face_value
+        self.equity_share = equity_share
 
     @property
     def present_value(self) -> float:
@@ -214,7 +215,10 @@ class Equity(Derivative):
     @property
     def payoff(self):
         """The payoff is the remaining underlying value after debt payment"""
-        return States({state: max(value - self.debt_face_value, 0) for state, value in self.underlying})
+        return States({state: self._payoff(value) for state, value in self.underlying})
+
+    def _payoff(self, underlying_value: float) -> float:
+        return max(underlying_value - self.debt_face_value, 0) * self.equity_share
 
 
 class DebtPariPassu(Derivative):
