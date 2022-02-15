@@ -39,7 +39,7 @@ def main():
     debit_value_adjustment = expected_loss_rate * debt.face_value / gross_risk_free_rate
     print(f"DVA: {debit_value_adjustment:.4f}")
 
-    option_promised_payoff = 15
+    option_promised_payoff = 10
     option_price = option_promised_payoff / (gross_risk_free_rate + 0.00)
     option = Asset(States(states, [option_promised_payoff]*len(states)))
     print("\nNew option payoffs:")
