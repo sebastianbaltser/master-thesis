@@ -16,6 +16,12 @@
 			"rehypothication",
 			"riskless",
 			"uncollateralized"
-		]
+		],
+		"terminal.integrated.env.windows": {
+			"PYTHONPATH": "${workspaceFolder}\\code\\single-period-model"
+		},
+		"terminal.integrated.env.osx": {
+			"PYTHONPATH": "${workspaceFolder}/code/single-period-model"
+		}
 	}
 }
