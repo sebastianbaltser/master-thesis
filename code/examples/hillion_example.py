@@ -97,6 +97,18 @@ def main():
     debit_value_adjustment = expected_loss_rate * new_debt.face_value / gross_risk_free_rate
     print(f"DVA: {debit_value_adjustment:.4f}")
 
+    print("Equity Funding:")
+    legacy_debt = DebtPariPassu(asset, face_value=debt_face_value)
+    legacy_equity = Equity(asset, debt_face_value=legacy_debt.face_value, equity_share=1)
+    new_equity_share = option.present_value / legacy_equity.present_value
+    legacy_equity = Equity(asset, debt_face_value=legacy_debt.face_value, equity_share=1-new_equity_share)
+    new_equity = Equity(asset, debt_face_value=legacy_debt.face_value, equity_share=new_equity_share)
+
+    print(f"\tLegacy debt present value: {legacy_debt.present_value:.4f}")
+    print(f"\tLegacy equity present value: {legacy_equity.present_value:.4f}")
+    print(f"\tNew equity present value: {new_equity.present_value:.4f}")
+    print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.4f}")
+    print(f"\tChange in legacy equity value: {legacy_equity.present_value - equity.present_value:.4f}")
 
 if __name__ == "__main__":
     main()
