@@ -30,6 +30,9 @@
 		],
 		"cSpell.enableFiletypes": [
 			"!python"
+		],
+		"cSpell.ignorePaths":[
+			"*.code-workspace"
 		]
 	}
 }
