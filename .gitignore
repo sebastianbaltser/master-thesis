@@ -57,3 +57,9 @@ Backup of *.doc*
 
 # PyCharm
 .idea
+
+# Virtual Enviroments
+venv/
+
+# Auto-generated python files
+*.pyc
