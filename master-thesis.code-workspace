@@ -21,6 +21,7 @@
 		],
 		"cSpell.flagWords": [
 			"riskfree",
+			"pari-passu",
 		],
 		"terminal.integrated.env.windows": {
 			"PYTHONPATH": "${workspaceFolder}\\code\\single-period-model"
