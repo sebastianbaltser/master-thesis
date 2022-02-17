@@ -47,7 +47,8 @@ def main():
     print(f"Option present value: {option.present_value:.3f}")
     print(f"Option price: {option_price:.3f}")
 
-    firm = firm + option
+    legacy_firm = firm
+    firm = legacy_firm + option
     new_debt = DebtPariPassu(firm, present_value=option_price, other_face_value=debt.face_value)
     legacy_debt = DebtPariPassu(firm, face_value=legacy_debt_face_value, other_face_value=new_debt.face_value)
     total_face_value = legacy_debt.face_value + new_debt.face_value
@@ -56,8 +57,11 @@ def main():
     credit_spread = (legacy_debt.bond_yield - risk_free_rate)
 
     print(f"Firm present value: {firm.present_value:.3f}")
+    print(f"\tChange in firm value: {firm.present_value:.4f} - {legacy_firm.present_value:.4f} "
+          f"= {firm.present_value-legacy_firm.present_value:.4f}")
     print(f"Equity present value: {new_equity.present_value:.3f}")
-    print(f"\tChange in equity value: {new_equity.present_value - equity.present_value:.3f}")
+    print(f"\tChange in equity value: {new_equity.present_value:.3f} - {equity.present_value:.3f} "
+          f"= {new_equity.present_value - equity.present_value:.3f}")
     state_is_no_default = States({state: total_face_value <= value for state, value in firm})
     promised_return = (option_promised_payoff - option.present_value * (gross_risk_free_rate + credit_spread))
     expected_promised_return = economy.risk_neutral_expectation(
