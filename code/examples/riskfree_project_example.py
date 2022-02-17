@@ -56,6 +56,7 @@ def main():
 
     credit_spread = (legacy_debt.bond_yield - risk_free_rate)
 
+    print(f"Credit spread: {credit_spread:.4%}")
     print(f"Firm present value: {firm.present_value:.3f}")
     print(f"\tChange in firm value: {firm.present_value:.4f} - {legacy_firm.present_value:.4f} "
           f"= {firm.present_value-legacy_firm.present_value:.4f}")
