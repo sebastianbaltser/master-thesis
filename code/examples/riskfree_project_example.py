@@ -60,9 +60,9 @@ def main():
     print(f"Firm present value: {firm.present_value:.3f}")
     print(f"\tChange in firm value: {firm.present_value:.4f} - {legacy_firm.present_value:.4f} "
           f"= {firm.present_value-legacy_firm.present_value:.4f}")
-    print(f"Equity present value: {new_equity.present_value:.3f}")
-    print(f"\tChange in equity value: {new_equity.present_value:.3f} - {equity.present_value:.3f} "
-          f"= {new_equity.present_value - equity.present_value:.3f}")
+    print(f"Equity present value: {new_equity.present_value:.4f}")
+    print(f"\tChange in equity value: {new_equity.present_value:.4f} - {equity.present_value:.4f} "
+          f"= {new_equity.present_value - equity.present_value:.4f}")
     state_is_no_default = States({state: total_face_value <= value for state, value in firm})
     promised_return = (option_promised_payoff - option.present_value * (gross_risk_free_rate + credit_spread))
     expected_promised_return = economy.risk_neutral_expectation(
