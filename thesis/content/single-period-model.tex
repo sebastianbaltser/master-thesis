@@ -21,23 +21,22 @@
         The product between the gross risk free rate and the state price vector produces the risk neutral probability distribution, $\mathbb{Q}$, i.e. $q_{i} = (1 + r_{f})\psi_{i}$.
 
     \subsection{Firm capital structure}
-        Consider now a firm operating in a single period economy with $N$ states and state prices. The firm can invest in assets with risk but needs financing for supporting it's investments. Assume that the firm has no cash, such that financing can only be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt. The sum of the amount of equity funding obtained, $S_{0}$, and the amount of debt issued, $D_{0}$, decides the value of risky assets the firm can invest in, $A_{0}$. At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment. In the event that the value of the firm $A_{i}$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate. Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults. Hence, the payoff of creditors and shareholders in state $\omega_{i}$ is given respectively by:
+        Consider now a firm operating in a single period economy with $S$ states and state prices. The firm can invest in assets with risk but needs financing for supporting it's investments. Assume that the firm has no cash, such that financing can only be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt. The sum of the amount of equity funding obtained, $S_{0}$, and the amount of debt issued, $D_{0}$, decides the value of risky assets the firm can invest in, $A_{0}$. The value of the firm at time $1$ is given by the random variable $A$. At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment. In the event that the value of the firm $A$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate. The payoff to the creditors is thus a random variable denoted by $D$. Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults. The shareholders' random payoff is denoted by $S$. Hence, the payoff of creditors and shareholders is given respectively by:
             \begin{gather}
-                D_{i}
-                    = \min\left(
-                        D_{FV},\; A_{i}
+                D = \min\left(
+                        D_{FV},\; A
                     \right)
                     = D_{FV} - \max\left(
-                        D_{FV} - A_{i}, 0
+                        D_{FV} - A, 0
                     \right) \label{eqn:legacy-creditor-payoff}\\
-                S_{i}
+                S
                     = \max\left(
-                        A_{i} - D_{FV},\; 0
+                        A - D_{FV},\; 0
                     \right)
             \end{gather}
         It is worth noting that the creditors security, i.e. the debt claim, can be replicated by buying a riskless bond with face value $D_{FV}$ and selling a put option on the firm with strike $D_{FV}$. The shareholders claim is equivalent to buying a call option on the firm with strike $D_{FV}$.
 
-        After deciding it's capital structure, the firm has an opportunity to engage in a new project, e.g. buying or selling a security. The project has a payoff in each state denoted by $Y_{i}$, a value denoted by $Y_{0}$, and a price denoted by $\pi(Y)$. If the project is fairly priced the price equals the value, i.e. $\pi(Y) = Y_{0}$, but this is not necessarily the case in the following examples. In order to invest in the project the firm must pay the upfront price, $\pi(Y)$, or receive it if it's negative. If the upfront is a payable, the firm must be able to finance it or if it is a receivable, the firm can use it to retire debt. The issues to examine is the funding costs or benefits of entering into the project. One issue is how the funding costs or benefits affect the value of the project as experienced by the firm and whether a funding value adjustment should be made to the price of the projects. Another issue is how the project and it's associated funding impacts the firm value and the value of its stakeholders claims.
+        After deciding it's capital structure, the firm has an opportunity to engage in a new project, e.g. buying or selling a security. The project has a, possibly random, payoff denoted by $Y$, a value denoted by $Y_{0}$, and a price denoted by $\pi(Y)$. If the project is fairly priced the price equals the value, i.e. $\pi(Y) = Y_{0}$, but this is not necessarily the case in the following examples. In order to invest in the project the firm must pay the upfront price, $\pi(Y)$, or receive it if it's negative. If the upfront is a payable, the firm must be able to finance it or if it is a receivable, the firm can use it to retire debt. The issues to examine is the funding costs or benefits of entering into the project. One issue is how the funding costs or benefits affect the value of the project as experienced by the firm and wether a funding value adjustment should be made to the price of the projects. Another issue is how the how the project and it's associated funding impacts the firm value and the value of its stakeholders claims.
 
         These issues will be assessed by the means of examples in the following sections.
 
