@@ -117,7 +117,21 @@
             \end{tabular}
         \end{table}
 
-        Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project. More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, why investing in the project is of negative value to the shareholders. When the firm defaults the shareholders still receive nothing, but in all other states where the firm does not default, the shareholders pay the interest rate owed to the shareholders due to the credit risk in the firm.
+        Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project. More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, why investing in the project is of negative value to the shareholders. When the firm defaults the shareholders still receive nothing, but in all other states where the firm does not default, the shareholders pay the present value of the interest owed to the shareholders due to the credit risk in the firm. The loss of the shareholders can be calculated as: 
+            \begin{align}
+                -\sum_{i=0}^{5} 
+                    \mathbbm{1}_{\{\tilde{\rho}_{i} < 1\}}
+                    \left(
+                        \pi(\tilde{D})*(1+r_{f} + \tilde{D}_{CS})
+                        - Y
+                    \right)
+                    \psi_{i} = -0.2435
+            \end{align}
+        This is the fair price of a security that pays the promised return of the new debt in every no default state and zero otherwise. 
+        On the contrary, the investment is a positive net present value investment for the legacy shareholders. When the firm does not default they still receive their promised payoff corresponding to the face value of their debt. The new project has increased the asset base of the firm, and when the firm defaults the legacy creditors will share part of the payoff from the option with the new creditors. Hence, the legacy creditors receive a larger payoff when the firm defaults. 
+
+        The Modigliani-Miller invariance proposition assures that making a zero net present value investment does not increase the value of the firm. Therefore, the welfare lost by the shareholders must be entirely transferred to the legacy creditors; increasing the present value of their debt claim by $0.2771$.
+
 
     \subsubsection{Funding by share issuance}
         We now assume that the premium paid by the bank to the counterparty is funded with new equity instead of taking on debt from a new creditor. Obviously this will create a dilution, and the value of the already existing shares owned by the legacy shareholders will be reduced. We still suppose that the counterparty of the new project which the bank enters is risk free, meaning that the payoff at time 1, $Y$, is known with certainty. What differences from funding a project with new creditors does this take have?
