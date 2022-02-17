@@ -47,7 +47,8 @@ def main():
     print(f"Option present value: {option.present_value:.3f}")
     print(f"Option price: {option_price:.3f}")
 
-    firm = firm + option
+    legacy_firm = firm
+    firm = legacy_firm + option
     new_debt = DebtPariPassu(firm, present_value=option_price, other_face_value=debt.face_value)
     legacy_debt = DebtPariPassu(firm, face_value=legacy_debt_face_value, other_face_value=new_debt.face_value)
     total_face_value = legacy_debt.face_value + new_debt.face_value
@@ -55,8 +56,13 @@ def main():
 
     credit_spread = (legacy_debt.bond_yield - risk_free_rate)
 
-    print(f"Equity present value: {new_equity.present_value:.3f}")
-    print(f"\tChange in equity value: {new_equity.present_value - equity.present_value:.3f}")
+    print(f"Credit spread: {credit_spread:.4%}")
+    print(f"Firm present value: {firm.present_value:.3f}")
+    print(f"\tChange in firm value: {firm.present_value:.4f} - {legacy_firm.present_value:.4f} "
+          f"= {firm.present_value-legacy_firm.present_value:.4f}")
+    print(f"Equity present value: {new_equity.present_value:.4f}")
+    print(f"\tChange in equity value: {new_equity.present_value:.4f} - {equity.present_value:.4f} "
+          f"= {new_equity.present_value - equity.present_value:.4f}")
     state_is_no_default = States({state: total_face_value <= value for state, value in firm})
     promised_return = (option_promised_payoff - option.present_value * (gross_risk_free_rate + credit_spread))
     expected_promised_return = economy.risk_neutral_expectation(
@@ -66,6 +72,8 @@ def main():
     print(f"\tADS marginal value to shareholders of debt financing: {marginal_value_to_shareholders:.3f}")
     print(f"Legacy debt present value: {legacy_debt.present_value:.3f}")
     print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.3f}")
+    print(f"Equity payoff:\n{new_equity.payoff}")
+    print(f"Legacy debt payoff:\n{legacy_debt.payoff}")
     print(f"New debt payoff:\n{new_debt.payoff}")
     print(f"New debt present value: {new_debt.present_value:.3f}")
     print(f"New debt face value: {new_debt.face_value:.3f}")
