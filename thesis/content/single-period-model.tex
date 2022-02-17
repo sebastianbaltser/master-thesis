@@ -6,13 +6,13 @@
         In order to develop the necessary understanding of funding costs and their implications to a firm's stakeholders, this section will explore them using the single period framework. The framework is a drastic simplification of reality but still it can provide useful results concerning funding value adjustments.
 
     \subsection{The single period model}
-        The single period framework is modelling what will happen in an economy as it transitions from the present, time 0, to one time period ahead, time 1. At time 1 the economy can materialize in one of $S$ possible states, $\omega_{1}, \dots, \omega_{S}$. A state is defined by the price of an Arrow-Debreu security paying one unit of numeraire if the state is achieved and zero otherwise. The price of this security is referred to as the state price and denoted $\psi_{i}$. The vector of state prices, $\psi \equiv \left(\psi_{1}, \dots, \psi_{S}\right)'$, can be used to price claims in the economy, since a state price defines the value of receiving a cashflow in a particular state. The price of a payoff $d=\left(d_{1}, \dots, d_{S}\right)'$ is given as:
+        The single period framework is modelling what will happen in an economy as it transitions from the present, time 0, to one time period ahead, time 1. At time 1 the economy can materialize in one of $N$ possible states, $\omega_{1}, \dots, \omega_{N}$. A state is defined by the price of an Arrow-Debreu security paying one unit of numeraire if the state is achieved and zero otherwise. The price of this security is referred to as the state price and denoted $\psi_{i}$. The vector of state prices, $\psi \equiv \left(\psi_{1}, \dots, \psi_{N}\right)'$, can be used to price claims in the economy, since a state price defines the value of receiving a cashflow in a particular state. The price of a payoff $d=\left(d_{1}, \dots, d_{N}\right)'$ is given as:
             \begin{equation}
-                \pi(d) = d'\psi = \sum_{i=1}^{S} d_{i}\psi_{i}
+                \pi(d) = d'\psi = \sum_{i=1}^{N} d_{i}\psi_{i}
             \end{equation}
         Especially a zero coupon bond surely paying one unit of numeraire in every state has the price:
             \begin{equation}
-                d_{0} = \sum_{i=1}^{S} \psi_{i}
+                d_{0} = \sum_{i=1}^{N} \psi_{i}
             \end{equation}
         from which the risk free rate can be defined as:
             \begin{equation}
@@ -21,7 +21,7 @@
         The product between the gross risk free rate and the state price vector produces the risk neutral probability distribution, $\mathbb{Q}$, i.e. $q_{i} = (1 + r_{f})\psi_{i}$.
 
     \subsection{Firm capital structure}
-        Consider now a firm operating in a single period economy with $S$ states and state prices. The firm can invest in assets with risk but needs financing for supporting it's investments. This financing can be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt. The sum of the amount of equity funding obtained, $S_{0}$, and the amount of debt issued, $D_{0}$, decides the value of risky assets the firm can invest in, $A_{0}$. At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment. In the event that the value of the firm $A_{i}$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate. Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults. Hence, the payoff of creditors and shareholders in state $\omega_{i}$ is given respectively by:
+        Consider now a firm operating in a single period economy with $N$ states and state prices. The firm can invest in assets with risk but needs financing for supporting it's investments. This financing can be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt. The sum of the amount of equity funding obtained, $S_{0}$, and the amount of debt issued, $D_{0}$, decides the value of risky assets the firm can invest in, $A_{0}$. At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment. In the event that the value of the firm $A_{i}$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate. Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults. Hence, the payoff of creditors and shareholders in state $\omega_{i}$ is given respectively by:
             \begin{gather}
                 D_{i}
                     = \min\left(
