@@ -3,10 +3,16 @@
 
 \begin{document}
     \section{Funding Costs in the Single Period Model}
-        In order to develop the necessary understanding of funding costs and their implications to a firm's stakeholders, this section will explore them using the single period framework. The framework is a drastic simplification of reality but still it can provide useful results concerning funding value adjustments.
+        In order to develop the necessary understanding of funding costs and their implications to a firm's stakeholders, this section will explore them using the single period framework.
+        The framework is a drastic simplification of reality but still it can provide useful results concerning funding value adjustments.
 
     \subsection{The single period model}
-        The single period framework is modelling what will happen in an economy as it transitions from the present, time 0, to one time period ahead, time 1. At time 1 the economy can materialize in one of $N$ possible states, $\omega_{1}, \dots, \omega_{N}$. A state is defined by the price of an Arrow-Debreu security paying one unit of numeraire if the state is achieved and zero otherwise. The price of this security is referred to as the state price and denoted $\psi_{i}$. The vector of state prices, $\psi \equiv \left(\psi_{1}, \dots, \psi_{N}\right)'$, can be used to price claims in the economy, since a state price defines the value of receiving a cashflow in a particular state. The price of a payoff $d=\left(d_{1}, \dots, d_{N}\right)'$ is given as:
+        The single period framework is modelling what will happen in an economy as it transitions from the present, time 0, to one time period ahead, time 1.
+        At time 1 the economy can materialize in one of $N$ possible states, $\omega_{1}, \dots, \omega_{N}$.
+        A state is defined by the price of an Arrow-Debreu security paying one unit of numeraire if the state is achieved and zero otherwise.
+        The price of this security is referred to as the state price and denoted $\psi_{i}$.
+        The vector of state prices, $\psi \equiv \left(\psi_{1}, \dots, \psi_{N}\right)'$, can be used to price claims in the economy, since a state price defines the value of receiving a cashflow in a particular state.
+        The price of a payoff $d=\left(d_{1}, \dots, d_{N}\right)'$ is given as:
             \begin{equation}
                 \pi(d) = d'\psi = \sum_{i=1}^{N} d_{i}\psi_{i}
             \end{equation}
@@ -21,7 +27,17 @@
         The product between the gross risk free rate and the state price vector produces the risk neutral probability distribution, $\mathbb{Q}$, i.e. $q_{i} = (1 + r_{f})\psi_{i}$.
 
     \subsection{Firm capital structure}
-        Consider now a firm operating in a single period economy with $S$ states and state prices. The firm can invest in assets with risk but needs financing for supporting it's investments. Assume that the firm has no cash, such that financing can only be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt. The sum of the amount of equity funding obtained, $S_{0}$, and the amount of debt issued, $D_{0}$, decides the value of risky assets the firm can invest in, $A_{0}$. The value of the firm at time $1$ is given by the random variable $A$. At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment. In the event that the value of the firm $A$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate. The payoff to the creditors is thus a random variable denoted by $D$. Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults. The shareholders' random payoff is denoted by $S$. Hence, the payoff of creditors and shareholders is given respectively by:
+        Consider now a firm operating in a single period economy with $S$ states and state prices.
+        The firm can invest in assets with risk but needs financing for supporting it's investments.
+        Assume that the firm has no cash, such that financing can only be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt.
+        The sum of the amount of equity funding obtained, $S_{0}$, and the amount of debt issued, $D_{0}$, decides the value of risky assets the firm can invest in, $A_{0}$.
+        The value of the firm at time $1$ is given by the random variable $A$.
+        At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment.
+        In the event that the value of the firm $A$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate.
+        The payoff to the creditors is thus a random variable denoted by $D$.
+        Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults.
+        The shareholders' random payoff is denoted by $S$.
+        Hence, the payoff of creditors and shareholders is given respectively by:
             \begin{gather}
                 D = \min\left(
                         D_{FV},\; A
@@ -34,9 +50,17 @@
                         A - D_{FV},\; 0
                     \right)
             \end{gather}
-        It is worth noting that the creditors security, i.e. the debt claim, can be replicated by buying a riskless bond with face value $D_{FV}$ and selling a put option on the firm with strike $D_{FV}$. The shareholders claim is equivalent to buying a call option on the firm with strike $D_{FV}$.
+        It is worth noting that the creditors security, i.e. the debt claim, can be replicated by buying a riskless bond with face value $D_{FV}$ and selling a put option on the firm with strike $D_{FV}$.
+        The shareholders claim is equivalent to buying a call option on the firm with strike $D_{FV}$.
 
-        After deciding it's capital structure, the firm has an opportunity to engage in a new project, e.g. buying or selling a security. The project has a, possibly random, payoff denoted by $Y$, a value denoted by $Y_{0}$, and a price denoted by $\pi(Y)$. If the project is fairly priced the price equals the value, i.e. $\pi(Y) = Y_{0}$, but this is not necessarily the case in the following examples. In order to invest in the project the firm must pay the upfront price, $\pi(Y)$, or receive it if it's negative. If the upfront is a payable, the firm must be able to finance it or if it is a receivable, the firm can use it to retire debt. The issues to examine is the funding costs or benefits of entering into the project. One issue is how the funding costs or benefits affect the value of the project as experienced by the firm and whether a funding value adjustment should be made to the price of the projects. Another issue is how the how the project and it's associated funding impacts the firm value and the value of its stakeholders claims.
+        After deciding it's capital structure, the firm has an opportunity to engage in a new project, e.g. buying or selling a security.
+        The project has a, possibly random, payoff denoted by $Y$, a value denoted by $Y_{0}$, and a price denoted by $\pi(Y)$.
+        If the project is fairly priced the price equals the value, i.e. $\pi(Y) = Y_{0}$, but this is not necessarily the case in the following examples.
+        In order to invest in the project the firm must pay the upfront price, $\pi(Y)$, or receive it if it's negative.
+        If the upfront is a payable, the firm must be able to finance it or if it is a receivable, the firm can use it to retire debt.
+        The issues to examine is the funding costs or benefits of entering into the project.
+        One issue is how the funding costs or benefits affect the value of the project as experienced by the firm and whether a funding value adjustment should be made to the price of the projects.
+        Another issue is how the how the project and it's associated funding impacts the firm value and the value of its stakeholders claims.
 
         These issues will be assessed by the means of examples in the following sections.
 
@@ -50,7 +74,9 @@
                     $\psi_{i}$ & $0.06$ & $0.24$ & $0.29$ & $0.28$ & $0.12$ \\
                 \end{tabular}
             \end{table}
-        implying a discount factor of $d_{0} = 0.99$ and a risk free interest rate of $r_{f} = 1.0101\%$. A firm operates in this economy and invests in risky assets which are funded by equity and debt deposits and returns payoff specified shortly. The firm has been funded by debt such that the face value of debt is $D_{FV} = 80$, which gives rise to the following payoff structure:
+        implying a discount factor of $d_{0} = 0.99$ and a risk free interest rate of $r_{f} = 1.0101\%$.
+        A firm operates in this economy and invests in risky assets which are funded by equity and debt deposits and returns payoff specified shortly.
+        The firm has been funded by debt such that the face value of debt is $D_{FV} = 80$, which gives rise to the following payoff structure:
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rrrrr}
@@ -68,7 +94,8 @@
                 \qquad \pi(S) = \frac{1}{1+r_{f}} \mathbb{E}^{\mathbb{Q}}\left[S\right] = 19.60
             \end{gather}
 
-        Assume that the firm faces a new risk free project in which it can invest. The project is risk free in the sense that the payoff is known with certainty at time 0, so:
+        Assume that the firm faces a new risk free project in which it can invest.
+        The project is risk free in the sense that the payoff is known with certainty at time 0, so:
             \begin{table}[H]
                 \centering
                 \begin{tabular}{l|rrrrr}
@@ -77,25 +104,34 @@
                     $Y(\omega_{i})$ & $10$ & $10$ & $10$ & $10$ & $10$
                 \end{tabular}
             \end{table}
-        which implies a present value of $Y_{0} = 15d_{0} = 9.90$, since the project is merely an investment in the risk free asset. Obtaining the payoff requires an upfront cost equal to the fair value of the project, $\pi(Y) = Y_{0}$. The firm can either obtain the funding required by issuing debt or by selling equity. The former case is examined in the following section and the latter in the section after that.
+        which implies a present value of $Y_{0} = 15d_{0} = 9.90$, since the project is merely an investment in the risk free asset.
+        Obtaining the payoff requires an upfront cost equal to the fair value of the project, $\pi(Y) = Y_{0}$.
+        The firm can either obtain the funding required by issuing debt or by selling equity.
+        The former case is examined in the following section and the latter in the section after that.
 
     \subsubsection{Funding by debt issuance}
-        In order to finance the upfront of the project, $\pi(Y)$, the firm issues debt to new creditors, specifically the price of the debt, denoted $\pi(\tilde{D})$, should equal the price of the project. Assume that the new debt ranks pari passu with the legacy debt, such that all creditors experience the same loss rate in states where the firm defaults. A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim with face value $D_{FV}$ has the random recovery rate given as:
+        In order to finance the upfront of the project, $\pi(Y)$, the firm issues debt to new creditors, specifically the price of the debt, denoted $\pi(\tilde{D})$, should equal the price of the project.
+        Assume that the new debt ranks pari passu with the legacy debt, such that all creditors experience the same loss rate in states where the firm defaults.
+        A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim with face value $D_{FV}$ has the random recovery rate given as:
             \begin{align}
                 \tilde{\rho} = \min\left(
                     1,\;
                     \frac{A}{\tilde{D}_{FV} + D_{FV}}
                 \right)
             \end{align}
-        If the asset value is larger than the total face value to be repaid the firm does not default and the recovery rate is $1$. If the firm defaults the recovery rate is equal to the share of the total face value remaining as asset value. The random payoff of the pari passu debt is denoted by $\tilde{D}$ and given as:
+        If the asset value is larger than the total face value to be repaid the firm does not default and the recovery rate is $1$.
+        If the firm defaults the recovery rate is equal to the share of the total face value remaining as asset value.
+        The random payoff of the pari passu debt is denoted by $\tilde{D}$ and given as:
             \begin{align}
                 \tilde{D}
                     = \tilde{\rho}\tilde{D}_{FV}
             \end{align}
 
-        Due to the credit risk of the firm, the new creditors will require a credit spread on the debt in addition to the risk free return. This additional interest has implications for the firm's perceived value of the project, which raises the problem for debate about whether the price should be reduced to accommodate the firm's assessment of the value.
+        Due to the credit risk of the firm, the new creditors will require a credit spread on the debt in addition to the risk free return.
+        This additional interest has implications for the firm's perceived value of the project, which raises the problem for debate about whether the price should be reduced to accommodate the firm's assessment of the value.
 
-        In order for the firm to attract new creditors they must offer a large enough interest rate on the debt, such that buying the debt is a zero net present value investment. Therefore the face value must be chosen to solve the following equation:
+        In order for the firm to attract new creditors they must offer a large enough interest rate on the debt, such that buying the debt is a zero net present value investment.
+        Therefore the face value must be chosen to solve the following equation:
             \begin{align}
                 \pi(Y) &= \pi(\tilde{D}) \\
                 \Leftrightarrow  \qquad
@@ -103,7 +139,8 @@
                 \Leftrightarrow  \qquad
                 \tilde{D}_{FV} &= 10.28
             \end{align}
-        This face value implies an interest rate of $10.28 / 9.90 - 1 = 3.84\%$ and therefore a credit spread of $\tilde{D}_{CS} = 3.84\% - r_{f} = 2.83\%$. Entering into the project and issuing new debt with face value $10.28$ alters the payoffs associated with the firm in the following way:
+        This face value implies an interest rate of $10.28 / 9.90 - 1 = 3.84\%$ and therefore a credit spread of $\tilde{D}_{CS} = 3.84\% - r_{f} = 2.83\%$.
+        Entering into the project and issuing new debt with face value $10.28$ alters the payoffs associated with the firm in the following way:
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rrrrr||r}
@@ -116,7 +153,10 @@
             \end{tabular}
         \end{table}
 
-        Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project. More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, why investing in the project is of negative value to the shareholders. When the firm defaults the shareholders still receive nothing, but in all other states where the firm does not default, the shareholders pay the present value of the interest owed to the new creditors due to the credit risk in the firm. The loss of the shareholders can be calculated as: 
+        Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project.
+        More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, why investing in the project is of negative value to the shareholders.
+        When the firm defaults the shareholders still receive nothing, but in all other states where the firm does not default, the shareholders pay the present value of the interest owed to the new creditors due to the credit risk in the firm.
+        The loss of the shareholders can be calculated as: 
             \begin{align}
                 -\mathbb{E}^{\mathbb{Q}}\left[
                     \mathbbm{1}_{\{\tilde{\rho} < 1\}}
@@ -128,9 +168,13 @@
                 = -0.2435
             \end{align}
         This is the fair price of a security that pays the promised return of the new debt in every no default state and zero otherwise. 
-        On the contrary, the investment is a positive net present value investment for the legacy shareholders. When the firm does not default they still receive their promised payoff corresponding to the face value of their debt. The new project has increased the asset base of the firm, and when the firm defaults the legacy creditors will share part of the payoff from the option with the new creditors. Hence, the legacy creditors receive a larger payoff when the firm defaults. 
+        On the contrary, the investment is a positive net present value investment for the legacy shareholders.
+        When the firm does not default they still receive their promised payoff corresponding to the face value of their debt.
+        The new project has increased the asset base of the firm, and when the firm defaults the legacy creditors will share part of the payoff from the option with the new creditors.
+        Hence, the legacy creditors receive a larger payoff when the firm defaults. 
 
-        The Modigliani-Miller invariance proposition assures that making a zero net present value investment does not increase the value of the firm. Therefore, the welfare lost by the shareholders must be entirely transferred to the legacy creditors; increasing the present value of their debt claim by $0.2771$.
+        The Modigliani-Miller invariance proposition assures that making a zero net present value investment does not increase the value of the firm.
+        Therefore, the welfare lost by the shareholders must be entirely transferred to the legacy creditors; increasing the present value of their debt claim by $0.2771$.
 
 
     \subsubsection{Funding by share issuance}
