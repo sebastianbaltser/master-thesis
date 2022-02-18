@@ -132,4 +132,50 @@
 
         The Modigliani-Miller invariance proposition assures that making a zero net present value investment does not increase the value of the firm. Therefore, the welfare lost by the shareholders must be entirely transferred to the legacy creditors; increasing the present value of their debt claim by $0.2771$.
 
+
+    \subsubsection{Funding by share issuance}
+        Assume that the premium paid by the firm to the counterparty is funded with new equity instead of taking on debt from a new creditor. Doing so will create a dilution, and the value of the already existing shares, owned by the legacy shareholders, will be reduced. The counterparty of the new project which the firm enters is still supposed to be risk free, meaning that the payoff at time 1, $Y$, is known with certainty. What differences from funding a project with new creditors does this take have?
+
+        The new shareholders will subscribe to the newly issued shares only to the extent that the investment has a net present value of zero; paying an amount equal to the premium of the derivative, $\pi(Y)$:
+        \begin{equation}
+            \pi(Y) = \pi(\tilde{S})
+        \end{equation}
+        Intuitively, the total asset value will then increase by the fair value of the derivative, and, all things being equal, the project will result in more value left for the creditors in the default state. The creditors have not had anything changed in their deal with the firm, and the increment in asset base due to the receivables of the derivative will be added to their payoff if the firm defaults. This reduces their loss rate as well as the credit spread. The creditors are then better off, since the market value of the debt increases when the project is funded by new equity.\\
+        The legacy shareholders, on the other hand, are worse off by an amount equal to the increment of the debt value, and the only change of structure is the transfer of wealth from the legacy shareholders to the legacy creditors. The loss of value in the firm owned by the legacy shareholders comes from the dilution, where their share of the payoff has fallen without any compensation in form of capital. The wealth transferred is significantly higher than in the case of debt funding because the legacy creditors are not obliged to share the payoff of the derivative with other new creditors in the case of default. The derivative contract has no impact on the total asset value of the firm, and the funding cost are borne by the legacy shareholders.
+
+        Assume a firm enters a risk free project with a known payoff of $Y=10$. The present value of the derivative is then $10/(1+0.10)=9.90$. The payoff of the derivative is added to the firm's total asset value. While the payoff of the legacy creditors, with a face value of 80, only change in the default state, the payoff of the shareholders is computed slightly differently than in the case of debt issuance. It's now essential to know the share of the payoff, $\alpha$, which the new equity owners are entitled to, remembering that the payoff obtained by the legacy creditors is given as in \cref{eqn:legacy-creditor-payoff}. The difference between the total asset value of the firm, and the payoff of the creditor is what's left to be distributed to the shareholders, who are now separated into two bases. Compute the expected discounted value of this and divide it by the net present value of the investment made by the new shareholders:
+        \begin{equation}
+            \alpha = \frac{\sum_i (A_{i}-D{i})\psi_{i}}{\pi(Y)}
+        \end{equation}
+        The new shareholders then receive their share of the remaining payoff in each state, and the payoff of the legacy shareholders is still the residual with a share of $(1-\alpha)$ of the remainder of the distributed payoff that is left. The results of the example are shown in \cref{tbl:equity-funding-payoff}, where the share of the new equity owners is computed as $\alpha = 34.982\%$.
+
+        \begin{table}[h]
+            \centering\begin{tabular}{l|rrrrr||r}
+                $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
+                \hline
+                $A_{i}$ & 130 & 120 & 110 & 105 & 70 & 106.30 \\
+                $D_{i}$ & 80 & 80 & 80 & 80 & 70 & 78 \\
+                $S_{i}$ & 32.51 & 26.01 & 19.51 & 16.25 & 0 & 18.40 \\
+                $\tilde{S}_{i}$ & 17.49 & 13.99 & 10.49 & 8.75 & 0 & 9.90 \\
+            \end{tabular}
+            \label{tbl:equity-funding-payoff}
+        \end{table}
+
+        After the transaction, the firm's balance sheet has increased with an amount equal to the premium of the derivative. The firm has a new asset on the asset side, the derivative receivable worth 9.90, and that is funded by 9.90 worth of new equity.
+
+        The project is a negative net present value investment for the legacy shareholders. The decrease in the equity value is computed as:
+        \begin{equation}
+            \Delta \pi(S) = 18.40 - 19.60 = -1.20
+        \end{equation}
+        This amount is also what is referred to as the transfer of wealth, $\Delta W$, when no excess yield/donation is received on the derivative. The wealth transfer is higher than in the case of debt funding, hence share holders will always prefer debt funding over equity funding. This result is also justified by the \textit{pecking order theory} as described by \cite{ADS2016}: "Proposition 2: Suppose that the firm's probability of default is not zero and that the marginal investment cost is strictly positive. The marginal value to the firm's existing shareholders of financing the investment with existing cash is strictly higher than the marginal value under debt financing, which in turn is strictly higher than the marginal value under equity financing."
+
+        The project is a positive net present value investment for the creditors. Their increase in wealth is computed as:
+        \begin{equation}
+            \Delta \pi(D) = -\Delta \pi(S) = 78.00 - 76.80 = 1.20
+        \end{equation}
+        The value of the debt increases, since the creditors get the entire derivative's receivables in the default state.\\
+        A possible donation by the counterparty would also have to be significantly higher than in the case of debt funding for the legacy shareholders' equity value to be left unaffected by the investment. Whether the counterparty benefits from this remains indeterminate. 
+
+        The funding costs\dots
+
 \end{document}
