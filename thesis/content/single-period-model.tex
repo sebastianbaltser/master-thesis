@@ -178,7 +178,7 @@
         \begin{equation}
             S 
             = \frac{
-                2.72\% * (1 + r_{f})
+                2.72\% * (1 + \rfrate)
             }{
                 1 - 2.72\%
             } 
@@ -187,13 +187,13 @@
         The marginal valuation to the legacy creditors is therefore:
         \begin{equation}
             \Phi 
-            = 87.88\% * \frac{1}{1+r_{f}}  * 9.90 * 2.83\% 
+            = 87.88\% * \frac{1}{1+\rfrate}  * 9.90 * 2.83\% 
             = 0.2435
         \end{equation}
 
         The loss of the shareholders can then be calculated as: 
             \begin{align}
-                G = 87.88\%*0 - \frac{1}{1+r_{f}} * 0 - 0.2435 = -0.2435
+                G = 87.88\%*0 - \frac{1}{1+\rfrate} * 0 - 0.2435 = -0.2435
             \end{align}
         This is also the fair price, with opposite sign, 
         of a security that pays the promised return of the new debt in every no default state and zero otherwise. 
@@ -223,8 +223,8 @@
         \begin{align}
             \FVA/ 
             &= \discountfactor \left(
-                U (1 + r_{f} + \tilde{s})
-                - U (1 + r_{f})
+                U (1 + \rfrate + \tilde{s})
+                - U (1 + \rfrate)
             \right)
             = \discountfactor U \tilde{s} \\
             &= 0.99 * 9.90 * 2.83\%
