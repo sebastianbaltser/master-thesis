@@ -27,6 +27,9 @@
 			"riskfree",
 			"pari-passu",
 		],
+		"cSpell.ignoreWords": [
+			"ifdefinable",
+		],
 		"terminal.integrated.env.windows": {
 			"PYTHONPATH": "${workspaceFolder}\\code\\single-period-model"
 		},
