@@ -21,8 +21,10 @@
 			"uncollateralized",
 		],
 		"cSpell.flagWords": [
-			"riskfree",
+			"cashflow",
+			"cashflows",
 			"pari-passu",
+			"riskfree",
 		],
 		"terminal.integrated.env.windows": {
 			"PYTHONPATH": "${workspaceFolder}\\code\\single-period-model"
