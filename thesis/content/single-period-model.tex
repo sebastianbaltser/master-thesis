@@ -211,6 +211,27 @@
         This is also the observed effect when comparing the new present value with the old 
         $76.80 - 77.04 = 0.24$.
 
+        The welfare transfer from shareholders to legacy creditors due to the new project 
+        suggests defining and quantifying the \FVA/ of the project. 
+        According to \cite{ADS2019} there are multiple ways of calculating \FVA/ used in practice and theory,
+        and a couple of viable definitions will be explained in the following.
+
+        Since the bank borrows funds for the project at a credit spread in excess of the risk free rate, 
+        the shareholders pays an additional rate when the firm does not default. 
+        This is a form of funding costs and argues in favor of defining the \FVA/ as
+        the present value of the funding costs in excess of the risk free rate paid by the shareholders: 
+        \begin{align}
+            \FVA/ 
+            &= \discountfactor \left(
+                U (1 + r_{f} + \tilde{s})
+                - U (1 + r_{f})
+            \right)
+            = \discountfactor U \tilde{s} \\
+            &= 0.99 * 9.90 * 2.83\%
+            = 0.2771
+        \end{align}
+        Since the entire credit spread is compensation for credit risk the \FVA/ defined here is the compensation provided to the creditors for the possibility that the bank might default. If the bank defaults this amount is not to be paid and the \FVA/ is therefore, in addition, equal to the expected benefit to the bank from defaulting, also known as the DVA. That the \FVA/ equals the DVA when credit spreads are merely compensation for credit risk, is shown by \cite{HullWhiteFVA}.
+
 
     \subsubsection{Funding by share issuance}
         Assume that the premium paid by the firm to the counterparty is funded with new equity instead of taking on debt from a new creditor. Doing so will create a dilution, and the value of the already existing shares, owned by the legacy shareholders, will be reduced. The counterparty of the new project which the firm enters is still supposed to be risk free, meaning that the payoff at time 1, $Y$, is known with certainty. What differences from funding a project with new creditors does this take have?
