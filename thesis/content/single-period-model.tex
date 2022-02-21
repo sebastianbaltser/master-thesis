@@ -162,16 +162,38 @@
         Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project.
         More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, why investing in the project is of negative value to the shareholders.
         When the firm defaults the shareholders still receive nothing, but in all other states where the firm does not default, the shareholders pay the present value of the interest owed to the new creditors due to the credit risk in the firm.
-        The loss of the shareholders can be calculated as: 
+        The observed decrease in shareholder value aligns well with 
+        \cref{eqn:marginal-shareholder-value-debt-financing}. 
+        The risk neutral default probability is 
+        $\mathbb{P}^{\mathbb{Q}}\left(\mathcal{D}\right) 
+            = \mathbb{P}^{\mathbb{Q}}\left(\{\omega_{4}, \omega_{5}\}\right) 
+            = 12.12\%$,
+        why $p^{\mathbb{Q}} = 87.88\%$.
+        The promised marginal profit of the new project is:
+        $\pi = 0.99 * 10 - 9.90 = 0$.
+        The payoff is constant, so the default event and the payoff have zero covariance. 
+        The expected default loss to creditors is 
+        $\mathbb{E}^{\mathbb{Q}}\left[\phi\right] = 2.72\%$,
+        and the limiting spread is therefore:
+        \begin{equation}
+            S 
+            = \frac{
+                2.72\% * (1 + r_{f})
+            }{
+                1 - 2.72\%
+            } 
+            = 2.83\%
+        \end{equation}
+        The marginal valuation to the legacy creditors is therefore:
+        \begin{equation}
+            \Phi 
+            = 87.88\% * \frac{1}{1+r_{f}}  * 9.90 * 2.83\% 
+            = 0.2435
+        \end{equation}
+
+        The loss of the shareholders can then be calculated as: 
             \begin{align}
-                -\mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{\{\tilde{\rho} < 1\}}
-                    \left(
-                        \tilde{D}*(1+r_{f} + \tilde{s})
-                        - Y
-                    \right)
-                \right]
-                = -0.2435
+                G = 87.88\%*0 - \frac{1}{1+r_{f}} * 0 - 0.2435 = -0.2435
             \end{align}
         This is the fair price of a security that pays the promised return of the new debt in every no default state and zero otherwise. 
         On the contrary, the investment is a positive net present value investment for the legacy shareholders.
