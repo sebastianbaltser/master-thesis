@@ -232,6 +232,13 @@
         \end{align}
         Since the entire credit spread is compensation for credit risk the \FVA/ defined here is the compensation provided to the creditors for the possibility that the bank might default. If the bank defaults this amount is not to be paid and the \FVA/ is therefore, in addition, equal to the expected benefit to the bank from defaulting, also known as the DVA. That the \FVA/ equals the DVA when credit spreads are merely compensation for credit risk, is shown by \cite{HullWhiteFVA}.
 
+        The FVA could also be defined by the quantity $\Phi$ in \cref{eqn:marginal-shareholder-value-debt-financing}, i.e. the marginal valuation of the new project to the firm's legacy creditors. This value is also equal to the wealth transfer from the shareholders to the creditors. Compared to the previous definition of FVA, $\Phi$ captures the expected funding cost as opposed to the excess funding cost.
+
+        Using this definition, the FVA is equal to:
+            \begin{equation}
+                \FVA/ = \Phi = 0.2435
+            \end{equation}
+        The two quantities differ by the no default probability, such that $0.2771 * (1-\mathbb{P}\left(\mathcal{D}\right)) = 0.2435$.
 
     \subsubsection{Funding by share issuance}
         Assume that the premium paid by the firm to the counterparty is funded with new equity instead of taking on debt from a new creditor. Doing so will create a dilution, and the value of the already existing shares, owned by the legacy shareholders, will be reduced. The counterparty of the new project which the firm enters is still supposed to be risk free, meaning that the payoff at time 1, $Y$, is known with certainty. What differences from funding a project with new creditors does this take have?
