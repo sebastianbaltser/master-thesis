@@ -155,7 +155,8 @@
                 \Leftrightarrow  \qquad
                 \tilde{D}_{FV} &= 10.28
             \end{align}
-        This face value implies an interest rate of $10.28 / 9.90 - 1 = 3.84\%$ and therefore a credit spread of $\tilde{D}_{CS} = 3.84\% - r_{f} = 2.83\%$.
+        This face value implies an interest rate of $10.28 / 9.90 - 1 = 3.84\%$
+        and therefore a credit spread of $\tilde{s} = 3.84\% - r_{f} = 2.83\%$.
         Entering into the project and issuing new debt with face value $10.28$ alters the payoffs associated with the firm in the following way:
         \begin{table}[H]
             \centering
@@ -172,26 +173,93 @@
         Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project.
         More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, why investing in the project is of negative value to the shareholders.
         When the firm defaults the shareholders still receive nothing, but in all other states where the firm does not default, the shareholders pay the present value of the interest owed to the new creditors due to the credit risk in the firm.
-        The loss of the shareholders can be calculated as: 
+        The observed decrease in shareholder value aligns well with 
+        \cref{eqn:marginal-shareholder-value-debt-financing}. 
+        The risk neutral default probability is 
+        $\mathbb{P}^{\mathbb{Q}}\left(\mathcal{D}\right) 
+            = \mathbb{P}^{\mathbb{Q}}\left(\omega_{5}\}\right) 
+            = 12.12\%$,
+        why $p^{\mathbb{Q}} = 87.88\%$.
+        The promised marginal profit of the new project is:
+        $\pi = 0.99 * 10 - 9.90 = 0$.
+        The payoff is constant, so the default event and the payoff have zero covariance. 
+        The expected default loss to creditors is 
+        $\mathbb{E}^{\mathbb{Q}}\left[\phi\right] = 2.72\%$,
+        and the limiting spread is:
+        \begin{equation}
+            S 
+            = \frac{
+                2.72\% * (1 + \rfrate)
+            }{
+                1 - 2.72\%
+            } 
+            = 2.83\%
+        \end{equation}
+        The marginal valuation to the legacy creditors can then be calculated as:
+        \begin{equation}
+            \Phi 
+            = 87.88\% * \frac{1}{1+\rfrate}  * 9.90 * 2.83\% 
+            = 0.2435
+        \end{equation}
+
+        The loss of the shareholders can then be calculated as: 
             \begin{align}
-                -\mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{\{\tilde{\rho} < 1\}}
-                    \left(
-                        \tilde{D}*(1+r_{f} + \tilde{D}_{CS})
-                        - Y
-                    \right)
-                \right]
-                = -0.2435
+                G = 87.88\%*0 - \frac{1}{1+\rfrate} * 0 - 0.2435 = -0.2435
             \end{align}
-        This is the fair price of a security that pays the promised return of the new debt in every no default state and zero otherwise. 
-        On the contrary, the investment is a positive net present value investment for the legacy shareholders.
+        This is also the fair price, with opposite sign, 
+        of a security that pays the promised return of the new debt in every no default state and zero otherwise. 
+        While the project is a negative net present value investment for the shareholders,
+        the investment is a positive net present value investment for the legacy creditors.
         When the firm does not default they still receive their promised payoff corresponding to the face value of their debt.
-        The new project has increased the asset base of the firm, and when the firm defaults the legacy creditors will share part of the payoff from the option with the new creditors.
+        The new project has increased the asset base of the firm, and when the firm defaults, 
+        the legacy creditors will share part of the payoff from the option with the new creditors.
         Hence, the legacy creditors receive a larger payoff when the firm defaults. 
 
-        The Modigliani-Miller invariance proposition assures that making a zero net present value investment does not increase the value of the firm.
-        Therefore, the welfare lost by the shareholders must be entirely transferred to the legacy creditors; increasing the present value of their debt claim by $0.2771$.
+        The Modigliani-Miller invariance proposition assures that making a zero net present value investment 
+        does not increase the value of the firm.
+        Therefore, the wealth lost by the shareholders must be entirely transferred to the legacy creditors 
+        increasing the present value of their debt claim by $-G = 0.2435$. 
+        This is also the observed effect when comparing the new present value with the old 
+        $77.04 - 76.80 = 0.24$.
 
+        The wealth transfer from shareholders to legacy creditors due to the new project 
+        suggests defining and quantifying the \FVA/ of the project. 
+        According to \cite{ADS2019} there are multiple ways of calculating \FVA/ used in practice and theory,
+        and a couple of viable definitions will be explained in the following.
+
+        Since the firm borrows funds for the project at a credit spread in excess of the risk free rate, 
+        the shareholders pays an additional rate when the firm does not default. 
+        This is a form of funding costs and argues in favor of defining the \FVA/ as
+        the present value of the funding costs in excess of the risk free rate paid by the shareholders: 
+        \begin{align}
+            \FVA/ 
+            &= \discountfactor \left(
+                U (1 + \rfrate + \tilde{s})
+                - U (1 + \rfrate)
+            \right)
+            = \discountfactor U \tilde{s} \\
+            &= 0.99 * 9.90 * 2.83\%
+            = 0.2771
+        \end{align}
+        Since the entire credit spread is compensation for credit risk ,
+        the \FVA/ defined here is the compensation provided to the creditors,
+        for the possibility that the firm might default. 
+        If the firm defaults, this amount is not to be paid and the \FVA/ is therefore, in addition, 
+        equal to the expected benefit to the firm from defaulting, also known as the DVA. 
+        That the \FVA/ equals the DVA when credit spreads are merely compensation for credit risk, is shown by \cite{HullWhiteFVA}.
+
+        The FVA could also be defined by the quantity $\Phi$ in \cref{eqn:marginal-shareholder-value-debt-financing}, 
+        i.e. the marginal valuation of the new project to the firm's legacy creditors. 
+        This value is also equal to the wealth transfer from the shareholders to the creditors. 
+        Compared to the previous definition of FVA, 
+        $\Phi$ captures the expected funding cost as opposed to the excess funding cost.
+
+        Using this definition, the FVA is equal to:
+            \begin{equation}
+                \FVA/ = \Phi = 0.2435
+            \end{equation}
+        The two quantities differ by the no default probability, such that 
+        $0.2771 * (1-\mathbb{P}\left(\mathcal{D}\right)) = 0.2435$.
 
     \subsubsection{Funding by share issuance}
         Assume that the premium paid by the firm to the counterparty is funded with new equity instead of taking on debt from a new creditor. 
