@@ -2,7 +2,8 @@
 \documentclass[12pt, a4paper]{article}
 
 \newcommand{\subfolder}{"content"}
-\input{\subfolder/preamble.tex}
+\input{\subfolder/tex-matter/preamble}
+\input{\subfolder/tex-matter/commands}
 
 \begin{document}
 	\subfile{\subfolder/front-matter/front-matter}
@@ -15,6 +16,3 @@
 	\subfile{\subfolder/end-matter/end-matter}
 	
 \end{document}
-
-
-
