@@ -1,18 +1,17 @@
 % !TeX spellcheck = en_UK
 \documentclass[12pt, a4paper]{article}
 
-\newcommand{\subfolder}{"content"}
-\input{\subfolder/tex-matter/preamble}
-\input{\subfolder/tex-matter/commands}
+\input{content/tex-matter/preamble}
+\input{content/tex-matter/commands}
 
 \begin{document}
-	\subfile{\subfolder/front-matter/front-matter}
+	\subfile{content/front-matter/front-matter}
 	
 	\newpage
-	\subfile{\subfolder/body-matter/body-matter}
-	\subfile{\subfolder/single-period-model}
+	\subfile{content/body-matter/body-matter}
+	\subfile{content/single-period-model}
 
 	\newpage
-	\subfile{\subfolder/end-matter/end-matter}
+	\subfile{content/end-matter/end-matter}
 	
 \end{document}
