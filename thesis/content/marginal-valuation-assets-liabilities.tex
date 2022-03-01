@@ -23,4 +23,35 @@
         \begin{equation}
             \pi(Y) = \discountfactor \mathbb{E}^{\mathbb{Q}} \left[Y\right]
         \end{equation}
+
+        If, however, the contingent liability, $Y^{-}$, is not fully secured, a specification of how the associated counterparty recovers, in case of the firm defaulting, is needed.
+        For simplicity it's assumed that the portion of unsecured contingent liabilities acquired by the firm ranks pari passu with each other, such that the various claimants' default recoveries are pro rata with their claim amounts.
+        In practice these liabilities often rank pari passu with the firm's senior creditors as well.
+        With $\mathcal{C}$ representing the firm's cash flows related to the portion of a total of $N$ unsecured contracts with different claimants, the value to the firm of these cash flows is given by:
+        \begin{equation}
+            \pi(\mathcal{C}) = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[
+            \sum_{i=1}^{N} \left(
+                \mathbbm{1}_{\mathcal{D}_{Y}^{c}}Y_{i}
+                + \mathbbm{1}_{\mathcal{D}_{Y}} Y_{i}^{+}
+                - \mathbbm{1}_{\mathcal{D}_{Y}} \rho_{i} \kappa A
+            \right)\right]
+        \end{equation}
+        where $Y = \sum_{i} Y_{i}$, and $\rho_{i} = Y_{i}^{-}/(L + Y_{i}^{-})$ is the pro rata share of contingent liability $i$.
+
+        The analysis can be extended to consider swap positions that include both secured as well as unsecured components.
+        For this motive the payoff is divided in two, such that $Y=Y_1 + Y_2$, where $Y_1^{-}$ reflects the secured contingent liability, and $Y_2^{-}$ reflects the unsecured contingent liability.
+        The financial position is still assumed to pay payoff at time 1 before considering the credit risk of the firm, and the unsecured contingent liability related to claimant $i$ is still assumed to rank pari passu with all other unsecured creditor claims.\\
+        For the contingent liability, $Y_1^{-}$, to be secured, $A+Y_1 > 0$ is a necessary condition, and therefore assumed.
+        $\mathcal{C}$ now reflects the cash flows of the firm, where each swap position can have both secured and unsecured positions, and the firm's valuation of the associated net time 1 cash flows is given by:
+        \begin{equation}
+            \pi(\mathcal{C}) = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[
+            \sum_{i=1}^{N} \left(
+                Y_{i,1}
+                + \mathbbm{1}_{\mathcal{D}_{Y}^{c}}Y_{i,2}
+                + \mathbbm{1}_{\mathcal{D}_{Y}} Y_{i,2}^{+}
+                - \mathbbm{1}_{\mathcal{D}_{Y}} \kappa (A + Y_{i,1}) \rho_{i}
+            \right)\right]
+        \end{equation}
+        where $\rho_{i} = Y_{i,2}^{-}/(L + Y_{i,2}^{-})$ is the pro rata share of contingent liability $i$.
+        
 \end{document}
