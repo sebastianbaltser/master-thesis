@@ -81,6 +81,36 @@
         In fact \cite[Section~9.4.1]{Green2015XVA} using the Burgard-Kjaer Semi-Replication model\footcite{BurgardKjaer2013Funding} shows that the existence of a repo market would eliminate the need for an FVA on derivatives. 
         
     \subsubsection{Funding costs from derivatives cashflows}
+        The fact that the dealer does not have access to risk-free funding
+        can have further contributions to the funding costs, besides that from collateral financing.
+        First, note that cash flows taking place in a derivative must also be funded at a non-risk-free rate
+        and that these cash flows can be used for netting other cash flows in the dealers portfolio.
+        The second point implies that with the existence of a perfect replication,
+        the cash flows from a derivative can be completely offset by the hedging strategy,
+        such that no additional funding is required and no funding costs are generated.
+
+        In reality, replications of OTC derivatives are most often imperfect,
+        such that there is no one-to-one correspondence in cash flows between the derivative and the hedge.
+        Of course, the dealer might not even try to hedge a derivative directly,
+        but rather let a netting set of cash flows offset each other. 
+        The principle is the same whether the derivative cash flows are offset by an imperfect hedge
+        or another different derivative;
+        both are again sources of funding cost, which can be illustrated by the following examples,
+        due to \cite[Section~12.3]{Ruiz2015XVA}.
+
+        One source of funding costs, where the dealer does not hedge, occurs when trading simple options.
+        Selling an option entitles the dealer to the option premium,
+        which decreases the funding needs elsewhere in the organization,
+        while buying an option has the opposite effect. 
+        Another source of funding costs materializes in the next example when the dealer applies an imperfect hedge.
+        The dealer have entered into a 10 year OTC swap with semi-annual payments, 
+        but for the replication the dealer is only able to obtain a 10 year swap with quarterly payments.
+        As a result, the dealer will have a cash flow from the hedge every three months
+        that does not correspond to the cash flow from the OTC derivative. 
+        Both of these are examples of funding costs essentially stemming from the lack of perfect hedging.
+
+        Having established some possible sources of funding costs, 
+        the discussion can move on to the debate about whether accounting for these is appropriate for derivates pricing.
 
 \end{document}
         
