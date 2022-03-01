@@ -268,7 +268,7 @@
         What differences from funding a project with new creditors does this take have?
 
         The new shareholders will subscribe to the newly issued shares only to the extent that the investment has a net present value of zero; paying an amount equal to the premium of the derivative, $\pi(Y)$:
-        \begin{equation}
+        \begin{equation}\label{eqn:derivative-zero-npv}
             \pi(Y) = \pi(\tilde{S})
         \end{equation}
         Intuitively, the total asset value will then increase by the fair value of the derivative, and, all things being equal, the project will result in more value left for the creditors in the default state. 
@@ -280,7 +280,7 @@
         The wealth transferred is significantly higher than in the case of debt funding because the legacy creditors are not obliged to share the payoff of the derivative with other new creditors in the case of default. 
         The derivative contract has no impact on the total asset value of the firm, and the funding cost are borne by the legacy shareholders.
 
-        Assume a firm enters a risk free project with a known payoff of $Y=10$. 
+        Assume a firm enters a risk free project with a known payoff at time 1 of $Y=10$. 
         The present value of the derivative is then $10/(1+0.10)=9.90$. 
         The payoff of the derivative is added to the firm's total asset value. 
         While the payoff of the legacy creditors, with a face value of 80, only change in the default state, the payoff of the shareholders is computed slightly differently than in the case of debt issuance. 
@@ -314,22 +314,37 @@
         \end{equation}
         This amount is also what is referred to as the transfer of wealth, $\Delta W$, when no excess yield/donation is received on the derivative. 
         The wealth transfer is higher than in the case of debt funding, hence share holders will always prefer debt funding over equity funding. 
-        This result is also justified by the \textit{pecking order theory} as described by \cite{ADS2016}: "Proposition 2: Suppose that the firm's probability of default is not zero and that the marginal investment cost is strictly positive. The marginal value to the firm's existing shareholders of financing the investment with existing cash is strictly higher than the marginal value under debt financing, which in turn is strictly higher than the marginal value under equity financing."
+        This result is also justified by the \textit{pecking order theory} as described by \cite{ADS2019}: "Proposition A1: Suppose that the firm's probability of default is not zero and that the marginal investment cost is strictly positive. The marginal value to the firm's existing shareholders of financing the investment with existing cash is strictly higher than the marginal value under debt financing, which in turn is strictly higher than the marginal value under equity financing."
 
         The project is a positive net present value investment for the creditors. 
         Their increase in wealth is computed as:
-        \begin{equation}
+        \begin{equation}\label{eqn:wealth-transfer-equality}
             \Delta \pi(D) = -\Delta \pi(S) = 78.00 - 76.80 = 1.20
         \end{equation}
         The value of the debt increases, since the creditors get the entire derivative's receivables in the default state.\\
         A possible donation by the counterparty would also have to be significantly higher than in the case of debt funding for the legacy shareholders' equity value to be left unaffected by the investment. 
-        Whether the counterparty benefits from this remains indeterminate.
 
-        The marginal impact on the bank's balance sheet of entering the project is given by:
+        The marginal impact on the firm's balance sheet of entering the project is given by:
         \begin{equation}
             \pi(A) + \pi(Y) = (\pi(S) + \Delta \pi(S) + \pi(\tilde{S})) + (\pi(D) + \Delta \pi(D))
         \end{equation}
+        where $\pi(\tilde{S})$ is the market value of the newly issued equity. 
+        \Cref{eqn:wealth-transfer-equality} implies that:
+        \begin{equation}
+            \pi(A) + \pi(Y) = (\pi(S) + \pi(\tilde{S})) + \pi(D)
+        \end{equation}
+        As mentioned in \cref{eqn:derivative-zero-npv}, the firm assumes to raise an amount of new equity equal to the premium of the derivative. 
+        This means that the Modigliani-Miller invariance proposition holds, and also shows, that regardless of the strategy of funding a financial project, the funding costs has no impact on the valuation of the derivative nor the asset base of the firm itself.
 
-        The funding costs\dots
+        When trading decisions are made, the firm's preferences are assumed to be determined by the shareholders.
+        However, in the case of funding by share issuance, it's clear that the legacy shareholders' position deteriorates, as they bear the funding costs.\\
+        An adjustment to the value of the derivative would require a donation by the counterparty, such that the value of derivatives' receivables would be worth more than the premium.
+        This should only go to an extent so that the legacy shareholders become indifferent of whether the the firm enters the project or not.
+        But whether the counterparty has incentives to do so requires more information about their capital structure, and will remain indeterminate.
+        The project should not be adjusted for funding costs, and the value of the firm is not affected by the funding costs required by derivative receivables.\\
+        These conclusions hold for both types of funding, but the amount of wealth transfer does depend on the instrument used. Shareholders are worse off with share issuance than with debt issuance.
+        The availability of cash in the firm's deposits would solve the issue faced by the shareholders:
+        Suppose the firm uses their own cash to purchase the derivative from the counterparty at a market fair value.
+        This is a zero net present value investment for the firm, where, in addition, no wealth is transferred from the shareholders, and neither does the creditors become better off. 
 
 \end{document}
