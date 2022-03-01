@@ -1,9 +1,7 @@
-% !TEX root = ../main.tex
-\documentclass[../main.tex]{subfiles}
+% !TEX root = ../../../main.tex
+\documentclass[../../../main.tex]{subfiles}
 
 \begin{document}
-    \section{The FVA Debate}
-
     \subsection{The origin of Funding Value Adjustments}
         Before the financial crisis of 2008, the spreads on CDS signed on banks were very low. 
         As banks were considered almost risk-free, 
@@ -34,129 +32,6 @@
         Before diving into the implications of differing funding costs, or the lack thereof,
         and the discussion of whether applying FVAs are appropriate,
         the circumstances that fosters funding costs will be explored in the following section.
-
-    \subsection{Summary of the FVA Debate}
-        Theoreticians and practitioners have long been debating the use of Funding Value Adjustments (FVA) when determining the prices of derivatives.
-        The discussion is specifically whether an FVA should be made to account for the funding costs of entities buying or selling derivatives.
-        The paper of \cite{HullWhiteFVA} argues FVA should generally not be made,
-        but provides a summary of the debate that serves as a good starting point for further discussion of the topic.
-        This summary is paraphrased in the the following paragraphs where the arguments of different parties are presented:
-
-        \begin{description}
-            \item[Traders] The traders selling or buying derivatives will incur the funding cost of the derivative as charged by the funding desk of the bank.
-            For derivatives that requires funding this will amount to a loss for the traders,
-            unless they take into account the funding cost when pricing the derivatives.
-            In other words traders must make an FVA. 
-            \item[Accountants] The accountants seek to value derivatives at their exit price, i.e. the price that clears the market,
-            which is dependent on how other market participants price the transaction.
-            To determine the value of derivatives accountants uses the notion of \textit{fair value}.
-            The fair value of a derivative is defined as \textit{the price that would be received from the sale of an asset or paid to transfer a liability in an orderly transaction between market participants at the measurement date}\footcite{IFRS13}.
-            In addition, the fair value is clearly described in \cite{IFRS13} as being market based and not entity based,
-            which rules out using the entity specific funding cost when evaluating prices.
-            From the accountants point of view making an FVA can lead to multiple fair values for the same transaction,
-            why they oppose this practice.
-            \item[Theoreticians] Theoreticians argue that finance theory requires that the discount rate for a project should be determined by the risk of the project.
-            This conflicts with the practice of using an FVA in derivatives pricing,
-            which corresponds to replacing the risk-free rate by the higher funding cost of the entity doing the derivatives pricing.
-            Thus theoreticians claims that there is no theoretical basis for making an FVA.
-        \end{description}
-
-        The arguments of theoreticians like Hull and White are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
-        The price of a derivative can be obtained by replicating the cash flows of the derivative with a self-financing trading strategy, 
-        since, in the absence of arbitrage, the value of the trading strategy and the derivative in question must be equal.
-        The assumptions in this theoretical setup is however 
-        that the replication can be funded by borrowing and lending endlessly at the risk-free rate.
-        This seems at odds with how the actual real markets behaves and how much funding costs.
-        Different entities will obtain funding at different costs due to size,
-        default risk and multiple other market frictions,
-        and interest rate spreads between collateralized and unsecured funding is significant.
-
-        Arguments supporting this apparent shortcoming of the traditional derivative valuation frameworks are presented in the following section by discussing how funding costs can arise from the aforementioned market frictions.
-    
-    \subsection{Funding costs causing asymmetric valuations}
-        When a corporation decides to enter a deal with the bank on a derivative transaction,
-        it's because the fair value of the transaction to them is greater than the price.
-        On the other hand, the banks valuation of the transaction is different,
-        since the two counterparties are in two completely different situations.
-        This difference is partially caused by the funding costs,
-        which for the corporate is derived from the market costs of borrowing funds,
-        as well as the costs from raising funds by the normal business activities.
-        The funding costs of the bank are in contrary derived from treasury activities such as wholesale funding.
-        This difference in the valuation doesn't have to mean that the transaction will never occur 
-        as long as they can agree on a price, that doesn't neglect either of the fair values.
-
-        The asymmetry between the valuation of a transaction between two counterparties with two different positions in the market can be explained by other components as well.
-        The portfolio management is different in the sense,
-        that in the bank the derivative is a part of a large derivative portfolio with many counterparties,
-        whereas in the the corporation most likely uses the derivative to hedge balance sheet exposures,
-        and provide better cash flow management.
-        Also, the corporation does not have to place any regulatory capital against the position,
-        but the bank must in contrary have the appropriate regulatory capital in place.
-
-        (Even the transaction made between two banks can have asymmetric valuations.)
-
-    \subsection{Sources of funding costs}
-        In the context of an OTC derivatives dealer,
-        \cite{Ruiz2013FVA} states that funding costs can have two different sources,
-        both of which will be discussed in the following sections. 
-
-    \subsubsection{Funding costs from asymmetrical collateral agreements}
-        Imagine a derivatives dealer trading OTC derivatives.
-        The dealer sells an unsecured OTC derivative to a counterparty.
-        To avoid the market risk of the investment the dealer will perform the opposite (perhaps synthetical) trade with an exchange,
-        i.e. the dealer hedges its market risk to the counterparty.
-        The exchange requires full collateralization.
-        Any collateral that needs to be posted to the exchange must be borrowed from the dealer's funding institution.
-        The loan is unsecured why the funding institution charges a spread,
-        more specifically the dealer pays the rate $OIS + \text{funding spread}$.
-        The collateral posted at the exchange is of course secured by the actual investment demanding the collateral and therefore earns the $OIS$ rate.
-        The difference between the interest paid on the loan and the interest earned on the collateral is the funding cost suffered by the derivatives dealer for entering the trade with the counterparty. 
-
-        The funding cost can be reduced if the dealer has in place a CSA agreement allowing rehypothication with the counterparty.
-        The posting of collateral by the counterparty reduces the credit risk of the dealer,
-        but the dealer still faces the market risk from the derivative so again it creates a market risk hedge at the exchange.
-        Yet, since rehypothication is allowed,
-        the collateral posted by the counterparty can be passed onto the exchange as collateral demanded by the hedge.
-        This reduces the dealer's need for borrowing unsecured funds from the funding institution and ultimately reduces the funding costs of the dealer.
-        However the funding costs are still present to the extent that the collateral agreement with the counterparty is asymmetric to that with the exchange.
-        The dealer still need to borrow the difference from the funding institution.
-        In case the two collateral agreements are identical the funding cost will be eliminated since the collateral received from the counterparty will completely suffice as collateral posted to the exchange.
-
-        Funding costs, such as this, has left financial institutions justifying an adjustment to the price of the derivatives
-        corresponding to the funding cost they will suffer from the trade.
-        This justification is however refused by \cite{HullWhite2012FVA}.
-        They state that, since a hedge consists of buying and selling assets for their market prices,
-        performing a hedge is an investment with zero net present value.
-        Exchanging money for assets of identical value,
-        is simply moving value around and these operations should not influence valuations. 
-
-        Nonetheless, as the previous example shows,
-        trading OTC derivatives with no market for repurchase agreements will require unsecured funding,
-        which will entail paying an interest rate above the $OIS$.
-        Even when repo markets exists, hedging might require unsecured funding,
-        which can be shown with an example by \cite{Castagna2012FVA}.
-        Consider a dealer buying a european call option,
-        with the intention to hedge the market risk.
-        To create the replication strategy the dealer must short an amount of the underlying asset corresponding to the option Delta of the call option.
-        If the underlying asset can be sold at repo the dealer will receive the repo rate.
-        However to pay the premium for the call option the dealer must borrow unsecured funds from its funding institution,
-        paying again the funding spread. 
-
-        In any case,
-        the funding spread could very well be part of the hedging strategy which makes it undeniable for dealers when performing valuation of the initial investments.
-
-        Another argument proposed by \cite{HullWhite2012FVA} is the fact that dealers buys Treasury instruments and other low-yielding assets returning less than the dealers' average funding cost.
-        They do this without applying an FVA and the implication of the argument is that there is an inconsistency in dealer practice,
-        as the low-yielding instruments would be unprofitable if an FVA was made.
-        The previous discussion however nests an explanation for this dealer behavior.
-        For Treasury instruments and the like,
-        very developed repo markets exists such that the purchase of these instruments can be financed with secured funding.
-        Consequently the funding cost of buying these instruments is likely much lower than the dealers' average funding cost,
-        which partly explain why dealers willingly buy them.
-        As shown by the example of the OTC derivatives dealer the lack of a repo market for derivatives is exactly the reason why funding costs appears in the first place.
-        In fact \cite[Section~9.4.1]{Green2015XVA} using the Burgard-Kjaer Semi-Replication model\footcite{BurgardKjaer2013Funding} shows that the existence of a repo market would eliminate the need for an FVA on derivatives. 
-        
-    \subsubsection{Funding costs from derivatives cashflows}
 
 \end{document}
         
