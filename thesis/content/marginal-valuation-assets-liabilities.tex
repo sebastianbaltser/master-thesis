@@ -7,6 +7,12 @@
         The firm will default at event $\mathcal{D}_K=\{A + K<L\}$, i.e. when the firm no longer have enough assets to cover the liabilities, including the firm's debt, at which distress costs may occur.
         $K$ represents the project(s) that the firm has entered, which initially is assumed to be none.
         The distress costs refer to the excess expenses from the usual business costs, that the firm faces when it's unable to meet its financial obligations.
-        The net asset value of the firm after defaulting, with the distress costs comprised, is $\kappa A$.
+        The net asset value of the firm after defaulting, with the distress costs comprised, is $\kappa A$ for some recovery rate, $\kappa$.
+        The market values of the firm's debt and equity are then computed respectively as:
+        \begin{align}
+            \pi(D) &= \discountfactor \mathbb{E}^{\mathbb{Q}}\left[\max\left(A-L,0\right)\right]\\
+            \pi(S) &= \discountfactor \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\{\mathcal{D}_{K}\}}\kappa A + \mathbbm{1}_{\{\mathcal{D}_{K}^c\}}L\right]
+        \end{align}
+        where $\mathcal{D}_{K}^c = \{A + K \geq L\}$ is the event of no default.
         
 \end{document}
