@@ -44,6 +44,20 @@
         In case the two collateral agreements are identical, the funding cost will be eliminated, 
         since the collateral received from the counterparty will completely suffice as collateral posted to the exchange.
 
+        These examples should display how a derivatives dealer might face funding costs,
+        when the lack of perfect symmetry in collateral needs drives the obtainment of unsecured funding.
+        It might be argued that the funding costs could be eliminated by trading derivatives,
+        whose replication can be operated by repurchase agreements. 
+        Seemingly, buying the hedging strategy at repo should eliminate the need for unsecured financing
+        and thus the funding costs. 
+        However, even when repo market exists, hedging might require unsecured funding,
+        which can be shown with an example by \cite{Castagna2012FVA}.
+        Consider a dealer buying a european call option, with the intention to hedge the market risk.
+        To create the replication strategy the dealer must short an amount of the underlying asset corresponding to the option Delta of the call option.
+        If the underlying asset can be sold at repo the dealer will receive the repo rate.
+        However to pay the premium for the call option the dealer must borrow unsecured funds from its funding institution,
+        paying again the funding spread. 
+
         Funding costs, such as this, has left financial institutions justifying an adjustment to the price of the derivatives
         corresponding to the funding cost they will suffer from the trade.
         This justification is however refused by \cite{HullWhite2012FVA}.
@@ -51,18 +65,6 @@
         performing a hedge is an investment with zero net present value.
         Exchanging money for assets of identical value,
         is simply moving value around and these operations should not influence valuations. 
-
-        Nonetheless, as the previous example shows,
-        trading OTC derivatives with no market for repurchase agreements will require unsecured funding,
-        which will entail paying an interest rate above the \OIS/.
-        Even when repo markets exists, hedging might require unsecured funding,
-        which can be shown with an example by \cite{Castagna2012FVA}.
-        Consider a dealer buying a european call option,
-        with the intention to hedge the market risk.
-        To create the replication strategy the dealer must short an amount of the underlying asset corresponding to the option Delta of the call option.
-        If the underlying asset can be sold at repo the dealer will receive the repo rate.
-        However to pay the premium for the call option the dealer must borrow unsecured funds from its funding institution,
-        paying again the funding spread. 
 
         In any case,
         the funding spread could very well be part of the hedging strategy which makes it undeniable for dealers when performing valuation of the initial investments.
