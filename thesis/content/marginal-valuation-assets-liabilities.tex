@@ -4,7 +4,7 @@
 \begin{document}
     \subsection{Marginal valuation of corporate assets and liabilities}
         Consider a firm whose assets, $A$, and liabilities, $L$, have payoff at time 1 before any other additional trades or transactions.        
-        The firm will default at event $\mathcal{D}_K=\{A + K<L\}$, i.e. when the firm no longer have enough assets to cover the liabilities, including the firm's debt, at which distress costs may occur.
+        The firm will default at event $\mathcal{D}_K=\{A + K<L\}$, i.e. when the firm no longer have enough assets to cover the liabilities, at which distress costs may occur.
         $K$ represents the project(s) that the firm has entered, which initially is assumed to be none.
         The distress costs refer to the excess expenses from the usual business costs, that the firm faces when it's unable to meet its financial obligations.
         The net asset value of the firm after defaulting, with the distress costs comprised, is $\kappa A$ for some recovery rate, $\kappa$.
@@ -26,7 +26,7 @@
 
         If, however, the contingent liability, $Y^{-}$, is not fully secured, a specification of how the associated counterparty recovers, in case of the firm defaulting, is needed.
         For simplicity it's assumed that the portion of unsecured contingent liabilities acquired by the firm ranks pari passu with each other, such that the various claimants' default recoveries are pro rata with their claim amounts.
-        In practice these liabilities often rank pari passu with the firm's senior creditors as well.
+        In practice these liabilities more often rank pari passu with the firm's senior creditors as well.
         With $\mathcal{C}$ representing the firm's cash flows related to the portion of a total of $N$ unsecured contracts with different claimants, the value to the firm of these cash flows is given by:
         \begin{equation}
             \pi(\mathcal{C}) = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[
@@ -36,7 +36,7 @@
                 - \mathbbm{1}_{\mathcal{D}_{Y}} \rho_{i} \kappa A
             \right)\right]
         \end{equation}
-        where $Y = \sum_{i} Y_{i}$, and $\rho_{i} = Y_{i}^{-}/(L + Y_{i}^{-})$ is the pro rata share of contingent liability $i$.
+        where $Y = \sum_{i} Y_{i}$ is the portfolio of investments that the firm has undertaken, and $\rho_{i} = Y_{i}^{-}/(L + Y_{i}^{-})$ is the pro rata share of contingent liability $i$. 
 
         The analysis can be extended to consider swap positions that include both secured as well as unsecured components.
         For this motive the payoff is divided in two, such that $Y=Y_1 + Y_2$, where $Y_1^{-}$ reflects the secured contingent liability, and $Y_2^{-}$ reflects the unsecured contingent liability.
