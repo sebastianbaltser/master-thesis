@@ -16,10 +16,33 @@
         This summary is paraphrased in the the following paragraphs where the arguments of different parties are presented:
 
         \begin{description}
-            \item[Traders] The traders selling or buying derivatives will incur the funding cost of the derivative as charged by the funding desk of the bank.
-            For derivatives that requires funding this will amount to a loss for the traders,
-            unless they take into account the funding cost when pricing the derivatives.
-            In other words traders must make an \FVA/. 
+            \item[Traders] The traders in the derivatives desk selling or buying derivatives 
+            will incur the average funding cost of the bank as charged by the funding desk.
+            For derivatives that require funding the funding desk will charge funding costs from the traders.
+            If the traders does not take into account the funding cost when pricing the derivatives,
+            a loss will be shown for trades that require funding.
+            Imagine, for example, a trader buying a simple option at some upfront price.
+            The option have some theoretical price or value that might have been calculated by assuming
+            that financing could be obtained at risk-free rates. 
+            Should the trader buy the option at this theoretical price, 
+            she will be making a negative net present value investment, 
+            because the actual funding rate on the upfront is \textit{above} the risk-free rate. 
+            The funding desk will charge the actual funding rate; not the risk-free rate.
+            Rather, the trader should assess the funding cost of the trade 
+            and buy the option at the theoretical price adjusted by the funding cost,
+            in order to break even on the value of the trade.
+            In other words, the trader should make an \FVA/, 
+            since the funding rate is a very real cost, which the trader will be subject to.
+            
+            "The traders" in this argument might as well be other stakeholders that makes decisions about new investments.
+            In a less complex setup "the funding desk" could simply be the creditors and "the traders" the company itself.
+            The company might be making decision in a way that optimizes shareholder value
+            and therefore align its interests with them.
+            Shareholders experience the same issue as traders of being charged funding costs on investments, 
+            and will therefore be just as eager to evaluating investments in light of the funding costs that they generate.
+            This simple setup of creditors versus shareholders, 
+            will later provide a medium through which the impact of funding costs can be explored.
+
             \item[Accountants] The accountants seek to value derivatives at their exit price, i.e. the price that clears the market,
             which is dependent on how other market participants price the transaction.
             To determine the value of derivatives accountants uses the notion of \textit{fair value}.
