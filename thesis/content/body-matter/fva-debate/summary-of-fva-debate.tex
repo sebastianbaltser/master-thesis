@@ -80,10 +80,56 @@
             and banks use the funding costs of other market participants as reference.
 
             \item[Theoreticians]
-            Theoreticians argue that finance theory requires that the discount rate for a project should be determined by the risk of the project.
-            This conflicts with the practice of using an \FVA/ in derivatives pricing,
-            which corresponds to replacing the risk-free rate by the higher funding cost of the entity doing the derivatives pricing.
+            Theoreticians, like Hull \& White themselves, 
+            argue that finance theory requires the discount rate for a project to be determined by the risk of the project.
+            Using an \FVA/ in derivatives pricing corresponds to replacing the risk-free rate by the higher funding cost
+            when discounting cash flows.
+            Hence, the value of the project will seemingly depend on the riskiness of the firm that undertakes the project.
             Thus theoreticians claims that there is no theoretical basis for making an \FVA/.
+            \cite{HullWhite2012FVA} uses the following example to shed some light on this argument:
+
+            Suppose a firm with an average excess funding rate of $200\basispoint$. 
+            The firm considers obtaining a new nearly risk-free project with a promised excess return of $30\basispoint$,
+            such that the theoretical price of the project is the cash flows 
+            discounted by the risk-free rate plus $30\basispoint$.
+            However, the project is trading at a discount compared to the theoretical price,
+            specifically, at the price offered it promises an excess return of $80\basispoint$.
+            
+            Based on the information provided, \cite{HullWhite2012FVA} argues that the project should be undertaken,
+            since the project trades at a discount and therefore has a positive net present value.
+            Furthermore, as the firm's average excess funding cost exceeds the excess yield of the project, 
+            the average riskiness of the firm's existing projects exceeds the riskiness of the new project.
+            Acquiring the new project would therefore reduce the firm's riskiness,
+            which should reduce the credit spread on new debt and therefore also reduce the funding costs of the firm.
+            
+            From a theoretical perspective the conclusion of \cite{HullWhite2012FVA} does seem plausible. 
+            Obtaining the project is a positive NPV investment, 
+            so surely the firm should be able to find some distribution of the value to the stakeholders, 
+            such that obtaining the project is a positive NPV for all entities.
+            The project counterparty is essentially providing a donation, 
+            and some providers of funding should be willing to finance the project for a share of the donation.
+            However, the problem with this example and the conclusion becomes apparent,
+            when considering how the example would play out in reality. 
+            The project might very well have such a low risk that an excess yield of $30\basispoint$ is justified, 
+            but, according to \cite[Section 3]{Castagna2012FVA}, 
+            the financing cost of the firm will usually only gradually update to reflect change in riskiness.
+            In reality the firm will also be quite restrained 
+            in the way it can distribute the value obtained from the project.
+            The firm can experience a free rider problem, 
+            where the profits from the project might not be earned by the ones financing it,
+            since the project's payoffs will be a part of the asset poll of the firm,
+            which different stakeholders have claims on.
+
+            Further investigation into the mechanisms of this apparent firm friction,
+            will be postponed to later sections where a framework has been developed,
+            and a more concrete discussion can be ensured.  
+            For the time being the argument will be ended with the result that, 
+            while the theoretical conclusion is simply that a project trading at a discount should be obtained,
+            the practical conclusion is less clearcut.
+            Even when the project counterparty is making a donation through the discount,
+            the firm might not be able to properly distribute the donation to entities,
+            in a way that makes the project feasible.
+
         \end{description}
 
         The arguments of theoreticians like Hull and White are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
