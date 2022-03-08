@@ -1,0 +1,122 @@
+% !TEX root = ../../../main.tex
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Sources of funding costs}
+        In the context of an OTC derivatives dealer, 
+        \cite{Ruiz2013FVA} mentions some of the most likely sources of funding costs as
+        either asymmetry in collateral agreements or the payment liabilities due to the contract itself.
+        Both of these sources will be discussed in the following sections.
+
+    \subsubsection{Funding costs from asymmetrical collateral agreements}
+        Like CVAs, funding costs can be viewed as a component of the cost of trading derivates
+        that are not subject to a perfect CSA agreement.
+        A perfect CSA agreement would require collateral to be posted continuously with no thresholds on the margin amounts,
+        such that counterparty exposure is effectively eliminated.
+        An often needed constituent of the derivatives dealer's portfolio
+        is trades that has the sole purpose of hedging market risk,
+        which is brought in by the dealer's financial contracts with its counterparties.
+        When the collateralization scheme with a derivative counterparty is imperfect, 
+        the collateral postings will most likely not match the collateral postings stemming from the market risk hedges.
+        This is often the case as the dealer will likely hedge market risk in an exchange requiring full collateralization.
+        Imbalance between the collateral schemes of the OTC deals and the market risk hedges
+        is exactly the facility of funding costs, with which this section is concerned.
+        This source of funding cost is best observed in the most extreme case, where the dealer trades unsecured derivatives. 
+
+        Imagine that the derivatives dealer is selling an unsecured OTC derivative to a counterparty.
+        In order to avoid the market risk of the investment, 
+        the dealer will perform the opposite (perhaps synthetical) trade with an exchange,
+        i.e. the dealer hedges its market risk to the counterparty.
+        The exchange requires full collateralization.
+        Any collateral that needs to be posted to the exchange must be borrowed from the dealer's funding institution.
+        The loan is unsecured why the funding institution charges a spread,
+        more specifically the dealer pays the rate $\OIS/ + \text{funding spread}$.
+        The collateral posted at the exchange is secured by the actual investment demanding the collateral,
+        and therefore earns the \OIS/ rate.
+        The difference between the interest paid on the loan and the interest earned on the collateral is the funding cost;
+        suffered by the derivatives dealer for entering the trade with the counterparty. 
+
+        The funding cost can be reduced if the dealer has in place a CSA agreement allowing rehypothication with the counterparty.
+        The posting of collateral by the counterparty reduces the credit risk of the dealer,
+        but the dealer still faces the market risk from the derivative, 
+        so again it creates a market risk hedge at the exchange.
+        Yet, since rehypothication is allowed,
+        the collateral posted by the counterparty can be passed onto the exchange as collateral demanded by the hedge.
+        This reduces the dealer's need for borrowing unsecured funds from the funding institution 
+        and ultimately reduces the funding costs of the dealer.
+        However, funding costs are still present, 
+        at least to the extent that the collateral agreement with the counterparty is asymmetric to that with the exchange.
+        The dealer still need to borrow the difference from the funding institution.
+        In case the two collateral agreements are identical, the funding cost will be eliminated, 
+        since the collateral received from the counterparty will completely suffice as collateral posted to the exchange.
+
+        These examples should display how a derivatives dealer might face funding costs,
+        when the lack of perfect symmetry in collateral needs drives the obtainment of unsecured funding.
+        It might be argued that the funding costs could be eliminated by trading derivatives,
+        whose replication can be operated by repurchase agreements. 
+        Seemingly, buying the hedging strategy at repo should eliminate the need for unsecured financing
+        and thus the funding costs. 
+        However, even when repo market exists, hedging might require unsecured funding,
+        which can be shown with an example by \cite{Castagna2012FVA}.
+        Consider a dealer buying a european call option, with the intention to hedge the market risk.
+        To create the replication strategy the dealer must short an amount of the underlying asset corresponding to the option Delta of the call option.
+        If the underlying asset can be sold at repo the dealer will receive the repo rate.
+        However to pay the premium for the call option the dealer must borrow unsecured funds from its funding institution,
+        paying again the funding spread. 
+
+        Funding costs, such as this, has left financial institutions justifying an adjustment to the price of the derivatives
+        corresponding to the funding cost they will suffer from the trade.
+        This justification is however refused by \cite{HullWhite2012FVA}.
+        They state that, since a hedge consists of buying and selling assets for their market prices,
+        performing a hedge is an investment with zero net present value.
+        Exchanging money for assets of identical value,
+        is simply moving value around and these operations should not influence valuations. 
+
+        In any case,
+        the funding spread could very well be part of the hedging strategy which makes it undeniable for dealers when performing valuation of the initial investments.
+
+        Another argument proposed by \cite{HullWhite2012FVA} is the fact that dealers buys Treasury instruments and other low-yielding assets returning less than the dealers' average funding cost.
+        They do this without applying an FVA and the implication of the argument is that there is an inconsistency in dealer practice,
+        as the low-yielding instruments would be unprofitable if an FVA was made.
+        The previous discussion however nests an explanation for this dealer behavior.
+        For Treasury instruments and the like,
+        very developed repo markets exists such that the purchase of these instruments can be financed with secured funding.
+        Consequently the funding cost of buying these instruments is likely much lower than the dealers' average funding cost,
+        which partly explain why dealers willingly buy them.
+        As shown by the example of the OTC derivatives dealer the lack of a repo market for derivatives is exactly the reason why funding costs appears in the first place.
+        In fact \cite[Section~9.4.1]{Green2015XVA} using the Burgard-Kjaer Semi-Replication model\footcite{BurgardKjaer2013Funding} shows that the existence of a repo market would eliminate the need for an FVA on derivatives. 
+        
+    \subsubsection{Funding costs from derivatives cash flows}
+        The fact that the dealer does not have access to risk-free funding
+        can have further contributions to the funding costs, besides that from collateral financing.
+        First, note that cash flows taking place in a derivative must also be funded at a non-risk-free rate
+        and that these cash flows can be used for netting other cash flows in the dealers portfolio.
+        The second point implies that with the existence of a perfect replication,
+        the cash flows from a derivative can be completely offset by the hedging strategy,
+        such that no additional funding is required and no funding costs are generated.
+
+        In reality, replications of OTC derivatives are most often imperfect,
+        such that there is no one-to-one correspondence in cash flows between the derivative and the hedge.
+        Of course, the dealer might not even try to hedge a derivative directly,
+        but rather let a netting set of cash flows offset each other. 
+        The principle is the same whether the derivative cash flows are offset by an imperfect hedge
+        or another different derivative;
+        both are again sources of funding cost, which can be illustrated by the following examples,
+        due to \cite[Section~12.3]{Ruiz2015XVA}.
+
+        One source of funding costs, where the dealer does not hedge, occurs when trading simple options.
+        Selling an option entitles the dealer to the option premium,
+        which decreases the funding needs elsewhere in the organization,
+        while buying an option has the opposite effect. 
+        Another source of funding costs materializes in the next example when the dealer applies an imperfect hedge.
+        The dealer have entered into a 10 year OTC swap with semi-annual payments, 
+        but for the replication the dealer is only able to obtain a 10 year swap with quarterly payments.
+        As a result, the dealer will have a cash flow from the hedge every three months
+        that does not correspond to the cash flow from the OTC derivative. 
+        Both of these are examples of funding costs essentially stemming from the lack of perfect hedging.
+
+        Having established some possible sources of funding costs, 
+        the discussion can move on to the debate about whether accounting for these is appropriate for derivates pricing.
+
+\end{document}
+        

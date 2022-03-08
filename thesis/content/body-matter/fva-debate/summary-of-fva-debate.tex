@@ -1,0 +1,66 @@
+% !TEX root = ../../../main.tex
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Summary of the FVA Debate}
+        Theoreticians and practitioners have long been debating the use of Funding Value Adjustments (FVA) when determining the prices of derivatives.
+        The discussion is specifically whether an FVA should be made to account for the funding costs of entities buying or selling derivatives.
+        The paper of \cite{HullWhiteFVA} argues FVA should generally not be made,
+        but provides a summary of the debate that serves as a good starting point for further discussion of the topic.
+        This summary is paraphrased in the the following paragraphs where the arguments of different parties are presented:
+
+        \begin{description}
+            \item[Traders] The traders selling or buying derivatives will incur the funding cost of the derivative as charged by the funding desk of the bank.
+            For derivatives that requires funding this will amount to a loss for the traders,
+            unless they take into account the funding cost when pricing the derivatives.
+            In other words traders must make an FVA. 
+            \item[Accountants] The accountants seek to value derivatives at their exit price, i.e. the price that clears the market,
+            which is dependent on how other market participants price the transaction.
+            To determine the value of derivatives accountants uses the notion of \textit{fair value}.
+            The fair value of a derivative is defined as \textit{the price that would be received from the sale of an asset or paid to transfer a liability in an orderly transaction between market participants at the measurement date}\footcite{IFRS13}.
+            In addition, the fair value is clearly described in \cite{IFRS13} as being market based and not entity based,
+            which rules out using the entity specific funding cost when evaluating prices.
+            From the accountants point of view making an FVA can lead to multiple fair values for the same transaction,
+            why they oppose this practice.
+            \item[Theoreticians] Theoreticians argue that finance theory requires that the discount rate for a project should be determined by the risk of the project.
+            This conflicts with the practice of using an FVA in derivatives pricing,
+            which corresponds to replacing the risk-free rate by the higher funding cost of the entity doing the derivatives pricing.
+            Thus theoreticians claims that there is no theoretical basis for making an FVA.
+        \end{description}
+
+        The arguments of theoreticians like Hull and White are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
+        The price of a derivative can be obtained by replicating the cash flows of the derivative with a self-financing trading strategy, 
+        since, in the absence of arbitrage, the value of the trading strategy and the derivative in question must be equal.
+        The assumptions in this theoretical setup is however 
+        that the replication can be funded by borrowing and lending endlessly at the risk-free rate.
+        This seems at odds with how the actual real markets behaves and how much funding costs.
+        Different entities will obtain funding at different costs due to size,
+        default risk and multiple other market frictions,
+        and interest rate spreads between collateralized and unsecured funding is significant.
+
+        Arguments supporting this apparent shortcoming of the traditional derivative valuation frameworks are presented in the following section by discussing how funding costs can arise from the aforementioned market frictions.
+    
+    \subsection{Funding costs causing asymmetric valuations}
+        When a corporation decides to enter a deal with the bank on a derivative transaction,
+        it's because the fair value of the transaction to them is greater than the price.
+        On the other hand, the banks valuation of the transaction is different,
+        since the two counterparties are in two completely different situations.
+        This difference is partially caused by the funding costs,
+        which for the corporate is derived from the market costs of borrowing funds,
+        as well as the costs from raising funds by the normal business activities.
+        The funding costs of the bank are in contrary derived from treasury activities such as wholesale funding.
+        This difference in the valuation doesn't have to mean that the transaction will never occur 
+        as long as they can agree on a price, that doesn't neglect either of the fair values.
+
+        The asymmetry between the valuation of a transaction between two counterparties with two different positions in the market can be explained by other components as well.
+        The portfolio management is different in the sense,
+        that in the bank the derivative is a part of a large derivative portfolio with many counterparties,
+        whereas in the the corporation most likely uses the derivative to hedge balance sheet exposures,
+        and provide better cash flow management.
+        Also, the corporation does not have to place any regulatory capital against the position,
+        but the bank must in contrary have the appropriate regulatory capital in place.
+
+        (Even the transaction made between two banks can have asymmetric valuations.)
+
+\end{document}
+        
