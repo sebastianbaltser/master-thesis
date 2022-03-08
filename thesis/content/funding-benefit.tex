@@ -2,6 +2,17 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-    \section{The potential benefits of \FVA/}
-        
+    \subsection{The benefits of \FVA/}
+        In some instances the value adjustment coming from funding can have beneficial outcomes for the firm.
+        In this section, the firm is assumed to enter a one-year European-style option contract with different counterparty as previously,
+        % Maybe \cref to the other section depending on the structure we decide.
+        which now has credit risk.
+        Suppose the firm sells the option to the counterparty. The option is unsecured, and will now be treated as a new liability to the firm, which ranks pari passu with the already existing debt.
+
+        Since the counterparty buys the derivative from the credit-risky firm, the counterparty must account for this exposure. If the firm defaults before the option's expiry, the firm will not be able to meet the obligations, and the potential profit from the unsecured European-style option contract will not be fully paid out. For the counterparty's incentives to be re-established, the price of the option needs a valuation adjustment, i.e. $\text{\CVA/}(C)$, where $C$ indicates the counterparty's perspective. By symmetry, $\text{\CVA/}(C) = \text{\DVA/}(F)$, where $\text{\DVA/}(F)$ is the debit value adjustment made by the firm in order to account for its own risk of default.\\
+        The profile of a European option makes the firm having no exposure to the counterparty, as the derivative contract is a liability to the firm, hence no adjustment for the credit risk of the counterparty is done. This also implies that $\text{\CVA/}(F) = \text{\DVA/}(C) = 0$, and by initially ignoring the funding issue the value of the European-style option contract is given by:
+        \begin{equation}
+            V = V_{rf} - \text{\CVA/}(C) = V_{rf} - \text{\DVA/}(F)
+        \end{equation}
+        Now consider the funding issue. On the entry date of the option, the firm receives cash from the counterparty that must be invested, which will deem beneficial in the funding frame of mind. This section will study three possibilities of funding benefits.
 \end{document}
