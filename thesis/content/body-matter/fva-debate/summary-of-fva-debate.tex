@@ -80,12 +80,32 @@
             and banks use the funding costs of other market participants as reference.
 
         \subsubsection{\FVA/ according to theoreticians}
-            Theoreticians, like Hull \& White themselves, 
-            argue that finance theory requires the discount rate for a project to be determined by the risk of the project.
+            Again, in the context of derivative valuations, 
+            the arguments of theoreticians, like Hull and White themselves, 
+            are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
+            The price of a derivative can be obtained by replicating the cash flows of the derivative 
+            with a self-financing trading strategy, since, in the absence of arbitrage, 
+            the value of the trading strategy and the derivative in question must be equal.
+            The risk-neutral valuation principle requires discounting at the risk-free rate,
+            which is why theoreticians oppose using a different discount rate
+            claiming that there is no theoretical basis for making an \FVA/.
+            The assumptions in this theoretical setup is however 
+            that the derivative exists in an very specific economic environment. 
+            In this economy the replication of the derivative
+            can be funded by borrowing and lending endlessly at the risk-free rate,
+            which is to say that a default-risk-free bond exists which firms can buy and sell freely.
+            As described in previous sections,
+            this seems at odds with how the actual real markets behaves and how much funding costs.
+            Different entities will obtain funding at different costs above the risk-free rate due to size,
+            default risk and multiple other market frictions,
+            and interest rate spreads between collateralized and unsecured funding is significant.
+
+            Extending their arguments to other assets than derivatives, 
+            theoreticians argue that finance theory requires the discount rate for a project 
+            to be determined by the risk of the project.
             Using an \FVA/ in derivatives pricing corresponds to replacing the risk-free rate by the higher funding cost
             when discounting cash flows.
             Hence, the value of the project will seemingly depend on the riskiness of the firm that undertakes the project.
-            Thus theoreticians claims that there is no theoretical basis for making an \FVA/.
             \cite{HullWhite2012FVA} uses the following example to shed some light on this argument:
 
             Suppose a firm with an average excess funding rate of $200\basispoint$. 
@@ -129,17 +149,6 @@
             Even when the project counterparty is making a donation through the discount,
             the firm might not be able to properly distribute the donation to entities,
             in a way that makes the project feasible.
-
-
-        The arguments of theoreticians like Hull and White are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
-        The price of a derivative can be obtained by replicating the cash flows of the derivative with a self-financing trading strategy, 
-        since, in the absence of arbitrage, the value of the trading strategy and the derivative in question must be equal.
-        The assumptions in this theoretical setup is however 
-        that the replication can be funded by borrowing and lending endlessly at the risk-free rate.
-        This seems at odds with how the actual real markets behaves and how much funding costs.
-        Different entities will obtain funding at different costs due to size,
-        default risk and multiple other market frictions,
-        and interest rate spreads between collateralized and unsecured funding is significant.
 
         Arguments supporting this apparent shortcoming of the traditional derivative valuation frameworks are presented in the following section by discussing how funding costs can arise from the aforementioned market frictions.
     
