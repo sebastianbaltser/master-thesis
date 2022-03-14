@@ -21,5 +21,29 @@
         the firm can book an accounting gain on its derivative portfolio,
         reflecting the fact that should the firm default, it will not fully repay all its obligations.
 
+        In a bilateral setting, both counterparties can, in theory, agree on the necessary credit valuation adjustment,
+        since each party is also calculating the counterparty's \CVA/ and \DVA/, however with the labels switched.
+        If the firm is calculating $\CVA/_{F}$ and $\DVA/_{F}$, 
+        and the counterparty is calculating $\CVA/_{C}$ and $\DVA/_{C}$,
+        the following symmetric relations hold:
+            \begin{align*}
+                \CVA/_{F} &= \DVA/_{C} \\
+                \DVA/_{F} &= \CVA/_{C}
+            \end{align*}
+        The price of the counterparty credit risk experienced by the firm, $\CVA/_{F}$,
+        is equal to the price of the counterparty credit as experienced by the counterparty itself, $\DVA/_{C}$,
+        and vice versa.
+        To this extent, the counterparties will reach symmetric valuations of the financial instrument. 
+        This result is however merely theoretical; 
+        in practice the counterparties will apply different \CVA/ models
+        and be operating under different accounting rules, 
+        which will inevitably lead to the parties reaching different adjustments. 
+        
+        Eliminating \CVA/ and \DVA/ is possible by zeroing out the credit exposure due to the instrument,
+        which is possible with a collateralization scheme. 
+        Perfect collateralization would ensure no credit exposure,
+        but even in strong CSA agreements collateral calls are no more frequent than daily.
+        Still CSA agreements will reduce the credit exposure and hence \CVA/ and \DVA/.
+
 \end{document}
         
