@@ -21,4 +21,33 @@
 
         Now consider the funding issue. On the entry date of the option, the firm receives an option premium in form of cash from the counterparty that must be invested, which will deem beneficial in the funding frame of mind. This section will study three possibilities of funding benefits, as suggested by \cite{Hillion2016}. (i): the cash is assumed to be used to retire the existing debt that trades at a credit spread over the risk-free rate. As mentioned, the derivative contract is considered a liability to the firm that ranks pari passu with other debt, and the issue to determine is whether the firm is willing to lower the option premium compensating for the funding benefits. (ii): the cash coming from the option premium is assumed to buy back equity. The case examines the impact of the option value as well as the firm's balance sheet. (iii): the cash is assumed to be invested in riskless securities. This is also called the asymmetric funding case where shortfalls of cash are funded by new debt, and the surpluses of cash are invested at the risk-free rate.
 
+        \subsubsection{Debt retiring}
+            Suppose when the firm receives the option premium at time 0, they immediately invest their surplus of cash by retiring some of their already existing debt. The fair value to the firm will arguably be lower when including this funding benefit, and one might rewrite \cref{eqn:option-value-credit-risk} as:
+            \begin{equation}
+                V = V_{rf} - \text{\CVA/}(C) - \text{\FVA/} = V_{rf} - \text{\CVA/}(C) - \text{\FVA/}_{\text{benefit}}
+            \end{equation}
+            where a riskless firm would have no benefit of \FVA/ as it would be able to borrow at the risk-free rate.
+            
+            The issue with this reformulation is that both adjustments are driven by the firm's credit risk. This will cause an imbalanced valuation in the sense that the two values overlap, and the Modigliani-Miller invariance Proposition will be violated. Notice that when the cash raised by selling the OTC derivative contract is used to purchase debt at a fair market value, a new liability is replacing a part of the existing liability. Remembering the pari passu assumption, this debt-for-debt swap leaves the total liability unchanged.
+
+            The implications of debt buyback are: First, the net present value of the creditors who tender is zero. This means that the loss rate as well as the credit spread has to be left unchanged after partly retiring the debt, otherwise the creditors would not tender. Second, the counterparty charges for the firm's credit risk to the extend that it's a zero net present value for the counterparty. The payable of the derivative contract can be viewed as newly issued debt with a fair credit spread offered to the creditors.
+            Third, the remaining creditors stay unaffected of the transaction, as the loss rate and credit spread is left intact. Since the derivative contract is a zero net present value for the firm, and no wealth is transferred at the neither the counterparty nor any of the creditors, so should it be for the shareholders. So, the option fair value must be given by \cref{eqn:option-value-credit-risk} as any other value would influence the wealth of the parties involved.
+
+            Returning to the previous example of a risky firm with a capital structure as described in \cref{tbl:example-firm-structure}, the firm now enters a derivative contract by selling a European option to a counterparty with a credit value adjusted present value of 1. The option premium is priced with no discount, i.e. the firm receives a cash amount of 1 at time 0, which it immediately spends on retiring debt from its already existing creditors. The derivative payable is now a liability to the firm ranking pari passu with the existing debt, which before the derivative contract had a face value of 80. For simplicity, we assume as in \cref{sec:risk-free-project} that the derivative payable is known with certainty, hence it's risk-free.\\
+            The values of the different parties are shown in \cref{tbl:example-debt-retiring}. The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=\left(1-70/80\right)=12.50\%$. The credit spread is computed by: $s(q)=79/77.025-r_{f}-1=1.554\%$.
+            
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{l|rrrrr||r}
+                    $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
+                    \hline
+                    $A(\omega_{i})$ & $130$ & $120$ & $110$ & $105$ & $70$ & $106.300$ \\
+                    $D(\omega_{i})$ & $79$ & $79$ & $79$ & $79$ & $69.125$ & $77.025$ \\
+                    $S(\omega_{i})$ & $50$ & $40$ & $30$ & $25$ & $0$ & $28.300$ \\
+                    \makecell{Derivative \\payable} & $1$ & $1$ & $1$ & $1$ & $0.875$ & $0.975$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:example-debt-retiring}
+            \end{table}
+
 \end{document}
