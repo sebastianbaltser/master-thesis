@@ -33,21 +33,48 @@
             The implications of debt buyback are: First, the net present value of the creditors who tender is zero. This means that the loss rate as well as the credit spread has to be left unchanged after partly retiring the debt, otherwise the creditors would not tender. Second, the counterparty charges for the firm's credit risk to the extend that it's a zero net present value for the counterparty. The payable of the derivative contract can be viewed as newly issued debt with a fair credit spread offered to the creditors.
             Third, the remaining creditors stay unaffected of the transaction, as the loss rate and credit spread is left intact. Since the derivative contract is a zero net present value for the firm, and no wealth is transferred at the neither the counterparty nor any of the creditors, so should it be for the shareholders. So, the option fair value must be given by \cref{eqn:option-value-credit-risk} as any other value would influence the wealth of the parties involved.
 
-            Returning to the previous example of a risky firm with a capital structure as described in \cref{tbl:example-firm-structure}, the firm now enters a derivative contract by selling a European option to a counterparty with a credit value adjusted present value of 1. The option premium is priced with no discount, i.e. the firm receives a cash amount of 1 at time 0, which it immediately spends on retiring debt from its already existing creditors. The derivative payable is now a liability to the firm ranking pari passu with the existing debt, which before the derivative contract had a face value of 80. For simplicity, we assume as in \cref{sec:risk-free-project} that the derivative payable is known with certainty, hence it's risk-free.\\
-            The values of the different parties are shown in \cref{tbl:example-debt-retiring}. The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=\left(1-70/80\right)=12.50\%$. The credit spread is computed by: $s(q)=79/77.025-r_{f}-1=1.554\%$.
+            Returning to the previous example of a risky firm with a capital structure as described in \cref{tbl:example-firm-structure}, the firm now enters a derivative contract by selling a European option to a counterparty with a credit value adjusted present value of 1. The option premium is priced with no discount, and is immediately spent on retiring debt from its already existing creditors. The derivative payable is now a liability to the firm ranking pari passu with the existing debt, which before the derivative contract had a face value of 80. For simplicity, we assume as in \cref{sec:risk-free-project} that the derivative payable is known with certainty, hence it's a risk-free project. The firm's balance sheet isn't affected by the transaction. The change happens on the liability side, where the debt is partly swapped with a derivative payable.\\
+            The values of the different parties are shown in \cref{tbl:example-debt-retiring}. The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=1-60/80=25\%$. The credit spread is computed by: $s(q)=79/75.84-r_{f}-1=3.16\%$.
             
             \begin{table}[h]
                 \centering
                 \begin{tabular}{l|rrrrr||r}
                     $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                     \hline
-                    $A(\omega_{i})$ & $130$ & $120$ & $110$ & $105$ & $70$ & $106.300$ \\
-                    $D(\omega_{i})$ & $79$ & $79$ & $79$ & $79$ & $69.125$ & $77.025$ \\
-                    $S(\omega_{i})$ & $50$ & $40$ & $30$ & $25$ & $0$ & $28.300$ \\
-                    \makecell{Derivative \\payable} & $1$ & $1$ & $1$ & $1$ & $0.875$ & $0.975$ \\
+                    $A(\omega_{i})$ & $120$ & $110$ & $100$ & $95$ & $60$ & $96.40$ \\
+                    $D(\omega_{i})$ & $79$ & $79$ & $79$ & $79$ & $59.25$ & $75.84$ \\
+                    $S(\omega_{i})$ & $40$ & $30$ & $20$ & $15$ & $0$ & $19.60$ \\
+                    $Y_C(\omega_{i})$ & $1$ & $1$ & $1$ & $1$ & $0.75$ & $0.96$ \\
                 \end{tabular}
                 \caption{}
                 \label{tbl:example-debt-retiring}
             \end{table}
+
+            The liability side of the firm's balance sheet will then look like:
+
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l|c|c|c}
+                     & \textbf{Book Value} & \textbf{\DVA/} & \textbf{Market Value} \\
+                    \hline
+                    Equity & $19.60$ & $0$ & $19.60$\\
+                    Debt & $79.20$ & $3.36$ & $75.84$\\
+                    Derivative Payable & $0.99$ & $0.03$ & $0.96$\\
+                    \hline
+                    Total & 99.79 & 3.39 & 96.40
+                \end{tabular}
+            \end{table}
+
+            The transaction is a zero net present value investment for the shareholders. As can be seen in \cref{tbl:example-debt-retiring}, the shareholders receive a payoff at time 1 equal to the pre-derivative value.
+
+            The counterparty's payoff coming from the derivative, $Y_C$, has a market value of:
+            \begin{equation}
+                \pi(Y_{C}) = \sum_i \psi_i Y_{C,i} = 0.96
+            \end{equation}
+            This concludes that the option premium that the firm receives at time 0 is equal to 0.96, which is then the amount used for retiring debt. On top of this, the amount is recognized as the difference between the riskless European option and the \DVA/:
+            \begin{equation}
+                V = V_{rf} - \text{\DVA/}(F) = 0.99 - 0.03 = 0.96
+            \end{equation}
+            which verifies \cref{eqn:option-value-credit-risk}. Including an adjustment from the benefits of funding would lead to a double counting effect due to two offsetting effects. (i): By retiring debt with the cash coming from the option premium at time 0, the firm will receive a funding benefit in the sense that it saves some interest expenses. (ii): The debt retiring decreases the \DVA/ of the firm's existing debt by exactly $\text{\FVA/}_{\text{benefit}}$ amount.
 
 \end{document}
