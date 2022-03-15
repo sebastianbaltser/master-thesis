@@ -122,4 +122,38 @@
                 \caption{}
                 \label{tbl:risky-option-payoff}
             \end{table}
+
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{l|rrrrr||r}
+                    $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
+                    \hline
+                    $A(\omega_{i})$ & $122.341$ & $112.341$ & $102.341$ & $97.341$ & $62.341$ & $98.717$ \\
+                    $D(\omega_{i})$ & $80$ & $80$ & $80$ & $80$ & $61.571$ & $76.989$ \\
+                    $S(\omega_{i})$ & $38.341$ & $28.841$ & $19.841$ & $15.841$ & $0$ & $19.412$ \\
+                    $Y_C(\omega_{i})$ & $4.000$ & $3.500$ & $2.500$ & $1.500$ & $0.770$ & $2.317$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:example-no-funding-buyback}
+            \end{table}
+
+            After receiving the option premium in the form of cash, the firm immediately invests in the riskless asset. This implies that the firm's total asset value increases with an amount equal to the discounted option premium. The capital structure, after this transaction, is described in \cref{tbl:example-no-funding-buyback}, where the fair value option price and loss rate are found by solving the following equation system for $\pi(Y_C)$ and $\phi$:
+            \begin{align}
+                \pi(Y_C) &= \sum_i \psi_i Y_{C,i}\\
+                A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
+                \label{eqn:no-funding-buyback-default}
+            \end{align}
+            with \cref{eqn:no-funding-buyback-default} making sure that the creditors and derivative payable takes the total asset value amount in case of default.
+
+            The change in wealth for the creditors is now computed as:
+            \begin{equation}
+                \Delta D = 76.989 - 76.800 = 0.189
+            \end{equation}
+            The increment happens as the riskless assets, which the firm invested in, with the cash from the option premium, makes the asset value increase, and a larger total amount is recovered in case of default. In the cases of no default, the creditors are not affected by the new project.\\
+            The change in wealth for the shareholders is computed by:
+            \begin{equation}
+                \Delta S = 19.412 - 19.600 = -0.188
+            \end{equation}
+            where the difference between $\Delta D$ and $-\Delta S$ is caused by rounding in the present values. Therefore, this is a negative net present value for the shareholders and a positive net present value for the creditors. Due to the fact that there is risk on the option, the shareholder do have a chance to gain from the project, where in state $\omega_4$, the derivative payable is less than the return on the riskless asset.
+
 \end{document}
