@@ -109,5 +109,17 @@
 
             The derivative is a zero net present value for the counterparty. The price of the option is lower compared to the case of debt retiring, which is explained by the higher loss rate in case of default. The only valuation adjustment to the price is still the \CVA/ charged by the counterparty, which again validates \cref{eqn:option-value-credit-risk}.
 
-        \subsubsection{No buyback}
+        \subsubsection{No funding buyback}
+            Now suppose, instead of buying back debt or equity, the firm spends the cash proceeds coming from the option premium in riskless assets. This procedure is exactly the same as if the firm borrows money to buy the riskless asset as in \cref{sec:debt-issuance}, as long as the option has a known payoff at time 1. To deviate from the exact same conclusions, the option is now assumed to have a payoff structure as described in \cref{tbl:risky-option-payoff}.
+            
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{l|rrrrr}
+                    $i$ & 1 & 2 & 3 & 4 & 5 \\
+                    \hline
+                    $Y(\omega_{i})$ & $4$ & $3.5$ & $2.5$ & $1.5$ & $1$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:risky-option-payoff}
+            \end{table}
 \end{document}
