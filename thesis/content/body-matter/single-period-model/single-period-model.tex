@@ -225,29 +225,12 @@
 
         The wealth transfer from shareholders to legacy creditors due to the new project 
         suggests defining and quantifying the \FVA/ of the project. 
-        According to \cite{ADS2019} there are multiple ways of calculating \FVA/ used in practice and theory,
-        and a couple of viable definitions will be explained in the following.
-
-        Since the firm borrows funds for the project at a credit spread in excess of the risk free rate, 
-        the shareholders pays an additional rate when the firm does not default. 
-        This is a form of funding costs and argues in favor of defining the \FVA/ as
-        the present value of the funding costs in excess of the risk free rate paid by the shareholders: 
+        
+        Using \cref{eqn:fva-as-promised-excess-funding-cost}, the present value of the funding costs 
+        in excess of the risk free rate paid by the shareholders is: 
         \begin{align}
-            \FVA/ 
-            &= \discountfactor \left(
-                U (1 + \rfrate + \tilde{s})
-                - U (1 + \rfrate)
-            \right)
-            = \discountfactor U \tilde{s} \\
-            &= 0.99 * 9.90 * 2.83\%
-            = 0.2771
+            0.99 * 9.90 * 2.83\% = 0.2771
         \end{align}
-        Since the entire credit spread is compensation for credit risk ,
-        the \FVA/ defined here is the compensation provided to the creditors,
-        for the possibility that the firm might default. 
-        If the firm defaults, this amount is not to be paid and the \FVA/ is therefore, in addition, 
-        equal to the expected benefit to the firm from defaulting, also known as the DVA. 
-        That the \FVA/ equals the DVA when credit spreads are merely compensation for credit risk, is shown by \cite{HullWhiteFVA}.
 
         The FVA could also be defined by the quantity $\Phi$ in \cref{eqn:marginal-shareholder-value-debt-financing}, 
         i.e. the marginal valuation of the new project to the firm's legacy creditors. 

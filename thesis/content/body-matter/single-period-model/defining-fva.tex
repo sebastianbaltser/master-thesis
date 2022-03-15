@@ -7,4 +7,27 @@
         According to \cite{ADS2019} there are multiple ways of calculating \FVA/ used in practice and theory,
         and a couple of viable definitions will be explained in this section.
 
+        \subsubsection{FVA as the promised excess funding cost}
+            Since the firm borrows funds for the project at a credit spread in excess of the risk free rate, 
+            the shareholders pays an additional rate when the firm does not default. 
+            This is a form of funding cost and argues in favor of defining the \FVA/ as
+            the present value of the funding cost in excess of the risk free rate paid by the shareholders:
+            \begin{align}
+                \FVA/ 
+                &= \discountfactor \left(
+                    U(q) (1 + \rfrate + s(q))
+                    - U (1 + \rfrate)
+                \right) 
+                \nonumber \\
+                &= \discountfactor U(q) s(q)
+                \label{eqn:fva-as-promised-excess-funding-cost}
+            \end{align}
+            Since the entire credit spread is compensation for credit risk,
+            the \FVA/ defined here is the compensation provided to the creditors,
+            for the possibility that the firm might default. 
+            If the firm defaults, this amount is not to be paid and the \FVA/ is therefore, in addition, 
+            equal to the expected benefit to the firm from defaulting, also known as the DVA. 
+            That the \FVA/ equals the DVA when credit spreads are merely compensation for credit risk, 
+            is shown by \cite{HullWhiteFVA}.
+
 \end{document}
