@@ -3,6 +3,7 @@ import pytest
 from itertools import repeat
 from spm.spm import (
     Equity,
+    Firm,
     State,
     States,
     SinglePeriodEconomy,
@@ -219,3 +220,18 @@ class TestEquity:
     def test_payoff_with_equity_share(self, asset, equity_share, expected):
         equity = Equity(asset, debt_face_value=80, equity_share=equity_share)
         assert equity.payoff == expected
+
+
+class TestFirm:
+    @pytest.mark.parametrize("asset_value, debt_value, expected", [
+        (100,   1, False),
+        (100,  10, False),
+        (100, 110,  True),
+        (100, 120,  True),
+    ])
+    def test_is_default_state(self, asset_value, debt_value, expected):
+        state = State(1, 1)
+        asset = Asset(States({state: asset_value}))
+        firm = Firm(asset, debt_value)
+
+        assert firm.is_default_state(state) == expected

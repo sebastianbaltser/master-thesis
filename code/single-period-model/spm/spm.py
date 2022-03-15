@@ -292,3 +292,19 @@ class DebtPariPassu(Derivative):
     def bond_yield(self) -> float:
         """The gross yield of the bond."""
         return self.face_value / self.present_value - 1
+
+
+class Firm:
+    """
+    Represents a firm in a single period economy.
+
+    Args:
+        assets (Asset):
+        debt_face_value (float):
+    """
+    def __init__(self, assets, debt_face_value):
+        self.assets = assets
+        self.debt_face_value = debt_face_value
+
+    def is_default_state(self, state: State) -> bool:
+        return self.assets[state] < self.debt_face_value
