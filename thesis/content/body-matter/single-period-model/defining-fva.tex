@@ -60,4 +60,55 @@
             Phrased differently, the FVA is the donation needed from the project counterparty in order
             to convince the shareholders to enter the project.
 
+            Under debt financing this corresponds to setting the marginal value of debt financing,
+            \cref{eqn:marginal-shareholder-value-debt-financing}, equal to zero,
+            and solving for the marginal cost investment cost, $u$:
+                \begin{align}
+                    0 &= G 
+                    = 
+                        p^{\mathbb{Q}} \left(
+                            \frac{
+                                \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            }{
+                                1 + \rfrate
+                            } 
+                            - u
+                        \right)
+                        - \frac{
+                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        }{
+                            1 + \rfrate
+                        } 
+                        - p^{\mathbb{Q}} \discountfactor u S 
+                        \nonumber\\
+                    &= 
+                        \frac{
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                        }{
+                            1 + \rfrate
+                        }  
+                        - u
+                        - \frac{
+                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        }{
+                            p^{\mathbb{Q}}
+                            (1 + \rfrate)
+                        }
+                        - \discountfactor u S 
+                        \nonumber\\
+                    u^{\ast}_{D}
+                    &\equiv
+                        \frac{
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                        }{
+                            1 + \rfrate + S  
+                        } 
+                        - \frac{
+                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                        }{
+                            p^{\mathbb{Q}}(1 + \rfrate + S)  
+                        } 
+                \end{align}
+            A result named Proposition 3 by \cite{ADS2019}.
+
 \end{document}
