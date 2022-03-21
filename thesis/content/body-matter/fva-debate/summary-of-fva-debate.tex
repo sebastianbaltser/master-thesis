@@ -3,40 +3,163 @@
 
 \begin{document}
     \subsection{Summary of the FVA Debate}
-        Theoreticians and practitioners have long been debating the use of Funding Value Adjustments (FVA) when determining the prices of derivatives.
-        The discussion is specifically whether an FVA should be made to account for the funding costs of entities buying or selling derivatives.
-        The paper of \cite{HullWhiteFVA} argues FVA should generally not be made,
+        Since the financial crisis, when the idea of risk-free banks where disproved,
+        theoreticians and practitioners have been debating the use of \FVA/
+        when determining the prices of financial assets.
+        As mentioned earlier, the existence of funding costs have led some entities 
+        to apply adjustments to their prices when trading financial assets, 
+        in order to account for the funding costs they experience.
+        The focal point of the discussion is specifically 
+        whether it is appropriate to apply \FVA/s to the prices of financial assets.
+        \cite{HullWhiteFVA} argues that \FVA/s should generally not be made,
         but provides a summary of the debate that serves as a good starting point for further discussion of the topic.
-        This summary is paraphrased in the the following paragraphs where the arguments of different parties are presented:
+        The structure of the summary is reused in the following sections
+        where the arguments of different parties are presented,
+        namely traders, accountants, and theoreticians.
 
-        \begin{description}
-            \item[Traders] The traders selling or buying derivatives will incur the funding cost of the derivative as charged by the funding desk of the bank.
-            For derivatives that requires funding this will amount to a loss for the traders,
-            unless they take into account the funding cost when pricing the derivatives.
-            In other words traders must make an FVA. 
-            \item[Accountants] The accountants seek to value derivatives at their exit price, i.e. the price that clears the market,
+        \subsubsection{FVA according to traders}
+            The traders in the derivatives desk selling or buying derivatives 
+            will incur the average funding rate of the bank, as charged by the funding desk.
+            For derivatives that require funding the funding desk will charge funding costs from the traders.
+            If the traders do not take into account the funding cost when pricing the derivatives,
+            a loss will be shown for trades that require funding.
+            Assume, for example, a trader buying a simple option at some upfront price.
+            The option have some theoretical price or value that might have been calculated by assuming
+            that financing could be obtained at risk-free rates. 
+            Should the trader buy the option at this theoretical price, 
+            she will be making a negative net present value investment, 
+            because the actual funding rate on the upfront payment is \textit{above} the risk-free rate. 
+            The funding desk will charge the actual funding rate; not the risk-free rate.
+            Rather, the trader should assess the funding cost of the trade 
+            and buy the option at the theoretical price adjusted by the funding cost,
+            in order to break even on the value of the trade.
+            In other words, the trader should make an \FVA/, 
+            since the funding rate is a very real cost, which the trader will be subject to.
+            
+            "The traders" in this argument might as well be other stakeholders that makes decisions about new investments.
+            In a less complex setup "the funding desk" could simply be the creditors and "the traders" the company itself.
+            The company might be making decisions in a way that optimizes shareholder value,
+            and therefore aligns its interests with them.
+            Shareholders experience the same issue as traders of being charged funding costs on investments 
+            and will therefore be just as eager to evaluating investments in light of their funding costs.
+            This simple setup of creditors versus shareholders, 
+            will later provide a medium through which the impact of funding costs can be explored.
+
+        \subsubsection{FVA according to accountants}
+            As financial statement auditors, accountants are concerned with providing objective valuations of derivatives,
+            such that the valuation of the firm itself can be fair and accurate.
+            Therefore, accountants seek to value derivatives at their exit price, i.e. the price that clears the market,
             which is dependent on how other market participants price the transaction.
-            To determine the value of derivatives accountants uses the notion of \textit{fair value}.
-            The fair value of a derivative is defined as \textit{the price that would be received from the sale of an asset or paid to transfer a liability in an orderly transaction between market participants at the measurement date}\footcite{IFRS13}.
-            In addition, the fair value is clearly described in \cite{IFRS13} as being market based and not entity based,
-            which rules out using the entity specific funding cost when evaluating prices.
-            From the accountants point of view making an FVA can lead to multiple fair values for the same transaction,
-            why they oppose this practice.
-            \item[Theoreticians] Theoreticians argue that finance theory requires that the discount rate for a project should be determined by the risk of the project.
-            This conflicts with the practice of using an FVA in derivatives pricing,
-            which corresponds to replacing the risk-free rate by the higher funding cost of the entity doing the derivatives pricing.
-            Thus theoreticians claims that there is no theoretical basis for making an FVA.
-        \end{description}
+            To determine the value of derivatives, accountants uses the notion of \textit{fair value}.
+            \cite{IFRS13} defines the fair value of an asset as: 
+            \textit{the price that would be received from the sale of an asset or paid to transfer a liability
+            in an orderly transaction between market participants at the measurement date}.
+            In addition, the fair value is clearly described by \cite{IFRS13} as being market based and not entity based.
+            This description of fair value is used by \cite{HullWhiteFVA} as an argument to
+            rule out using the funding cost when evaluating prices.
+            Since the funding rate, and therefore the funding cost, is entity specific,
+            the fair value should be independent of these.
+            While this might be true in isolation, 
+            the current market practice is to incorporate funding value adjustments in derivatives valuations.
+            According to \cite{KPMGFVA}, the current market practice is for dealers, especially OTC derivatives dealers,
+            to include \FVA/ in their valuations.  
+            When evaluating the fair value, the dealers should consider the pricing practices 
+            that would be used by market participants if the derivative was being sold;
+            if the market practice is to apply adjustments for funding costs,
+            \FVA/s might very well be included in the fair value.
+            The dealer should however consider the funding costs that market participants would consider,
+            which is not necessarily equal to the dealer's own funding costs.
 
-        The arguments of theoreticians like Hull and White are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
-        The price of a derivative can be obtained by replicating the cash flows of the derivative with a self-financing trading strategy, 
-        since, in the absence of arbitrage, the value of the trading strategy and the derivative in question must be equal.
-        The assumptions in this theoretical setup is however 
-        that the replication can be funded by borrowing and lending endlessly at the risk-free rate.
-        This seems at odds with how the actual real markets behaves and how much funding costs.
-        Different entities will obtain funding at different costs due to size,
-        default risk and multiple other market frictions,
-        and interest rate spreads between collateralized and unsecured funding is significant.
+            The original argument of \cite{HullWhiteFVA} was that banks using their own funding costs to evaluate fair value,
+            would lead to different banks pricing the same derivative differently,
+            since the funding cost were entity specific.
+            This is true, however, as mentioned in the previous paragraph,
+            to evaluate fair value the bank should not be using its own funding costs, 
+            but rather the funding costs of another hypothetical market participant, 
+            to which the bank can sell its derivative.
+            With that said, it is generally very difficult to determine the generic level of bank funding spread
+            representing the funding rate for the hypothetical counterparty in a hypothetical transaction.
+            \cite[Proposition 4]{KPMGFVA} states that for this reason 
+            some banks have in fact been applying their own funding spreads in order to determine FVA under IFRS. 
+            Banks do this not for the sake of using their own funding spreads
+            but for it to act as a proxy for the market funding cost.
+            If the bank can be assumed to have comparable funding costs to other market participants,
+            KPMG believes that this practice is supportable.
+
+            In conclusion, accountants should accept adjusting fair value for funding costs,
+            as long as it is market practice to make these adjustment,
+            and banks use the funding costs of other market participants, or proxies of those, as reference.
+
+        \subsubsection{FVA according to theoreticians}
+            Again, in the context of derivative valuations, 
+            the arguments of theoreticians, like Hull and White themselves, 
+            are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
+            The price of a derivative can be obtained by replicating the cash flows of the derivative 
+            with a self-financing trading strategy, since, in the absence of arbitrage, 
+            the value of the trading strategy and the derivative in question must be equal.
+            The risk-neutral valuation principle requires discounting at the risk-free rate,
+            which is why theoreticians oppose using a different discount rate
+            claiming that there is no theoretical basis for making an \FVA/.
+            The assumptions in this theoretical setup is however 
+            that the derivative exists in an very specific economic environment. 
+            In this economy the replication of the derivative
+            can be funded by borrowing and lending endlessly at the risk-free rate,
+            which is to say that a default-risk-free bond exists which firms can buy and sell freely.
+            As described in previous sections,
+            this seems at odds with how the actual real markets behaves and how much funding costs.
+            Different entities will obtain funding at different costs above the risk-free rate due to size,
+            default risk and multiple other market frictions,
+            and interest rate spreads between collateralized and unsecured funding is significant.
+
+            Extending their arguments to other assets than derivatives, 
+            theoreticians argue that finance theory requires the discount rate for a project 
+            to be determined by the risk of the project.
+            Using an \FVA/ in derivatives pricing corresponds to replacing the risk-free rate by the higher funding cost
+            when discounting cash flows.
+            Hence, the value of the project will seemingly depend on the riskiness of the firm that undertakes the project.
+            \cite{HullWhite2012FVA} uses the following example to shed some light on this argument:
+
+            Suppose a firm with an average excess funding rate of $200\basispoint$. 
+            The firm considers obtaining a new, nearly risk-free project with a promised excess return of $30\basispoint$,
+            such that the theoretical price of the project is the cash flows 
+            discounted by the risk-free rate plus $30\basispoint$.
+            However, for unspecified reasons, the project is trading at a discount compared to the theoretical price.
+            Specifically, at the price offered it promises an excess return of $80\basispoint$.
+            
+            Based on the information provided, \cite{HullWhite2012FVA} argues that the project should be undertaken,
+            since the project trades at a discount and therefore has a positive net present value.
+            Furthermore, as the firm's average excess funding cost is higher than the excess yield of the project, 
+            the average riskiness of the firm's existing projects is higher than the riskiness of the new project.
+            Acquiring the new project would therefore reduce the firm's riskiness,
+            which should reduce the credit spread on new debt and therefore also reduce the funding costs of the firm.
+            
+            From a theoretical perspective the conclusion of \cite{HullWhite2012FVA} does seem plausible. 
+            Obtaining the project is a positive net present value investment, 
+            so surely the firm should be able to find some distribution of the value to the stakeholders, 
+            such that obtaining the project is a positive net present value for all entities.
+            The project counterparty is essentially providing a donation, 
+            and some providers of funding should be willing to finance the project for a share of the donation.
+            However, the problem with this example and the conclusion becomes apparent,
+            when considering how the example would play out in reality. 
+            The project might very well have such a low risk that an excess yield of $30\basispoint$ is justified, 
+            but, according to \cite[Section 3]{Castagna2012FVA}, 
+            the financing cost of a firm will usually only gradually update to reflect change in riskiness.
+            In reality the firm will also be quite restrained 
+            in the way it can distribute the value obtained from the project.
+            The firm can experience a free rider problem, 
+            where the profits from the project might not be earned by the ones financing it,
+            since the project's payoffs will be a part of the asset poll of the firm,
+            which different stakeholders have claims on.
+
+            Further investigation into the mechanisms of this apparent firm friction,
+            will be postponed to later sections where a framework has been developed,
+            and a more concrete discussion can be ensured.  
+            For the time being, the argument will be ended with the result that, 
+            while the theoretical conclusion is simply that a project trading at a discount should be obtained,
+            the practical conclusion is less clearcut.
+            Even when the project counterparty is making a donation through the discount,
+            the firm might not be able to properly distribute the donation to entities,
+            in a way that makes the project feasible.
 
         Arguments supporting this apparent shortcoming of the traditional derivative valuation frameworks are presented in the following section by discussing how funding costs can arise from the aforementioned market frictions.
     
