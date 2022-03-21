@@ -11,7 +11,7 @@
         such that creditors break even by offering the market value of the firms' debt claims.
         The debt obtained to finance the upfront cost, $U(q)$, is assumed to rank pari passu with existing debt, 
         such that all creditors experience the same loss rate in case of a default.
-        
+
         % TODO: Proof of the following
         The new creditors receive a credit spread denoted by $s(q)$,
         which generally depend on the share of the payoff being secured and the share being unsecured.
@@ -19,7 +19,7 @@
             \begin{equation}
                 S = \frac{
                     \mathbb{E}^{\mathbb{Q}}\left[\phi\right] 
-                    (1 + r_{f})
+                    (1 + \rfrate)
                 }{
                     1 - \mathbb{E}^{\mathbb{Q}}\left[\phi\right]
                 }
@@ -35,7 +35,7 @@
             \end{equation}
         The face value of the new debt is the upfront, which was the borrowed amount, 
         including the interest rates paid, namely 
-        $U(q)(1 + r_{f} + s(q))$. 
+        $U(q)(1 + \rfrate + s(q))$. 
         The shareholders receive the residual of the assets after debt claims have been paid
         unless the firm defaults, in which case the shareholders receive nothing. 
         The marginal increase in the value of the firms equity per unit investment is therefore:
@@ -45,9 +45,9 @@
                 \frac{
                     \partial 
                     \mathbb{E}^{\mathbb{Q}}\left[
-                        \frac{1}{1+r_{f}} 
+                        \discountfactor 
                         \left(
-                            A + qY - D_{FV} - U(q)(1 + r_{f} + s(q))
+                            A + qY - D_{FV} - U(q)(1 + \rfrate + s(q))
                         \right)^{+}
                     \right] 
                 }{
