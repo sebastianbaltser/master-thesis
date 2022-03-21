@@ -1,0 +1,79 @@
+% !TEX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+    \subsubsection{Funding by debt issuance}
+        In order to limit the complexity of the model, a yield spread on debt issuance should only occur due to credit risk. 
+        This is ensured by assuming that the market where the firm obtains its debt is fully efficient, 
+        such that creditors break even by offering the market value of the firms' debt claims.
+        The debt obtained to finance the upfront cost, $U(q)$, is assumed to rank pari passu with existing debt, 
+        such that all creditors experience the same loss rate in case of a default.
+        % TODO: Proof of the following
+        The new creditors receive a credit spread denoted by $s(q)$,
+        which generally depend on the share of the payoff being secured and the share being unsecured.
+        The limiting spread is however invariant to this decomposition and is given by:
+            \begin{equation}
+                S = \frac{
+                    \mathbb{E}^{\mathbb{Q}}\left[\phi\right] 
+                    (1 + r_{f})
+                }{
+                    1 - \mathbb{E}^{\mathbb{Q}}\left[\phi\right]
+                }
+            \end{equation}
+        with $\phi$ being the loss rate to creditors given by:
+            \begin{equation}
+                \phi = \frac{
+                        D_{FV} - \kappa A
+                    }{
+                        D_{FV}
+                    } 
+                \mathbbm{1}_{\mathcal{D}}
+            \end{equation}
+        The face value of the new debt is the upfront, which was the borrowed amount, 
+        including the interest rates paid, namely 
+        $U(q)(1 + r_{f} + s(q))$. 
+        The shareholders receive the residual of the assets after debt claims have been paid
+        unless the firm defaults, in which case the shareholders receive nothing. 
+        The marginal increase in the value of the firms equity per unit investment is therefore:
+            \begin{equation}
+                G = 
+                \left.
+                \frac{
+                    \partial 
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \frac{1}{1+r_{f}} 
+                        \left(
+                            A + qY - D_{FV} - U(q)(1 + r_{f} + s(q))
+                        \right)^{+}
+                    \right] 
+                }{
+                    \partial 
+                    q
+                }
+                \right\rvert_{q=0} 
+            \end{equation}
+        
+        % TODO: Proof
+
+        Deriving this derivative yields the marginal value to shareholders of debt financing:
+
+            \begin{equation}
+                G = 
+                    p^{\mathbb{Q}}\pi 
+                    - \discountfactor  \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) - \Phi
+                    \label{eqn:marginal-shareholder-value-debt-financing}
+            \end{equation}
+        Where $p^{\mathbb{Q}} = 1 - \mathbb{P}^{\mathbb{Q}}\left(\mathcal{D}\right)$ is the risk neutral probability of the firm not defaulting. 
+        $\pi = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[Y\right] - u$ 
+        is the promised marginal profit on the new project. 
+        $\Phi = p^{\mathbb{Q}} \discountfactor u S$
+        is the marginal valuation of the new project to the firm's legacy creditors. 
+        This is also the present value to the shareholders of their share of the financing costs, $uS$,
+        which they pay iff the firm does not default. 
+        If the firm's default event is positively correlated with the payoff of the project,
+        the shareholders will miss out on an even higher firm value when the firm defaults.
+        The opposite is the case when the default event is negatively correlated with the payoff.
+        This effect is captured by the term 
+        $\text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)$.
+
+\end{document}
