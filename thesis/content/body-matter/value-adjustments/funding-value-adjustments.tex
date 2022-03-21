@@ -1,0 +1,37 @@
+% !TEX root = ../../../main.tex
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Funding Value Adjustments}
+        Funding Value Adjustment (FVA) is a quantity meant for accounting for the funding costs 
+        experienced by a firm due to a financial instrument.
+        Funding risks and costs arises wherever there is a cash flow in the firm. 
+        Outgoing cash flows will need to be financed while incoming cash flows
+        can be used to retire debt elsewhere in the firm, thus reducing the need for funding.
+
+        \cite[Proposition 6]{KPMGFVA} states that FVA conceptually can be thought of 
+        as consisting of three elements, according to the following decomposition:
+        \begin{equation}
+            \FVA/ = \FCA/ + \FBA/ + \FVA/_{\text{buffer}}
+        \end{equation}
+        \FCA/, also elsewhere referred to as Funding Cost Adjustment (FCA), 
+        is a negative contribution of funding costs to the price of the financial instrument.
+        It captures the effect of outgoing cash flows, which will require funding and generate costs.
+        On the other hand, \FBA/, also known as Funding Benefit Adjustment (FBA), 
+        captures the positive impact on the instrument price, from the incoming cash flows.
+        Without going too much into details of their calculation, which will be covered later,
+        \FCA/ is calculated based on the expected positive exposure, 
+        while \FBA/ is calculated using the expected negative exposure. 
+
+        $\FVA/_{\text{buffer}}$ refers to an adjustment for the funding costs
+        due to the maintenance of liquidity buffers. 
+        These buffers are in place for dealers to have access to funding, in the event
+        that funding markets fail to function when the dealer faces unexpected funding requirements.
+        This adjustment will be ignored throughout the rest of this paper, 
+        which is possible by simply not assuming any liquidity buffers. 
+        
+        Further investigation of Funding Value Adjustments will be focused on the two other components,
+        \FCA/ and \FBA/.
+
+\end{document}
+        

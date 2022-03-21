@@ -1,0 +1,49 @@
+% !TEX root = ../../../main.tex
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Credit Value Adjustments}
+        Credit Value Adjustment (CVA) is the market price of the credit risk attached to a financial instrument.
+        This price can be derived by taking the difference between the price of the instrument including credit risk
+        and the price of the instrument excluding credit risk, 
+        i.e. where both counterparties to the instrument is considered credit risk free.
+
+        In a transaction with two counterparties there are also two sources of credit risk.
+        The side from which \CVA/ is considered is not unimportant, 
+        why \textit{the firm} will be used to refer to the reporting institution 
+        and \textit{the counterparty} to refer to the counterparty of the firm.
+        \CVA/ might either consider only the credit risk of the counterparty 
+        or consider both the credit risk of the counterparty and the firm itself,
+        which qualifies it as respectively unilateral or bilateral \CVA/.
+        The difference between the results of two models, arising from the credit risk of the firm,
+        is a term coined as \DVA/.
+        When the credit worthiness of the firm declines, i.e. its default risk increases,
+        the firm can book an accounting gain on its derivative portfolio,
+        reflecting the fact that should the firm default, it will not fully repay all its obligations.
+
+        In a bilateral setting, both counterparties can, in theory, agree on the necessary credit valuation adjustment,
+        since each party is also calculating the counterparty's \CVA/ and \DVA/, however with the labels switched.
+        If the firm is calculating $\CVA/_{F}$ and $\DVA/_{F}$, 
+        and the counterparty is calculating $\CVA/_{C}$ and $\DVA/_{C}$,
+        the following symmetric relations hold:
+            \begin{align*}
+                \CVA/_{F} &= \DVA/_{C} \\
+                \DVA/_{F} &= \CVA/_{C}
+            \end{align*}
+        The price of the counterparty credit risk experienced by the firm, $\CVA/_{F}$,
+        is equal to the price of the counterparty credit as experienced by the counterparty itself, $\DVA/_{C}$,
+        and vice versa.
+        To this extent, the counterparties will reach symmetric valuations of the financial instrument. 
+        This result is however merely theoretical; 
+        in practice the counterparties will apply different \CVA/ models
+        and be operating under different accounting rules, 
+        which will inevitably lead to the parties reaching different adjustments. 
+        
+        Eliminating \CVA/ and \DVA/ is possible by zeroing out the credit exposure due to the instrument,
+        which is possible with a collateralization scheme. 
+        Perfect collateralization would ensure no credit exposure,
+        but even in strong CSA agreements collateral calls are no more frequent than daily.
+        Still CSA agreements will reduce the credit exposure and hence \CVA/ and \DVA/.
+
+\end{document}
+        
