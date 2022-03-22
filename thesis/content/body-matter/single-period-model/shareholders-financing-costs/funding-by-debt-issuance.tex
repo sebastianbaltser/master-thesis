@@ -40,8 +40,8 @@
         The shareholders receive the residual of the assets after debt claims have been paid
         unless the firm defaults, in which case the shareholders receive nothing. 
         The marginal increase in the value of the firms equity per unit investment is therefore:
-            \begin{equation}
-                G_{\text{debt}} = 
+            \begin{align}
+                & G_{\text{debt}} = 
                 \left.
                 \frac{
                     \partial 
@@ -53,29 +53,259 @@
                     \discountfactor 
                     \left(
                         A + qY - L - U(q)(\grossrfrate + s(q))
-                        A + qY - L - U(q)(1 + \rfrate + s(q))
-                        A + qY - D_{FV} - U(q)(1 + \rfrate + s(q))
                     \right)^{+}
                 \right] 
                 \right\rvert_{q=0} 
-            \end{equation}
-        
-        % TODO: Proof
-
-        Deriving this derivative yields the marginal value to shareholders of debt financing:
-
+                \nonumber
+            \intertext{Expressing this derivative as a difference quotient, using $U(0)=0$:}
+                &=
+                \lim_{q\rightarrow0} 
+                \discountfactor
+                \frac{
+                    \mathbb{E}^{\mathbb{Q}}\left[ 
+                    \left(
+                        A + qY - L - U(q)(\grossrfrate + s(q))
+                    \right)^{+}
+                    \right]
+                    -
+                    \mathbb{E}^{\mathbb{Q}}\left[ 
+                    \left(
+                        A - L
+                    \right)^{+}
+                \right] 
+                }{
+                    q
+                } 
+                \nonumber
+            \intertext{
+                The argument in the first max-function can be recognized as the function 
+                governing the firm's default event after entering the project. 
+                Therefore it is positive exactly when the firm does not default and negative otherwise. 
+                Applying the max-function, yields zero when the firm defaults
+                and the function's result when the firm does not default.
+                The same idea applies for the argument in the second max-function,
+                but this argument instead governs the firm default \textit{before} entering the project.
+                Both max-functions can therefore be replaced by using indicators for the default events:
+            }
+                &=
+                \lim_{q\rightarrow0} 
+                \discountfactor
+                \frac{
+                    \mathbb{E}^{\mathbb{Q}}\left[ 
+                    \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                    \left(
+                        A + qY - L - U(q)(\grossrfrate + s(q))
+                    \right)
+                    \right]
+                    -
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}}  
+                    \left(
+                        A - L
+                    \right)
+                \right] 
+                }{
+                    q
+                } \nonumber
+            \intertext{Using the linearety of the expectation operator to collect terms involving $A-L$:}
+                &=
+                \lim_{q\rightarrow0} 
+                \discountfactor
+                \frac{
+                    \mathbb{E}^{\mathbb{Q}}\left[ 
+                    \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                    \left(
+                        qY - U(q)(\grossrfrate + s(q))
+                    \right)
+                    \right]
+                    +
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                    \left(
+                        \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                        - \mathbbm{1}_{D^{c}}
+                    \right)
+                    \left(
+                        A - L
+                    \right)
+                \right] 
+                }{
+                    q
+                } 
+                \label{eqn:G-debt-step-1}
+            \end{align}
+        If the limit of the two addends in the numerator is finite, 
+        the algebraic limit theorem ensures that limit of the summation operation,
+        can be expressed as the summation of the addends' limits.
+        Deriving the limit of the first addend:
+            \begin{align}
+                &\quad
+                \lim_{q\rightarrow 0}
+                \discountfactor
+                \frac{
+                    \mathbb{E}^{\mathbb{Q}}\left[ 
+                    \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                    \left(
+                        qY - U(q)(\grossrfrate + s(q))
+                    \right)
+                    \right]
+                }{
+                    q
+                } \nonumber
+            \intertext{Using again the linearity of the expectation operator:}
+                &= 
+                \lim_{q\rightarrow 0}
+                \discountfactor
+                \mathbb{E}^{\mathbb{Q}}\left[ 
+                \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                \left(
+                    Y - \frac{U(q)}{q} (\grossrfrate + s(q))
+                \right)
+                \right]
+                \nonumber
+            \intertext{
+                $A$, $L$, and $Y$ are assumed to have finite expectations, 
+                which allows for interchanging limits and integrals, e.g. the expectation.
+                The limit of $U(q)/q$ can be recognized as the marginal investment cost, $u$,
+                while the limit of $s(q)$ is the limiting spread, $S$.
+                The limit of $\mathcal{D}^{c}$ is $D^{c}$,
+                since the post-project default event with an infinitesimal investment in the project
+                corresponds to the pre-project default event.
+                The reformulation again uses the algebraic limit theorem,
+                which applies since the limits of the factors exists:
+            }
+                &=
+                \discountfactor
+                \mathbb{E}^{\mathbb{Q}}\left[ 
+                    \mathbbm{1}_{D^{c}} 
+                    \left(
+                        Y - u (\grossrfrate + S)
+                    \right)
+                \right] 
+                \label{eqn:G-debt-step-2}
+            \end{align}
+        Turning to the limit of the second term in \cref{eqn:G-debt-step-1}.
+        Using again the assumption that $A$, $L$, and $Y$ have finite expectations,
+        and that the limit of $\mathbbm{1}_{\mathcal{D}^{c}(q)} - \mathbbm{1}_{D^{c}}$ equals zero:
             \begin{equation}
-                G_{\text{debt}} = 
-                    p^{\mathbb{Q}} \pi 
-                    - \discountfactor 
-                    \text{Cov}^{\mathbb{Q}}\left(
-                        \mathbbm{1}_{\mathcal{D}}, 
-                        Y
-                    \right) 
-                    - \Phi
-                    \label{eqn:marginal-shareholder-value-debt-financing}
+                \lim_{q\rightarrow0} 
+                \discountfactor
+                \frac{
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                    \left(
+                        \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                        - \mathbbm{1}_{D^{c}}
+                    \right)
+                    \left(
+                        A - L
+                    \right)
+                \right] 
+                }{
+                    q
+                }
+                = 0
+                \label{eqn:G-debt-step-3}
             \end{equation}
-        Where $p^{\mathbb{Q}} = 1 - \mathbb{P}^{\mathbb{Q}}\left(\mathcal{D}\right)$ is the risk neutral probability of the firm not defaulting. 
+        Applying the results of \cref{eqn:G-debt-step-2} and \cref{eqn:G-debt-step-3}
+        to \cref{eqn:G-debt-step-1} yields:
+            \begin{align}
+                G_{\text{debt}} &=
+                \discountfactor
+                \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}} 
+                    \left(
+                        Y - u (\grossrfrate + S)
+                    \right)
+                \right]
+            \intertext{
+                Using linearity of expectations and rearranging terms:
+            }
+                &=
+                \discountfactor\left(
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{D^{c}}Y
+                    \right]
+                    - 
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{D^{c}} u (\grossrfrate + S)
+                    \right]
+                \right)
+                \nonumber \\
+                &=
+                \discountfactor
+                \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}}Y
+                \right]
+                - 
+                \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}}
+                \right] u
+                - 
+                \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}}
+                \right] \discountfactor u S
+                \label{eqn:G-debt-step-4}
+            \end{align}
+        The expected value of two dependent terms in the first term, 
+        $\mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}Y\right]$,
+        can be reformulated by applying the definition of the covariance operator.
+        Using the linearity of the expectation operator,
+        the definition of covariance between two random variables $W$ and $Z$ can be rewritten:
+            \begin{align}
+                \text{Cov}\left(W, Z\right) &= 
+                \mathbb{E}\left[
+                    (W - \mathbb{E}\left[W\right])
+                    (Z - \mathbb{E}\left[Z\right])
+                \right] \nonumber\\
+                &=
+                \mathbb{E}\left[WZ\right]
+                - \mathbb{E}\left[W\right] \mathbb{E}\left[Z\right] \nonumber
+            \end{align}
+        Using this result, the aforementioned expectation can be rewritten as follows:
+            \begin{align}
+                \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}}Y
+                \right]
+                &=
+                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right] 
+                \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
+                + 
+                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D^{c}}, Y\right) 
+                \nonumber\\
+                &=
+                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right] 
+                \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
+                - 
+                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D}, Y\right) 
+            \end{align}
+        Where the last equality uses the definition of $D^{C}$ combined with a property of the covariance operator.
+        Substituting into \cref{eqn:G-debt-step-4} finally yields the marginal value to shareholders of debt financing:
+            \begin{align}
+                G_{\text{debt}} &=
+                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right] 
+                \left(
+                    \discountfactor
+                    \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
+                    - u
+                \right)
+                -
+                \discountfactor
+                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D}, Y\right) 
+                - 
+                \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}}
+                \right] \discountfactor u S
+                \nonumber \\
+                &= 
+                p^{\mathbb{Q}} \pi 
+                - \discountfactor 
+                \text{Cov}^{\mathbb{Q}}\left(
+                    \mathbbm{1}_{D}, 
+                    Y
+                \right) 
+                - \Phi
+                \label{eqn:marginal-shareholder-value-debt-financing}
+            \end{align}
+        Where $p^{\mathbb{Q}} = 1 - \mathbb{P}^{\mathbb{Q}}\left(D\right)$ is the risk neutral probability of the firm not defaulting. 
         $\pi = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[Y\right] - u$ 
         is the difference between the present value of the expected payoff and the upfront price, 
         i.e. $\pi$ is the promised marginal profit on the new project. 
@@ -88,6 +318,6 @@
         the shareholders will miss out on an even higher firm value when the firm defaults.
         The opposite is the case when the default event is negatively correlated with the payoff.
         This effect is captured by the term 
-        $\text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)$.
+        $\text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D}, Y\right)$.
 
 \end{document}
