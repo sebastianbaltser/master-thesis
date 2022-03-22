@@ -1,0 +1,59 @@
+% !TEX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Marginal valuation of corporate assets and liabilities}
+        Consider a firm whose assets and liabilities have random payoffs at time 1 denoted respectively by $A$ and $L$.  
+        Let $K$ represent the time 1 payoff of the projects that the firm has entered, which initially is assumed to be none.      
+        The firm will default at event $\mathcal{D}_K=\{A + K<L\}$, i.e. when the firm no longer have enough assets to cover the liabilities, at which distress costs may occur.
+        The distress costs refer to the excess expenses from the firm's usual business costs
+        that it faces when it's unable to meet its financial obligations, i.e. the firm defaults.
+        Similarly, $\mathcal{D}_{K}^c = \{A + K \geq L\}$ defines the event of no default.
+        The net asset value of the firm after defaulting, with the distress costs comprised, is $\kappa A$ for some recovery rate, $\kappa$, where the distress costs equal $1-\kappa$.
+        The market values of the firm's debt and equity are then computed respectively as:
+        \begin{align}
+            \pi(S) &= \discountfactor \mathbb{E}^{\mathbb{Q}}\left[\max\left(A+K-L,0\right)\right]\\
+            \pi(D) &= \discountfactor \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}_{K}}\kappa A + \mathbbm{1}_{\mathcal{D}_{K}^c}L\right]
+        \end{align}
+
+        Now, consider a new potential investment, that the firm has a possibility to undertake.
+        The investment has a payoff, $Y$, which can both be negative and positive in different states in the economy, for instance a swap contract.
+        The positive part of the payoff, $Y^{+}=\max\left(Y,0\right)$, is perceived as an asset of the firm, and is measured net of any potential losses due to credit risk of the counterparty.
+        In addition, the negative part of the payoff, $Y^{-} = \max \left(-Y,0\right)$, is a contingent liability, and is also interpreted as the contractual amount that the firm is obliged to pay at time 1, before taking the firm's risk of default into consideration.
+        If the contingent liability is fully secured, e.g. by collateralization, the total value to the firm of the financial instrument is then given by:
+        \begin{equation}
+            \pi(Y) = \discountfactor \mathbb{E}^{\mathbb{Q}} \left[Y\right]
+        \end{equation}
+
+        If, however, the contingent liability, $Y^{-}$, is not fully secured, a specification of how the associated counterparty recovers, in case of the firm defaulting, is needed.
+        For simplicity, and also as described by \cite{ADS2019}, it's assumed that the portion of unsecured contingent liabilities acquired by the firm ranks pari passu with each other, such that the various claimants' default recoveries are pro rata with their claim amounts.
+        In practice, these liabilities more often rank pari passu with the firm's senior creditors as well.
+        Let $\mathcal{C}$ be the firm's cash flows at time 1 related to the portion of a total of $N$ unsecured contracts with different claimants. The value to the firm of these cash flows is then given by:
+        \begin{equation} % Do we need a proof for this equation?
+            \pi(\mathcal{C}) = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[
+            \sum_{i=1}^{N} \left(
+                \mathbbm{1}_{\mathcal{D}_{Y}^{c}}Y_{i}
+                + \mathbbm{1}_{\mathcal{D}_{Y}} Y_{i}^{+}
+                - \mathbbm{1}_{\mathcal{D}_{Y}} \rho_{i} \kappa A
+            \right)\right]
+        \end{equation}
+        where $Y = \sum_{i} Y_{i}$ is the payoff of the portfolio, which the firm has undertaken, and $\rho_{i} = Y_{i}^{-}/(L + Y^{-})$ is the pro rata share of contingent liability $i$. The first term in the summation expresses the firm's payoff from the different projects in case of no default. The second term adds the positive parts of the different investments made by the firm in case of default, since these are assets to the firm. The third part subtracts each contingent liabilities which the firm is obliged to pay in case of default. Each contingent liability receives their own pro rata share of the recovered total asset value.
+
+        Practically, it's possible for a firm to also have unsecured position in its portfolio.
+        The analysis is therefore extended to consider swap positions that include both secured as well as unsecured components.
+        For this motive, the payoff is divided in two, such that $Y=Y_1 + Y_2$, where $Y_1^{-}$ reflects the secured contingent liability, and $Y_2^{-}$ reflects the unsecured contingent liability.
+        The financial position is still assumed to pay a payoff, $Y$, at time 1 which is unrelated to the credit risk of the firm, and the unsecured contingent liability related to claimant $i$ is still assumed to rank pari passu with all other unsecured creditor claims.\\
+        For the contingent liability, $Y_1^{-}$, to be secured, $A+Y_1 > 0$ is a necessary condition, and therefore assumed.
+        $\mathcal{C}$ now reflects the cash flows of the firm where each swap position can have both secured and unsecured positions, and the firm's valuation of the associated net time 1 cash flows is given by:
+        \begin{equation}
+            \pi(\mathcal{C}) = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[
+            \sum_{i=1}^{N} \left(
+                Y_{i,1}
+                + \mathbbm{1}_{\mathcal{D}_{Y}^{c}}Y_{i,2}
+                + \mathbbm{1}_{\mathcal{D}_{Y}} Y_{i,2}^{+}
+                - \mathbbm{1}_{\mathcal{D}_{Y}} \kappa (A + Y_{i,1}) \rho_{i}
+            \right)\right]
+        \end{equation}
+        where $\rho_{i} = Y_{i,2}^{-}/(L + Y_{2}^{-})$ is the pro rata share of contingent liability $i$. Notice that the secured positions are now paid at time 1 no matter if the firm defaults or not. Only the unsecured positions depend on the outcome of the total asset value.
+        
+\end{document}
