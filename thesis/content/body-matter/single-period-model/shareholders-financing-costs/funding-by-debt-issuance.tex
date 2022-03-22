@@ -20,7 +20,7 @@
             \begin{equation}
                 S = \frac{
                     \mathbb{E}^{\mathbb{Q}}\left[\phi\right] 
-                    (1 + \rfrate)
+                    \grossrfrate
                 }{
                     1 - \mathbb{E}^{\mathbb{Q}}\left[\phi\right]
                 }
@@ -36,7 +36,7 @@
             \end{equation}
         The face value of the new debt is the upfront, which was the borrowed amount, 
         including the interest rates paid, namely 
-        $U(q)(1 + \rfrate + s(q))$. 
+        $U(q)(\grossrfrate + s(q))$. 
         The shareholders receive the residual of the assets after debt claims have been paid
         unless the firm defaults, in which case the shareholders receive nothing. 
         The marginal increase in the value of the firms equity per unit investment is therefore:
@@ -52,6 +52,7 @@
                 \mathbb{E}^{\mathbb{Q}}\left[
                     \discountfactor 
                     \left(
+                        A + qY - L - U(q)(\grossrfrate + s(q))
                         A + qY - L - U(q)(1 + \rfrate + s(q))
                         A + qY - D_{FV} - U(q)(1 + \rfrate + s(q))
                     \right)^{+}
