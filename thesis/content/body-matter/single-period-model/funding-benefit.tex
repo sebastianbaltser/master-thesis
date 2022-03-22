@@ -2,42 +2,41 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-    \subsection{The benefits of \FVA/}
+    \subsection{Funding Benefits}
         In some instances the value adjustment coming from funding can have beneficial outcomes for the firm. 
-        Funding value adjustments consist of both the aforementioned funding cost as well as funding benefits. 
+        Funding value adjustment consist of the both the aforementioned funding cost as well as funding benefits. 
         A portfolio can include instances of both cases, such that the \FVA/ for a portfolio is given by:
         \begin{equation}
             \text{\FVA/} = \text{\FVA/}_{\text{cost}} + \text{\FVA/}_{\text{benefit}}
         \end{equation}
-        In this section, the firm is assumed to enter a one-year European-style option contract 
-        with different counterparty as previously,
-        % Maybe \cref to the other section depending on the structure we decide.
+        In this section, the firm is assumed to enter a one-year derivative contract 
+        with different counterparty
         which now has credit risk.
         Suppose the firm sells the option to the counterparty. 
         The option is unsecured, and will now be treated as a new liability to the firm, 
-        which ranks pari passu with the existing debt.
+        which ranks pari passu with the already existing debt.
 
         Since the counterparty buys the derivative from the credit-risky firm, 
         the counterparty must account for this exposure. 
-        If the firm defaults before the option's expiry, the firm will not be able to meet the obligations, 
-        and the potential profit from the unsecured European-style option contract will not be fully paid out. 
+        If the firm defaults before or at the option's expiry, the firm will not be able to meet the obligations, 
+        and the potential profit from the unsecured derivative contract will not be fully paid out. 
         For the counterparty's incentives to be re-established, 
-        the price of the option needs a valuation adjustment accounting for the credit risk, i.e. $\text{\CVA/}(C)$. 
-        By symmetry, $\text{\CVA/}(C) = \text{\DVA/}(F)$, 
+        the price of the option needs a valuation adjustment, i.e. $\CVA/_C$. 
+        By symmetry, $\CVA/_C = \DVA/_F$, 
         where $\text{\DVA/}(F)$ is the debit value adjustment made by the firm 
         in order to account for its own risk of default.\\
-        The profile of a European option makes the firm have no exposure to the counterparty, 
-        as the derivative contract is a liability to the firm, 
-        hence no adjustment for the credit risk of the counterparty is performed. 
+        The profile of the constructed derivative contract is assumed to make the firm having no exposure to the counterparty,
+        and, as it's a liability to the firm, 
+        no adjustment for the credit risk of the counterparty is performed. 
         This also implies that $\text{\CVA/}(F) = \text{\DVA/}(C) = 0$, 
-        and by initially ignoring the funding issue the value of the European-style option contract, $V$ is given by:
+        and, by initially ignoring the funding issue, the value of the derivative contract, denoted by $V$, is given by:
         \begin{equation}\label{eqn:option-value-credit-risk}
             V = V_{rf} - \text{\CVA/}(C) = V_{rf} - \text{\DVA/}(F)
         \end{equation}
         where $V_{rf}$ is the value of the option without any risk considered.
 
-        Now consider the funding issue. On the entry date of the option, 
-        the firm receives an option premium in form of cash from the counterparty that must be invested, 
+        Now consider the funding issue. On the transaction date of the option, 
+        the firm receives an option premium from the counterparty that must be invested, 
         which will deem beneficial in the funding frame of mind. 
         This section will study three possibilities of funding benefits, 
         as suggested by \cite{Hillion2016}.
@@ -47,8 +46,8 @@
         that ranks pari passu with other debt, 
         and the issue to determine is whether the firm is willing to lower the option premium 
         compensating for the funding benefits. 
-        (ii): the cash coming from the option premium is assumed to buy back equity. 
-        This case examines the impact on the option value as well as on the firm's balance sheet. 
+        (ii): the cash from the option premium is assumed to buy back equity. 
+        The case examines the impact of the option value as well as the firm's balance sheet. 
         (iii): the cash is assumed to be invested in riskless securities. 
         This is also called the asymmetric funding case where shortfalls of cash are funded by new debt, 
         and the surpluses of cash are invested at the risk-free rate.
@@ -56,7 +55,7 @@
         \subsubsection{Debt retiring}
             Suppose when the firm receives the option premium at time 0, 
             they immediately invest their surplus of cash by retiring some of their already existing debt. 
-            The fair value to the firm will arguably be lower when including this funding benefit, 
+            The value to the firm will arguably be lower when including this funding benefit, 
             and one might rewrite \cref{eqn:option-value-credit-risk} as:
             \begin{equation}
                 V = V_{rf} - \text{\CVA/}(C) - \text{\FVA/} = V_{rf} - \text{\CVA/}(C) - \text{\FVA/}_{\text{benefit}}
@@ -64,7 +63,7 @@
             where a riskless firm would have no benefit of \FVA/ as it would be able to borrow at the risk-free rate.
             
             The issue with this reformulation is that both adjustments are driven by the firm's credit risk. 
-            This will cause an imbalanced valuation, in the sense that the two values overlap, 
+            This will cause an imbalanced valuation in the sense that the two values overlap, 
             and the Modigliani-Miller invariance Proposition will be violated. 
             Notice that when the cash raised by selling the OTC derivative contract 
             is used to purchase debt at a fair market value, a new liability is replacing a part of the existing liability. 
@@ -76,25 +75,25 @@
             after partly retiring the debt, otherwise the creditors would not tender. 
             Second, the counterparty charges for the firm's credit risk 
             to the extend that it's a zero net present value for the counterparty. 
-            The payable of the derivative contract can be viewed as newly issued debt
-             with a fair credit spread offered to the creditors.
+            The cash flow following the derivative contract can be viewed as newly issued debt
+            with a fair credit spread offered to the creditors.
             Third, the remaining creditors stay unaffected of the transaction, 
             as the loss rate and credit spread is left intact. 
-            Since the derivative contract is a zero net present value for the firm 
-            and no wealth is transferred to the counterparty or any creditors, 
+            Since the derivative contract is a zero net present value for the firm, 
+            and no wealth is transferred at the neither the counterparty nor any of the creditors, 
             so should it be for the shareholders. 
-            So, the option fair value must be given by \cref{eqn:option-value-credit-risk},
+            So, the option fair value must be given by \cref{eqn:option-value-credit-risk} 
             as any other value would influence the wealth of the parties involved.
 
             Returning to the previous example of a risky firm with a capital structure
             as described in \cref{tbl:example-firm-structure}, 
-            the firm now enters a derivative contract by selling a European option to a counterparty
+            the firm now enters a derivative contract by selling a project to a counterparty
             with a credit value adjusted present value of 1. 
-            The option premium is priced with no discount, 
+            The option premium is priced with no discount 
             and is immediately spent on retiring debt from its already existing creditors. 
-            The derivative payable is now a liability to the firm ranking pari passu with the existing debt, 
+            The derivative payable is now a liability to the firm, ranking pari passu with the existing debt, 
             which before the derivative contract had a face value of 80. 
-            For simplicity, we assume as in \cref{sec:risk-free-project}
+            For simplicity, we assume, as in \cref{sec:risk-free-project},
             that the derivative payable is known with certainty, hence it's a risk-free project. 
             The firm's balance sheet isn't affected by the transaction. 
             The change happens on the liability side, where the debt is partly swapped with a derivative payable.\\
@@ -141,7 +140,7 @@
             \end{equation}
             This concludes that the option premium that the firm receives at time 0 is equal to 0.96, 
             which is then the amount used for retiring debt. 
-            On top of this, the amount is recognized as the difference between the riskless European option and the \DVA/:
+            On top of this, the amount is recognized as the difference between the riskless project value and the \DVA/:
             \begin{equation}
                 V = V_{rf} - \text{\DVA/}(F) = 0.99 - 0.03 = 0.96
             \end{equation}
@@ -154,15 +153,15 @@
             by exactly $\text{\FVA/}_{\text{benefit}}$ amount.
 
         \subsubsection{Equity buyback}
-            Assume that the firm enters a derivative contract 
-            by selling the same European option with a known payoff at time 1 of 1. 
-            The cash coming from the option premium at time 0 is now used for buying back equity from the shareholders. 
+            Assume that the firm enters a project 
+            by selling the same derivative contract with a known payoff at time 1 of 1. 
+            The option premium at time 0 is now used for buying back equity from the shareholders. 
             The example from above is used again to address the impacts of this issue.
 
             Instead of swapping some existing debt for a derivative payable, 
             the option value now adds to the aggregate liabilities of the firm, 
             and ranks pari passu with the existing creditors. 
-            In the state of default, the firm has already allocated some cash to the shareholders, 
+            In the state of default, the firm has already at time 0 allocated some cash to the shareholders, 
             leaving a smaller amount to the creditors compared to the pre-derivative capital structure, 
             as the loss rate increases.\\
             The firm's balance sheet is left unchanged, meaning that the sum of the market values of debt, equity, 
@@ -206,7 +205,7 @@
 
         \subsubsection{No funding buyback}
             Now suppose, instead of buying back debt or equity, 
-            the firm spends the cash proceeds coming from the option premium in riskless assets. 
+            the firm spends the cash proceeds from the option premium in riskless assets. 
             This procedure is exactly the same as if the firm borrows money to buy the riskless asset 
             as in \cref{sec:debt-issuance}, as long as the option has a known payoff at time 1. 
             To deviate from the exact same conclusions, the option is now assumed to have a payoff structure at time 1 
