@@ -51,6 +51,7 @@
 		],
 		"cSpell.ignorePaths":[
 			"*.code-workspace"
-		]
+		],
+		"latex-workshop.latex.outDir": "build",
 	}
 }
