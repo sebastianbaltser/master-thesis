@@ -1,0 +1,273 @@
+% !TEX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Funding Benefits}
+        In some instances the value adjustment coming from funding can have beneficial outcomes for the firm. 
+        Funding value adjustment consist of the both the aforementioned funding cost as well as funding benefits. 
+        A portfolio can include instances of both cases, such that the \FVA/ for a portfolio is given by:
+        \begin{equation}
+            \text{\FVA/} = \text{\FVA/}_{\text{cost}} + \text{\FVA/}_{\text{benefit}}
+        \end{equation}
+        In this section, the firm is assumed to enter a one-year derivative contract 
+        with different counterparty
+        which now has credit risk.
+        Suppose the firm sells the option to the counterparty. 
+        The option is unsecured, and will now be treated as a new liability to the firm, 
+        which ranks pari passu with the already existing debt.
+
+        Since the counterparty buys the derivative from the credit-risky firm, 
+        the counterparty must account for this exposure. 
+        If the firm defaults before or at the option's expiry, the firm will not be able to meet the obligations, 
+        and the potential profit from the unsecured derivative contract will not be fully paid out. 
+        For the counterparty's incentives to be re-established, 
+        the price of the option needs a valuation adjustment, i.e. $\CVA/_C$. 
+        By symmetry, $\CVA/_C = \DVA/_F$, 
+        where $\text{\DVA/}(F)$ is the debit value adjustment made by the firm 
+        in order to account for its own risk of default.\\
+        The profile of the constructed derivative contract is assumed to make the firm having no exposure to the counterparty,
+        and, as it's a liability to the firm, 
+        no adjustment for the credit risk of the counterparty is performed. 
+        This also implies that $\text{\CVA/}(F) = \text{\DVA/}(C) = 0$, 
+        and, by initially ignoring the funding issue, the value of the derivative contract, denoted by $V$, is given by:
+        \begin{equation}\label{eqn:option-value-credit-risk}
+            V = V_{rf} - \text{\CVA/}(C) = V_{rf} - \text{\DVA/}(F)
+        \end{equation}
+        where $V_{rf}$ is the value of the option without any risk considered.
+
+        Now consider the funding issue. On the transaction date of the option, 
+        the firm receives an option premium from the counterparty that must be invested, 
+        which will deem beneficial in the funding frame of mind. 
+        This section will study three possibilities of funding benefits, 
+        as suggested by \cite{Hillion2016}.
+        (i): the cash is assumed to be used to retire the existing debt 
+        that trades at a credit spread over the risk-free rate. 
+        As mentioned, the derivative contract is considered a liability to the firm
+        that ranks pari passu with other debt, 
+        and the issue to determine is whether the firm is willing to lower the option premium 
+        compensating for the funding benefits. 
+        (ii): the cash from the option premium is assumed to buy back equity. 
+        The case examines the impact of the option value as well as the firm's balance sheet. 
+        (iii): the cash is assumed to be invested in riskless securities. 
+        This is also called the asymmetric funding case where shortfalls of cash are funded by new debt, 
+        and the surpluses of cash are invested at the risk-free rate.
+
+        \subsubsection{Debt retiring}
+            Suppose when the firm receives the option premium at time 0, 
+            they immediately invest their surplus of cash by retiring some of their already existing debt. 
+            The value to the firm will arguably be lower when including this funding benefit, 
+            and one might rewrite \cref{eqn:option-value-credit-risk} as:
+            \begin{equation}
+                V = V_{rf} - \text{\CVA/}(C) - \text{\FVA/} = V_{rf} - \text{\CVA/}(C) - \text{\FVA/}_{\text{benefit}}
+            \end{equation}
+            where a riskless firm would have no benefit of \FVA/ as it would be able to borrow at the risk-free rate.
+            
+            The issue with this reformulation is that both adjustments are driven by the firm's credit risk. 
+            This will cause an imbalanced valuation in the sense that the two values overlap, 
+            and the Modigliani-Miller invariance Proposition will be violated. 
+            Notice that when the cash raised by selling the OTC derivative contract 
+            is used to purchase debt at a fair market value, a new liability is replacing a part of the existing liability. 
+            Remembering the pari passu assumption, this debt-for-debt swap leaves the total liability unchanged.
+
+            The implications of debt buyback are: 
+            First, the net present value of the creditors who tender is zero. 
+            This means that the loss rate as well as the credit spread has to be left unchanged
+            after partly retiring the debt, otherwise the creditors would not tender. 
+            Second, the counterparty charges for the firm's credit risk 
+            to the extend that it's a zero net present value for the counterparty. 
+            The cash flow following the derivative contract can be viewed as newly issued debt
+            with a fair credit spread offered to the creditors.
+            Third, the remaining creditors stay unaffected of the transaction, 
+            as the loss rate and credit spread is left intact. 
+            Since the derivative contract is a zero net present value for the firm, 
+            and no wealth is transferred at the neither the counterparty nor any of the creditors, 
+            so should it be for the shareholders. 
+            So, the option fair value must be given by \cref{eqn:option-value-credit-risk} 
+            as any other value would influence the wealth of the parties involved.
+
+            Returning to the previous example of a risky firm with a capital structure
+            as described in \cref{tbl:example-firm-structure}, 
+            the firm now enters a derivative contract by selling a project to a counterparty
+            with a credit value adjusted present value of 1. 
+            The option premium is priced with no discount 
+            and is immediately spent on retiring debt from its already existing creditors. 
+            The derivative payable is now a liability to the firm, ranking pari passu with the existing debt, 
+            which before the derivative contract had a face value of 80. 
+            For simplicity, we assume, as in \cref{sec:risk-free-project},
+            that the derivative payable is known with certainty, hence it's a risk-free project. 
+            The firm's balance sheet isn't affected by the transaction. 
+            The change happens on the liability side, where the debt is partly swapped with a derivative payable.\\
+            The values of the different parties are shown in \cref{tbl:example-debt-retiring}. 
+            The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=1-60/80=25\%$. 
+            The credit spread is computed by: $s(q)=79/75.84-r_{f}-1=3.16\%$.
+            
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{l|rrrrr||r}
+                    $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
+                    \hline
+                    $A(\omega_{i})$ & $120$ & $110$ & $100$ & $95$ & $60$ & $96.40$ \\
+                    $D(\omega_{i})$ & $79$ & $79$ & $79$ & $79$ & $59.25$ & $75.84$ \\
+                    $S(\omega_{i})$ & $40$ & $30$ & $20$ & $15$ & $0$ & $19.60$ \\
+                    $Y_C(\omega_{i})$ & $1$ & $1$ & $1$ & $1$ & $0.75$ & $0.96$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:example-debt-retiring}
+            \end{table}
+
+            The liability side of the firm's balance sheet will then look like:
+
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l|c|c|c}
+                     & \textbf{Book Value} & \textbf{\DVA/} & \textbf{Market Value} \\
+                    \hline
+                    Equity & $19.60$ & $0$ & $19.60$\\
+                    Debt & $79.20$ & $3.36$ & $75.84$\\
+                    Derivative Payable & $0.99$ & $0.03$ & $0.96$\\
+                    \hline
+                    Total & 99.79 & 3.39 & 96.40
+                \end{tabular}
+            \end{table}
+
+            The transaction is a zero net present value investment for the shareholders. 
+            As can be seen in \cref{tbl:example-debt-retiring}, 
+            the shareholders receive a payoff at time 1 equal to the pre-derivative value.
+
+            The counterparty's payoff coming from the derivative, $Y_C$, has a market value of:
+            \begin{equation}
+                \pi(Y_{C}) = \sum_i \psi_i Y_{C,i} = 0.96
+            \end{equation}
+            This concludes that the option premium that the firm receives at time 0 is equal to 0.96, 
+            which is then the amount used for retiring debt. 
+            On top of this, the amount is recognized as the difference between the riskless project value and the \DVA/:
+            \begin{equation}
+                V = V_{rf} - \text{\DVA/}(F) = 0.99 - 0.03 = 0.96
+            \end{equation}
+            which validates \cref{eqn:option-value-credit-risk}. 
+            Including an adjustment from the benefits of funding 
+            would lead to a double counting effect due to two offsetting effects. 
+            (i): By retiring debt with the cash coming from the option premium at time 0, 
+            the firm will receive a funding benefit in the sense that it saves some interest expenses. 
+            (ii): However, the debt retiring decreases the \DVA/ of the firm's existing debt 
+            by exactly $\text{\FVA/}_{\text{benefit}}$ amount.
+
+        \subsubsection{Equity buyback}
+            Assume that the firm enters a project 
+            by selling the same derivative contract with a known payoff at time 1 of 1. 
+            The option premium at time 0 is now used for buying back equity from the shareholders. 
+            The example from above is used again to address the impacts of this issue.
+
+            Instead of swapping some existing debt for a derivative payable, 
+            the option value now adds to the aggregate liabilities of the firm, 
+            and ranks pari passu with the existing creditors. 
+            In the state of default, the firm has already at time 0 allocated some cash to the shareholders, 
+            leaving a smaller amount to the creditors compared to the pre-derivative capital structure, 
+            as the loss rate increases.\\
+            The firm's balance sheet is left unchanged, meaning that the sum of the market values of debt, equity, 
+            and derivative payable is the same after the transaction. 
+            The values of the different parties are shown in \cref{tbl:example-equity-buyback}. 
+            The loss rate increases and is computed as: $\phi = 1 - 60/81 = 25.93\%$. 
+            Similarly, the credit spread increases: $s(q) = 80/76.711 - r_f - 1 = 3.28\%$. 
+            \textcolor{red}{We might not have computed these numbers in the beginning yet. So to say they increase is not really accurate right now.}
+
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{l|rrrrr||r}
+                    $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
+                    \hline
+                    $A(\omega_{i})$ & $120$ & $110$ & $100$ & $95$ & $60$ & $96.400$ \\
+                    $D(\omega_{i})$ & $80$ & $80$ & $80$ & $80$ & $59.259$ & $76.711$ \\
+                    $S(\omega_{i})$ & $39$ & $29$ & $19$ & $14$ & $0$ & $18.730$ \\
+                    $Y_C(\omega_{i})$ & $1$ & $1$ & $1$ & $1$ & $0.741$ & $0.959$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:example-equity-buyback}
+            \end{table}
+
+            The firm receives 0.959 as the option premium at time 0, which is immediately spend on equity buyback. 
+            The derivative contract is a negative net present value for the for the creditors, 
+            where the change of wealth is computed by:
+            \begin{equation}
+                \Delta D = 76.711 - 76.800 = -0.089
+            \end{equation}
+            On the other hand, the transaction is a positive net present value for the shareholders:
+            \begin{equation}
+                \Delta S = (18.730 + 0.959) - 19.600 = 0.089
+            \end{equation}
+            meaning there is a wealth transfer from the creditors to the shareholders.
+
+            The derivative is a zero net present value for the counterparty. 
+            The price of the option is lower compared to the case of debt retiring, 
+            which is explained by the higher loss rate in case of default. 
+            The only valuation adjustment to the price is still the \CVA/ charged by the counterparty, 
+            which again validates \cref{eqn:option-value-credit-risk}.
+
+        \subsubsection{No funding buyback}
+            Now suppose, instead of buying back debt or equity, 
+            the firm spends the cash proceeds from the option premium in riskless assets. 
+            If the derivative traded with the counterparty has a known payoff at time 1, this procedure is exactly the same as if the firm borrows money to buy the riskless asset 
+            as described in \cref{sec:example-risk-free-project-debt-issuance}. 
+            To deviate from the exact same conclusions, the option is now assumed to have a payoff structure at time 1 
+            as described in \cref{tbl:risky-option-payoff}. 
+            The option will still be fairly priced, i.e. the price is the discounted expected payoff for the counterparty. 
+            The credit risk still needs to be accounted for in the price. 
+            At time 1 the firm will pay the counterparty accordingly, hence the derivative payable, $Y_C$, 
+            is still a liability to the firm and ranks pari passu with the already existing debt.
+            
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{l|rrrrr}
+                    $i$ & 1 & 2 & 3 & 4 & 5 \\
+                    \hline
+                    $Y(\omega_{i})$ & $4$ & $3.5$ & $2.5$ & $1.5$ & $1$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:risky-option-payoff}
+            \end{table}
+
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{l|rrrrr||r}
+                    $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
+                    \hline
+                    $A(\omega_{i})$ & $122.341$ & $112.341$ & $102.341$ & $97.341$ & $62.341$ & $98.717$ \\
+                    $D(\omega_{i})$ & $80$ & $80$ & $80$ & $80$ & $61.571$ & $76.989$ \\
+                    $S(\omega_{i})$ & $38.341$ & $28.841$ & $19.841$ & $15.841$ & $0$ & $19.412$ \\
+                    $Y_C(\omega_{i})$ & $4.000$ & $3.500$ & $2.500$ & $1.500$ & $0.770$ & $2.317$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:example-no-funding-buyback}
+            \end{table}
+
+            After receiving the option premium in the form of cash, the firm immediately invests in the riskless asset. 
+            This implies that the firm's total asset value increases with an amount equal to the discounted option premium. 
+            The capital structure, after this transaction, is described in \cref{tbl:example-no-funding-buyback}, 
+            where the fair value option price and loss rate are found
+            by solving the following equation system for $\pi(Y_C)$ and $\phi$:
+            \begin{align}
+                \pi(Y_C) &= \sum_i \psi_i Y_{C,i}\\
+                A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
+                \label{eqn:no-funding-buyback-default}
+            \end{align}
+            with \cref{eqn:no-funding-buyback-default} making sure that the creditors and derivative payable
+            takes the total asset value amount in case of default, i.e. state $\omega_5$.
+
+            The change in wealth for the creditors is now computed as:
+            \begin{equation}
+                \Delta D = 76.989 - 76.800 = 0.189
+            \end{equation}
+            The increment happens as the riskless asset, which the firm invested in with the option premium, 
+            makes the asset value increase, and a larger total amount is recovered in case of default. 
+            In the cases of no default, the creditors are not affected by the new project.\\
+            The change in wealth for the shareholders is computed by:
+            \begin{equation}
+                \Delta S = 19.412 - 19.600 = -0.188
+            \end{equation}
+            where the difference between $\Delta D$ and $-\Delta S$ is caused by rounding in the present values. 
+            Therefore, this is a negative net present value for the shareholders 
+            and a positive net present value for the creditors. 
+            Due to the risk in the option, the shareholders do have a chance to gain from the project, 
+            where in state $\omega_4$, the derivative payable is less than the return on the riskless asset.
+
+\end{document}

@@ -84,7 +84,7 @@
         \subfile{shareholders-financing-costs}
         \subfile{defining-fva}
 
-    \subsection{Funding costs of risk free project}
+    \subsection{Funding costs of risk free project}\label{sec:risk-free-project}
         Consider the economy defined by a single period model with $5$ states, and the following properties:
             \begin{table}[H]
                 \centering
@@ -93,6 +93,8 @@
                     \hline
                     $\psi_{i}$ & $0.06$ & $0.24$ & $0.29$ & $0.28$ & $0.12$ \\
                 \end{tabular}
+                \caption{}
+                \label{tbl:example-firm-structure}
             \end{table}
         implying a discount factor of $d_{0} = 0.99$ and a risk free interest rate of $r_{f} = 1.0101\%$.
         A firm operates in this economy and invests in risky assets which are funded by equity and debt deposits and returns payoff specified shortly.
@@ -106,6 +108,7 @@
                 $D(\omega_{i})$ & 80 & 80 & 80 & 80 & 60 \\
                 $S(\omega_{i})$ & 40 & 30 & 20 & 15 & 0
             \end{tabular}
+            \caption{}
         \end{table}
         The associated present values of the payoffs, $A$, $D$ and $S$, are discounted expected value of the payoff with respect to the risk neutral probability measure:
             \begin{gather}
@@ -123,13 +126,14 @@
                     \hline
                     $Y(\omega_{i})$ & $10$ & $10$ & $10$ & $10$ & $10$
                 \end{tabular}
+                \caption{}
             \end{table}
         which implies a present value of $Y_{0} = 15d_{0} = 9.90$, since the project is merely an investment in the risk free asset.
         Obtaining the payoff requires an upfront cost equal to the fair value of the project, $\pi(Y) = Y_{0}$.
         The firm can either obtain the funding required by issuing debt or by selling equity.
         The former case is examined in the following section and the latter in the section after that.
 
-    \subsubsection{Funding by debt issuance}
+    \subsubsection{Funding by debt issuance}\label{sec:example-risk-free-project-debt-issuance}
         In order to finance the upfront of the project, $\pi(Y)$, the firm issues debt to new creditors, specifically the price of the debt, denoted $\pi(\tilde{D})$, should equal the price of the project.
         Assume that the new debt ranks pari passu with the legacy debt, such that all creditors experience the same loss rate in states where the firm defaults.
         A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim with face value $D_{FV}$ has the random recovery rate given as:
@@ -172,6 +176,7 @@
                 $S(\omega_{i})$ & $19.72$ & $29.72$ & $14.72$ & $39.72$ & $0$ & $19.36$ \\
                 $\tilde{D}(\omega_{i})$ & $10.28$ & $10.28$ & $10.28$ & $10.28$ & $7.97$ & $9.90$ \\
             \end{tabular}
+            \caption{}
         \end{table}
 
         Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project.
@@ -284,6 +289,7 @@
                 $S_{i}$ & 32.51 & 26.01 & 19.51 & 16.25 & 0 & 18.40 \\
                 $\tilde{S}_{i}$ & 17.49 & 13.99 & 10.49 & 8.75 & 0 & 9.90 \\
             \end{tabular}
+            \caption{}
             \label{tbl:equity-funding-payoff}
         \end{table}
 
@@ -328,5 +334,6 @@
         The availability of cash in the firm's deposits would solve the issue faced by the shareholders:
         Suppose the firm uses their own cash to purchase the derivative from the counterparty at a market fair value.
         This is a zero net present value investment for the firm, where, in addition, no wealth is transferred from the shareholders, and neither does the creditors become better off. 
-
+        
+        \subfile{funding-benefit}
 \end{document}
