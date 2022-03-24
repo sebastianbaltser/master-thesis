@@ -4,6 +4,7 @@ Icon[
 
 #Så slipper vi for at få fejl på den her hele tiden:
 thesis/*/*.pdf
+thesis/*.pdf
 notes/*.pdf
 notes/*/*.pdf
 
