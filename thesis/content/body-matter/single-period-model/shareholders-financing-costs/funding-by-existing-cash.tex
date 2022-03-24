@@ -3,5 +3,77 @@
 
 \begin{document}
     \subsubsection{Funding by existing cash}
+        Instead of relying on external resources to fund the project,
+        the firm might be in an excess of cash that can be used for financing,
+        thus eliminating the need for external funding.
+        If the firm uses cash from its balance sheet, the equity increases
+        by the present value of the risk-neutral expectation to the project payoff,
+        offset by the opportunity cost of tying up capital in the project;
+        capital that could otherwise have been invested in bonds earning the risk-free rate.
+        The marginal increase in the equity valuation per unit investment is therefore:
+            \begin{equation*}
+                G_{\text{cash}} =
+                    \left.
+                    \frac{\partial }{\partial q} 
+                    \discountfactor
+                    \frac{
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                            \left(
+                                A - U(q)R + qY - L
+                            \right)^{+}
+                        \right] 
+                    }{
+                        q
+                    } 
+                    \right\rvert_{q=0}
+            \end{equation*}
+        This derivative is, again, very similar to the derivatives already examined,
+        so, for brevity, the calculations in this section will be omitted.
+        The derivative can be reformulated to the following:
+            \begin{align}
+                G_{\text{cash}} &=
+                    \discountfactor
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{D^{c}} Y
+                    \right]
+                    -
+                    u
+                    \mathbb{E}\left[\mathbbm{1}_{D^{c}} \right]
+                    \nonumber \\
+                &=
+                    \discountfactor
+                    \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right] 
+                    \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
+                    + 
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D^{c}}, Y\right) 
+                    -
+                    u
+                    \mathbb{E}\left[\mathbbm{1}_{D^{c}} \right]
+                    \nonumber \\
+                &= 
+                    p^{\mathbb{Q}}
+                    \left(
+                        \pi + u
+                    \right)
+                    +
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D^{c}}, Y\right) 
+                    -
+                    p^{\mathbb{Q}}
+                    u
+                    \nonumber \\
+                &=
+                    p^{\mathbb{Q}}
+                    \pi
+                    +
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D^{c}}, Y\right) 
+            \end{align}
+        The derived equation only contains terms involving expectations of future cash flows,
+        namely the payoff from the project.
+        This reflects the fact that at time 0 there is no immediate value lost or gained
+        by the shareholders, since, as the project is fairly priced, there is no difference
+        in owning cash worth $u$ or a project worth $u$.
 
 \end{document}
