@@ -10,4 +10,176 @@
         It is assumed that the market for newly issued equity is sufficiently competitive,
         such that new shareholders break even when purchasing the newly issued shares;
         in other words, buying the firm's newly issued stock is a zero net present value investment.
+
+        With equity financing, the legacy shareholders still receives the difference between assets and debt claims,
+        however they now have to split the bounty with the new shareholders, 
+        who takes an amount of shares worth $U(q)$. 
+        The marginal increase in the value of the firms equity per unit investment is therefore:
+            \begin{align}
+                G_{\text{equity}} &=
+                    \left.
+                    \frac{
+                        \partial 
+                    }{
+                        \partial 
+                        q
+                    }
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \discountfactor 
+                        \left(
+                            A + qY - L
+                        \right)^{+}
+                    \right]
+                    -
+                    U(q) 
+                    \right\rvert_{q=0} 
+                    \nonumber
+            \end{align}
+        This derivative is very much like the derivative encountered under debt issuance.
+        Therefore, the reformulation in this section will be less rigorous,
+        as most details have already been covered in the previous section.
+        Expressing first the derivative as a difference quotient:
+            \begin{align}
+                G_{\text{equity}} &=
+                    \lim_{q\rightarrow0}
+                    \discountfactor
+                    \frac{
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \left(
+                            A + qY - L
+                        \right)^{+}
+                        \right] 
+                        -
+                        U(q)R
+                        -
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \left(
+                            A - L
+                        \right)^{+}  
+                        \right] 
+                    }{
+                        q
+                    }
+                    \nonumber
+            \intertext{Replacing max-functions by default indicators:}
+                &=
+                    \lim_{q\rightarrow0}
+                    \discountfactor
+                    \frac{
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                        \left(
+                            A + qY - L
+                        \right)
+                        \right] 
+                        -
+                        U(q)R
+                        -
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{D^{c}} 
+                        \left(
+                            A - L
+                        \right)  
+                        \right] 
+                    }{
+                        q
+                    } 
+                    \nonumber \\
+                &= 
+                    \lim_{q\rightarrow0}
+                    \discountfactor
+                    \frac{
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                            qY
+                        \right] 
+                        -
+                        U(q)R
+                        +
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \left(
+                            \mathbbm{1}_{\mathcal{D}^{c}(q)}
+                            -
+                            \mathbbm{1}_{D^{c}} 
+                        \right)
+                        \left(
+                            A - L
+                        \right)  
+                        \right] 
+                    }{
+                        q
+                    }
+                    \nonumber 
+            \intertext{
+                The limit of each term exists, and they are all known from and accounted for in the previous derivation. 
+                Applying the limit yields:
+            }
+                &=
+                    \discountfactor
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}} 
+                        Y
+                    \right]  
+                    -
+                    u
+                    \nonumber
+            \end{align}
+        The reformulation of $\mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}} Y\right]$ is substituted, 
+        and the final result is therefore:
+            \begin{align}
+                G_{\text{equity}} &=
+                    \discountfactor
+                    \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right]
+                    \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(
+                        \mathbbm{1}_{D},
+                        Y
+                    \right)
+                    -
+                    u
+                    \nonumber \\
+                &= 
+                    p^{\mathbb{Q}}
+                    \left(
+                        \pi
+                        +
+                        u
+                    \right)
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(
+                        \mathbbm{1}_{D},
+                        Y
+                    \right)
+                    -
+                    u 
+                    \nonumber \\
+                &= 
+                    p^{\mathbb{Q}}
+                    \pi
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(
+                        \mathbbm{1}_{D},
+                        Y
+                    \right)
+                    -
+                    \left(
+                        1
+                        -
+                        p^{\mathbb{Q}}
+                    \right)
+                    u 
+                \label{eqn:marginal-shareholder-value-equity-financing}
+            \end{align}
+        The two first terms are recognized from the previous section in 
+        \cref{eqn:marginal-shareholder-value-debt-financing}
+        and their interpretation are unchanged. 
+        The third term reflects the fact that, in the event of default, with probability $1-p^{\mathbb{Q}}$, 
+        legacy shareholders must give up the entire valuation of the initial investment, $u$.
+        This manifests the principle that legacy shareholders should be discouraged 
+        from entering into new projects if the survival probability of the firm is too low,
+        as they only have benefit potential in no-default states.
 \end{document}
