@@ -1,0 +1,196 @@
+% !TEX root = ./sub-main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+    \subsubsection{Funding by equity issuance}
+        In addition to obtaining debt, new projects can be financed by issuing additional shares
+        that will provide a source of equity capital.
+        Share issuances dilutes the firm's stocks, which can reduce the value of the existing shareholders' stocks,
+        which will be the cause of the conflict of interest with this type of funding.
+        It is assumed that the market for newly issued equity is sufficiently competitive,
+        such that new shareholders break even when purchasing the newly issued shares;
+        in other words, buying the firm's newly issued stock is a zero net present value investment.
+
+        With equity financing, the legacy shareholders still receives the difference between assets and debt claims,
+        however they now have to split the bounty with the new shareholders, 
+        who, at time 0, takes an amount of shares worth $U(q)$. 
+        The marginal increase in the value of equity owned by legacy shareholders per unit investment is therefore:
+            \begin{align}
+                G_{\text{equity}} &=
+                    \left.
+                    \frac{
+                        \partial 
+                    }{
+                        \partial 
+                        q
+                    }
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \discountfactor 
+                        \left(
+                            A + qY - L
+                        \right)^{+}
+                    \right]
+                    -
+                    U(q) 
+                    \right\rvert_{q=0} 
+                    \nonumber
+            \end{align}
+        This derivative is very much like the derivative encountered under debt issuance.
+        Therefore, the reformulation in this section will be less rigorous,
+        as most details have already been covered in the previous section.
+        Expressing first the derivative as a difference quotient:
+            \begin{align}
+                G_{\text{equity}} &=
+                    \lim_{q\rightarrow0}
+                    \discountfactor
+                    \frac{
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \left(
+                            A + qY - L
+                        \right)^{+}
+                        \right] 
+                        -
+                        U(q)R
+                        -
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \left(
+                            A - L
+                        \right)^{+}  
+                        \right] 
+                    }{
+                        q
+                    }
+                    \nonumber
+            \intertext{Replacing max-functions by default indicators:}
+                &=
+                    \lim_{q\rightarrow0}
+                    \discountfactor
+                    \frac{
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                        \left(
+                            A + qY - L
+                        \right)
+                        \right] 
+                        -
+                        U(q)R
+                        -
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{D^{c}} 
+                        \left(
+                            A - L
+                        \right)  
+                        \right] 
+                    }{
+                        q
+                    } 
+                    \nonumber \\
+                &= 
+                    \lim_{q\rightarrow0}
+                    \discountfactor
+                    \frac{
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                            qY
+                        \right] 
+                        -
+                        U(q)R
+                        +
+                        \mathbb{E}^{\mathbb{Q}}\left[
+                        \left(
+                            \mathbbm{1}_{\mathcal{D}^{c}(q)}
+                            -
+                            \mathbbm{1}_{D^{c}} 
+                        \right)
+                        \left(
+                            A - L
+                        \right)  
+                        \right] 
+                    }{
+                        q
+                    }
+                    \nonumber 
+            \intertext{
+                The limit of each term exists, and they are all known from and accounted for in the previous derivation. 
+                Applying the limit yields:
+            }
+                &=
+                    \discountfactor
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                    \mathbbm{1}_{D^{c}} 
+                        Y
+                    \right]  
+                    -
+                    u
+                    \nonumber
+            \end{align}
+        The reformulation of $\mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}} Y\right]$ is substituted, 
+        and the final result is therefore:
+            \begin{align}
+                G_{\text{equity}} &=
+                    \discountfactor
+                    \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right]
+                    \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(
+                        \mathbbm{1}_{D},
+                        Y
+                    \right)
+                    -
+                    u
+                    \nonumber \\
+                &= 
+                    p^{\mathbb{Q}}
+                    \left(
+                        \pi
+                        +
+                        u
+                    \right)
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(
+                        \mathbbm{1}_{D},
+                        Y
+                    \right)
+                    -
+                    u 
+                    \label{eqn:G-equity-step-1} \\
+                &= 
+                    p^{\mathbb{Q}}
+                    \pi
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(
+                        \mathbbm{1}_{D},
+                        Y
+                    \right)
+                    -
+                    \left(
+                        1
+                        -
+                        p^{\mathbb{Q}}
+                    \right)
+                    u 
+                \label{eqn:marginal-shareholder-value-equity-financing}
+            \end{align}
+        The two first terms are recognized from the previous section in 
+        \cref{eqn:marginal-shareholder-value-debt-financing}
+        and their interpretation are unchanged. 
+        The third term reflects the fact that, in the event of default, with probability $1-p^{\mathbb{Q}}$, 
+        legacy shareholders must give up the entire valuation of the incremental cash flows
+        that arise from the investment when the firm defaults.
+        While \cref{eqn:marginal-shareholder-value-equity-financing} is clearly the easiest to compare to 
+        \cref{eqn:marginal-shareholder-value-debt-financing},
+        \cref{eqn:G-equity-step-1} is easier to interpret, so the rest of this section will focus on the latter.
+        The first term represents the added value to the legacy shareholders of 
+        obtaining a profit at time 1, $\pi$, from the project,
+        as well as receiving a cash injection from the new shareholders amounting to $u$.
+        These two cash flows are only valuable to the shareholders if the firm can actually maintain solvency,
+        so they are discounted by the survival probability, $p^{\mathbb{Q}}$.
+        The interpretation of the second term has been covered previously.
+        The third term $-u$ is due to the share dilution from the stock issuance.
+        The new shareholders receive a share of equity worth $u$, 
+        and this is clearly a loss to the legacy shareholders.
+
+\end{document}
