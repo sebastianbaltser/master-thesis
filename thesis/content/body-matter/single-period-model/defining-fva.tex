@@ -120,5 +120,20 @@
                     \label{shareholders-breakeven-debt-financing}
                 \end{align}
             A result named Proposition 3 by \cite{ADS2019}.
+            The expected value of the cash flow, $\mathbb{E}^{\mathbb{Q}}\left[Y\right]$,
+            includes the counterparty credit risk, since that is inherited in the cash flow, 
+            but excludes the firm's own credit risk. 
+            In other words, $\mathbb{E}^{\mathbb{Q}}\left[Y\right]$ is adjusted for \CVA/ but not \DVA/.
+            The second term is the covariance between the default event and the cash flow,
+            inflated by the probability of not defaulting. 
+            The shareholders' breakeven value can then be seen as the discounted expected value of the cash flow
+            adjusted for the inflated covariance.
+            The discounting rate used is however not the risk free rate, but rather the funding rate, $\grossrfrate+S$.
+            Having derived the shareholders' breakeven value the definition of the \FVA/ under debt financing
+            can be defined as the adjustment to the actual price needed to arrive at breakeven:
+                \begin{equation}
+                    \FVA/_{\text{debt}} 
+                        = u^{\ast}_{\text{debt}} - u
+                \end{equation}
 
 \end{document}
