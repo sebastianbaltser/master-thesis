@@ -64,49 +64,52 @@
             \cref{eqn:marginal-shareholder-value-debt-financing}, equal to zero,
             and solving for the marginal investment cost, $u$:
                 \begin{align}
-                    0 &= G 
+                    0 &= G_{\text{debt}} 
                     = 
+                        p^{\mathbb{Q}}\pi 
+                        - 
+                        \discountfactor  
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        - 
+                        \Phi
+                        \nonumber\\
+                    &=
                         p^{\mathbb{Q}} \left(
-                            \frac{
-                                \mathbb{E}^{\mathbb{Q}}\left[Y\right]
-                            }{
-                                1 + \rfrate
-                            } 
+                            \discountfactor
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
                             - u
                         \right)
-                        - \frac{
-                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
-                        }{
-                            1 + \rfrate
-                        } 
-                        - p^{\mathbb{Q}} \discountfactor u S 
+                        -
+                        \discountfactor
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        - 
+                        p^{\mathbb{Q}} \discountfactor u S 
                         \nonumber\\
                     &= 
-                        \frac{
-                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
-                        }{
-                            1 + \rfrate
-                        }  
+                        \discountfactor
+                        \mathbb{E}^{\mathbb{Q}}\left[Y\right]  
                         - u
-                        - \frac{
+                        - 
+                        \discountfactor
+                        \frac{
                             \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
                         }{
                             p^{\mathbb{Q}}
-                            (1 + \rfrate)
                         }
                         - \discountfactor u S 
                         \nonumber\\
                     u^{\ast}_{D}
-                    &\equiv
+                    \equiv
+                    u &=
                         \frac{
                             \mathbb{E}^{\mathbb{Q}}\left[Y\right]
                         }{
-                            1 + \rfrate + S  
+                            \grossrfrate + S  
                         } 
                         - \frac{
                             \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
                         }{
-                            p^{\mathbb{Q}}(1 + \rfrate + S)  
+                            p^{\mathbb{Q}}(\grossrfrate + S)  
                         } 
                 \end{align}
             A result named Proposition 3 by \cite{ADS2019}.
