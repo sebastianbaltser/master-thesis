@@ -108,15 +108,18 @@
                     u^{\ast}_{\text{debt}}
                     &\equiv
                         \frac{
+                            1
+                        }{
+                            \grossrfrate + S
+                        } 
+                        \left(
                             \mathbb{E}^{\mathbb{Q}}\left[Y\right]
-                        }{
-                            \grossrfrate + S  
-                        } 
-                        - \frac{
-                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
-                        }{
-                            p^{\mathbb{Q}}(\grossrfrate + S)  
-                        } 
+                            - \frac{
+                                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                            }{
+                                p^{\mathbb{Q}}  
+                            } 
+                        \right)
                     \label{shareholders-breakeven-debt-financing}
                 \end{align}
             A result named Proposition 3 by \cite{ADS2019}.
@@ -136,5 +139,67 @@
                         = u^{\ast}_{\text{debt}} - u
                     \label{fva-debt-financing}
                 \end{equation}
+
+            \textit{Equity financing:} \\
+            Likewise the breakeven price under equity financing can be found by solving for $u$
+            when \cref{eqn:marginal-shareholder-value-equity-financing} equals zero:
+                \begin{align}
+                    0 &= G_{\text{equity}} 
+                    = 
+                        p^{\mathbb{Q}}\pi 
+                        - 
+                        \discountfactor  
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        - 
+                        \left(
+                            1
+                            -
+                            p^{\mathbb{Q}}
+                        \right)
+                        u 
+                        \nonumber \\
+                    &=
+                        p^{\mathbb{Q}} \left(
+                            \discountfactor
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            - u
+                        \right)
+                        -
+                        \discountfactor
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        - 
+                        \left(
+                            1
+                            -
+                            p^{\mathbb{Q}}
+                        \right)
+                        u 
+                        \nonumber \\
+                    u_{\text{equity}}^{\ast}
+                    &\equiv
+                        \discountfactor
+                        \left(
+                            p^{\mathbb{Q}}
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            -
+                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        \right)
+                        \nonumber \\
+                    &= 
+                        \discountfactor
+                        p^{\mathbb{Q}}
+                        \left(
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            -
+                            \frac{
+                                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                            }{
+                                p^{\mathbb{Q}}  
+                            }  
+                        \right)
+                \end{align}
+            Again, the shareholders' breakeven value can then be seen as the discounted expected value of the cash flow
+            adjusted for the inflated covariance.
+            However, the discount factor applied is different from the risk rate plus the credit spread as seen before.
 
 \end{document}
