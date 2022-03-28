@@ -210,5 +210,49 @@
                     \label{fva-equity-financing}
                 \end{equation}
 
+            \textit{Cash funding:} \\
+            The breakeven price under cash funding is derived using
+            \cref{eqn:marginal-shareholder-value-cash-financing}:
+                \begin{align}
+                    0 &= G_{\text{cash}} 
+                    = 
+                        p^{\mathbb{Q}}\pi 
+                        - 
+                        \discountfactor  
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        \nonumber \\
+                    &=
+                        p^{\mathbb{Q}} \left(
+                            \discountfactor
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            - u
+                        \right)
+                        -
+                        \discountfactor
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        \nonumber \\
+                    u_{\text{cash}}^{\ast}
+                    &\equiv
+                        \discountfactor
+                        \left(
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            -
+                            \frac{
+                                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                            }{
+                                p^{\mathbb{Q}}  
+                            }  
+                        \right)
+                \end{align}
+            Once more, the breakeven value is the expected value of the cash flow
+            adjusted for the inflated covariance, both discounted. 
+            Under cash funding the discount rate is the funding cost of using excess cash,
+            i.e. the opportunity cost of tying up capital which equals the risk free rate.
+            The \FVA/ under cash funding is:
+                \begin{equation}
+                    \FVA/_{\text{cash}} 
+                        = u^{\ast}_{\text{cash}} - u
+                    \label{fva-cash-financing}
+                \end{equation}
 
 \end{document}
