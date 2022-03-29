@@ -42,19 +42,19 @@
         Consider now a firm operating in a single period economy with $S$ states and state prices.
         The firm can invest in assets with risk but needs financing for supporting it's investments.
         Assume that the firm has no cash, such that financing can only be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt.
-        The sum of the amount of equity funding obtained, $S_{0}$, and the amount of debt issued, $D_{0}$, decides the value of risky assets the firm can invest in, $A_{0}$.
+        The sum of the amount of equity funding obtained and the amount of debt issued decides the value of risky assets the firm can invest in.
         The value of the firm at time $1$ is given by the random variable $A$.
         At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment.
         In the event that the value of the firm $A$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate. 
-        The firms' default event will be denoted by $\mathcal{D}$.
-        The payoff to the creditors is thus a random variable denoted by $D$.
+        The firms' default event will be denoted by $D$.
+        The payoff to the creditors is thus a random variable denoted by $L$.
         In a default event the firm can suffer distress costs due to for example liquidation of its assets.
         The remaining estate after a default depends on the recovery parameter $\kappa \in (0;1]$, such that the remaining estate is $\kappa A$.
         Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults.
         The shareholders' random payoff is denoted by $S$.
         Hence, the payoff of creditors and shareholders is given respectively by:
             \begin{gather}
-                D = \min\left(
+                L = \min\left(
                         D_{FV},\; A
                     \right)
                     = D_{FV} - \max\left(
