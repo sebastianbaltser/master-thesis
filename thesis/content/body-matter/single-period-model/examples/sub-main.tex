@@ -1,88 +1,7 @@
-% !TEX root = ../main.tex
-\documentclass[../main.tex]{subfiles}
+% !TEX root = ../single-period-model.tex
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \section{Funding Costs in the Single Period Model}
-        In order to develop the necessary understanding of funding costs and their implications to a firm's stakeholders, this section will explore them using the single period framework.
-        The framework is a drastic simplification of reality but still it can provide useful results concerning funding value adjustments.
-
-    \subsection{The single period model}
-        The single period framework is modelling what will happen in an economy as it transitions from the present, time 0, to one time period ahead, time 1.
-        At time 1 the economy can materialize in one of $N$ possible states, $\omega_{1}, \dots, \omega_{N}$, and each state occur with a strictly positive probability.
-        A state is defined by the price of an Arrow-Debreu security paying one unit of numeraire if the state is achieved and zero otherwise.
-        The price of this security is referred to as the state price and denoted $\psi_{i}$.
-        The vector of state prices, $\psi \equiv \left(\psi_{1}, \dots, \psi_{N}\right)'$, can be used to price claims in the economy, since a state price defines the value of receiving a cash flow in a particular state.
-        For simplicity, all investors are assumed to be in possession of the same market information.
-
-        To characterize the market valuation of financial derivatives represented on a firm's balance sheet, the finite set, $\mathcal{L}$, of payoffs at time 1 is assigned a fair value at time 0 by some "fair market value"-function $V\, \colon \mathcal{L} \rightarrow \mathbb{R}$.
-        Two required assumptions are imposed on the market valuation assignment: 
-        (i) $V(\cdot)$ is linear, meaning that the value of a portfolio holding different cash flows is the sum of the values of the elements of the portfolio, and 
-        (ii) $V(\cdot)$ is increasing in payoffs, meaning that if payoff $X$ is greater than or equal to payoff $Y$ in all $N$ states, and if $X>Y$ in some states, then $V(X)>V(Y)$.
-        
-        The price of a payoff $d=\left(d_{1}, \dots, d_{N}\right)'$ is given as:
-            \begin{equation}
-                \pi(d) = d'\psi = \sum_{i=1}^{N} d_{i}\psi_{i}
-            \end{equation}
-        Especially a zero coupon bond surely paying one unit of numeraire in every state has the price:
-            \begin{equation}
-                d_{0} = \sum_{i=1}^{N} \psi_{i}
-            \end{equation}
-        from which the risk free rate can be defined as:
-            \begin{equation}
-                r_{f} = \frac{1}{d_{0}} - 1
-            \end{equation}
-        The gross risk free rate will be denoted by $\grossrfrate \equiv 1 + r_{f}$.
-        The product between the gross risk free rate and the state price vector produces the risk neutral probability distribution, $\mathbb{Q}$, i.e. $q_{i} = \grossrfrate\psi_{i}$.
-
-        In an OTC market, the market valuations of a derivative $i$ need not coincide with the price, $U_{i}(q)$, at which dealers are trading this derivative.
-        At almost the same point in time, the same asset can be traded at several different prices reflecting distinct bids and asks of different dealers.
-        The associated deviation in prices is partly explained by search costs, differences in dealer-client relationships, and differences in the dealers' capital structure.
-
-    \subsection{Firm capital structure}
-        Consider now a firm operating in a single period economy with $S$ states and state prices.
-        The firm can invest in assets with risk but needs financing for supporting it's investments.
-        Assume that the firm has no cash, such that financing can only be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt.
-        The sum of the amount of equity funding obtained and the amount of debt issued decides the value of risky assets the firm can invest in.
-        The value of the firm at time $1$ is given by the random variable $A$.
-        At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment.
-        In the event that the value of the firm $A$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate. 
-        The firms' default event will be denoted by $D$.
-        The payoff to the creditors is thus a random variable denoted by $L$.
-        In a default event the firm can suffer distress costs due to for example liquidation of its assets.
-        The remaining estate after a default depends on the recovery parameter $\kappa \in (0;1]$, such that the remaining estate is $\kappa A$.
-        Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults.
-        The shareholders' random payoff is denoted by $S$.
-        Hence, the payoff of creditors and shareholders is given respectively by:
-            \begin{gather}
-                L = \min\left(
-                        D_{FV},\; A
-                    \right)
-                    = D_{FV} - \max\left(
-                        D_{FV} - A, 0
-                    \right) \label{eqn:legacy-creditor-payoff}\\
-                S
-                    = \max\left(
-                        A - D_{FV},\; 0
-                    \right)
-            \end{gather}
-        It is worth noting that the creditors security, i.e. the debt claim, can be replicated by buying a riskless bond with face value $D_{FV}$ and selling a put option on the firm with strike $D_{FV}$.
-        The shareholders claim is equivalent to buying a call option on the firm with strike $D_{FV}$.
-
-        After deciding it's capital structure, the firm has an opportunity to engage in a new project, e.g. buying or selling a security.
-        The project has a, possibly random, payoff denoted by $Y$, a value denoted by $Y_{0}$, and a price denoted by $\pi(Y)$.
-        If the project is fairly priced the price equals the value, i.e. $\pi(Y) = Y_{0}$, but this is not necessarily the case in the following examples.
-        In order to invest in the project the firm must pay the upfront price, $\pi(Y)$, or receive it if it's negative.
-        If the upfront is a payable, the firm must be able to finance it or if it is a receivable, the firm can use it to retire debt.
-        The issues to examine is the funding costs or benefits of entering into the project.
-        One issue is how the funding costs or benefits affect the value of the project as experienced by the firm and whether a funding value adjustment should be made to the price of the projects.
-        Another issue is how the how the project and it's associated funding impacts the firm value and the value of its stakeholders claims.
-
-        These issues will be assessed by the means of examples in the following sections.
-
-        \subfile{marginal-valuation-assets-liabilities}
-        \subfile{shareholders-financing-costs/sub-main}
-        \subfile{defining-fva}
-
     \subsection{Funding costs of risk free project}\label{sec:risk-free-project}
         Consider the economy defined by a single period model with $5$ states, and the following properties:
             \begin{table}[H]
@@ -132,7 +51,7 @@
         The firm can either obtain the funding required by issuing debt or by selling equity.
         The former case is examined in the following section and the latter in the section after that.
 
-    \subsubsection{Funding by debt issuance}\label{sec:example-risk-free-project-debt-issuance}
+        \subsubsection{Funding by debt issuance}\label{sec:example-risk-free-project-debt-issuance}
         In order to finance the upfront of the project, $\pi(Y)$, the firm issues debt to new creditors, specifically the price of the debt, denoted $\pi(\tilde{D})$, should equal the price of the project.
         Assume that the new debt ranks pari passu with the legacy debt, such that all creditors experience the same loss rate in states where the firm defaults.
         A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim with face value $D_{FV}$ has the random recovery rate given as:
@@ -232,7 +151,7 @@
 
         The wealth transfer from shareholders to legacy creditors due to the new project 
         suggests defining and quantifying the \FVA/ of the project. 
-        
+
         Using \cref{eqn:fva-as-promised-excess-funding-cost}, the present value of the funding costs 
         in excess of the risk free rate paid by the shareholders is: 
         \begin{align}
@@ -247,7 +166,7 @@
         The two quantities differ by the no default probability, such that 
         $0.2771 * (1-\mathbb{P}\left(\mathcal{D}\right)) = 0.2435$.
 
-    \subsubsection{Funding by share issuance}
+        \subsubsection{Funding by share issuance}
         Assume that the premium paid by the firm to the counterparty is funded with new equity instead of taking on debt from a new creditor. 
         Doing so will create a dilution, and the value of the already existing shares, owned by the legacy shareholders, will be reduced. 
         The counterparty of the new project which the firm enters is still supposed to be risk free, meaning that the payoff at time 1, $Y$, is known with certainty. 
@@ -333,6 +252,5 @@
         The availability of cash in the firm's deposits would solve the issue faced by the shareholders:
         Suppose the firm uses their own cash to purchase the derivative from the counterparty at a market fair value.
         This is a zero net present value investment for the firm, where, in addition, no wealth is transferred from the shareholders, and neither does the creditors become better off. 
-        
-        \subfile{funding-benefit}
+
 \end{document}
