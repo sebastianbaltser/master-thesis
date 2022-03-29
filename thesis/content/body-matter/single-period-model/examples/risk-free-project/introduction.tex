@@ -1,0 +1,53 @@
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    Consider the economy defined by a single period model with $5$ states, and the following properties:
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{l|rrrrr}
+                $i$ & 1 & 2 & 3 & 4 & 5 \\
+                \hline
+                $\psi_{i}$ & $0.06$ & $0.24$ & $0.29$ & $0.28$ & $0.12$ \\
+            \end{tabular}
+            \caption{}
+            \label{tbl:example-firm-structure}
+        \end{table}
+    implying a discount factor of $d_{0} = 0.99$ and a risk free interest rate of $r_{f} = 1.0101\%$.
+    A firm operates in this economy and invests in risky assets which are funded by equity and debt deposits and returns payoff specified shortly.
+    The firm has been funded by debt such that the face value of debt is $D_{FV} = 80$, which gives rise to the following payoff structure:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|rrrrr}
+            $i$ & 1 & 2 & 3 & 4 & 5 \\
+            \hline
+            $A(\omega_{i})$ & 120 & 110 & 100 & 95 & 60 \\
+            $D(\omega_{i})$ & 80 & 80 & 80 & 80 & 60 \\
+            $S(\omega_{i})$ & 40 & 30 & 20 & 15 & 0
+        \end{tabular}
+        \caption{}
+    \end{table}
+    The associated present values of the payoffs, $A$, $D$ and $S$, are discounted expected value of the payoff with respect to the risk neutral probability measure:
+        \begin{gather}
+            \pi(A) = \frac{1}{1+r_{f}} \mathbb{E}^{\mathbb{Q}}\left[A\right] = 96.40 \\
+            \pi(D) = \frac{1}{1+r_{f}} \mathbb{E}^{\mathbb{Q}}\left[D\right] = 76.80
+            \qquad \pi(S) = \frac{1}{1+r_{f}} \mathbb{E}^{\mathbb{Q}}\left[S\right] = 19.60
+        \end{gather}
+
+    Assume that the firm faces a new risk free project in which it can invest.
+    The project is risk free in the sense that the payoff is known with certainty at time 0, so:
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{l|rrrrr}
+                $i$ & 1 & 2 & 3 & 4 & 5 \\
+                \hline
+                $Y(\omega_{i})$ & $10$ & $10$ & $10$ & $10$ & $10$
+            \end{tabular}
+            \caption{}
+        \end{table}
+    which implies a present value of $Y_{0} = 15d_{0} = 9.90$, since the project is merely an investment in the risk free asset.
+    Obtaining the payoff requires an upfront cost equal to the fair value of the project, $\pi(Y) = Y_{0}$.
+    The firm can either obtain the funding required by issuing debt or by selling equity.
+    The former case is examined in the following section and the latter in the section after that.
+
+\end{document}
