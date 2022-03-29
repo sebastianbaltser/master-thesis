@@ -80,14 +80,14 @@
                     \mathbb{E}^{\rnmeasure}\left[\phi\right]
                 &\leq
                     1 - p^{\rnmeasure}
-                \label{G-debt-vs-G-equity-inequality-1}
+                \label{eqn:G-debt-vs-G-equity-inequality-1}
                 \\
                 \Leftrightarrow 
                 \qquad
                 p^{\rnmeasure}
                 &\leq 
                 1 - \mathbb{E}^{\rnmeasure}\left[\phi\right]
-                \label{G-debt-vs-G-equity-inequality-2}
+                \label{eqn:G-debt-vs-G-equity-inequality-2}
             \end{align}
         Returning to \cref{eqn:G-debt-vs-G-equity-step-1} and substituting the expression for $S$:
             \begin{align}
@@ -110,14 +110,14 @@
                         \mathbb{E}^{\rnmeasure}\left[\phi\right]
                     \right)
             \end{align}
-        Due to \cref{G-debt-vs-G-equity-inequality-2} it holds that
+        Due to \cref{eqn:G-debt-vs-G-equity-inequality-2} it holds that
         $\frac{p^{\rnmeasure}}{1-\mathbb{E}^{\rnmeasure}\left[\phi\right]} \leq 1$,
-        which, combined with \cref{G-debt-vs-G-equity-inequality-1}, ensures that:
+        which, combined with \cref{eqn:G-debt-vs-G-equity-inequality-1}, ensures that:
             \begin{equation}
                 G_{\text{debt}}
                 \geq 
                 G_{\text{equity}}
-                \label{G-debt-vs-G-equity}
+                \label{eqn:G-debt-vs-G-equity}
             \end{equation}
         Hence, shareholders' weakly prefer debt funding over equity funding in terms of their value lost.
         While shareholders will bear the cost of interest payments on loans obtained under debt funding,
@@ -140,9 +140,10 @@
             }
                 \Rightarrow
                 \qquad
-                G_{\text{debt}}
+                    G_{\text{debt}}
                 &\leq
-                G_{\text{cash}}
+                    G_{\text{cash}}
+                \label{eqn:G-debt-vs-G-cash}
             \end{align}
         Again, if the probability of default is non-zero, the limiting spread is positive
         and the preference is strict, $G_{\text{debt}} < G_{\text{cash}}$.
