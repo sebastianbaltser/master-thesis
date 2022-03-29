@@ -60,4 +60,180 @@
             Phrased differently, the FVA is the donation needed from the project counterparty in order
             to convince the shareholders to enter the project.
 
+            Deriving the shareholder's breakeven price
+            is a matter of setting equal to zero the marginal value of entering project 
+            and solving for the marginal investment cost. 
+            With three different funding types considered, this will result in three different breakeven prices,
+            as well as three different definitions of \FVA/.
+            These will be derived in the following paragraphs.
+            
+            \textit{Debt financing:} \\
+            Under debt financing, the breakeven price is determined by setting
+            \cref{eqn:marginal-shareholder-value-debt-financing} equal to zero
+            and solving for the marginal investment cost:
+                \begin{align}
+                    0 &= G_{\text{debt}} 
+                        \nonumber\\
+                    &=
+                        p^{\mathbb{Q}} \left(
+                            \discountfactor
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            - u
+                        \right)
+                        -
+                        \discountfactor
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        - 
+                        p^{\mathbb{Q}} \discountfactor u S 
+                        \nonumber\\
+                    &= 
+                        \discountfactor
+                        \mathbb{E}^{\mathbb{Q}}\left[Y\right]  
+                        - u
+                        - 
+                        \discountfactor
+                        \frac{
+                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        }{
+                            p^{\mathbb{Q}}
+                        }
+                        - \discountfactor u S 
+                        \nonumber\\
+                    u^{\ast}_{\text{debt}}
+                    &\equiv
+                        \frac{
+                            1
+                        }{
+                            \grossrfrate + S
+                        } 
+                        \left(
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            - \frac{
+                                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                            }{
+                                p^{\mathbb{Q}}  
+                            } 
+                        \right)
+                    \label{shareholders-breakeven-debt-financing}
+                \end{align}
+            A result named Proposition 3 by \cite{ADS2019}.
+            The expected value of the cash flow, $\mathbb{E}^{\mathbb{Q}}\left[Y\right]$,
+            includes the counterparty credit risk, since that is inherited in the cash flow, 
+            but excludes the firm's own credit risk. 
+            In other words, $\mathbb{E}^{\mathbb{Q}}\left[Y\right]$ is adjusted for \CVA/ but not \DVA/.
+            The second term is the covariance between the default event and the cash flow,
+            inflated by the probability of not defaulting. 
+            The shareholders' breakeven value can then be seen as the discounted expected value of the cash flow
+            adjusted for the inflated covariance.
+            The discounting rate used is however not the risk free rate, but rather the funding rate, $\grossrfrate+S$.
+            Having derived the shareholders' breakeven value, the definition of the \FVA/ under debt financing
+            can be defined as the adjustment to the actual price needed to arrive at breakeven:
+                \begin{equation}
+                    \FVA/_{\text{debt}} 
+                        = u^{\ast}_{\text{debt}} - u
+                    \label{fva-debt-financing}
+                \end{equation}
+
+            \textit{Equity financing:} \\
+            Likewise the breakeven price under equity financing can be found by solving for $u$
+            when \cref{eqn:marginal-shareholder-value-equity-financing} equals zero:
+                \begin{align}
+                    0 &= G_{\text{equity}} 
+                        \nonumber \\
+                    &=
+                        p^{\mathbb{Q}} \left(
+                            \discountfactor
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            - u
+                        \right)
+                        -
+                        \discountfactor
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        - 
+                        \left(
+                            1
+                            -
+                            p^{\mathbb{Q}}
+                        \right)
+                        u 
+                        \nonumber \\
+                    u_{\text{equity}}^{\ast}
+                    &\equiv
+                        \discountfactor
+                        \left(
+                            p^{\mathbb{Q}}
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            -
+                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        \right)
+                        \nonumber \\
+                    &= 
+                        \discountfactor
+                        p^{\mathbb{Q}}
+                        \left(
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            -
+                            \frac{
+                                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                            }{
+                                p^{\mathbb{Q}}  
+                            }  
+                        \right)
+                \end{align}
+            Again, the shareholders' breakeven value can then be seen as the discounted expected value of the cash flow
+            adjusted for the inflated covariance.
+            However, the discount factor applied is different from the risk rate plus the credit spread as seen before.
+            The discount factor in this case $\discountfactor p^{\mathbb{Q}}$ corresponds to 
+            the price of an Arrow-Debreu security paying one unit of numeraire if the firm defaults and zero if not.
+            The \FVA/ under equity funding is then:
+                \begin{equation}
+                    \FVA/_{\text{equity}} 
+                        = u^{\ast}_{\text{equity}} - u
+                    \label{fva-equity-financing}
+                \end{equation}
+
+            \textit{Cash funding:} \\
+            The breakeven price under cash funding is derived using
+            \cref{eqn:marginal-shareholder-value-cash-financing}:
+                \begin{align}
+                    0 &= G_{\text{cash}} 
+                        \nonumber \\
+                    &=
+                        p^{\mathbb{Q}} \left(
+                            \discountfactor
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            - u
+                        \right)
+                        -
+                        \discountfactor
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                        \nonumber \\
+                    u_{\text{cash}}^{\ast}
+                    &\equiv
+                        \discountfactor
+                        \left(
+                            \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                            -
+                            \frac{
+                                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                            }{
+                                p^{\mathbb{Q}}  
+                            }  
+                        \right)
+                \end{align}
+            Once more, the breakeven value is the expected value of the cash flow
+            adjusted for the inflated covariance, both discounted. 
+            Under cash funding the discount rate is the funding cost of using excess cash,
+            i.e. the opportunity cost of tying up capital which equals the risk free rate.
+            The \FVA/ under cash funding is:
+                \begin{equation}
+                    \FVA/_{\text{cash}} 
+                        = u^{\ast}_{\text{cash}} - u
+                    \label{fva-cash-financing}
+                \end{equation}
+
+            If the firm has as objective to maximize shareholder value, 
+            it will not trade unless the upfront payment to the counterparty is at most the breakeven value,
+            or, conversely, unless the upfront payment to the firm from the counterparty is at least the breakeven value.
+
 \end{document}
