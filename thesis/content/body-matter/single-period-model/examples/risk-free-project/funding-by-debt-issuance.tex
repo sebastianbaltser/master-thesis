@@ -3,16 +3,20 @@
 
 \begin{document}
     \subsubsection{Funding by debt issuance}\label{sec:example-risk-free-project-debt-issuance}
-        In order to finance the upfront of the project, $\pi(Y)$, the firm issues debt to new creditors, specifically the price of the debt, denoted $\pi(\tilde{D})$, should equal the price of the project.
-        Assume that the new debt ranks pari passu with the legacy debt, such that all creditors experience the same loss rate in states where the firm defaults.
-        A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim with face value $D_{FV}$ has the random recovery rate given as:
+        In order to finance the upfront of the project, $\pi(Y)$, the firm issues debt to new creditors, 
+        specifically the price of the debt, denoted $\pi(\tilde{D})$, should equal the price of the project.
+        Assume that the new debt ranks pari passu with the legacy debt, 
+        such that all creditors experience the same loss rate in states where the firm defaults.
+        A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim 
+        with face value $D_{FV}$ has the random recovery rate given as:
             \begin{align}
                 \tilde{\rho} = \min\left(
                     1,\;
                     \frac{A}{\tilde{D}_{FV} + D_{FV}}
                 \right)
             \end{align}
-        If the asset value is larger than the total face value to be repaid the firm does not default and the recovery rate is $1$.
+        If the asset value is larger than the total face value to be repaid
+        the firm does not default and the recovery rate is $1$.
         If the firm defaults the recovery rate is equal to the share of the total face value remaining as asset value.
         The random payoff of the pari passu debt is denoted by $\tilde{D}$ and given as:
             \begin{align}
@@ -20,10 +24,14 @@
                     = \tilde{\rho}\tilde{D}_{FV}
             \end{align}
 
-        Due to the credit risk of the firm, the new creditors will require a credit spread on the debt in addition to the risk free return.
-        This additional interest has implications for the firm's perceived value of the project, which raises the problem for debate about whether the price should be reduced to accommodate the firm's assessment of the value.
+        Due to the credit risk of the firm, the new creditors will require a credit spread on the debt 
+        in addition to the risk free return.
+        This additional interest has implications for the firm's perceived value of the project, 
+        which raises the problem for debate about whether the price should be reduced 
+        to accommodate the firm's assessment of the value.
 
-        In order for the firm to attract new creditors they must offer a large enough interest rate on the debt, such that buying the debt is a zero net present value investment.
+        In order for the firm to attract new creditors they must offer a large enough interest rate on the debt, 
+        such that buying the debt is a zero net present value investment.
         Therefore the face value must be chosen to solve the following equation:
             \begin{align}
                 \pi(Y) &= \pi(\tilde{D}) \\
@@ -34,7 +42,8 @@
             \end{align}
         This face value implies an interest rate of $10.28 / 9.90 - 1 = 3.84\%$
         and therefore a credit spread of $\tilde{s} = 3.84\% - \rfrate = 2.83\%$.
-        Entering into the project and issuing new debt with face value $10.28$ alters the payoffs associated with the firm in the following way:
+        Entering into the project and issuing new debt with face value $10.28$ 
+        alters the payoffs associated with the firm in the following way:
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rrrrr||r}
@@ -48,9 +57,14 @@
             \caption{}
         \end{table}
 
-        Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, which, not surprisingly, is the value of the the project.
-        More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, why investing in the project is of negative value to the shareholders.
-        When the firm defaults the shareholders still receive nothing, but in all other states where the firm does not default, the shareholders pay the present value of the interest owed to the new creditors due to the credit risk in the firm.
+        Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, 
+        which, not surprisingly, is the value of the the project.
+        More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$, 
+        why investing in the project is of negative value to the shareholders.
+        When the firm defaults the shareholders still receive nothing, 
+        but in all other states where the firm does not default, 
+        the shareholders pay the present value of the interest owed to the new creditors 
+        due to the credit risk in the firm.
         The observed decrease in shareholder value aligns well with 
         \cref{eqn:marginal-shareholder-value-debt-financing}. 
         The risk neutral default probability is 
@@ -88,7 +102,8 @@
         of a security that pays the promised return of the new debt in every no default state and zero otherwise. 
         While the project is a negative net present value investment for the shareholders,
         the investment is a positive net present value investment for the legacy creditors.
-        When the firm does not default they still receive their promised payoff corresponding to the face value of their debt.
+        When the firm does not default they still receive their promised payoff 
+        corresponding to the face value of their debt.
         The new project has increased the asset base of the firm, and when the firm defaults, 
         the legacy creditors will share part of the payoff from the option with the new creditors.
         Hence, the legacy creditors receive a larger payoff when the firm defaults. 
