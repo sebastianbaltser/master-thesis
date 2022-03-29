@@ -8,20 +8,32 @@
         As assumed previously, the new debt ranks pari passu with the legacy debt, 
         such that all creditors experience the same loss rate in states where the firm defaults.
         A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim 
-        with face value $D_{FV}$ has the random recovery rate given as:
+        with face value $D_{FV}$ has the random loss rate given by \cref{eqn:creditor-loss-rate}:
             \begin{align}
-                \tilde{\rho} = \min\left(
-                    1,\;
-                    \frac{A}{\tilde{D}_{FV} + D_{FV}}
-                \right)
+                \phi
+                &=
+                    \frac{
+                        \tilde{D}_{FV} + D_{FV} - A
+                    }{
+                        \tilde{D}_{FV} + D_{FV}
+                    }
+                    \mathbbm{1}_{\mathcal{D}}
+                \nonumber \\
+                &=
+                    \frac{
+                        80.00 + \tilde{D}_{FV} - A
+                    }{
+                        80.00 + \tilde{D}_{FV}
+                    }
+                    \mathbbm{1}_{\{A + 10.00 < 80.00 + \tilde{D}_{FV}\}} 
             \end{align}
         If the asset value is larger than the total face value to be repaid
-        the firm does not default and the recovery rate is $1$.
-        If the firm defaults the recovery rate is equal to the share of the total face value remaining as asset value.
-        The random payoff of the pari passu debt is denoted by $\tilde{D}$ and given as:
+        the firm does not default and the loss rate is $0$.
+        If the firm defaults, the loss rate is equal to the share of the total face value missing from the asset value.
+        The random payoff of the new pari passu debt is denoted by $\tilde{D}$ and given as:
             \begin{align}
                 \tilde{D}
-                    = \tilde{\rho}\tilde{D}_{FV}
+                    = (1 - \phi)\tilde{D}_{FV}
             \end{align}
 
         Due to the credit risk of the firm, the new creditors will require a credit spread on the debt 
@@ -32,11 +44,13 @@
 
         In order for the firm to attract new creditors they must offer a large enough interest rate on the debt, 
         such that buying the debt is a zero net present value investment.
+        The new debt should be able to cover the investment cost of the new project,
+        why the present value of the new debt must equal, $u$.
         Therefore the face value must be chosen to solve the following equation:
             \begin{align}
                 \pi(Y) &= \pi(\tilde{D}) \\
                 \Leftrightarrow  \qquad
-                9.90 &= \mathbb{E}^{\rnmeasure}\left[\tilde{\rho}\right] \tilde{D}_{FV} \\
+                9.90 &= \mathbb{E}^{\rnmeasure}\left[1 - \phi\right] \tilde{D}_{FV} \\
                 \Leftrightarrow  \qquad
                 \tilde{D}_{FV} &= 10.28
             \end{align}
