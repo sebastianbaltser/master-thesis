@@ -21,11 +21,13 @@
 			"KPMG",
 			"LIBOR",
 			"mispricing",
+			"overadjustment",
 			"Pari",
 			"Passu",
 			"rehypothication",
 			"riskless",
 			"uncollateralized",
+			"underadjustment",
 		],
 		"cSpell.flagWords": [
 			"cashflow",
