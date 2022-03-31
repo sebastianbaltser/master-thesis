@@ -94,7 +94,6 @@ def marginal_shareholder_value_of_equity_financing(economy: SinglePeriodEconomy,
     return expected_profit - payoff_default_covariance - shareholder_direct_loss
 
 
-
 def plot_marginal_shareholder_value_debt_financing(economy, firm, option, option_price_range):
     marginal_shareholder_values = [marginal_shareholder_value_of_debt_financing(economy, firm, option, option_price)
                                    for option_price in option_price_range]
