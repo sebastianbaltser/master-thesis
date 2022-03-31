@@ -108,7 +108,7 @@ def plot_marginal_shareholder_value_debt_financing(economy, firm, option, option
     return fig
 
 
-if __name__ == '__main__':
+def main():
     economy = SinglePeriodEconomy(States(get_states(), [0.1, 0.3, 0.3, 0.25, 0.05]))
     option = Asset(States(get_states(), [10, 10, 10, 10, 10]))
     firm = Firm(Asset(States(get_states(), [120, 110, 100, 95, 60])), debt_face_value=80)
@@ -122,3 +122,7 @@ if __name__ == '__main__':
     option_price_range = np.arange(1, 30, 0.01)
     fig = plot_marginal_shareholder_value_debt_financing(economy, firm, option, option_price_range)
     plt.show()
+
+
+if __name__ == '__main__':
+    main()
