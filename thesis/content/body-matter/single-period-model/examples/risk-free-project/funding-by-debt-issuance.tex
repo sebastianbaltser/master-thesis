@@ -82,8 +82,18 @@
                 \Leftrightarrow  \qquad
                 \tilde{D}_{FV} &= 10.28
             \end{align}
-        This face value implies a yield of $10.28 / 9.90 - 1 = 3.84\%$
-        and therefore a credit spread of $s(q) = 3.84\% - \rfrate = 2.83\%$.
+        This face value results in an expected default loss to creditors of 
+        $\mathbb{E}^{\rnmeasure}\left[\phi\right] = 2.72\%$,
+        and a limiting spread of:
+        \begin{equation}
+            S 
+            = \frac{
+                2.72\% * (1 + \rfrate)
+            }{
+                1 - 2.72\%
+            } 
+            = 2.83\%
+        \end{equation}
         Entering into the project and issuing new debt with face value $10.28$ 
         alters the payoffs associated with the firm in the following way:
         \begin{table}[H]
@@ -117,18 +127,7 @@
         The promised marginal profit of the new project is:
         $\pi = 0.99 * 10 - 9.90 = 0$.
         The payoff is constant, so the default event and the payoff have zero covariance. 
-        The expected default loss to creditors is 
-        $\mathbb{E}^{\rnmeasure}\left[\phi\right] = 2.72\%$,
-        and the limiting spread is:
-        \begin{equation}
-            S 
-            = \frac{
-                2.72\% * (1 + \rfrate)
-            }{
-                1 - 2.72\%
-            } 
-            = 2.83\%
-        \end{equation}
+        
         The marginal valuation to the legacy creditors can then be calculated as:
         \begin{equation}
             \Phi 
