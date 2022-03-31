@@ -131,6 +131,17 @@ class SinglePeriodEconomy:
         """Returns the risk neutral expectation of a set of an instance of ``States``."""
         return sum(self.risk_neutral_probability(state) * value for state, value in values)
 
+    def risk_neutral_covariance(self, left_values: States, right_values: States) -> float:
+        """Returns the risk neutral covariance of two sets of instances of ``States``."""
+        left_expected_value = self.risk_neutral_expectation(left_values)
+        right_expected_value = self.risk_neutral_expectation(right_values)
+
+        states = left_values.states | right_values.states
+        return self.risk_neutral_expectation(States({
+            state: (left_values[state] - left_expected_value) * (right_values[state] - right_expected_value)
+            for state in states
+        }))
+
 
 class Payoffs:
     def __init__(self, payoffs: States):

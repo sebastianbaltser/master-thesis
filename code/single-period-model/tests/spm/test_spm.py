@@ -94,6 +94,18 @@ class TestSinglePeriodEconomy:
         result = test_economy_1.risk_neutral_expectation(states)
         assert math.isclose(result, expected_risk_neutral_expectation, rel_tol=1e-3)
 
+    @pytest.mark.parametrize("economy, states_1, states_2, expected_covariance", [
+        (test_economy_1, States(test_states_1, [10, 10, 10, 10, 10]),
+         States(test_states_1, [0, 0, 0, 1, 1]), 0),
+        (test_economy_1, States(test_states_1, [15, 14, 13, 10, 10]),
+         States(test_states_1, [0, 0, 0, 1, 1]), -0.866514),
+        (test_economy_1, States(test_states_1, [15, 14, 13, 10, 10]),
+         States(test_states_1, [10, 10, 13, 14, 15]), -3.0609121),
+    ])
+    def test_risk_neutral_covariance(self, economy, states_1, states_2, expected_covariance):
+        result = economy.risk_neutral_covariance(states_1, states_2)
+        assert math.isclose(result, expected_covariance, rel_tol=1e-3)
+
 
 class TestAsset:
     states = [State(1, 0.10), State(2, 0.20), State(3, 0.30), State(4, 0.40), State(5, 0.50)]
