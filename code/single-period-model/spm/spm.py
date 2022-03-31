@@ -2,6 +2,7 @@ import abc
 import logging
 import functools
 from scipy import optimize
+from collections import OrderedDict
 
 from typing import (
     Collection,
@@ -46,7 +47,7 @@ class States:
     """
     def __init__(self, states, values=None):
         if values is not None:
-            states = dict(zip(states, values))
+            states = OrderedDict(zip(states, values))
 
         self._states = states
 
@@ -64,8 +65,11 @@ class States:
         return self._states == other._states
 
     def __add__(self, other: "States") -> "States":
-        states = self._states.keys() | other._states.keys()
-        return self.__class__({state: self._states.get(state, 0) + other._states.get(state, 0) for state in states})
+        left_states = list(self._states.keys())
+        right_states = [state for state in other._states.keys() if state not in left_states]
+        states = left_states + right_states
+        values = [self._states.get(state, 0) + other._states.get(state, 0) for state in states]
+        return self.__class__(OrderedDict(zip(states, values)))
 
     def __str__(self):
         string = ''
