@@ -14,36 +14,6 @@ from spm import (
 )
 
 
-def get_states():
-    states = [State(1, 0.06),
-              State(2, 0.24),
-              State(3, 0.29),
-              State(4, 0.28),
-              State(5, 0.12)]
-    return states
-
-
-def get_economy():
-    states = get_states()
-    return SinglePeriodEconomy(States(states, [0.1, 0.3, 0.3, 0.25, 0.05]))
-
-
-def get_firm_assets():
-    states = get_states()
-    return Asset(States(states, [120, 110, 100, 95, 60]))
-
-
-def get_legacy_debt():
-    firm_assets = get_firm_assets()
-    return DebtPariPassu(firm_assets, face_value=80)
-
-
-def get_legacy_equity():
-    firm_assets = get_firm_assets()
-    debt = get_legacy_debt()
-    Equity(firm_assets, debt_face_value=debt.face_value)
-
-
 def get_new_firm_from_debt_financed_option(firm: Firm, option, option_price):
     firm_assets = firm.assets
     new_firm_assets = firm_assets + option
@@ -107,19 +77,41 @@ def plot_marginal_shareholder_value_debt_financing(economy, firm, option, option
     return fig
 
 
+def plot_marginal_shareholder_value(economy, firm, option, option_price_range):
+    g_debt = [marginal_shareholder_value_of_debt_financing(economy, firm, option, option_price)
+              for option_price in option_price_range]
+    g_equity = [marginal_shareholder_value_of_equity_financing(economy, firm, option, option_price)
+                for option_price in option_price_range]
+
+    fig, ax = plt.subplots()
+    ax.plot(option_price_range, g_debt, label="Debt Funding")
+    ax.plot(option_price_range, g_equity, label="Equity Funding")
+    ax.set_xlabel("Option Price")
+    ax.set_ylabel("Marginal Shareholder Value")
+    ax.set_title("Marginal Shareholder Value of Different Financing Methods")
+    ax.legend()
+
+    return fig
+
+
 def main():
-    economy = SinglePeriodEconomy(States(get_states(), [0.1, 0.3, 0.3, 0.25, 0.05]))
-    option = Asset(States(get_states(), [10, 10, 10, 10, 10]))
-    firm = Firm(Asset(States(get_states(), [120, 110, 100, 95, 60])), debt_face_value=80)
+    states = [State(1, 0.06),
+              State(2, 0.24),
+              State(3, 0.29),
+              State(4, 0.28),
+              State(5, 0.12)]
+
+    economy = SinglePeriodEconomy(States(states, [0.1, 0.3, 0.3, 0.25, 0.05]))
+    firm = Firm(Asset(States(states, [120, 110, 100, 95, 60])), debt_face_value=80)
+    option = Asset(States(states, [10, 10, 10, 10, 10]))
     option_price = 9.90
     marginal_shareholder_value = marginal_shareholder_value_of_debt_financing(economy, firm, option, option_price)
     print(f"Marginal Shareholder Value Debt Financing: {marginal_shareholder_value:.4f}")
     marginal_shareholder_value = marginal_shareholder_value_of_equity_financing(economy, firm, option, option_price)
     print(f"Marginal Shareholder Value Equity Financing: {marginal_shareholder_value:.4f}")
 
-    option = Asset(States(get_states(), [10, 10, 10, 10, 10]))
     option_price_range = np.arange(1, 30, 0.01)
-    fig = plot_marginal_shareholder_value_debt_financing(economy, firm, option, option_price_range)
+    fig = plot_marginal_shareholder_value(economy, firm, option, option_price_range)
     plt.show()
 
 
