@@ -106,6 +106,13 @@ class TestSinglePeriodEconomy:
         result = economy.risk_neutral_covariance(states_1, states_2)
         assert math.isclose(result, expected_covariance, rel_tol=1e-3)
 
+    @pytest.mark.parametrize("economy, states, expected", [
+        (test_economy_1, dict(zip(test_states_1, test_asset_values_1)).get, States(test_states_1, test_asset_values_1))
+    ])
+    def test_map(self, economy, states, expected):
+        result = economy.map(states)
+        assert result == expected
+
 
 class TestAsset:
     states = [State(1, 0.10), State(2, 0.20), State(3, 0.30), State(4, 0.40), State(5, 0.50)]

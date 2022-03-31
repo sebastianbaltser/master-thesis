@@ -113,6 +113,10 @@ class SinglePeriodEconomy:
 
         return string
 
+    def map(self, func) -> States:
+        """Map function to states."""
+        return States(OrderedDict((state, func(state)) for state, _ in self.states))
+
     @property
     def discount_factor(self):
         """The discount factor is the sum of state prices."""
