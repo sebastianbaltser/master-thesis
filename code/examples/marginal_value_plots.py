@@ -43,7 +43,7 @@ def get_new_firm_from_debt_financed_option(option, option_price):
     firm_assets = get_firm_assets()
     new_firm_assets = firm_assets + option
     debt = get_legacy_debt()
-    new_debt = DebtPariPassu(new_firm_assets, face_value=option_price)
+    new_debt = DebtPariPassu(new_firm_assets, other_face_value=debt.face_value, present_value=option_price)
 
     total_face_value = debt.face_value + new_debt.face_value
     return Firm(new_firm_assets, debt_face_value=total_face_value)
