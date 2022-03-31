@@ -323,3 +323,10 @@ class Firm:
 
     def is_default_state(self, state: State) -> bool:
         return self.assets[state] < self.debt_face_value
+
+    def loss_rate(self, state: State) -> float:
+        is_default = self.is_default_state(state)
+        if not is_default:
+            return 0.0
+        else:
+            return (self.debt_face_value - self.assets[state]) / self.debt_face_value

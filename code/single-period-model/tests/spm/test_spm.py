@@ -262,3 +262,16 @@ class TestFirm:
         firm = Firm(asset, debt_value)
 
         assert firm.is_default_state(state) == expected
+
+    @pytest.mark.parametrize("asset_value, debt_value, expected", [
+        (100, 90, 0),
+        (90, 100, 0.10),
+        (50, 100, 0.50),
+        (0, 100, 1.00),
+    ])
+    def test_loss_rate(self, asset_value, debt_value, expected):
+        state = State(1, 1)
+        asset = Asset(States({state: asset_value}))
+        firm = Firm(asset, debt_value)
+
+        assert math.isclose(firm.loss_rate(state), expected)
