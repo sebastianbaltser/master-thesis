@@ -117,43 +117,90 @@
         but in all other states where the firm does not default, 
         the shareholders pay the present value of the interest owed to the new creditors 
         due to the credit risk in the firm.
-        The observed decrease in shareholder value aligns well with 
-        \cref{eqn:marginal-shareholder-value-debt-financing}. 
-        The risk neutral default probability is 
-        $\mathbb{P}^{\rnmeasure}\left(\mathcal{D}\right) 
-            = \mathbb{P}^{\rnmeasure}\left(\{\omega_{5}\}\right) 
-            = 12.12\%$,
-        why $p^{\rnmeasure} = 87.88\%$.
-        The promised marginal profit of the new project is:
-        $\pi = 0.99 * 10 - 9.90 = 0$.
-        The payoff is constant, so the default event and the payoff have zero covariance. 
-        
-        The marginal valuation to the legacy creditors can then be calculated as:
-        \begin{equation}
-            \Phi 
-            = 87.88\% * \frac{1}{1+\rfrate}  * 9.90 * 2.8273\% 
-            = 0.2435
-        \end{equation}
+        The legacy creditors observe their debt claim with face value $80$ increase by an amount of
+        $77.04 - 76.80 = -0.24$.
 
-        The loss of the shareholders can then be calculated as: 
+        Evidently, while the project is a negative net present value investment for the shareholders,
+        the investment is a positive net present value investment for the legacy creditors.
+        When the firm does not default, the creditors still receive their promised payoff 
+        corresponding to the face value of their debt.
+        The new project has increased the asset base of the firm, and when the firm defaults, 
+        the legacy creditors will share part of the payoff from the option with the new creditors.
+        Hence, the legacy creditors receive a larger payoff when the firm defaults and their claim increases in value. 
+
+        The Modigliani-Miller invariance proposition assures that making a zero net present value investment 
+        does not increase the value of the firm.
+        That is to say that obtaining the new project should neither create or destroy value in aggregate terms,
+        which explains why the amount lost by shareholders is the amount gained by legacy creditors.
+        The asset base also increases by the value of the project, 
+        but decreases by the value of the debt claim used to finance it; 
+        both are priced the same and therefore offsets each other.
+        In this example, the wealth lost by the shareholders is entirely transferred to the legacy creditors,
+        since the project is a zero net present value both to the new creditors 
+        and to the counterparty offering the project.
+        \textcolor{red}{
+            In subsequent sections, the consequences of obtaining projects that are non-zero net present value investment
+            for the new creditors and the counterparty are covered.
+        }
+
+        The wealth transfer from shareholders to legacy creditors due to the new project 
+        suggests quantifying the \FVA/ of the project.
+        For completeness, this first example will calculate all three possible definitions of \FVA/,
+        as described in \cref{sec:defining-fva}, and compare them.
+
+        The first possible definition of \FVA/ as the promised excess funding cost can be determined by
+        \cref{eqn:fva-as-promised-excess-funding-cost}:
             \begin{align}
-                G = 87.88\%*0 - \frac{1}{1+\rfrate} * 0 - 0.2435 = -0.2435
+                0.99 * 9.90 * 2.8273\% = 0.2771
             \end{align}
-        This is also the fair price, with opposite sign, 
-        of a security that pays the promised return of the new debt in every no default state and zero otherwise. 
-
-        Using \cref{eqn:fva-as-promised-excess-funding-cost}, the present value of the funding costs 
-        in excess of the risk free rate paid by the shareholders is: 
-        \begin{align}
-            0.99 * 9.90 * 2.8273\% = 0.2771
-        \end{align}
-
-        The wealth transfer from the shareholders to the legacy creditors, 
-        calculated as $\Phi$ in \cref{eqn:marginal-shareholder-value-debt-financing}, is
-        \begin{equation}
-            \Phi = 0.2435
-        \end{equation}
-        The two quantities differ by the no default probability, such that 
-        $0.2771 * (1-\mathbb{P}\left(\mathcal{D}\right)) = 0.2435$.
+        This definition suggests adjusting the project value by $0.2771$ to account for the funding costs.
+        As discussed earlier, this definition ignores the fact that shareholders are exempt from paying
+        interest rates in the default state; they have limited liability and, since they lose everything
+        in the event of default, the value marginal value to them in default states are zero.
+        
+        Calculating instead the expected excess funding cost, i.e. $\Phi$:
+            \begin{equation}
+                \Phi 
+                = 87.88\% * 0.99  * 9.90 * 2.8273\% 
+                = 0.2435
+            \end{equation}
+        This quantity is also the value lost by the shareholders and gained by the legacy creditors,
+        since the net profit of the project is zero, and the payoff is risk free.
+        This can be thoroughly calculated by using the marginal shareholder value under debt funding in 
+        \cref{eqn:marginal-shareholder-value-debt-financing}
+        which will result in the equation $G = -\Phi$. 
+        
+        Turning instead to the definition of \FVA/ as the adjustment needed for shareholders to breakeven.
+        Using \cref{eqn:shareholders-breakeven-debt-financing}, the price needed for breakeven is:
+            \begin{align}
+                    u^{\ast}_{\text{debt}} 
+                &=
+                    \frac{
+                        1
+                    }{
+                        1 + 1.0101\% + 2.8273\%
+                    }
+                    \left(
+                        10
+                        -
+                        0
+                    \right)
+                \nonumber \\
+                &=
+                    9.6333
+            \end{align}
+        And, according to \cref{eqn:fva-debt-financing}, the \FVA/ is therefore:
+            \begin{equation}
+                    \FVA/ 
+                =
+                    9.90 - 9.6333
+                =
+                    0.2667
+            \end{equation}
+        Any prices above the breakeven price, $u^{\ast}_{\text{debt}}$, 
+        will make the project a negative net present value investment, while any prices below will make it positive. 
+        This holds also for value adjustments respectively below or above the derived \FVA/ of $0.2667$.
+        In this regard, the promised excess funding cost of $0.2771$ would be an overadjustment,
+        and, conversely, the expected excess funding cost, $\Phi$, of $0.2435$ would be an underadjustment.
 
 \end{document}
