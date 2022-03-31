@@ -26,6 +26,7 @@
 			"rehypothication",
 			"riskless",
 			"uncollateralized",
+			"underadjustment",
 		],
 		"cSpell.flagWords": [
 			"cashflow",
