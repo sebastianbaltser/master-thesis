@@ -3,5 +3,27 @@
 
 \begin{document}
     \subsection{Funding Secured Derivatives}
-        Now consider a the same option contract as above 
+        Now consider the same derivative contract as above which is sold by the firm to the counterparty.
+        The firm spends the premium by posting collateral at a third party (possibly a custodian) where it earns the risk-free rate.
+        The collateral posted is a variation margin that covers the entire amount of the derivative payable.
+        On top of the variation margin, the firm also posts an initial margin worth 50\% of the purchase price at time 0.
+        The initial margin is funded by new debt.
+        The firm as still assumed to have credit risk, whereas the counterparty is without credit risk.
+
+        % Hillion creates a portfolio where the option is bought by the counterparty and also sold to a hedger dealer. This will cause a wealth transfer that consist of both \MVA/ and \FCA/.
+
+        This example suggest that, for a derivative contract as such,
+        the variation margin will not cause any funding costs or benefits,
+        as the option premium offsets the posted collateral.
+        However, this is not the case for the initial margin which requires funding.
+        The collateral must be posted in cash or assets, and cannot be rehypothecated by the third party.
+        The issue raised by this setup, is whether a valuation adjustment to the derivative is needed due to the margin requirements.
+        This is denoted as \MVA/.
+
+        The financing costs from the initial margin do not differ much from the principles of funding costs discussed in \cref{sec:risk-free-project}.
+        Issuing debt to fund the initial margin is a zero net present value for the new creditors.
+        This leads to the conclusion that the shareholders are worse off as they pay the funding of the risk-free security held by the third party in the event of no default, i.e. the initial margin.
+        The wealth transfer favors the legacy creditors,
+        and the derivative contract seems as a subject to an \MVA/.
+        The \MVA/ determine the difference between the market fair value and value that makes the shareholders indifferent of entering the new secured project.
 \end{document}
