@@ -112,6 +112,8 @@ def main():
     option_pv_expected_payoff = economy.risk_neutral_expectation(option.values) / gross_risk_free_rate
     wealth_transfer = option_pv_expected_payoff * credit_spread * no_default_probability / gross_risk_free_rate
 
+    breakeven_price = 1 / (gross_risk_free_rate + credit_spread) * (economy.risk_neutral_expectation(option.values))
+    print(f"Breakeven price: {breakeven_price:.4f}")
     donation_size = wealth_transfer/no_default_probability * gross_risk_free_rate/(gross_risk_free_rate+credit_spread)
     print(f"FVA 3: {donation_size:.4f}")
     expected_loss_rate = economy.risk_neutral_expectation(
