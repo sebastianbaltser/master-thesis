@@ -46,4 +46,31 @@
             \label{tbl:example-collateralized-derivative}
         \end{table}
 
+        The premium of the derivative contract is computed as:
+        \begin{equation}
+            \pi(Y_C) = \sum_i \psi_i Y_{C,i} = 2.345
+        \end{equation}
+        To enter this project, the firm must post 50\% of the price as initial margin, as well as the total price in variation margin.
+        The variation margin has higher priority than the existing debt, hence the derivative contract becomes risk-free.
+
+        While the variation margin is funded by the premium of the derivative contract, the initial margin is funded by new debt. And since this debt is not secured, the firm must pay a credit spread to cover its own credit risk. The deal is still a net present value for the new creditors, meaning that the present value equals the initial margin paid at time 0:
+        \begin{equation}
+            50\% \cdot \pi(Y_C) = \sum_i \psi_i \tilde{D}_{i} = 1.1725
+        \end{equation}
+
+        As can be seen on \cref{tbl:example-collateralized-derivative}, the payoff of the legacy creditors at the default event is less than the pre-project value, while the payoff of the shareholders in the events of no default has also decreased. As the project is a zero net present value for the new creditors, there must be a wealth transfer from both the legacy creditors and the shareholders to the counterparty. Being the only party secured from the firm's credit risk, they receive the full derivative payable even in the event of default.
+
+        The loss rate is computed as
+        $\phi = 1-(0.938+61.615)/(1.218+80) = 22.98\%$,
+        and the credit spread is computed as
+        $s(q) = 80/76.994 - r_f - 1 = 1.218/1.173 - r_f - 1 = 2.89\%$. The change of wealth for the legacy creditors as well as the shareholders is given by:
+        \begin{align}
+            \Delta D &= 76.994 - 76.80 = 0.194\\
+            \Delta S &= 19.406 - 19.60 = -0.194
+        \end{align}
+
+        In case the variation margin is ignored, the counterparty would likewise suffer from the credit risk of the firm.
+        The loss rate would then decrease,
+        as the recovered total asset amount would have to be shared between the three parties on the liability side now ranking pari passu. The face value of the new debt would then decrease as well, having reduced the credit spread.
+
 \end{document}
