@@ -86,6 +86,14 @@ class TestSinglePeriodEconomy:
         for state, probability in expected_risk_neutral_probabilities.items():
             assert math.isclose(economy.risk_neutral_probability(state), probability, rel_tol=1e-3)
 
+    @pytest.mark.parametrize("economy, states, expected_risk_neutral_expectation", [
+        (test_economy_1, States(test_states_1, [10, 10, 10, 10, 10]), 10),
+        (test_economy_1, States(test_states_1, [15, 14, 13, 10, 10]), 12.234694),
+    ])
+    def test_risk_neutral_expectation(self, economy, states, expected_risk_neutral_expectation):
+        result = test_economy_1.risk_neutral_expectation(states)
+        assert math.isclose(result, expected_risk_neutral_expectation, rel_tol=1e-3)
+
 
 class TestAsset:
     states = [State(1, 0.10), State(2, 0.20), State(3, 0.30), State(4, 0.40), State(5, 0.50)]
