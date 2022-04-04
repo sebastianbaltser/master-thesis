@@ -18,6 +18,13 @@ def get_new_firm_from_debt_financed_option(firm: Firm, option, option_price):
     return Firm(new_firm_assets, debt_face_value=total_face_value)
 
 
+def calculate_credit_spread(economy: SinglePeriodEconomy, firm: Firm):
+    expected_loss_rate = economy.risk_neutral_expectation(economy.map(firm.loss_rate))
+    credit_spread = expected_loss_rate*economy.risk_free_rate / (1 - expected_loss_rate)
+
+    return credit_spread
+
+
 def marginal_shareholder_value_of_debt_financing(economy: SinglePeriodEconomy, firm: Firm, option, option_price):
     firm = get_new_firm_from_debt_financed_option(firm, option, option_price)
     default_probability = economy.risk_neutral_expectation(economy.map(firm.is_default_state))
@@ -28,8 +35,7 @@ def marginal_shareholder_value_of_debt_financing(economy: SinglePeriodEconomy, f
     payoff_default_covariance = economy.risk_neutral_covariance(option, economy.map(firm.is_default_state))
     payoff_default_covariance *= economy.discount_factor
 
-    expected_loss_rate = economy.risk_neutral_expectation(economy.map(firm.loss_rate))
-    credit_spread = expected_loss_rate*economy.risk_free_rate / (1 - expected_loss_rate)
+    credit_spread = calculate_credit_spread(economy, firm)
     marginal_excess_return = (1-default_probability) * economy.discount_factor * option_price * credit_spread
 
     return expected_profit - payoff_default_covariance - marginal_excess_return
