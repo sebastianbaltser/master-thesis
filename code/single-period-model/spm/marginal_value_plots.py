@@ -1,3 +1,4 @@
+import tqdm
 import matplotlib.pyplot as plt
 plt.style.use("ggplot")
 
@@ -79,9 +80,9 @@ def plot_marginal_shareholder_value_debt_financing(economy, firm, option, option
 
 def plot_marginal_shareholder_value(economy, firm, option, option_price_range):
     g_debt = [marginal_shareholder_value_of_debt_financing(economy, firm, option, option_price)
-              for option_price in option_price_range]
+              for option_price in tqdm.tqdm(option_price_range, desc="Debt Funding")]
     g_equity = [marginal_shareholder_value_of_equity_financing(economy, firm, option, option_price)
-                for option_price in option_price_range]
+                for option_price in tqdm.tqdm(option_price_range, desc="Equity Funding")]
 
     fig, ax = plt.subplots()
     ax.plot(option_price_range, g_debt, label="Debt Funding")
