@@ -27,7 +27,6 @@ def calculate_credit_spread(economy: SinglePeriodEconomy, firm: Firm):
 
 
 def marginal_shareholder_value_of_debt_financing(economy: SinglePeriodEconomy, firm: Firm, option, option_price):
-    firm = get_new_firm_from_debt_financed_option(firm, option, option_price)
     default_probability = economy.risk_neutral_expectation(economy.map(firm.is_default_state))
     expected_payoff = economy.risk_neutral_expectation(option)
 
@@ -51,7 +50,6 @@ def get_new_firm_from_equity_financed_option(firm: Firm, option):
 
 
 def marginal_shareholder_value_of_equity_financing(economy: SinglePeriodEconomy, firm: Firm, option, option_price):
-    firm = get_new_firm_from_equity_financed_option(firm, option)
     default_probability = economy.risk_neutral_expectation(economy.map(firm.is_default_state))
     expected_payoff = economy.risk_neutral_expectation(option)
 
@@ -65,22 +63,14 @@ def marginal_shareholder_value_of_equity_financing(economy: SinglePeriodEconomy,
     return expected_profit - payoff_default_covariance - shareholder_direct_loss
 
 
-def plot_marginal_shareholder_value_debt_financing(economy, firm, option, option_price_range):
-    marginal_shareholder_values = [marginal_shareholder_value_of_debt_financing(economy, firm, option, option_price)
-                                   for option_price in option_price_range]
-
-    fig, ax = plt.subplots()
-    ax.plot(option_price_range, marginal_shareholder_values)
-    ax.set_xlabel("Option Price")
-    ax.set_ylabel("Marginal Shareholder Value")
-    ax.set_title("Marginal Shareholder Value of Debt Financing")
-
-    return fig
-
-
-def plot_marginal_shareholder_value(economy, firm, option, option_price_range) -> plt.Figure:
+def plot_marginal_shareholder_value(economy, base_firm, option, option_price_range) -> plt.Figure:
+    firms = [get_new_firm_from_debt_financed_option(base_firm, option, option_price)
+             for option_price in option_price_range]
+    firm_option_price_pairs = list(zip(firms, option_price_range))
     g_debt = [marginal_shareholder_value_of_debt_financing(economy, firm, option, option_price)
-              for option_price in tqdm.tqdm(option_price_range, desc="Debt Funding")]
+              for firm, option_price in tqdm.tqdm(firm_option_price_pairs, desc="Debt Funding", total=len(firms))]
+
+    firm = get_new_firm_from_equity_financed_option(base_firm, option)
     g_equity = [marginal_shareholder_value_of_equity_financing(economy, firm, option, option_price)
                 for option_price in tqdm.tqdm(option_price_range, desc="Equity Funding")]
 
