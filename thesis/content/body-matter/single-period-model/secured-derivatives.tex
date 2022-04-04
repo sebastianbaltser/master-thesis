@@ -4,28 +4,28 @@
 \begin{document}
     \subsection{Funding Secured Derivatives}
         Now consider the same derivative contract as above which is sold by the firm to the counterparty.
-        The firm spends the premium by posting collateral at a third party (possibly a custodian) where it earns the risk-free rate.
-        The collateral posted is a variation margin that in this case covers the entire amount of the derivative payable.
+        The firm spends the premium by posting collateral at a third party, possibly a custodian, where it earns the risk-free rate.
+        The collateral posted is a variation margin that covers the entire amount of the derivative payable.
         On top of the variation margin, the firm also posts an initial margin worth 50\% of the purchase price at time 0.
         The initial margin is funded by new debt.
         The firm as still assumed to have credit risk, whereas the counterparty is without credit risk.
 
         % Hillion creates a portfolio where the option is bought by the counterparty and also sold to a hedger dealer. This will cause a wealth transfer that consist of both \MVA/ and \FCA/.
 
-        This example suggest that, for a derivative contract as such,
+        This example suggests that, for a derivative contract as such,
         the variation margin will not cause any funding costs or benefits,
         as the option premium offsets the posted collateral.
         However, this is not the case for the initial margin which requires funding.
         The collateral must be posted in cash or assets, and cannot be rehypothecated by the third party.
-        The issue raised by this setup, is whether a valuation adjustment to the derivative is needed due to the margin requirements.
-        This is denoted as \MVA/.
+        The issue raised by this setup is whether a valuation adjustment to the derivative is needed due to the margin requirements.
+        This is denoted by \MVA/.
 
-        The financing costs from the initial margin do not differ much from the principles of funding costs discussed in \cref{sec:risk-free-project}.
+        The financing costs for the initial margin do not differ much from the principles of funding costs discussed in \cref{sec:risk-free-project}.
         Issuing debt to fund the initial margin is a zero net present value for the new creditors.
         This leads to the conclusion that the shareholders are worse off, as they pay the funding of the risk-free security held by the third party, i.e. the initial margin, in the event of no default.
         The wealth transfer favors the legacy creditors,
-        and the derivative contract seems as a subject to an \MVA/.
-        The \MVA/ determines the difference between the market value and value that makes the shareholders indifferent to entering the new secured project.
+        and the derivative contract seems eligible for an \MVA/.
+        The \MVA/ determine the difference between the market value and value that makes the shareholders indifferent to entering the new secured project.
 
         At time 1, the firm's asset value has increased with the future value of the initial- and variation margin posted to the third party.
         By funding this initial margin the firm obtains a new liability in terms of a new debt which is assumed to rank pari passu with the existing debt.
@@ -58,13 +58,24 @@
             \label{tbl:example-collateralized-derivative}
         \end{table}
 
-        As can be seen on \cref{tbl:example-collateralized-derivative}, the payoff of the legacy creditors at the default event is higher than the pre-project value, while the payoff of the shareholders in the events of no default has decreased.
-        As the project is a zero net present value investment for the new creditors, there must be a wealth transfer from the legacy creditors to the shareholders.
+        The premium of the derivative contract is computed as:
+        \begin{equation}
+            \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = 2.345
+        \end{equation}
+        To enter this project, the firm must post 50\% of the price as initial margin as well as the total price in variation margin.
+        The variation margin has higher priority than the existing debt, hence the derivative contract becomes risk-free.
+
+        While the variation margin is funded by the premium of the derivative contract, the initial margin is funded by new debt. And since this debt is not secured, the firm must pay a credit spread to cover its own credit risk. The deal is still a zero net present value investment for the new creditors, meaning that the present value equals the initial margin paid at time 0:
+        \begin{equation}
+            50\% \cdot \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[\tilde{D}\right] = 1.1725
+        \end{equation}
+
+        As can be seen on \cref{tbl:example-collateralized-derivative}, the payoff of the legacy creditors at the default event is less than the pre-project value, while the payoff of the shareholders in the events of no default has also decreased. As the project is a zero net present value for the new creditors, there must be a wealth transfer from both the legacy creditors and the shareholders to the counterparty. Being the only party secured from the firm's credit risk, they receive the full derivative payable even in the event of default.
 
         The loss rate, as defined in \cref{eqn:creditor-loss-rate}, is computed as
         $\phi = 1-(0.938+61.615)/(1.218+80) = 22.98\%$,
         and the credit spread is computed as
-        $s(q) = 80/76.994 - r_f - 1 = 1.218/1.173 - r_f - 1 = 2.89\%$. The change of wealth for the legacy creditors as well as the shareholders is given by:
+        $s(q) = 80/76.994 - \rfrate - 1 = 1.218/1.173 - \rfrate - 1 = 2.89\%$. The change of wealth for the legacy creditors as well as the shareholders is given by:
         \begin{align}
             \Delta D &= 76.994 - 76.80 = 0.194\\
             \Delta S &= 19.406 - 19.60 = -0.194
@@ -75,7 +86,7 @@
         as the recovered total asset amount would have to be shared between the three parties on the liability side now ranking pari passu.
         The face value of the new debt would then decrease as well, as the credit spread would be reduced.
 
-        To find the price that makes the shareholders indifferent of the project,
+        To find the price that makes the shareholders indifferent to the project,
         a variable representing the donation is added to the price, i.e. the \MVA/.
         The donation is essentially the counterparty paying the firm more for the derivative contract than its market value.
         The problem is solved again including the valuation adjustment,
