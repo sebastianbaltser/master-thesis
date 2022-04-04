@@ -1,4 +1,5 @@
 import abc
+import math
 import logging
 import functools
 from scipy import optimize
@@ -103,7 +104,7 @@ class SinglePeriodEconomy:
                 raise ValueError(f"Probability must be between 0 and 1, but was {probability} for state {state}")
             total_probability += probability
 
-        if total_probability != 1.0:
+        if not math.isclose(total_probability, 1.0, abs_tol=1e-10):
             raise ValueError(f"Probability distribution must sum to 1.0, but sum to {total_probability}")
 
     def __str__(self):
