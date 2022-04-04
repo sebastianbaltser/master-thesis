@@ -70,6 +70,8 @@ def plot_marginal_shareholder_value(economy, base_firm, option, option_price_ran
     g_debt = [marginal_shareholder_value_of_debt_financing(economy, firm, option, option_price)
               for firm, option_price in tqdm.tqdm(firm_option_price_pairs, desc="Debt Funding", total=len(firms))]
 
+    credit_spreads = [calculate_credit_spread(economy, firm) for firm in firms]
+
     firm = get_new_firm_from_equity_financed_option(base_firm, option)
     g_equity = [marginal_shareholder_value_of_equity_financing(economy, firm, option, option_price)
                 for option_price in tqdm.tqdm(option_price_range, desc="Equity Funding")]
@@ -77,6 +79,7 @@ def plot_marginal_shareholder_value(economy, base_firm, option, option_price_ran
     fig, ax = plt.subplots()
     ax.plot(option_price_range, g_debt, label="Debt Funding")
     ax.plot(option_price_range, g_equity, label="Equity Funding")
+    ax.plot(option_price_range, credit_spreads, label="Debt Credit Spread")
     ax.set_xlabel("Option Price")
     ax.set_ylabel("Marginal Shareholder Value")
     ax.set_title("Marginal Shareholder Value of Different Financing Methods")
