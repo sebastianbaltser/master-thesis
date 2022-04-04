@@ -12,21 +12,258 @@
         The debt obtained to finance the upfront cost, $U(q)$, is assumed to rank pari passu with existing debt, 
         such that all creditors experience the same loss rate in case of a default.
 
-        % TODO: Proof of the following
         The new creditors receive a credit spread denoted by $s(q)$,
         which generally depend on the share of the payoff being secured and the share being unsecured.
-        The limiting spread, $\lim_{q\downarrow0}s(q)$,
-        is however invariant to this decomposition and is given by:
-            \begin{equation}
-                S = \frac{
-                    \mathbb{E}^{\mathbb{Q}}\left[\phi\right] 
-                    \grossrfrate
-                }{
-                    1 - \mathbb{E}^{\mathbb{Q}}\left[\phi\right]
+        Since creditors break even on the new debt issued to finance the cost $U(q)$,
+        the credit spread $s(q)$ must solve the following:
+            \begin{align}
+                    U(q) 
+                &=
+                    \discountfactor
+                    \mathbb{E}^{\rnmeasure}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}(q)}
+                        U(q)
+                        (\grossrfrate + s(q))
+                    \right]
+                \nonumber \\
+                &\qquad+
+                    \discountfactor
+                    \mathbb{E}^{\rnmeasure}\left[
+                        \mathbbm{1}_{\mathcal{D}(q)}
+                        \frac{
+                            \kappa 
+                            \left(
+                                A + q Y_{1} + q Y_{2}^{+}
+                            \right)
+                        }{
+                            L 
+                            +
+                            U(q)
+                            (\grossrfrate + s(q))
+                            +
+                            q Y_{2}^{-} 
+                        } 
+                        U(q)
+                        (\grossrfrate + s(q))    
+                    \right] 
+                \label{eqn:new-creditors-breakeven}
+            \end{align}
+        This equation ensures that the present value of the risk neutral expected value of the payoff to the new creditors
+        equals the amount needed to fund the new project, $U(q)$. 
+        The expected value can be thought of as consisting of two legs;
+        one leg that governs the payoff when the firm does not default, 
+        and another that governs the payoff when the firm does default. 
+        The first term in this equation is the contribution to the expected value from the promised payoff,
+        the face value, which is paid when the firm does not default. 
+        The face value equals the borrowed amount, $U(q)$, 
+        forward appreciated by the gross risk free rate and the credit spread.
+        The second term is the contribution from the payoff when the firm defaults. 
+        The asset base consists of the pre-project assets, $A$, 
+        the secured payoff, and the unsecured payoff if it is in the firm's favor.
+        The secured payoff might be in the firm's favor, in which case the counterparty must pay it, 
+        or it might be a liability, in which case it is posted as collateral 
+        and therefore not part of the estate and not available for the creditors.
+        If the unsecured payoff is a payable for the firm, the counterparty should pay it, like it should the secured payoff.
+        If it is a liability, the counterparty ranks pari passu with the other claimants,
+        and therefore experiences the loss rate. 
+        The asset base is reduced by the distress costs, so the estate available for claimants
+        is a share $\kappa$ of the assets. 
+        This is the quantity found in the nominator of the fraction.
+        The denominator represents the total amount owed at time one, 
+        which is the sum of the pre-project liabilities $L$, the face value of the new debt, 
+        and the liabilities due to the unsecured payoff of the project.
+        The secured liabilities is already posted as collateral.
+        The amount available for paying claimants divided by the amount owed to claimants, is the loss rate.
+
+        Since the credit spread depends on the decomposition of the payoff into a secured and unsecured part,
+        and that it influences the default event, it is easier to consider the limiting spread, $\lim_{q\downarrow0}s(q)$. 
+        Dividing first both sides of \cref{eqn:new-creditors-breakeven} by the face value $U(q)(\grossrfrate+s(q))$ 
+        and using the linearity of the expected value operator:
+            \begin{align}
+                    \frac{1}{\grossrfrate + s(q)} 
+                &=
+                    \discountfactor
+                    \mathbb{E}^{\rnmeasure}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}(q)}
+                        +
+                        \mathbbm{1}_{\mathcal{D}(q)}
+                        \frac{
+                            \kappa 
+                            \left(
+                                A + q Y_{1} + q Y_{2}^{+}
+                            \right)
+                        }{
+                            L 
+                            +
+                            U(q)
+                            (\grossrfrate + s(q))
+                            +
+                            q Y_{2}^{-} 
+                        } 
+                    \right]
+                \nonumber
+                \intertext{
+                    Since the events $\mathcal{D}^{c}(q)$ and $\mathcal{D}(q)$ are complements,
+                    the indicator of the no-default event, $\mathbbm{1}_{\mathcal{D}^{c}(q)}$,
+                    can be rewritten as $1 - \mathbbm{1}_{\mathcal{D}(q)}$:
                 }
-                \label{eqn:limiting-credit-spread}
-            \end{equation}
-        with $\phi$ being the loss rate to creditors given by:
+                        \frac{1}{\grossrfrate + s(q)} 
+                    &=
+                        \discountfactor
+                        \mathbb{E}^{\rnmeasure}\left[
+                            1
+                            +
+                            \mathbbm{1}_{\mathcal{D}(q)}
+                            \left(
+                                \frac{
+                                    \kappa 
+                                    \left(
+                                        A + q Y_{1} + q Y_{2}^{+}
+                                    \right)
+                                }{
+                                    L 
+                                    +
+                                    U(q)
+                                    (\grossrfrate + s(q))
+                                    +
+                                    q Y_{2}^{-} 
+                                }
+                                -
+                                1
+                            \right) 
+                        \right]
+                    \nonumber
+            \end{align}
+        If the firm defaults, the loss rate is sure to be less than 1,
+        since these two events are equivalent. 
+        Hence the multiplicative inverse transformation can be applied to both sides:
+            \begin{align}
+                    s(q)
+                &=
+                    \grossrfrate
+                    \left(
+                        \mathbb{E}^{\rnmeasure}\left[
+                            1
+                            +
+                            \mathbbm{1}_{\mathcal{D}(q)}
+                            \left(
+                                \frac{
+                                    \kappa 
+                                    \left(
+                                        A + q Y_{1} + q Y_{2}^{+}
+                                    \right)
+                                }{
+                                    L 
+                                    +
+                                    U(q)
+                                    (\grossrfrate + s(q))
+                                    +
+                                    q Y_{2}^{-} 
+                                }
+                                -
+                                1
+                            \right) 
+                        \right]^{-1}
+                        - 
+                        1
+                    \right)
+                \nonumber
+            \end{align}
+        Let $S$ denote the limiting spread which is defined as the credit spread on debt 
+        charged for obtaining an infinitesimal quantity of the project, i.e.
+        $S \equiv \lim_{q\downarrow 0} s(q)$.
+        $A$, $L$, and $Y$ are assumed to have finite expectations, 
+        which allows for interchanging limits and integrals, e.g. the expectation in the above equation.
+        Applying the limit of $q$ approaching $0$ from above:
+            \begin{align}
+                    S
+                &=
+                    \grossrfrate
+                    \left(
+                        \mathbb{E}^{\rnmeasure}\left[
+                            1
+                            +
+                            \lim_{q\downarrow 0}
+                            \mathbbm{1}_{\mathcal{D}(q)}
+                            \left(
+                                \frac{
+                                    \kappa 
+                                    \left(
+                                        A + q Y_{1} + q Y_{2}^{+}
+                                    \right)
+                                }{
+                                    L 
+                                    +
+                                    U(q)
+                                    (\grossrfrate + s(q))
+                                    +
+                                    q Y_{2}^{-} 
+                                }
+                                -
+                                1
+                            \right) 
+                        \right]^{-1}
+                        - 
+                        1
+                    \right)
+                \nonumber
+            \end{align}
+        If the limit of two addends in a sum in are is finite, 
+        the algebraic limit theorem ensures that the limit of the summation operation,
+        can be expressed as the summation of the addends' limits.
+        This also applies to two factors in a product.
+        The limit of $\mathcal{D}^{c}(q)$ is $D^{c}$,
+        since the post-project default event with an infinitesimal investment in the project
+        corresponds to the pre-project default event.
+        This stems from the fact that the upfront price of the $U(q)$
+        approaches zero as the quantity of the project approaches zero:
+        Applying these results yields:
+            \begin{align}
+                    S
+                &=
+                    \grossrfrate
+                    \left(
+                        \mathbb{E}^{\rnmeasure}\left[
+                            1
+                            +
+                            \mathbbm{1}_{D}
+                            \left(
+                                \frac{
+                                    \kappa 
+                                    A
+                                }{
+                                    L 
+                                }
+                                -
+                                1
+                            \right) 
+                        \right]^{-1}
+                        - 
+                        1
+                    \right)
+                \nonumber \\
+                &=
+                    \grossrfrate
+                    \left(
+                        \mathbb{E}^{\rnmeasure}\left[
+                            1
+                            +
+                            \mathbbm{1}_{D}
+                                \frac{
+                                    \kappa 
+                                    A
+                                    -
+                                    L
+                                }{
+                                    L 
+                                }
+                        \right]^{-1}
+                        - 
+                        1
+                    \right)
+                \label{eqn:limiting-credit-spread-step-1}
+            \end{align}
+        For ease of interpretation the loss rate can be defined as:
             \begin{equation}
                 \phi = \frac{
                         L - \kappa A
@@ -36,6 +273,40 @@
                 \mathbbm{1}_{\mathcal{D}}
                 \label{eqn:creditor-loss-rate}
             \end{equation}
+        \Cref{eqn:limiting-credit-spread-step-1} can then be reformulated and finally result in the limiting spread:
+            \begin{align}
+                    S
+                &=
+                    \grossrfrate
+                    \left(
+                        \frac{
+                            1   
+                        }{
+                            1
+                            -
+                            \mathbb{E}^{\rnmeasure}\left[
+                                \phi
+                            \right]
+                        }
+                        - 
+                        1
+                    \right)
+                \nonumber \\
+                &=
+                    \frac{
+                        \mathbb{E}^{\rnmeasure}\left[\phi\right]
+                        \grossrfrate
+                    }{
+                        1
+                        -
+                        \mathbb{E}^{\rnmeasure}\left[\phi\right]
+                    }
+            \end{align}
+        As anticipated, the limiting spread is invariant to the decomposition of the payoff into $Y_{1}$ and $Y_{2}$,
+        as well as being independent to the quantity $q$. 
+        These properties will make the limiting spread very useful in the following derivation
+        of the marginal shareholder valuations.
+        
         The face value of the new debt is the upfront, which was the borrowed amount, 
         including the interest rates paid, namely 
         $U(q)(\grossrfrate + s(q))$. 
@@ -135,10 +406,7 @@
                 } 
                 \label{eqn:G-debt-step-1}
             \end{align}
-        If the limit of the two addends in the numerator is finite, 
-        the algebraic limit theorem ensures that the limit of the summation operation,
-        can be expressed as the summation of the addends' limits.
-        Deriving the limit of the first addend:
+        Using the algebraic limit theorem and deriving the limit of the first addend:
             \begin{align}
                 &\quad
                 \lim_{q\rightarrow 0}
@@ -165,13 +433,12 @@
                 \right]
                 \nonumber
             \intertext{
-                $A$, $L$, and $Y$ are assumed to have finite expectations, 
-                which allows for interchanging limits and integrals, e.g. the expectation.
+                The assumption of finite expectation of $A$, $L$, and $Y$ allows, again,
+                for interchanging the limit and the expectation.
                 The limit of $U(q)/q$ can be recognized as the marginal investment cost, $u$,
                 while the limit of $s(q)$ is the limiting spread, $S$.
-                The limit of $\mathcal{D}^{c}(q)$ is $D^{c}$,
-                since the post-project default event with an infinitesimal investment in the project
-                corresponds to the pre-project default event.
+                The limit of the post-project no-default event, $\mathcal{D}^{c}(q)$, 
+                is the pre-project no-default event $D^{c}$.
                 The reformulation again uses the algebraic limit theorem,
                 which applies since the limits of the factors exists:
             }
