@@ -16,6 +16,8 @@ from spm.marginal_value_plots import (
     plot_marginal_shareholder_value,
 )
 
+plt.rcParams["figure.dpi"] = 400
+
 
 def main():
     states_ids = np.arange(-4, 4.001, 0.1)
