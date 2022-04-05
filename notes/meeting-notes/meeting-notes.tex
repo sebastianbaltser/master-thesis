@@ -52,4 +52,54 @@
             \item Is it okay to combine the use of inline citations (Hull and White (2013)) and the use of footnote citations\footnote{Hull and White (2013)}? We find both useful in different scenarios so we would prefer being able to switch between them.
         \end{enumerate}
 
+    \section{Meeting 05/04}
+        The meeting had the following TODOs:
+        \begin{enumerate}
+            \item Use examples more when describing complicated concepts.
+            \begin{itemize}
+                \item Example when describing CVA and DVA
+                \item In the section "Funding Costs in the Single Period Model" 
+                    use an example of a firm obtaining a new project without specific numbers.  
+            \end{itemize}  
+            \item Stop using "why" as a conjunction.
+            \item Explain CSA, initial margin, valuation margin, collateralization.
+            \item Perhaps dismiss FVA buffer from equation (1.1), just mention that it exists according to KPMG, and then assume it away.
+            \item Banks were not exactly considered risk-free before the credit crisis, so we should stop referring to them as such.
+                The were definitely considered less risky, but LIBOR did have a spread compared to treasuries etc.
+            \item Explain that risk-free rate refers to the OIS rate and explain why that might be a good proxy for the risk-free rate.
+                Castagna's "Pricing with Collateral" has a good example concerning this.
+            \item Use illustrations and diagrams when explaining difficult concepts:
+            \begin{itemize}
+                \item Diagram when describing sources of funding costs
+            \end{itemize}
+            \item Correct "rehypothication" to "rehypothecation"
+            \item Upfront payments are not a source of funding cost 
+                if the counterparty is an organization with whom the firm has a CSA in place.
+                We need to be clearer about this concept. 
+            \item Change the bibtex style to something where the publication year is in parentheses.
+            \item In the section "FVA according to traders".
+                Consider an example where the trader sells an option with a price that depends on the risk-free rate. 
+                When the trader hedges the trade, the leverage is more expensive than the risk-free rate, which creates a funding cost. 
+                Currently, we say that an upfront requires funding above the risk-free rate,
+                but this only creates a funding cost if a CSA is not in place.
+                If a CSA is in place the funding costs can occur because the hedging strategy,
+                is more expensive to fund, than the actual investment.
+            \item Ensure that IFRS 13 is actually cited as "IFRS 13 (2013)"
+            \item In the 200/30 bp example, specify that we are considering a bond.
+                Then the 30 bp and 80 bp are excess yield and not excess return. 
+                Right now it is a bit confusing what we mean by "excess return".
+            \item When describing the fair market value function $V$,
+                mention that the two assumption also implies that $V$ is strictly positive,
+                such that $X>0 \Rightarrow V(X) > 0$.
+        \end{enumerate}
+
+        General pointers:
+        \begin{enumerate}
+            \item Introduce and summarize each section to help the reader.
+            \item Avoid long complicated sentences. 
+                Write everything, not only such that it is understandable,
+                but such that it is not mis-understandable.
+            \item Use more \textit{possessive} language when referencing. For example: own an idea, but mention who inspired it.
+                Say what the reference does and then say that we do the same.
+        \end{enumerate}
 \end{document}
