@@ -29,7 +29,12 @@
         The difference between the total asset value of the firm, and the payoff of the creditor is what's left to be distributed to the shareholders, who are now separated into two bases. 
         Compute the expected discounted value of this and divide it by the net present value of the investment made by the new shareholders:
         \begin{equation}
-            \alpha = \frac{\sum_i (A_{i}-D{i})\psi_{i}}{\pi(Y)}
+            \alpha = 
+                \frac{
+                    \pi(Y)
+                }{
+                    \mathbb{E}^{\rnmeasure}\left[A-D\right]
+                }
         \end{equation}
         The new shareholders then receive their share of the remaining payoff in each state, and the payoff of the legacy shareholders is still the residual with a share of $(1-\alpha)$ equalling the remainder of the distributed payoff. 
         The results of the example are shown in \cref{tbl:equity-funding-payoff}, where the share of the new equity owners is computed as $\alpha = 34.982\%$.
