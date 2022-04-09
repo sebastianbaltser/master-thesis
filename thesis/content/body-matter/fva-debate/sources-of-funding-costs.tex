@@ -106,13 +106,28 @@
         but rather let a netting set of cash flows offset each other. 
         The principle is the same whether the derivative cash flows are offset by an imperfect hedge
         or another different derivative;
-        both are again sources of funding cost, which can be illustrated by the following examples,
-        due to \textcite[Section~12.3]{Ruiz2015XVA}.
+        both are again sources of funding cost, which can be illustrated by the following examples.
 
-        One source of funding costs, where the dealer does not hedge, occurs when trading simple options.
-        Selling an option entitles the dealer to the option premium,
-        which decreases the funding needs elsewhere in the organization,
-        while buying an option has the opposite effect. 
+        The treatment of derivative cash flows from a funding cost perspective 
+        depends on the type of cash flow and the reason why it occurs,
+        as not all entails funding costs for the same reason.
+
+        Consider a firm buying a simple option, without the intention to hedge its market risk.
+        Buying the option requires paying an upfront price to the counterparty,
+        which would seemingly require financing;
+        however, this is only a source of funding costs 
+        if the firm and the counterparty does not have a CSA agreement in place.
+        If both the firm and the counterparty are financial institutions, 
+        they will most likely maintain a CSA agreement
+        such that any upfront price paid will immediately be met by a collateral posting in the opposite direction.
+        Hence, the funding need for the upfront price will be satisfied and the funding costs eliminated.
+        If no CSA exists and no collateral is posted, the upfront will still create funding costs,
+        while selling the option instead will decrease the funding needs and create a funding benefit.
+        This is not to say that a CSA agreement will eliminate funding costs completely. 
+        Hedging cash flows might also generate funding needs or surpluses, 
+        e.g. if a dealer must apply leverage to properly hedge a positions 
+        and pay the higher rates of leverage due to financing spreads.
+
         Another source of funding costs materializes in the next example when the dealer applies an imperfect hedge.
         The dealer have entered into a 10 year OTC swap with semi-annual payments, 
         but for the replication the dealer is only able to obtain a 10 year swap with quarterly payments.
