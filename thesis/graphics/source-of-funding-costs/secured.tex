@@ -1,12 +1,12 @@
 % !TEX root = ./test-graphics.tex
 
-\input{unsecured.tex}
+\input{\graphicsfolder/source-of-funding-costs/unsecured.tex}
 
 \draw[<->, thick, draw=blue] 
     ([yshift=-\bottomarrowyoffset, xshift=-\arrowtoboxpadding pt]dealer.north west) -- 
     ([yshift=-\bottomarrowyoffset, xshift= \arrowtoboxpadding pt]counterparty.north east)
     node (collateral) [pos=0.6, fill=white, inner sep=0pt] {
-        \includegraphics[width=0.50cm]{collateral.png}
+        \includegraphics[width=0.50cm]{\graphicsfolder/source-of-funding-costs/collateral.png}
     };
 
 
