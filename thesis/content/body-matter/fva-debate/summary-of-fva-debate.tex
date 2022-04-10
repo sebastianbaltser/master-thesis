@@ -24,13 +24,22 @@
             If the traders do not take into account the funding cost when pricing the derivatives,
             a loss will be shown for trades that require funding.
             Assume, for example, a trader buying a simple option at some upfront price.
-            The option have some theoretical price or value that might have been calculated by assuming
+            The option has a theoretical price or value that might have been calculated by assuming
             that financing could be obtained at risk-free rates. 
             Should the trader buy the option at this theoretical price, 
             she will be making a negative net present value investment, 
-            because the actual funding rate on the upfront payment is \textit{above} the risk-free rate. 
-            The funding desk will charge the actual funding rate; not the risk-free rate.
-            Rather, the trader should assess the funding cost of the trade 
+            since the trade will generate funding costs. 
+            If she is trading outside of a CSA agreement, there will be no collateral posted
+            to offset the upfront cost and the payment will be subject to the
+            funding rate, which is \textit{above} the risk-free rate. 
+            Alternatively, she will be trading under a CSA agreement,
+            and the collateral will offset the upfront cost.
+            Still, she might want to hedge the position and, as the option and the hedge
+            will not constitute a self-financing portfolio, 
+            unlike the assumptions in traditional pricing frameworks,
+            the hedge might require leverage, which will cost the funding rate.
+            In conclusion, the funding desk will charge the actual funding rate; not the risk-free rate.
+            Rather than accepting the theoretical price, the trader should assess the funding cost of the trade 
             and buy the option at the theoretical price adjusted by the funding cost,
             in order to break even on the value of the trade.
             In other words, the trader should make an \FVA/, 
