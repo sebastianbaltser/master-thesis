@@ -1,0 +1,18 @@
+% !TEX root = ./test-graphics.tex
+
+\input{unsecured.tex}
+
+\draw[<->, thick, draw=blue] 
+    ([yshift=-\bottomarrowyoffset, xshift=-\arrowtoboxpadding pt]dealer.north west) -- 
+    ([yshift=-\bottomarrowyoffset, xshift= \arrowtoboxpadding pt]counterparty.north east)
+    node (collateral) [pos=0.6, fill=white, inner sep=0pt] {
+        \includegraphics[width=0.50cm]{collateral.png}
+    };
+
+
+\draw[<->, thick, draw=red] 
+    ([yshift=-\toparrowyoffset, xshift=-\arrowtoboxpadding pt]dealer.north west) -- 
+    ([yshift=-\toparrowyoffset, xshift= \arrowtoboxpadding pt]counterparty.north east)
+    node [pos=0.4, fill=white, inner xsep=2pt, inner ysep=0] {
+        OIS
+    };
