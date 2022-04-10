@@ -25,18 +25,39 @@
         is exactly the facility of funding costs, with which this section is concerned.
         This source of funding cost is best observed in the most extreme case, where the dealer trades unsecured derivatives. 
 
-        Suppose that the derivatives dealer is selling an unsecured OTC derivative to a counterparty.
+        Consider the situation depicted in \cref{fig:funding-costs-unsecured-derivative}.
+        The derivatives dealer is selling an unsecured OTC derivative to a counterparty,
+        and the counterparty is paying the upfront price.
+        The particular derivative is not too important, 
+        but picture a derivative that can leave the dealer both negatively and positively exposed to the counterparty, 
+        e.g. an interest rate swap.
         In order to avoid the market risk of the investment, 
         the dealer will perform the opposite (perhaps synthetical) trade with an exchange,
         i.e. the dealer hedges its market risk to the counterparty.
-        The exchange requires full collateralization.
-        Any collateral that needs to be posted to the exchange must be borrowed from the dealer's funding institution.
-        As the loan is unsecured the funding institution charges a spread,
-        more specifically the dealer pays the rate $\OIS/ + \text{funding spread}$.
-        The collateral posted at the exchange is secured by the actual investment demanding the collateral,
-        and therefore earns the \OIS/ rate.
-        The difference between the interest paid on the loan and the interest earned on the collateral is the funding cost;
-        suffered by the derivatives dealer for entering the trade with the counterparty. 
+        In this example, it is assumed that the upfront price of the derivative 
+        matches exactly the upfront price of the market risk hedge.
+        The exchange requires full collateralization;
+        when the dealer has positive exposure to the counterparty, 
+        it has negative exposure to the exchange and must post collateral. 
+        When it has positive exposure to the counterparty it receives collateral.
+        The collateral posted at the exchange is secured by the actual investment demanding the collateral;
+        therefore, any collateral posted earns the OIS rate at the receiver, referred to as the rebate rate.
+        The exchange could possibly charge a spread and pay a rebate rate less than the OIS rate,
+        but for simplicity assume that this is not the case.
+        Assume that the dealer has no excess cash on its balance sheet, 
+        such that any collateral that needs to be posted to the exchange 
+        must be borrowed from the dealer's funding institution,
+        possibly its prime broker. 
+        This funding is unsecured and the prime broker charges a spread, here denoted by S,
+        more specifically the dealer pays the rate $\OIS/ + \text{S}$.
+
+        The excess interest rate charged by the prime broker is exactly the source of the funding cost.
+        If the dealer has positive exposure to the counterparty, collateral must be posted to the exchange.
+        The dealer then earns \OIS/ from the posted collateral but pays $\OIS/ + \text{S}$ for funding;
+        the difference, S, drives the funding cost.
+        Alternatively, the exchange posts collateral to the dealer, which the dealer pays \OIS/ for.
+        If rehypothecation is allowed, the dealer can retire debt and save the funding spread.
+        In this case, S drives the funding benefit.
 
         \begin{figure}
             \centering
