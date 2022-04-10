@@ -38,6 +38,17 @@
         The difference between the interest paid on the loan and the interest earned on the collateral is the funding cost;
         suffered by the derivatives dealer for entering the trade with the counterparty. 
 
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \input{\graphicsfolder/source-of-funding-costs/unsecured.tex}
+            \end{tikzpicture}        
+            }   
+            \caption{Illustration of funding costs from an unsecured OTC derivative.}
+            \label{fig:funding-costs-unsecured-derivative}
+        \end{figure}
+
         The funding cost can be reduced if the dealer has in place a CSA agreement allowing rehypothecation with the counterparty.
         The posting of collateral by the counterparty reduces the credit risk of the dealer,
         but the dealer still faces the market risk from the derivative, 
@@ -51,6 +62,17 @@
         The dealer still need to borrow the difference from the funding institution.
         In case the two collateral agreements are identical, the funding cost will be eliminated, 
         since the collateral received from the counterparty will completely suffice as collateral posted to the exchange.
+        
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \input{\graphicsfolder/source-of-funding-costs/secured.tex}
+            \end{tikzpicture}        
+            }   
+            \caption{Illustration of funding costs from an secured OTC derivative.}
+            \label{fig:funding-costs-secured-derivative}
+        \end{figure}
 
         These examples should display how a derivatives dealer might face funding costs,
         when the lack of perfect symmetry in collateral needs calls for unsecured funding.
