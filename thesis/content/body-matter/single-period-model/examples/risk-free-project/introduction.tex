@@ -21,7 +21,7 @@
     which are funded by equity and debt deposits and returns payoff specified shortly.
     In the event of default, the firm is assumed to face no distress cost, i.e. $\kappa = 1$, 
     such that the bankruptcy estate is distributed entirely to the creditors.
-    The firm has been funded by debt such that the face value of debt is $D_{FV} = 80$, 
+    The firm has been funded by debt such that the face value of debt is $80$, 
     which gives rise to the following payoff structure:
     \begin{table}[H]
         \centering
@@ -33,6 +33,7 @@
             $S(\omega_{i})$ & 40 & 30 & 20 & 15 & 0
         \end{tabular}
         \caption{}
+        \label{tbl:example-pre-project-capital-structure}
     \end{table}
     The associated present values of the payoffs, $A$, $D$ and $S$, 
     are discounted expected value of the payoff with respect to the risk neutral probability measure:
@@ -41,8 +42,17 @@
             \pi(D) = \discountfactor \mathbb{E}^{\rnmeasure}\left[D\right] = 76.80
             \qquad \pi(S) = \discountfactor \mathbb{E}^{\rnmeasure}\left[S\right] = 19.60
         \end{gather}
-
-    Assume that the firm faces a new risk free project in which it can invest
+    The face value of the debt includes a credit spread, S, that the firm must pay in order to account for its own credit risk.
+    As seen in \cref{tbl:example-pre-project-capital-structure},
+    the creditors do not receive their entire face value in the default event, $\omega_5$.
+    For the creditors to make sure they enter a non-negative net present value deal with the firm,
+    they add a credit spread to the interest rate.
+    This credit spread is computed as
+    $S = 80/76.80 - \grossrfrate = 3.157\%$.
+    \\
+    The loss rate of the creditors in the default event is computed using \cref{eqn:creditor-loss-rate}: $\phi = (80-60)/80 = 25.0\%$.
+    
+    Assume that the firm faces a new risk-free project in which it can invest
     and that the project has a promised return of $10$ at time 1.
     The project is risk free in the sense that the payoff is known with certainty at time 0, so:
         \begin{table}[H]
