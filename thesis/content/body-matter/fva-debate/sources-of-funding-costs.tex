@@ -70,17 +70,43 @@
             \label{fig:funding-costs-unsecured-derivative}
         \end{figure}
 
-        The funding cost can be reduced if the dealer has in place a CSA agreement allowing rehypothecation with the counterparty.
+        As mentioned, trading unsecured derivatives is the most extreme case,
+        since any collateral call will lead to a funding surplus or deficit and therefore a funding benefit or cost.
+        The funding cost can be reduced if the dealer has in place 
+        a CSA agreement allowing rehypothecation with the counterparty.
+        This would allow collateral to flow from the exchange to the counterparty or the opposite direction, 
+        and collateral postings from one party could therefore, partly or fully, 
+        cover collateral needs from the other party.
+
+        Consider the example illustrated in \cref{fig:funding-costs-secured-derivative}.
+        Again, the dealer sells a derivative to its counterparty,
+        but in this case the two parties are trading under a CSA agreement, 
+        such that the trade is secured by collateralization.
         The posting of collateral by the counterparty reduces the credit risk of the dealer,
-        but the dealer still faces the market risk from the derivative, 
-        so again it creates a market risk hedge at the exchange.
-        Yet, since rehypothecation is allowed,
-        the collateral posted by the counterparty can be passed onto the exchange as collateral demanded by the hedge.
-        This reduces the dealer's need for borrowing unsecured funds from the funding institution 
+        but the dealer still faces the market risk from the derivative;
+        so, again, it creates a market risk hedge at the exchange.
+        Assume a perfect hedge, such that any market risk exposure to the counterparty 
+        is exactly offset by the opposite exposure to the exchange.
+        Whenever there is a collateral call from the dealer to the counterparty,
+        the dealer can expect a call for collateral from the exchange.
+        Since rehypothecation is allowed,
+        the collateral posted by the counterparty can be passed onto the exchange.
+        To a certain extent, this reduces the dealer's need for borrowing unsecured funds from the prime broker
         and ultimately reduces the funding costs of the dealer.
-        However, funding costs are still present, 
-        at least to the extent that the collateral agreement with the counterparty is asymmetric to that with the exchange.
-        The dealer still need to borrow the difference from the funding institution.
+        However, funding costs are possibly still present;
+        the collateral agreement with the counterparty is likely weaker than that with the exchange. 
+        This is depicted in \cref{fig:funding-costs-secured-derivative} 
+        by the shield on the counterparty side being smaller than the shield on the exchange side.
+        The asymmetri has the implications that 
+        collateral posted by the counterparty might only partly cover collateral calls from the exchange 
+        and collateral posted by the exchange will more than cover collateral calls from the counterparty.
+        The former is a source of funding costs and the latter a source of funding benefit.
+
+        The differences between the CSA agreements, leading to the situation described above, could vary. 
+        To mention a few, the CSA agreement with the counterparty might have higher exposure thresholds, 
+        higher minimum transfer amounts, or lower frequency of margin calls.
+        All of these differences lead the collateral cash flows to and from the exchange 
+        to be at least as high as the cash flows to and from the counterparty. 
         In case the two collateral agreements are identical, the funding cost will be eliminated, 
         since the collateral received from the counterparty will completely suffice as collateral posted to the exchange.
         
