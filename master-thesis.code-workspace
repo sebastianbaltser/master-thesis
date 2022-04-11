@@ -41,6 +41,7 @@
 		"cSpell.ignoreWords": [
 			"ifdefinable",
 		],
+		"cSpell.language": "en-GB",
 		"terminal.integrated.env.windows": {
 			"PYTHONPATH": "${workspaceFolder}\\code\\single-period-model"
 		},
