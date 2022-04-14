@@ -122,6 +122,54 @@
         to be at least as high as the cash flows to and from the counterparty. 
         In case the two collateral agreements are identical, the funding cost will be eliminated, 
         since the collateral received from the counterparty will completely suffice as collateral posted to the exchange.        
+        To further grasp how unaligned collateralization schemes can lead
+        to cash shortfalls or surpluses consider the example drawn by 
+        \cref{fig:funding-costs-asymmetrical-csa}.
+        This example displays the possible implications of hedging a secured derivative
+        with a trade that calls for collateral more frequently.
+
+        The same dealer as previously trades an interest rate swap with a counterparty with whom a CSA is agreed upon. 
+        The value of the firm's contract is drawn as a function of time by the blue line with dots.
+        To hedge the market risk the dealer enters into the opposite trade with an exchange.
+        The market risk is perfectly hedged and the value of the dealers contract is therefore
+        equal to dealers contract with the counterparty with the signs flipped.
+        This value is indicated by the yellow line.
+        For simplicity, both swaps can take only one of four values; $+\$$, $+\$\$$, $-\$$, and $-\$\$$.
+        Both swaps are secured by CSA agreements allowing rehypothecation 
+        and with no exposure thresholds or minimum transfer amounts.
+        For the trade with the exchange, collateral calls can be submitted every time period;
+        however, for the trade with the counterparty, collateral calls can only be submitted every second time period.
+        These agreements lead to the collateral postings reported in the second row of the figure.
+        Negative amounts are posted by the dealer, while positive amounts are posted to the dealer 
+        from the corresponding entity.
+        Each period, the exchange considers the current mark-to-market and its collateral balance with the dealer
+        and either submits a collateral call, posts collateral, or does nothing if everything is in order.
+        The same goes for the counterparty, except, only every second period.
+
+        In periods where collateral can be posted for both trades, 
+        the collateral posted by one trade will completely cover the collateral call from the other
+        and the dealer will neither have an excess or a surplus of funds.
+        However, in period 1 when the exchange calls for collateral,
+        the counterparty is not obliged to post collateral to the dealer. 
+        If the dealer does not have excess cash, 
+        it will have to obtain the funding from the its prime broker 
+        and therefore pay the unsecured borrowing rate of $\OIS/ + S$. 
+        This debt will be repaid in period 2 when the counterparty posts collateral.
+        The asymmetry of the collateral cash flows in period 2
+        is thus a contributor to the funding costs of the derivative.
+
+        In period 5 the situation is the opposite.
+        The exchange posts collateral to the dealer, 
+        but, even though the counterparty trade is marked-to-market lower than in period 4,
+        the counterparty cannot submit a collateral call. 
+        The dealer is therefore in excess of funding,
+        that it can use to reduce its financing needs elsewhere, earning $\OIS/ + S$.
+        Hence the asymmetry in period 5 is a funding benefit to the dealer.
+        While this example is concerned with difference in frequency of collateral calls,
+        examples with difference in exposure thresholds or higher minimum transfer amounts 
+        would convey the same message.
+        When there is asymmetry in the collateral cash flows the dealer must provide or receive funding,
+        which generates funding costs or benefits.
 
         \begin{figure}
             \centering
