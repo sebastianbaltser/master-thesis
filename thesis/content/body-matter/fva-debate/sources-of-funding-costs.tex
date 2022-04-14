@@ -123,6 +123,21 @@
             \label{fig:funding-costs-secured-derivative}
         \end{figure}
 
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \input{\graphicsfolder/source-of-funding-costs/secured-example.tex}
+            \end{tikzpicture}        
+            }   
+            \caption{
+                Illustration of funding costs from an interest rate swap with asymmetrical collateral agreements.
+                The exchange can submit margin calls every period,
+                while the counterparty can only submit margin calls every second period.
+            }
+            \label{fig:funding-costs-asymmetrical-csa}
+        \end{figure}
+
         These examples should display how a derivatives dealer might face funding costs,
         when the lack of perfect symmetry in collateral needs calls for unsecured funding.
         It might be argued that the funding costs could be eliminated by trading derivatives,
