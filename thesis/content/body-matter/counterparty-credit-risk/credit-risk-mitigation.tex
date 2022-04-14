@@ -1,0 +1,117 @@
+% !TEX root = ./sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Credit risk mitigation}
+    
+    Credit risk mitigation is actions taken by firms with the purpose of reducing their credit risk.
+
+    \subsubsection{Collateralization}
+        Credit risk can be reduced significantly and even eliminated completely
+        if the counterparty provides some form of security, which the firm has priority to.
+        Should the counterparty default, the firm can use the security to cover any
+        outstanding liabilities of the counterparty to the firm. 
+        The type of security used and the circumstances 
+        under which they are available to the other entity can vary significantly.
+        This section will describe two common ways of providing security, 
+        namely \textit{repo transactions} and \textit{CSA agreements}.
+
+        A repurchase agreement, or a repo, is a trade in which a firm sells securities to another firm, 
+        referred to as the lender, 
+        with the promise of buying back the securities at a fixed price on a fixed date.
+        The firm receives cash from the lender and the lender receives the securities
+        which it uses as security for the money lent to the firm. 
+        If the firm defaults and fails to honour its obligation to buy back the security,
+        the lender can keep the security and possibly liquidate it to recover the cash lent. 
+        Repos can be used as a form of short-term borrowing for the seller
+        and an opportunity for the lender to invest funds for a customized period of time. 
+        Trades can use repos to apply leverage by buying long positions in securities 
+        which they then post as the collateral in the repo. 
+
+        Derivative transactions can be secured in a similar way 
+        if the counterparties agree upon and adhere to a Credit Support Annex, CSA, agreement.
+        A CSA defines terms and conditions that allows the posting of collateral 
+        between counterparties in order to secure a transaction made between them.
+        Most CSA agreements requires both entities in the transaction to post collateral if
+        they have negative exposure to their counterparty. 
+        This is important in derivatives transactions that can have both 
+        positive and negative mark-to-market values, 
+        such that an entity can be both positively and negatively exposed to the counterparty
+        during the lifetime of the transaction.
+        When collateral is posted, the counterparty can of course use it to cover losses incurred 
+        due to the default of the other party.
+        However, an important feature of CSA agreements is the ability of firms to
+        \textit{rehypothecate} collateral.
+        For a firm to rehypothecate collateral is to reuse it by passing it on to other parties that 
+        requires collateral from the firm.
+        By doing this, the firm can reduce, or even eliminate, the need for providing its own funds
+        for supporting other CSA agreements. 
+        This mechanism will prove to be very important when in the context of funding value adjustments,
+        which will be introduced later in this paper.
+
+        If collateral should be posted, and how much should be posted, 
+        depends on a number of parameters defined in the CSA agreement
+        as well as external values due to the general market conditions.
+        The parameters deemed most important will be described in the following:
+        \begin{description}
+            \item[Threshold] 
+            The threshold is the level of positive or negative exposure 
+            above which collateral will be posted. 
+            A higher threshold for the counterparty will also yield a higher exposure to the counterparty,
+            however only to the extent of the threshold size. 
+            Typically, CSA agreements between banks will have zero thresholds, 
+            such that derivative transaction is fully collateralized.
+            
+            \item[Minimum transfer amount] 
+            The minimum transfer amount represents how much positive or negative exposure
+            the two firms can have before collateral is posted. 
+            Hence it is the smallest amount of collateral that can be exchanged between counterparties.
+            It is often used to avoid the operational overhead from posting collateral for negligible amounts,
+            but, like a threshold, it comes at the cost of increased exposure.
+
+            This parameter is also a threshold and the difference between this
+            and the actual threshold-parameter might be subtle.
+            The threshold refers to the exposure directly due to the mark-to-market value,
+            however the minimum transfer amount considers the exposure after taking into 
+            account the mark-to-market, the current collateral posted and the threshold.
+
+            \item[Independent amount]
+            An independent amount is an amount of collateral posted regardless of the mark-to-market 
+            of the derivative, with the purpose of accounting for potential under-collateralization.
+            The counterparty posting an independent amount decreases the exposure
+            since it works as an initial buffer for credit risk mitigation.
+
+            \item[Collateral call frequency]
+            The collateral call frequency specifies how often a party can submit calls for collateral.
+            Typically, CSA agreements between banks will have daily call frequency;
+            other organizations will have a lower frequency simply due to the operational burden
+            of posting collateral as often as daily. 
+            A lower call frequency means larger exposure to the counterparty,
+            as the mark-to-market will have longer to diverge from the collateral posted 
+            at the last valuation date.
+        \end{description}
+
+        Besides the parameters mention, CSA agreements will have specifications of the type of collateral allowed,
+        i.e. which currencies can be used or if government bonds can be used as collateral,
+        as well as a procedure to follow if one of the parties is downgraded to a specified credit rating.
+        It must be emphasized that the parameters might not be identical for each party,
+        if one party has a different credit quality than the other.
+        If the credit qualities differ a lot, the CSA agreement might even be one-directional,
+        such that only one party posts collateral.
+
+        For the purpose of benchmarking collateralization schemes, 
+        it will be helpful to define the theoretical concept of a \textit{perfect} CSA agreement.
+        A perfect CSA will have zero threshold and zero minimum transfer amount.
+        In addition, it will have a, so to speak, infinitely high collateral call frequency
+        meaning that collateral calls are made continuously and instantly 
+        whenever there is the slightest change in the mark-to-market value. 
+        If the counterparty instantly meets collateral calls and have no cure period,
+        a perfect CSA agreement would eliminate the exposure to the counterparty
+        and therefore the credit risk.
+        Of course, this is merely a theoretical construct, as all sorts of frictions introduces delays,
+        which would break the assumptions.
+        Nonetheless, the idea of a perfect CSA will be helpful to have as a reference,
+        when introducing funding value adjustments.
+
+\end{document}
+        
