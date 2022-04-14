@@ -1,0 +1,93 @@
+% !TEX root = ./test-graphics.tex
+
+\colorlet{exchangecolor}{-red!50!yellow!75}
+\colorlet{counterpartycolor}{red!50!yellow!75}
+\colorlet{fundingcolor}{-red!75}
+\colorlet{ratecolor}{red!75}
+
+\matrix [
+    matrix of nodes,
+    nodes = {
+        minimum width = 1.5cm,
+        minimum height = 0.65cm
+    },
+    nodes in empty cells,
+    column 1/.append style = {nodes={minimum width=1.2cm}},
+    column 2/.append style = {anchor=base east},
+    row 6/.append style = {nodes={color=counterpartycolor, minimum height=1cm}},
+    row 7/.append style = {nodes={color=exchangecolor, minimum height=1cm}},
+] (value) {
+    & Time & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    \hline
+    & &  &   &   &   &   &   &   &   \\
+    & &  &   &   &   &   &   &   &   \\
+    & &  &   &   &   &   &   &   &   \\
+    & &  &   &   &   &   &   &   &   \\
+    \hline
+    & Exchange & $-\$$ & $-\$$ &       &   & $+\$$ & $+\$\$\$$ & $-\$$   &   \\
+    & Counterparty & $+\$$ &   \textcolor{black}{$\boldsymbol{\times}$}    & $+\$$ & \textcolor{black}{$\boldsymbol{\times}$}  & $-\$$ &   \textcolor{black}{$\boldsymbol{\times}$}  & $-\$\$$ &  \textcolor{black}{$\boldsymbol{\times}$} \\
+    \hline
+    & Balance & 0     & \node (funding1) {$-\$$}; & 0     & 0 & 0     & \node (funding2) {$+\$\$\$$}; & 0       & 0 \\
+};
+
+\draw[dashed] ($(value-4-2.west)!0.5!(value-3-2.west)$) -- ($(value-4-10.east)!0.5!(value-3-10.east)$);
+% \node () at ([xshift=0.25cm] $(value-4-10.east)!0.5!(value-3-10.east)$) {$0$};
+
+\foreach \labl [count=\row from 2] in {$+\$\$$, $+\$$, $-\$$, $-\$\$$} {
+    \node[anchor=east] () at ([xshift=0cm] value-\row-3.west) {\labl};
+}
+\node [align=center, rotate=90, anchor=north] () at ($(value-4-1.west)!0.5!(value-3-1.west)$) 
+    {\textbf{Swap value} \\ \footnotesize to dealer};
+\node [align=center, rotate=90, anchor=north] () at ($(value-7-1.west)!0.5!(value-6-1.west)$) 
+    {\textbf{Collateral} \\ \footnotesize to dealer};
+
+\foreach \from/\to [count=\col from 3] in {2/1, 1/1, 1/1, 1/2, 2/4, 4/3, 3/3} {
+    \tikzmath{%
+        \from = \from + 1;
+        \to = \to + 1;
+        \nextcol = \col + 1;
+    };
+    \pgfmathtruncatemacro{\from}{\from};
+    \pgfmathtruncatemacro{\to}{\to};
+    \pgfmathtruncatemacro{\nextcol}{\nextcol};
+    \draw[exchangecolor] 
+        plot[mark=*] (value-\from-\col.center) -- 
+        plot[mark=*] (value-\to-\nextcol.center);
+}
+\draw[exchangecolor] (value-4-10.center) -- (value-4-10.east);
+
+\foreach \from/\to [count=\col from 3] in {3/4, 4/4, 4/4, 4/3, 3/1, 1/2, 2/2} {
+    \tikzmath{%
+        \from = \from + 1;
+        \to = \to + 1;
+        \nextcol = \col + 1;
+    };
+    \pgfmathtruncatemacro{\from}{\from};
+    \pgfmathtruncatemacro{\to}{\to};
+    \pgfmathtruncatemacro{\nextcol}{\nextcol};
+    \draw[counterpartycolor] 
+        plot[mark=*] (value-\from-\col.center) -- 
+        plot[mark=*] (value-\to-\nextcol.center);
+}
+\draw[counterpartycolor] (value-3-10.center) -- (value-3-10.east);
+
+\tikzmath{%
+    \fundingyshift=-3.5;
+    \arrowxshift=7;
+    \arrowtoboxpadding = 5;
+}
+\node [draw, thick] (funding-institution-1) at ([yshift=\fundingyshift cm] funding1) {Prime broker};
+\draw [<-, draw=fundingcolor, thick] 
+    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1.south) -- ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    node[rotate=90, midway, fill=white] {Funding};
+\draw [->, draw=ratecolor, thick] 
+    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1.south) -- ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    node[rotate=90, midway, fill=white] {OIS + S};
+
+\node [draw, thick] (funding-institution-2) at ([yshift=\fundingyshift cm] funding2) {Prime broker};
+\draw [->, draw=fundingcolor, thick] 
+    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2.south) -- ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    node[rotate=90, midway, fill=white] {Funding};
+\draw [<-, draw=ratecolor, thick] 
+    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2.south) -- ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    node[rotate=90, midway, fill=white] {OIS + S};
