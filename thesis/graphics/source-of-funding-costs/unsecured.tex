@@ -1,5 +1,8 @@
 % !TEX root = ./test-graphics.tex
 
+\colorlet{fundingcolor}{-red!75}
+\colorlet{ratecolor}{red!75}
+
 \tikzmath{
     \arrowyoffset = 7;
     \arrowcenteryoffset = 7;
@@ -68,13 +71,13 @@
         \$\$\$
     };
 
-\draw[<->, thick, draw=blue] 
+\draw[<->, thick, draw=fundingcolor] 
     ([yshift=-\bottomarrowyoffset, xshift= \arrowtoboxpadding pt]dealer.north east) -- 
     ([yshift=-\bottomarrowyoffset, xshift=-\arrowtoboxpadding pt]exchange.north west)
     node [pos=0.4, fill=white, inner sep=0pt] {
         \includegraphics[width=0.65cm]{\graphicsfolder/source-of-funding-costs/collateral}
     };
-\draw[<->, thick, draw=red] 
+\draw[<->, thick, draw=ratecolor] 
     ([yshift=-\toparrowyoffset, xshift= \arrowtoboxpadding pt]dealer.north east) -- 
     ([yshift=-\toparrowyoffset, xshift=-\arrowtoboxpadding pt]exchange.north west)
     node [pos=0.6, fill=white, inner xsep=2pt, inner ysep=0] {
@@ -82,13 +85,13 @@
     };
 
 % Dealer - Funding relations
-\draw[<->, thick, draw=blue]
+\draw[<->, thick, draw=fundingcolor]
     ([xshift=-\arrowyoffset, yshift=-\arrowtoboxpadding]dealer.south) --
     ([xshift=-\arrowyoffset, yshift= \arrowtoboxpadding]funding.north)
     node[midway, fill=white, inner xsep=2pt, inner ysep=0, align=center, rotate=90] {
         Funding
     };
-\draw[<->, thick, draw=red]
+\draw[<->, thick, draw=ratecolor]
     ([xshift=\arrowyoffset, yshift=-\arrowtoboxpadding]dealer.south) --
     ([xshift=\arrowyoffset, yshift= \arrowtoboxpadding]funding.north)
     node[midway, fill=white, inner xsep=2pt, inner ysep=0, align=center, rotate=90] {
