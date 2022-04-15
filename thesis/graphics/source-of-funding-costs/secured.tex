@@ -2,7 +2,7 @@
 
 \input{\graphicsfolder/source-of-funding-costs/unsecured.tex}
 
-\draw[<->, thick, draw=blue] 
+\draw[<->, thick, draw=funding-color] 
     ([yshift=-\bottomarrowyoffset, xshift=-\arrowtoboxpadding pt]dealer.north west) -- 
     ([yshift=-\bottomarrowyoffset, xshift= \arrowtoboxpadding pt]counterparty.north east)
     node (collateral) [pos=0.6, fill=white, inner sep=0pt] {
@@ -10,7 +10,7 @@
     };
 
 
-\draw[<->, thick, draw=red] 
+\draw[<->, thick, draw=rate-color] 
     ([yshift=-\toparrowyoffset, xshift=-\arrowtoboxpadding pt]dealer.north west) -- 
     ([yshift=-\toparrowyoffset, xshift= \arrowtoboxpadding pt]counterparty.north east)
     node [pos=0.4, fill=white, inner xsep=2pt, inner ysep=0] {
