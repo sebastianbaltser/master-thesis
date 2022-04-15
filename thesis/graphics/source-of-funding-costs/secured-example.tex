@@ -1,9 +1,9 @@
 % !TEX root = ./test-graphics.tex
 
-\colorlet{exchangecolor}{-red!50!yellow!75}
-\colorlet{counterpartycolor}{red!50!yellow!75}
-\colorlet{fundingcolor}{-red!75}
-\colorlet{ratecolor}{red!75}
+\colorlet{exchange-color}{-red!50!yellow!75}
+\colorlet{counterparty-color}{red!50!yellow!75}
+\colorlet{funding-color}{-red!75}
+\colorlet{rate-color}{red!75}
 
 \matrix [
     matrix of nodes,
@@ -14,8 +14,8 @@
     nodes in empty cells,
     column 1/.append style = {nodes={minimum width=1.2cm}},
     column 2/.append style = {anchor=base east},
-    row 6/.append style = {nodes={color=counterpartycolor, minimum height=1cm}},
-    row 7/.append style = {nodes={color=exchangecolor, minimum height=1cm}},
+    row 6/.append style = {nodes={color=counterparty-color, minimum height=1cm}},
+    row 7/.append style = {nodes={color=exchange-color, minimum height=1cm}},
 ] (value) {
     & Time & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
     \hline
@@ -51,11 +51,11 @@
     \pgfmathtruncatemacro{\from}{\from};
     \pgfmathtruncatemacro{\to}{\to};
     \pgfmathtruncatemacro{\nextcol}{\nextcol};
-    \draw[exchangecolor] 
+    \draw[exchange-color] 
         plot[mark=*] (value-\from-\col.center) -- 
         plot[mark=*] (value-\to-\nextcol.center);
 }
-\draw[exchangecolor] (value-4-10.center) -- (value-4-10.east);
+\draw[exchange-color] (value-4-10.center) -- (value-4-10.east);
 
 \foreach \from/\to [count=\col from 3] in {3/4, 4/4, 4/4, 4/3, 3/1, 1/2, 2/2} {
     \tikzmath{%
@@ -66,11 +66,11 @@
     \pgfmathtruncatemacro{\from}{\from};
     \pgfmathtruncatemacro{\to}{\to};
     \pgfmathtruncatemacro{\nextcol}{\nextcol};
-    \draw[counterpartycolor] 
+    \draw[counterparty-color] 
         plot[mark=*] (value-\from-\col.center) -- 
         plot[mark=*] (value-\to-\nextcol.center);
 }
-\draw[counterpartycolor] (value-3-10.center) -- (value-3-10.east);
+\draw[counterparty-color] (value-3-10.center) -- (value-3-10.east);
 
 \tikzmath{%
     \fundingyshift=-3.5;
@@ -78,36 +78,36 @@
     \arrowtoboxpadding = 5;
 }
 \node [draw, thick] (funding-institution-1) at ([yshift=\fundingyshift cm] funding1-in.east) {Funding desk};
-\draw [<-, draw=fundingcolor, thick] 
+\draw [<-, draw=funding-color, thick] 
     coordinate (start) at ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south)
     coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {Funding};
 
-\draw [->, draw=fundingcolor, thick] 
+\draw [->, draw=funding-color, thick] 
     coordinate (start) at ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-out.south)
     coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {Funding};
-\draw [->, draw=ratecolor, thick] 
+\draw [->, draw=rate-color, thick] 
 coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-out.south)
     coordinate (end) at ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {OIS + S};
 
 \node [draw, thick] (funding-institution-2) at ([yshift=\fundingyshift cm] funding2-out.east) {Funding desk};
-\draw [->, draw=fundingcolor, thick] 
+\draw [->, draw=funding-color, thick] 
     coordinate (start) at ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south)
     coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {Funding};
 
-\draw [<-, draw=fundingcolor, thick] 
+\draw [<-, draw=funding-color, thick] 
     coordinate (start) at ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-in.south)
     coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {Funding};
-\draw [<-, draw=ratecolor, thick] 
+\draw [<-, draw=rate-color, thick] 
     coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-in.south)
     coordinate (end) at ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     (start) -- (end -| start) 
