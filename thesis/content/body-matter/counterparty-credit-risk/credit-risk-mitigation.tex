@@ -131,5 +131,30 @@
         they would simply be part of a large pool of contributors to funding frictions,
         and there is no value lost in assuming them non-existing;
         however, a great amount of simplicity is gained.
+
+    \subsubsection{Central clearing}
+        A Central Counterparty Clearing House, CCP, is an entity 
+        providing clearing for standardized OTC derivative contracts
+        and therefore works as the intermediary in a transaction.
+        A CCP is a counterparty to both the buyer and the seller in a transaction 
+        and guarantees the terms of the trade by providing compensation to one party when the other party defaults.
+        It does so by collecting collateral from buyer and seller to cover potential losses.
+        From a collateralization perspective, central clearing is very similar to trading through CSA agreements,
+        since collateral must also be posted to the CCP in order to support movements in the mark-to-market value.
+        In the context of central clearing, this collateral is known as variation margin.
+        Central clearing can also support the posting of an independent amount of collateral 
+        known as an initial margin.
+        Unlike the independent amount of a CSA, initial margin is possibly dynamic 
+        as it can be dependent on the riskiness of the parties, 
+        such that increases in risk measures might trigger calls for additional initial margin.
+
+        While there are important differences between central clearing and CSA agreements,
+        this paper will not explicitly treat them differently.
+        As they are very similar from from a collateralization point of view,
+        it will, for the purposes in this thesis,
+        not make much difference whether a particular pair of counterparties uses one or the other.
+        Hence, variation margin will be used interchangeably with collateral posting
+        and initial margin with independent amount.
+
 \end{document}
         
