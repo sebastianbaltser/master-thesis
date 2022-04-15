@@ -27,7 +27,8 @@
     & Exchange & $-\$$ & $-\$$ &       &   & $+\$$ & $+\$\$\$$ & $-\$$   &   \\
     & Counterparty & $+\$$ &   \textcolor{black}{$\boldsymbol{\times}$}    & $+\$$ & \textcolor{black}{$\boldsymbol{\times}$}  & $-\$$ &   \textcolor{black}{$\boldsymbol{\times}$}  & $-\$\$$ &  \textcolor{black}{$\boldsymbol{\times}$} \\
     \hline
-    & Balance & 0     & \node (funding1) {$-\$$}; & 0     & 0 & 0     & \node (funding2) {$+\$\$\$$}; & 0       & 0 \\
+    & Balance & 0     & \node (funding1-in) {$-\$$};      & \node (funding1-out) {0};     
+    &       0 & 0     & \node (funding2-out) {$+\$\$\$$}; & \node (funding2-in) {0};  & 0 \\
 };
 
 \draw[dashed] ($(value-4-2.west)!0.5!(value-3-2.west)$) -- ($(value-4-10.east)!0.5!(value-3-10.east)$);
@@ -76,18 +77,18 @@
     \arrowxshift=7;
     \arrowtoboxpadding = 5;
 }
-\node [draw, thick] (funding-institution-1) at ([yshift=\fundingyshift cm] funding1) {Prime broker};
+\node [draw, thick] (funding-institution-1) at ([yshift=\fundingyshift cm] funding1-in) {Prime broker};
 \draw [<-, draw=fundingcolor, thick] 
-    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1.south) -- ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south) -- ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     node[rotate=90, midway, fill=white] {Funding};
 \draw [->, draw=ratecolor, thick] 
-    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1.south) -- ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south) -- ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     node[rotate=90, midway, fill=white] {OIS + S};
 
-\node [draw, thick] (funding-institution-2) at ([yshift=\fundingyshift cm] funding2) {Prime broker};
+\node [draw, thick] (funding-institution-2) at ([yshift=\fundingyshift cm] funding2-out) {Prime broker};
 \draw [->, draw=fundingcolor, thick] 
-    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2.south) -- ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south) -- ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     node[rotate=90, midway, fill=white] {Funding};
 \draw [<-, draw=ratecolor, thick] 
-    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2.south) -- ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south) -- ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     node[rotate=90, midway, fill=white] {OIS + S};
