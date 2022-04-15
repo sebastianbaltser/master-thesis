@@ -77,22 +77,26 @@
     \arrowxshift=7;
     \arrowtoboxpadding = 5;
 }
-\node [draw, thick] (funding-institution-1) at ([yshift=\fundingyshift cm] funding1-in) {Prime broker};
+\node [draw, thick] (funding-institution-1) at ([yshift=\fundingyshift cm] funding1-in.east) {Prime broker};
 \draw [<-, draw=fundingcolor, thick] 
-    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south) -- 
-    ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    coordinate (start) at ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south)
+    coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {Funding};
 \draw [->, draw=ratecolor, thick] 
-    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south) -- 
-    ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south)
+    coordinate (end) at ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {OIS + S};
 
-\node [draw, thick] (funding-institution-2) at ([yshift=\fundingyshift cm] funding2-out) {Prime broker};
+\node [draw, thick] (funding-institution-2) at ([yshift=\fundingyshift cm] funding2-out.east) {Prime broker};
 \draw [->, draw=fundingcolor, thick] 
-    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south) -- 
-    ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    coordinate (start) at ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south)
+    coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {Funding};
 \draw [<-, draw=ratecolor, thick] 
-    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south) -- 
-    ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south)
+    coordinate (end) at ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    (start) -- (end -| start) 
     node[rotate=90, midway, fill=white] {OIS + S};
