@@ -79,16 +79,20 @@
 }
 \node [draw, thick] (funding-institution-1) at ([yshift=\fundingyshift cm] funding1-in) {Prime broker};
 \draw [<-, draw=fundingcolor, thick] 
-    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south) -- ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south) -- 
+    ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     node[rotate=90, midway, fill=white] {Funding};
 \draw [->, draw=ratecolor, thick] 
-    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south) -- ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south) -- 
+    ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     node[rotate=90, midway, fill=white] {OIS + S};
 
 \node [draw, thick] (funding-institution-2) at ([yshift=\fundingyshift cm] funding2-out) {Prime broker};
 \draw [->, draw=fundingcolor, thick] 
-    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south) -- ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south) -- 
+    ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     node[rotate=90, midway, fill=white] {Funding};
 \draw [<-, draw=ratecolor, thick] 
-    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south) -- ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south) -- 
+    ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     node[rotate=90, midway, fill=white] {OIS + S};
