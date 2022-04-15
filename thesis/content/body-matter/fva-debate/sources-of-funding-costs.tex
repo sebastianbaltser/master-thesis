@@ -142,7 +142,8 @@
         Negative amounts are posted by the dealer, while positive amounts are posted to the dealer 
         from the corresponding entity.
         Each period, the exchange considers the current mark-to-market and its collateral balance with the dealer
-        and either submits a collateral call, posts collateral, or does nothing if everything is in order.
+        and either submits a collateral call, posts collateral, 
+        or does nothing if the mark-to-market is unchanged since the last collateral posting.
         The same goes for the counterparty, except, only every second period.
 
         In periods where collateral can be posted for both trades, 
