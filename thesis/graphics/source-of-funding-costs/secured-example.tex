@@ -83,8 +83,14 @@
     coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {Funding};
-\draw [->, draw=ratecolor, thick] 
-coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-in.south)
+
+\draw [->, draw=fundingcolor, thick] 
+    coordinate (start) at ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-out.south)
+    coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
+    (start) -- (end -| start)
+    node[rotate=90, midway, fill=white] {Funding};
+\draw [<-, draw=ratecolor, thick] 
+coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding1-out.south)
     coordinate (end) at ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-1.north)
     (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {OIS + S};
@@ -95,8 +101,14 @@ coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] fund
     coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     (start) -- (end -| start)
     node[rotate=90, midway, fill=white] {Funding};
-\draw [<-, draw=ratecolor, thick] 
-    coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-out.south)
+
+\draw [<-, draw=fundingcolor, thick] 
+    coordinate (start) at ([xshift=-\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-in.south)
+    coordinate (end) at ([xshift=-\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
+    (start) -- (end -| start)
+    node[rotate=90, midway, fill=white] {Funding};
+\draw [->, draw=ratecolor, thick] 
+    coordinate (start) at ([xshift=\arrowxshift pt, yshift=-\arrowtoboxpadding] funding2-in.south)
     coordinate (end) at ([xshift=\arrowxshift pt, yshift=\arrowtoboxpadding] funding-institution-2.north)
     (start) -- (end -| start) 
     node[rotate=90, midway, fill=white] {OIS + S};
