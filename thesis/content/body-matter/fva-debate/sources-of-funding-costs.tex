@@ -15,42 +15,114 @@
         as a component of the cost of trading derivatives that are not subject to a perfect CSA agreement.
         A perfect CSA agreement would require collateral to be posted continuously with no thresholds on the margin amounts,
         such that counterparty exposure is effectively eliminated.
-        An often needed constituent of the derivatives dealer's portfolio
-        is trades that have the sole purpose of hedging market risk,
-        which is brought in by the dealer's financial contracts with its counterparties.
-        When the collateralization scheme with a derivative counterparty is imperfect, 
-        the collateral postings will most likely not match the collateral postings stemming from the market risk hedges.
-        This is often the case as the dealer will likely hedge market risk in an exchange requiring full collateralization.
+        After entering financial contracts with counterparties,
+        a derivatives dealer will often enter into the opposite trades
+        with the sole purpose of hedging market risk.
+        When the collateralization scheme with the counterparty is imperfect, 
+        the collateral cash flows will most likely not match the collateral cash flows from the market risk hedges.
+        This is often the case, as the dealer will likely hedge market risk in an exchange requiring full collateralization.
         Imbalance between the collateral schemes of the OTC deals and the market risk hedges
-        is exactly the facility of funding costs, with which this section is concerned.
-        This source of funding cost is best observed in the most extreme case, where the dealer trades unsecured derivatives. 
+        is an origin of funding costs and the concern of this section.
+        This source of funding costs is best introduced in its most extreme case, 
+        where the dealer trades unsecured derivatives. 
 
-        Suppose that the derivatives dealer is selling an unsecured OTC derivative to a counterparty.
+        Consider the situation depicted in \cref{fig:funding-costs-unsecured-derivative}.
+        The derivatives dealer is selling an unsecured OTC derivative to a counterparty,
+        and the counterparty pays the upfront price.
+        The particular type of derivative is not too important, 
+        but picture a derivative that can leave the dealer both negatively and positively exposed to the counterparty, 
+        e.g. an interest rate swap.
         In order to avoid the market risk of the investment, 
-        the dealer will perform the opposite (perhaps synthetical) trade with an exchange,
+        the dealer will perform the opposite, perhaps synthetic, trade with an exchange,
         i.e. the dealer hedges its market risk to the counterparty.
-        The exchange requires full collateralization.
-        Any collateral that needs to be posted to the exchange must be borrowed from the dealer's funding institution.
-        As the loan is unsecured the funding institution charges a spread,
-        more specifically the dealer pays the rate $\OIS/ + \text{funding spread}$.
-        The collateral posted at the exchange is secured by the actual investment demanding the collateral,
-        and therefore earns the \OIS/ rate.
-        The difference between the interest paid on the loan and the interest earned on the collateral is the funding cost;
-        suffered by the derivatives dealer for entering the trade with the counterparty. 
+        In this example, it is assumed that the upfront price of the derivative 
+        matches exactly the upfront price of the market risk hedge.
+        The exchange requires full collateralization;
+        when the dealer has positive exposure to the counterparty, 
+        it has negative exposure to the exchange and must post collateral. 
+        When it has positive exposure to the counterparty it receives collateral.
+        The collateral posted at the exchange is secured by the actual investment demanding the collateral;
+        therefore, any collateral posted earns the OIS rate at the receiver, referred to as the rebate rate.
+        The exchange could possibly charge a spread and pay a rebate rate less than the OIS rate,
+        but for simplicity assume that this is not the case.
+        Assume also that the dealer has no excess cash on its balance sheet, 
+        such that any collateral that needs to be posted to the exchange 
+        must be borrowed from the dealer's funding institution,
+        in this case its prime broker. 
+        This funding is unsecured and the prime broker charges a spread, here denoted by S,
+        more specifically the dealer pays the rate $\OIS/ + \text{S}$.
 
-        The funding cost can be reduced if the dealer has in place a CSA agreement allowing rehypothecation with the counterparty.
+        The excess interest rate charged by the prime broker is exactly the source of the funding cost.
+        If the dealer has positive exposure to the counterparty, collateral must be posted to the exchange.
+        The dealer then earns \OIS/ from the posted collateral but pays $\OIS/ + \text{S}$ for funding;
+        the difference, S, drives the funding cost.
+        Alternatively, the exchange posts collateral to the dealer, which the dealer pays \OIS/ for.
+        If rehypothecation is allowed, the dealer can retire debt and save the funding spread.
+        In this case, S drives the funding benefit.
+
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \input{\graphicsfolder/source-of-funding-costs/unsecured.tex}
+            \end{tikzpicture}        
+            }   
+            \caption{Illustration of funding costs from an unsecured OTC derivative.}
+            \label{fig:funding-costs-unsecured-derivative}
+        \end{figure}
+
+        As mentioned, trading unsecured derivatives is the most extreme case,
+        since any collateral call will lead to a funding surplus or deficit 
+        and therefore, respectively, a funding benefit or cost.
+        The funding cost can be reduced if the dealer has in place 
+        a CSA agreement allowing rehypothecation with the counterparty.
+        This would allow collateral to flow from the exchange to the counterparty, or the opposite direction, 
+        and collateral postings from one party could therefore, partly or fully, 
+        cover collateral needs from the other party.
+
+        Consider the example illustrated in \cref{fig:funding-costs-secured-derivative}.
+        Again, the dealer sells a derivative to its counterparty,
+        but in this case the two parties are trading under a CSA agreement, 
+        such that the trade is secured by collateralization.
         The posting of collateral by the counterparty reduces the credit risk of the dealer,
-        but the dealer still faces the market risk from the derivative, 
-        so again it creates a market risk hedge at the exchange.
-        Yet, since rehypothecation is allowed,
-        the collateral posted by the counterparty can be passed onto the exchange as collateral demanded by the hedge.
-        This reduces the dealer's need for borrowing unsecured funds from the funding institution 
+        but the dealer still faces the market risk from the derivative;
+        hence, it creates a market risk hedge at the exchange.
+        
+        Assume a perfect hedge, such that any market risk exposure to the counterparty 
+        is exactly offset by the opposite exposure to the exchange.
+        Whenever there is a collateral call from the dealer to the counterparty,
+        the dealer can expect a call for collateral from the exchange.
+        Since rehypothecation is allowed,
+        the collateral posted by the counterparty can be passed on to the exchange.
+        To a certain extent, this reduces the dealer's need for borrowing unsecured funds from the prime broker
         and ultimately reduces the funding costs of the dealer.
-        However, funding costs are still present, 
-        at least to the extent that the collateral agreement with the counterparty is asymmetric to that with the exchange.
-        The dealer still need to borrow the difference from the funding institution.
+        However, funding costs are possibly still present;
+        the collateral agreement with the counterparty is likely weaker than that with the exchange. 
+        This is depicted in \cref{fig:funding-costs-secured-derivative} 
+        by the shield on the counterparty side being smaller than the shield on the exchange side.
+        The asymmetry has the implications that 
+        collateral posted by the counterparty might only partly cover collateral calls from the exchange 
+        and collateral posted by the exchange will more than cover collateral calls from the counterparty.
+        The former is a source of funding costs and the latter a source of funding benefit.
+
+        The differences between the CSA agreements, leading to the situation described above, could vary. 
+        To mention a few, the CSA agreement with the counterparty might have higher exposure thresholds, 
+        higher minimum transfer amounts, or lower frequency of margin calls.
+        All of these differences lead the collateral cash flows to and from the exchange 
+        to be at least as high as the cash flows to and from the counterparty. 
         In case the two collateral agreements are identical, the funding cost will be eliminated, 
         since the collateral received from the counterparty will completely suffice as collateral posted to the exchange.
+        
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \input{\graphicsfolder/source-of-funding-costs/secured.tex}
+            \end{tikzpicture}        
+            }   
+            \caption{Illustration of funding costs from an secured OTC derivative.}
+            \label{fig:funding-costs-secured-derivative}
+        \end{figure}
 
         These examples should display how a derivatives dealer might face funding costs,
         when the lack of perfect symmetry in collateral needs calls for unsecured funding.
@@ -80,7 +152,7 @@
         Another argument proposed by \textcite{HullWhite2012FVA} is the fact that dealers buy Treasury instruments and other low-yielding assets returning less than the dealers' average funding cost.
         They do this without applying an FVA and the implication of the argument is that there is an inconsistency in dealer practice,
         as the low-yielding instruments would be unprofitable if an FVA was made.
-        The previous discussion however nests an explanation for this dealer behavior.
+        The previous discussion however nests an explanation for this dealer behaviour.
         For Treasury instruments and the like,
         very developed repo markets exists such that the purchase of these instruments can be financed with secured funding.
         Consequently the funding cost of buying these instruments is likely much lower than the dealers' average funding cost,
