@@ -19,12 +19,64 @@
 
     Assume that the entire credit spread is compensation for default risk.
     Then the \FBA/ is exactly equal to $\DVA/_{\text{funding}}$. 
-    
-    \DVA/ can be seen as the cost of ensuring the firm does not default.
-    If the firm wants to make sure it does not default 
-    it can borrow its future expected liabilities and put them aside.
-    For that the firm pays the interest of unsecured loans, i.e. its cost of funding.
+
+    The CDS credit spread reflects how much the seller of the CDS must receive from the buyer
+    to compensate for the probability that the seller must pay the notional if the underlying firm defaults.
+    The funding spread reflects how much the funding institution must receive from the firm 
+    to compensate for the probability that the firm does not repay its debt, 
+    i.e. the funding institution loses the notional.
+    Usually the funding spread and the CDS credit spread are different due to a credit liquidity premium,
+    but imagine an ideal world with no friction, i.e. infinite information, infinite liquidity, 
+    instantaneous price updates that reflect all available information, etc.
+    From the previous definitions, it can be seen that in this ideal world
+    the CDS credit spread of each firm is going to be the same 
+    as the spread the firm pays on unsecured financing, i.e. its funding spread.
+
+    The CDS credit spread is an input in $\CVA/_{C}$ and therefore also in $\DVA/_{F}$.
+    But, if the CDS credit spread and the funding spread is identical, $\DVA/_{F}$ can be interpreted differently;
+    namely, the cost to the firm of ensuring that it does not default. 
+    If the firm wants to make sure it does not default,
+    it can borrow today its future expected liabilities and put them aside.
+    For that, the firm pays the interest of unsecured loans, i.e. its cost of funding.
     By doing this the firm is essentially hedging its own default. 
+    This thought example should show that \DVA/ is related to \FVA/ through the funding costs.
+    
+    If \DVA/ and \FVA/ are related, it would seem like there might be an overlap between the two,
+    such that accounting for both in the valuation of a derivative leads to a double-counting.
+    However, according to \textcite{Ruiz2015XVA}, 
+    this would be a misunderstanding of how \DVA/ and \FVA/ occurs in reality.
+    Suppose a firm with default risk as well as multiple derivatives and counterparties.
+    Without changing the conclusion of the following the liquidity premium can be assumed to be zero, 
+    such that the firm's CDS credit spread is identical to its funding spread.
+    The firm's \DVA/ is the aggregated cost, paid by counterparties,
+    of hedging the counterparties credit risk to the firm.
+    As already mentioned, this can be seen as the firm's own funding costs
+    if the firm managed its own default risk by borrowing today all future liabilities.
+    However, in reality that would not be an actual cost that the firm face,
+    since it would not manage its own default risk in that manner.
+    To actually account for its own credit risk in the valuation process,
+    the firm should consider what it itself actually does to manage it,
+    and not what counterparties do or what it would have done in an ideal world.
+
+    First, \DVA/ does not account for any funding benefits due to inter-netting sets.
+    Rather it considers each netting set separately, by representing the cost 
+    of borrowing funds today to meet the future liability of each and every netting set.
+    In addition, to manage their own credit risk, firms cover future liabilities
+    by hedging and posting collateral.
+    The firms attempts to align future cash flows to offset each other
+    and potential mismatches are covered by posting initial margins. 
+    Hedging and collateralization has a cost; 
+    the present value of that cost is the \FVA/.
+
+    Hence, it would be wrong to refer to \DVA/ as the firm's cost of funding.
+    It is the cost to the counterparties of managing their credit risk to the firm,
+    which they can hedge by buying CDS contracts,
+    but the cost to the firm of managing its own risk is very different. 
+    The firm manages its own credit risk by hedging and collateralization.
+
+    When a firm needs to value a derivative it should evaluate the actual costs that it will be facing.
+    It must consider netting benefits, funding surpluses due to mismatches in cash flows,
+    as well as costs due to initial margin.
 
 \end{document}
         
