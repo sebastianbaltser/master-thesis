@@ -9,6 +9,33 @@
     This section will discuss two methods of mitigating credit risk,
     namely collateralization and trading through a central clearing house.
 
+    \subsubsection{Netting}
+        A netting set is a group of trades whose value can be \textit{netted off}, 
+        when a counterparty defaults.
+        When netting off a collection of trades their values are aggregated,
+        offsetting liabilities with payables, such that in the liquidation of a counterparty,
+        only one single amount is owed.
+        Netting sets are important to credit exposure, as counterparty risk is settled at them;
+        therefore, netting is central to mitigating credit risk.
+        To see this, consider the following examples.
+
+        A derivatives dealer has two different netting sets, netting set X and netting set Y.
+        The dealer sells a derivative with netting set X
+        and, not wanting the exposure, it buys the same derivative with netting set Y.
+        The market risk is eliminated, so the dealer is neutral from this point of view.
+        However, the credit risk exposure will include the sum of the credit risk exposures
+        for both netting set.
+        If instead the derivative is bought with netting set X,
+        both the market risk and the credit risk will be offset.
+
+        This should show that when evaluating a new trade 
+        netting sets can be taken into consideration to give a better view 
+        of the credit risk implications of obtaining the new trade.
+        By evaluating the incremental credit risk measures from the trade,
+        potential netting benefits can be accounted for. 
+        The credit risk of the stand alone trade could potentially 
+        be different from the credit risk of the trade in a netting set.
+
     \subsubsection{Collateralization}
         Credit risk can be reduced significantly and even eliminated completely
         if the counterparty provides some form of security, which the firm has priority to.
