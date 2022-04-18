@@ -2,5 +2,14 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    
+    \subsection{Swap valuation framework}
+        The multi-period framework extends the assumptions made in \cref{sec:spm} to include multiple time periods.
+        An additional date, $t=2$ is introduced as the new time of maturity.
+        At the interim time 1 the market economy is defined by a collection of random variables,
+        and at maturity, all the uncertainty is settled. 
+        The single-period gross risk-free returns at time 0 and time 1 are $R_0$ and $R_1$ respectively. This means, that the risk-free rate is not required to be constant, and the market value of cash flows, $\pi(\mathcal{C}_{t})$, is defined as $\sum_{t=1}^{2}\mathbb{E}^{\rnmeasure}\left[\delta_t \mathcal{C}_{t}\right]$, where $\delta_1 = \discountfactorone$, and $\delta_2 = \discountfactortwo$.
+
+        This setup considers a dealer whose assets at time 2 have a payoff given by some random variable $A$. Additionally, the firm has short-term liabilities, $L_1$, that expires at time 1 as well as long-term liabilities, $L_2$, that expires at time 2.
+        \\
+        As always, the firm defaults if it does not meet its financial obligations at a certain time period. In both time 1 and time 2 the firm liquidates a portion of its legacy assets to cover the liabilities expiring at the given point in time. These portions are denoted as $w_{1}$ and $w_{2}$ respectively. The time of the event of default is denoted as $\tau_{\mathcal{D}}$, where $\tau_{\mathcal{D}} = \infty$ if the firm survives at time 2.
 \end{document}
