@@ -137,5 +137,43 @@
         they would simply be part of a large pool of contributors to funding frictions,
         and there is no value lost in assuming them non-existing;
         however, a great amount of simplicity is gained.
+
+    \subsubsection{Clearing through central counterparty}
+        A Central Counterparty Clearing House, CCP, is an entity 
+        providing clearing for standardized OTC derivative contracts
+        and therefore works as the intermediary in a transaction.
+        A CCP is a counterparty to both the buyer and the seller in a transaction 
+        and guarantees the terms of the trade by providing compensation to one party when the other party defaults.
+        It does so by collecting collateral from buyer and seller to cover potential losses.
+        From a collateralization perspective, central clearing is very similar to trading through CSA agreements,
+        since collateral must also be posted to the CCP in order to support movements in the mark-to-market value.
+        In the context of central clearing, this collateral is known as variation margin.
+        Central clearing can also support the posting of an independent amount of collateral 
+        known as an initial margin.
+        Unlike the independent amount of a CSA, initial margin is possibly dynamic 
+        as it can be dependent on the riskiness of the parties, 
+        such that increases in risk measures might trigger calls for additional initial margin.
+
+        When using a CCP, rehypothecation of collateral is not allowed,
+        since the assets are in the possession of the clearing house.
+        As will be evident later, the possibility to rehypothecate collateral
+        has significant impact on funding value adjustments.
+        When clearing through a CCP the variation margin is very similar 
+        to a strong CSA agreement with daily call frequency, 
+        and initial margin is very similar to an independent amount in a CSA.
+        While there, for practical applications, 
+        are important differences between central clearing and CSA agreements,
+        the results of this paper are mostly dependent on the way collateral is posted.
+        Since both can be modified in mostly the same ways,
+        there will not be much difference in using one or the other;
+        therefore, throughout the thesis, CSA agreements will be mentioned the most, 
+        but similar results could be obtained for transactions made through CCPs.
+
+    Many other forms of credit risk mitigation than collateralization and central clearing exists. 
+    Some derivatives contain break clauses that allows a party to prematurely terminate the 
+    contract with a cash settlement corresponding to the derivative's value at that time.
+    It is also possible for firms to buy insurance against their counterparty's default,
+    such that a notional amount is paid to the firm if the counterparty defaults.
+    These types of mitigations will not be explored further or otherwise used in this paper.
 \end{document}
         
