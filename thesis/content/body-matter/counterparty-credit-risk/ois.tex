@@ -41,5 +41,31 @@
     A higher spread could be interpreted as a low willingness to lend by major banks
     and therefore low liquidity in the money market.
 
+    \subsubsection{OIS as the risk-free rate}
+    
+    Before the financial crisis in 2007, banks have typically been discounting
+    derivatives using interest rate curves based on various interbank borrowing rates.
+    \cite[Section 8.6]{Green2015XVA} mentions two possible reasons for banks using these indices.
+    First, the xIBOR discount curves was considered and used as proxies for the risk-free rate;
+    Pre-crisis the underlying banks in xIBOR generally had high credit ratings
+    and were regarded as very safe counterparties.
+    xIBOR rates were in fact very close to the yields of bonds issued by highly rated governments,
+    and the xIBOR rates could be considered as being very close to risk-free 
+    while being associated with highly liquid market.
+    Second, the xIBOR curves represented the banks' own funding rate for derivatives, since
+    xIBOR referenced unsecured borrowing rates.
+
+    When the LIBOR-OIS spread, and other similar measures based on e.g. EURIBOR, widened, 
+    it had significant influence on the banks' pricing and valuation of derivatives.
+    The arguments for xIBOR discounting just mentioned
+    were disproven as the LIBOR-OIS spreads reached very high levels.
+
+    There are two sources of credit risk in an OIS.
+    The first is the credit risk in the overnight borrowing of federal funds, which is very small. 
+    The second is the risk of one of the swap counterparties defaulting.
+    \cite[HW] argues that this second risk is negligible in collateralized transactions,
+    which standard swaps like OIS are due to legislation.
+    Since credit risk is of inconsiderable size it can be concluded 
+    that the OIS rate is a good proxy for the risk-free rate.
+
 \end{document}
-        
