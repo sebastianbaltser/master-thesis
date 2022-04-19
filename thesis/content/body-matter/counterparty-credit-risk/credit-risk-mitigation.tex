@@ -61,6 +61,8 @@
             the level of positive or negative exposure above which collateral will be posted. 
             A higher threshold for the counterparty will also yield a higher exposure to the counterparty,
             however only to the extent of the threshold size. 
+            Hence, the threshold is the amount of exposure the firm is comfortable 
+            with having uncollateralized with a counterparty.
             Typically, CSA agreements between banks will have zero thresholds, 
             such that derivative transaction is fully collateralized.
             
@@ -81,6 +83,12 @@
             of the derivative, with the purpose of accounting for potential under-collateralization.
             A party posting an independent amount decreases the exposure for the other party
             since it works as an initial buffer for credit risk mitigation.
+            This quantity can also be referred to as the initial margin, however, strictly speaking, 
+            that term tends to be used when clearing through a central counterparty,
+            which will be described in the following section.
+            Conceptually, the two quantities are the same, and throughout this thesis
+            the two terms will be used interchangeably as the difference is subtle
+            and irrelevant for the purposes of the analysis. 
 
             \item[Collateral call frequency:]
             how often a party can submit calls for collateral.
