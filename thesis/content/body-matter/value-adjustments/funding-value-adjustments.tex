@@ -11,23 +11,23 @@
 
         Again, funding costs, and the valuation adjustments that accounts for them,
         are best introduced by an example.
-        Consider a single interest rate swap between a firm and a counterparty that have in place a CSA agreement.
-        The CSA agreement ensures that collateral is posted or received,
-        as the market value of the swap changes over time.
-        If the value of the firm's leg is lower than the counterparty's,
-        the firm is required to post collateral, 
-        which it must necessarily fund by some method of financing.
-        Assume that the firm chooses to fund the collateral by obtaining debt
-        that is borrowed at the firm's unsecured borrowing rate, which depends on the firm's credit rating.
-        When posting the funds as collateral, the firm earns the OIS rate.
-        The asymmetri between the cost of borrowing and posting collateral
-        adds additional costs to the swap transaction; 
-        these are an example of funding costs and an \FVA/ is a price alteration made to account for these.
 
-        On the contrary, if the firm must receive collateral that can be rehypothecated,
-        they pay the OIS rate and can receive a higher rate
-        by reducing funding elsewhere in the organization.
-        This asymmetri can be referred to as funding benefit rather than a cost.
+        Assume a firm buys a bond from a financial institution.
+        If the financial institution is considered credit risk-free,
+        the upfront price of the bond is the discounted payoff at maturity.
+        This amount will be paid by the firm with financing, where the different types of financing will be elaborated later in this paper.
+        Whenever a derivative is financed some costs may occur depending on the type of funding.
+        These costs of funding will cause the firm to value the bond differently.
+        Essentially, this means that the firm will demand a valuation adjustment 
+        in order for the bond not to be a negative net present value investment. 
+        If the firm is assumed to have credit risk, funding the bond by obtaining debt will become more expensive. 
+        This is because of a credit spread which the funding institution charges in addition to the usual interest rate.
+        
+        This valuation adjustment can also work in the opposite direction, 
+        where the cash flow at the date of inception is positive for the firm.
+        In this case, the firm arguably benefits from the transaction 
+        in the sense that it has the possibility to buy off existing liabilities.
+        This issue will be analyzed further in \cref{sec:example-funding-benefit}.
         
         From the example, it is clear that FVA conceptually can be thought of 
         as consisting of two elements, according to the following decomposition:
@@ -54,6 +54,36 @@
         
         Further investigation of Funding Value Adjustments will be focused on the two other components,
         \FCA/ and \FBA/.
+
+        \subsubsection*{Margin requirements}
+            Suppose an OTC derivative transaction between the firm and a counterparty requires the firm to post collateral.
+            The firm may necessarily be obliged to fund the margin requirements on top of the price of the derivative.
+            To understand this setup,
+            consider a single interest rate swap between a firm and a counterparty that have in place a CSA agreement.
+            The CSA agreement ensures that collateral is posted or received,
+            as the market value of the swap changes over time.
+            If the value of the firm's leg is lower than the counterparty's,
+            the firm is required to post collateral, 
+            which it must necessarily fund by some method of financing.
+            This type of funding is a category within the \FVA/ framework, 
+            hence the use of it should be treated as a funding cost to the firm.
+            The funding costs occur due to the posting of margin as a consequence of the swap contract,
+            and not directly from the price of an OTC derivative transaction,
+            as described in the earlier example.
+            Later in this article the issue is discussed further, 
+            where in \cref{sec:example-secured-derivative} a numerical example is analyzed.
+            
+            Assume that the firm chooses to fund the collateral by obtaining debt
+            that is borrowed at the firm's unsecured borrowing rate, which depends on the firm's credit rating.
+            When posting the funds as collateral, the firm earns the OIS rate.
+            The asymmetry between the cost of borrowing and posting collateral
+            adds additional costs to the swap transaction; 
+            these are an example of funding costs and an \FVA/ is a price alteration made to account for these.
+
+            On the contrary, if the firm must receive collateral that can be rehypothecated,
+            they pay the OIS rate and can receive a higher rate
+            by reducing funding elsewhere in the organization.
+            This asymmetry can be referred to as funding benefit rather than a cost.
 
 \end{document}
         
