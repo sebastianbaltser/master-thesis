@@ -1,0 +1,58 @@
+% !TEX root = ./sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \subsection{The difference between Price and Value}
+
+    It would seem like the debaters could not disagree more 
+    about whether \FVA/s are appropriate or not.
+    The reason for this debate is simply due to theoreticians and practitioner
+    are considering an adjustment to two different quantities.
+    Theoreticians are arguing that the derivative \textit{prices} should not be adjusted,
+    while practitioners are arguing that derivative \textit{values} should be adjusted.
+    This section will try to explain the differences between a derivatives price and value
+    as well as presenting the arguments of the previous sections in light of these definitions.
+
+    When a derivative dealer considers entering a trade it is going to calculate
+    two different numbers, namely the trade's price and the trade's value to the dealer.
+    The trade's value to the dealer is given by the difference in the trade's price
+    and the cost to the dealer of obtaining and holding the trade:
+        \begin{equation}
+            \text{Value to Dealer} 
+            =
+            \text{Risk-Neutral Price}
+            -
+            \text{Cost}
+        \end{equation}
+    The trade's risk-neutral price is the price that theoreticians considers as the reference price.
+    If the market satisfied the assumptions of the traditional derivative pricing frameworks
+    this would be the price at which the trade would be bought and sold. 
+    The risk-neutral price must reflect the cost of hedging the derivative in the risk-neutral world
+    and can therefore be decomposed into three components. 
+    The first being the price of hedging when all parties are risk-free, 
+    the second being the cost of hedging credit risk from the counterparty, $\CVA/$,
+    and the third being the cost of hedging credit risk from the dealer itself, $\DVA/$:
+        \begin{equation}
+            P = 
+            P_{rf} 
+            -
+            \CVA/
+            +
+            \DVA/
+        \end{equation}
+    The trade's value to the dealer is how much the trade is worth to the dealer.
+    As already mentioned, this corresponds to the trade's price less the cost to the dealer
+    of "creating" or "producing" the trade by buying it.
+    In the context of this thesis the discussion concerns funding costs,
+    which is one of the costs that entering into a trade will entail.
+    Therefore, the trade's value to the dealer is given by:
+        \begin{equation}
+            V = P - \FVA/
+        \end{equation}
+    The value of the trade is going to decide whether it will be economical 
+    for the dealer to enter the trade. 
+    If the value is negative, the dealer will lose money on the trade;
+    if the value is positive, the dealer will make money.
+    
+\end{document}
+        
