@@ -1,0 +1,116 @@
+% !TEX root = ./sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+    \subsection{\FVA/, \DVA/, and double counting}
+
+    When discussing the validity of \FVA/s it has been argued
+    that there exists an overlap between \FVA/ and \DVA/.
+    This is for example yet another argument from \textcite{HullWhite2012FVA} against \FVA/s.
+    If there is such overlaps, accounting for both \FVA/ and \DVA/
+    might lead to so called \textit{double counting}
+    which refers to the action of performing, at least a part of, a valuation adjustment twice. 
+    Clearly, this can lead to both over- or underpricing of assets
+    and therefore needs to be investigated.
+    This section examines the truthfulness of the argument and possible implications 
+    if there is an overlap between \FVA/ and \DVA/.
+
+    For a fruitful discussion, 
+    consider first the following example motivating the aforementioned argument,
+    by shedding light on a common dependency of the two valuation adjustments.
+
+    The CDS credit spread reflects how much the seller of the CDS must receive from the buyer
+    to compensate for the probability that the seller must pay the notional 
+    if the underlying firm defaults.
+    The funding spread reflects how much the funding institution must receive from the firm 
+    to compensate for the probability that the firm does not repay its debt, 
+    i.e. the funding institution loses the notional.
+    Usually the funding spread and the CDS credit spread 
+    are different due to a credit liquidity premium,
+    but imagine an ideal world with no friction, i.e. infinite information, infinite liquidity, 
+    instantaneous price updates that reflect all available information, etc.
+    From the previous definitions, it can be seen that in this ideal world
+    the CDS credit spread of each firm is going to be the same 
+    as the spread the firm pays on unsecured financing, i.e. its funding spread.
+    The same result would also be implied by the simple assumption 
+    that the entire funding spread is compensation for the firm's default risk.
+
+    The CDS credit spread is an input in \DVA/ as calculated by the firm.
+    But, if the CDS credit spread and the funding spread is identical, 
+    \DVA/ can be interpreted differently;
+    namely, the cost to the firm of ensuring that it does not default, 
+    as evident from the following example.
+    If the firm wants to make sure it does not default,
+    it can borrow today its future expected liabilities and put them aside.
+    Whenever a liability matures, the firm uses funds from this pool of cash to cover the debt.
+    For borrowing the pool of cash, the firm pays the interest of unsecured loans, 
+    i.e. its cost of funding.
+    However, the firm should always be able to pay its liabilities,
+    and, by setting aside these funds, the firm has essentially hedged its own default. 
+    So, the cost of hedging its own default is the cost of funding, 
+    which should show that \DVA/ is related to \FVA/ through the funding costs.
+    
+    If \DVA/ and \FVA/ are related, it would seem like there might be an overlap between the two,
+    such that accounting for both in the valuation of a derivative leads to a double-counting.
+    However, following \textcite{Ruiz2015XVA}, 
+    this would be a misunderstanding of how \DVA/ and \FVA/ occurs in reality.
+    Suppose a firm with default risk managing multiple derivatives with multiple counterparties.
+    Without changing the conclusion of the following, 
+    the liquidity premium can be assumed to be zero, 
+    such that the firm's CDS credit spread is identical to its funding spread.
+    As was covered when defining \DVA/, the firm's \DVA/ is the aggregated cost
+    paid by counterparties for hedging the firm's credit risk
+    In the previous paragraph, it was derived that if the firm managed its own default risk 
+    by borrowing today all future liabilities,
+    the \DVA/ can also be seen as the firm's funding costs.
+    However, in reality that would not be an actual cost that the firm face,
+    since it would not manage its own default risk in that manner.
+    To actually account for its own credit risk in the valuation process,
+    the firm should consider what it itself actually does to manage it;
+    not what counterparties do or what the firm would have done in an ideal world.
+    There is a difference in the value and interpretation 
+    of the counterparties' cost of hedging the firm's credit risk, \DVA/,
+    and the firm's cost of hedging its own default, \FVA/.
+    In the following paragraph it will be argued why.
+
+    First, \DVA/ does not account for any funding benefits due to inter-netting sets.
+    Rather, it considers each netting set separately, by representing the cost 
+    of borrowing funds today to meet the future liability of each netting set.
+    In reality, a firm can gain many benefits by inter-netting sets,
+    which can only be realized by considering the entirety of the firm's portfolio.
+    In addition, firms manage their own credit risk,
+    not by borrowing unsecured funds for every future liability,
+    but by cleverly covering liabilities
+    with hedging and collateralization.
+    The firms attempt to align future cash flows to offset each other
+    and potential mismatches are covered by posting initial margins. 
+    Hedging and collateralization have a cost; 
+    the present value of that cost is the \FVA/.
+
+    Hence, it would be wrong to refer to \DVA/ as the firm's cost of funding.
+    It is the cost to the counterparties of managing the firm's credit risk,
+    which they can hedge by buying CDS contracts,
+    but the cost to the firm of managing its own risk is very different;
+    the firm manages its own credit risk by hedging and collateralization.
+    \FVA/ considers the cost of this strategy, and therefore takes a more holistic view, 
+    reflecting netting benefits and the costs of operations that the firm will actually perform.
+
+    When a firm needs to value a derivative, 
+    it should evaluate the actual costs that it will be facing.
+    Calculating the minimum price at which the firm would want to enter a project,
+    should involve the true cost of actually executing the project.
+    It must consider netting benefits, funding surpluses due to mismatches in cash flows,
+    as well as costs due to initial margin.
+
+    In conclusion, \FVA/ and \DVA/ should not introduce any double counting if used properly.
+    They are related in their calculation but each are used for different purposes.
+    \DVA/ is used for calculating the market price of a derivative or a netting set
+    while the \FVA/ is used for calculating the cost of obtaining the derivative,
+    i.e. including it in a portfolio with possible offsetting cash flow.
+    Hence, \FVA/ is necessary for a firm to take the right decision when it is evaluating
+    how much a derivative is worth to the firm.
+    The firm cannot take such decisions only by considering the market price of the derivative.
+    
+\end{document}
+        
