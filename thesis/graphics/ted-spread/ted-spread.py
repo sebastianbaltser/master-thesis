@@ -25,7 +25,7 @@ dates, spreads = [], []
 with open(PATH / "TEDRATE.csv", "r") as file:
     reader = csv.reader(file)
     # Pop the header
-    reader.__next__()
+    next(reader)
     for date, spread in reader:
         line_is_empty = (spread == ".")
         if not line_is_empty:
