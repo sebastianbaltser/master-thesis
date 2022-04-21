@@ -23,9 +23,11 @@ dates, spreads = [], []
 
 with open(PATH / "TEDRATE.csv", "r") as file:
     reader = csv.reader(file)
+    # Pop the header
     reader.__next__()
     for date, spread in reader:
-        if spread != ".":
+        line_is_empty = (spread == ".")
+        if not line_is_empty:
             date = datetime.datetime.strptime(date, r"%Y-%m-%d")
             dates.append(date)
             spreads.append(float(spread))
