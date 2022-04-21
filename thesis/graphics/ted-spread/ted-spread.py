@@ -3,8 +3,10 @@ import pathlib
 import datetime
 import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MultipleLocator
-from matplotlib.ticker import PercentFormatter
+from matplotlib.ticker import (
+    MultipleLocator,
+    PercentFormatter,
+)
 
 plt.style.use("ggplot")
 plt.ion()
