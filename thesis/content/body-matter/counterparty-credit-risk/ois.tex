@@ -44,7 +44,8 @@
     \subsubsection{\OIS/ as the risk-free rate}
     
     Before the financial crisis in 2007, banks have typically been discounting
-    derivatives using interest rate curves based on various interbank borrowing rates.
+    derivatives using interest rate curves based on the various interbank borrowing rates.
+    Typically the interest rate curves were based on 3-Month xIBOR.
     \textcite[Section 8.6]{Green2015XVA} 
     mentions two possible reasons for banks using these indices.
     First, the xIBOR discount curves was considered and used as proxies for the risk-free rate;
@@ -56,10 +57,37 @@
     Second, the xIBOR curves represented the banks' own funding rate for derivatives, since
     xIBOR referenced unsecured borrowing rates.
 
-    When the LIBOR-\OIS/ spread, and other similar measures based on e.g. EURIBOR, widened, 
+    \begin{figure}
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \input{\graphicsfolder/ted-spread/ted-spread.pgf}
+        }
+        \caption{
+            The spread between 3-Month LIBOR in USD and 3-Month Treasury bill.
+            The spread is usually relatively low, 
+            but blows out during recessions, 
+            such as the financial crisis in 2007 to 2009 or
+            the Covid-19 crisis in March 2020.
+        }
+        \label{fig:ted-spread}
+    \end{figure}
+
+    In the beginning of the financial crisis, the xIBORs rose significantly
+    which widened spreads such as LIBOR-\OIS/ or LIBOR against the T-bill.
+    The latter spread is shown in \cref{fig:ted-spread} which clearly 
+    displays how the LIBOR against a very safe government bond blows out of proportions
+    during recessions in the economy. 
+    While not directly comparing LIBOR and \OIS/, 
+    the TED spread conveys the conclusion very well nonetheless;
+    the xIBOR contains other premiums than simply the risk-free rate.
+
+    When the aforementioned spreads widened, 
     it had significant influence on the banks' pricing and valuation of derivatives.
-    The arguments for xIBOR discounting just mentioned
-    were disproven as the LIBOR-\OIS/ spreads reached very high levels.
+    The arguments for xIBOR discounting previously mentioned
+    were disproven as the spreads reached very high levels.
+    The market was to find another curve to use for the risk-free rate.
+    In this paper \OIS/ will be used as the risk-free rate;
+    the following paragraph presents arguments for that decision.
 
     There are two sources of credit risk in an \OIS/.
     The first is the credit risk in the overnight borrowing of federal funds, which is very small. 
