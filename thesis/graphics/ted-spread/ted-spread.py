@@ -9,7 +9,6 @@ from matplotlib.ticker import (
 )
 
 plt.style.use("ggplot")
-plt.ion()
 
 matplotlib.use("pgf")
 matplotlib.rcParams.update({
