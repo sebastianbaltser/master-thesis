@@ -82,7 +82,12 @@
             }
         \end{equation}
         where
-        $\phi_1 = \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}} (L_{1}+\mathbb{E}_{t=1}^{\rnmeasure}\left[L_{2}\right]/R_1 - \kappa_{1}\mathbb{E}_{t=1}^{\rnmeasure}\left[A\right]) / (L_{1} + \mathbb{E}_{t=1}^{\rnmeasure}\left[L_{2}\right]/R_1)$ is the creditors' loss rate if the firm defaults at time 1. If the firm survives at time 1, the marginal credit spread for short-term debt starting at the interim date is:
+        \begin{equation}
+        \phi_1 = \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}}
+        \frac{L_{1}+\mathbb{E}_{t=1}^{\rnmeasure}\left[L_{2}\right]/R_1 - \kappa_{1}\mathbb{E}_{t=1}^{\rnmeasure}\left[A\right]}
+        {L_{1} + \mathbb{E}_{t=1}^{\rnmeasure}\left[L_{2}\right]/R_1}
+        \end{equation}
+        is the creditors' loss rate if the firm defaults at time 1. If the firm survives at time 1, the marginal credit spread for short-term debt starting at the interim date is:
         \begin{equation}
             S_1 =
             \frac{
@@ -91,7 +96,13 @@
                 1 - \mathbb{E}_{t=1}^{\rnmeasure}\left[\phi_2\right] 
             }
         \end{equation}
-        where $\phi_2 = \mathbbm{1}_{\{\tau_{\mathcal{D}}=2\}} (L_{2}-\kappa_{2}(A-W))/L_{2}$ is the creditors' loss rate if the firm defaults at time 2.
+        where
+        \begin{equation}
+        \phi_2 = \mathbbm{1}_{\{\tau_{\mathcal{D}}=2\}}
+        \frac{L_{2}-\kappa_{2}(A-W)}
+        {L_{2}}
+        \end{equation}
+        is the creditors' loss rate if the firm defaults at time 2.
 
         A swap contract is an OTC derivative.
         In this two-period setup, before considering counterparty credit risk, a swap promises a floating payment, $X_t$, in exchange for a fixed payment, $K_t$, for $t = 1,2$.
