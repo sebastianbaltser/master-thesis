@@ -36,19 +36,17 @@
         The total value of the firm's equity and liabilities are then computed as following:
         \begin{align}
             \pi(S)&=
-            \delta_1 
             \mathbb{E}^{\rnmeasure}\left[
-                \mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} \theta_1\right]
+                \delta_1\mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} \theta_1\right]
                 +
-                \delta_2 \mathbb{E}^{\rnmeasure}\left[\mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}} (A-W-L_{2})
+                \mathbb{E}^{\rnmeasure}\left[\delta_{2}\mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}} (A-W-L_{2})
             \right]
             \label{eqn:shareholder-value-multi-period}
             \\
             \nonumber
             \pi(D)&=
-            \delta_1
             \mathbb{E}^{\rnmeasure}\left[
-                \mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} L_1 + \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}} 
+                \delta_1\mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} L_1 + \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}} 
                 \frac{
                     \kappa_1 \mathbb{E}_{t=1}^{\rnmeasure}\left[A\right]
                 }{
@@ -57,9 +55,8 @@
             \right]
             \\
             &\quad+
-            \delta_2
             \mathbb{E}^{\rnmeasure}\left[
-                \mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}}L_{2}
+                \delta_{2}\mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}}L_{2}
                 +
                 \mathbbm{1}_{\{\tau_{\mathcal{D}}=2\}}\kappa_{2}(A-W)
             \right]
