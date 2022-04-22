@@ -9,9 +9,10 @@
         and at maturity, all the uncertainty is settled. 
         The single-period gross risk-free returns at time 0 and time 1 are $R_0$ and $R_1$ respectively, where $R_1$ is random at time 0.
         This means that the risk-free rate is not required to be constant,
-        and the market value of cash flows,
-        $\pi(\mathcal{C}_{t})$, is defined as
-        $\delta_t \sum_{t=1}^{2}\mathbb{E}^{\rnmeasure}\left[\mathcal{C}_{t}\right]$,
+        and the market value of cash flows is defined as,
+        \begin{equation}
+        \pi(\mathcal{C}_{t}) = \sum_{t=1}^{2}\delta_t \mathbb{E}^{\rnmeasure}\left[\mathcal{C}_{t}\right]
+        \end{equation}
         where $\delta_1 = \discountfactorone$,
         and $\delta_2 = \discountfactortwo$.
         The notation $\mathbb{E}^{\rnmeasure}$ is always assumed to describe the time 0 risk-neutral expectation, unless otherwise clarified.
