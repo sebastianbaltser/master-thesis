@@ -3,8 +3,10 @@
 
 \begin{document}
     \subsubsection{Funding by debt issuance}\label{sec:example-risk-free-project-debt-issuance}
-        In order to finance the upfront of the project, $u$, the firm issues debt to new creditors, 
-        such that the price of the debt, denoted $\pi(\tilde{D})$, equals the price of the project.
+        In this section the firm finances the new project by issuing new debt.
+        In order to fund the upfront of the project, $u$, 
+        the firm must issue debt to new creditors such that the price of the debt, 
+        denoted $\pi(\tilde{D})$, equals the price of the project.
         As assumed previously, the new debt ranks pari passu with the legacy debt, 
         such that all creditors experience the same loss rate in states where the firm defaults.
         A claim with face value $\tilde{D}_{FV}$ which ranks pari passu to another claim 
@@ -21,14 +23,14 @@
                 \nonumber \\
                 &=
                     \frac{
-                        80.00 + \tilde{D}_{FV} - A
+                        \num{80} + \tilde{D}_{FV} - A
                     }{
-                        80.00 + \tilde{D}_{FV}
+                        \num{80} + \tilde{D}_{FV}
                     }
-                    \mathbbm{1}_{\{A + 10.00 < 80.00 + \tilde{D}_{FV}\}} 
+                    \mathbbm{1}_{\{A + \num{1} < \num{80} + \tilde{D}_{FV}\}} 
             \end{align}
         If the asset value is larger than the total face value to be repaid,
-        the firm does not default and the loss rate is $0$.
+        the firm does not default and the loss rate is zero.
         If the firm defaults, the loss rate is equal to the share of the total face value missing from the asset value.
         The random payoff of the new pari passu debt is denoted by $\tilde{D}$ and given as:
             \begin{align}
@@ -50,23 +52,23 @@
             \begin{align}
                 u &= \pi(\tilde{D}) \\
                 \Leftrightarrow  \qquad
-                9.90 &= \mathbb{E}^{\rnmeasure}\left[1 - \phi\right] \tilde{D}_{FV}
+                \num{0.99} &= \mathbb{E}^{\rnmeasure}\left[1 - \phi\right] \tilde{D}_{FV}
             \end{align}
         While seemingly simple, this equation proves very difficult to solve analytically for $\tilde{D}_{FV}$.
         Substituting the loss rate, it is clear that the face value is quite entangled in the equation;
         both in the default event and in the fraction:
             \begin{align}
-                9.90
+                \num{0.99}
                 &= 
                 \mathbb{E}^{\rnmeasure}\left[
                     1 
                     - 
                     \frac{
-                        80.00 + \tilde{D}_{FV} - A
+                        \num{80} + \tilde{D}_{FV} - A
                     }{
-                        80.00 + \tilde{D}_{FV}
+                        \num{80} + \tilde{D}_{FV}
                     }
-                    \mathbbm{1}_{\{A + 10.00 < 80.00 + \tilde{D}_{FV}\}} 
+                    \mathbbm{1}_{\{A + 1.00 < \num{80} + \tilde{D}_{FV}\}} 
                 \right] 
                 \tilde{D}_{FV} 
             \end{align}
@@ -80,45 +82,49 @@
         which yields the following solution:
             \begin{align}
                 \Leftrightarrow  \qquad
-                \tilde{D}_{FV} &= 10.28
+                \tilde{D}_{FV} &= \num{1.0308892737467186}
             \end{align}
         This face value results in an expected default loss to creditors of 
-        $\mathbb{E}^{\rnmeasure}\left[\phi\right] = 2.7228\%$,
+        $\mathbb{E}^{\rnmeasure}\left[\phi\right] = \pct{0.029963716311115596}$,
         and a limiting spread of:
         \begin{equation}
             S 
             = \frac{
-                2.7228\% * (1 + \rfrate)
+                \pct{0.029963716311115596} * (1 + \rfrate)
             }{
-                1 - 2.7228\%
+                1 - \pct{0.029963716311115596}
             } 
-            = 2.8273\%
+            = \pct{0.031201286612847046}
         \end{equation}
-        Entering into the project and issuing new debt with face value $10.28$ 
+        Entering into the project and issuing new debt with face value $\num{1.0308892737467186}$ 
         alters the payoffs associated with the firm in the following way:
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rrrrr||r}
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                 \hline
-                $A(\omega_{i})$ & $130$ & $120$ & $110$ & $105$ & $70$ & $106.30$ \\
-                $D(\omega_{i})$ & $80$ & $80$ & $80$ & $80$ & $62.03$ & $77.04$ \\
-                $S(\omega_{i})$ & $39.72$ & $29.72$ & $19.72$ & $14.72$ & $0$ & $19.36$ \\
-                $\tilde{D}(\omega_{i})$ & $10.28$ & $10.28$ & $10.28$ & $10.28$ & $7.97$ & $9.90$ \\
+                $A(\omega_{i})$ 
+                    & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
+                $D(\omega_{i})$ 
+                    & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{60.223947}$ & $\num{76.826874}$ \\
+                $S(\omega_{i})$ 
+                    & $\num{39.969111}$ & $\num{29.969111}$ & $\num{19.969111}$ & $\num{14.969111}$ & $\num{0}$ & $\num{19.573126}$ \\
+                $\tilde{D}(\omega_{i})$ 
+                    & $\num{1.030889}$ & $\num{1.030889}$ & $\num{1.030889}$ & $\num{1.030889}$ & $\num{0.776053}$ & $\num{0.99}$ \\
             \end{tabular}
             \caption{}
         \end{table}
 
-        Investing in the project increases the present value of the firm's assets by $106.30 - 96.40 = 9.90$, 
+        Investing in the project increases the present value of the firm's assets by $\num{97.39} - \num{96.40} = \num{0.99}$, 
         which, not surprisingly, is the value of the the project.
-        More interesting is the impact to the shareholder's claim that decreases by an amount $19.36 - 19.60 = -0.24$; 
+        More interesting is the impact to the shareholder's claim that decreases by an amount $\num{19.573126} - \num{19.6} = \num{-0.026874}$; 
         therefore, investing in the project is of negative value to the shareholders.
         When the firm defaults, the shareholders still receive nothing, 
         but in all other states where the firm does not default, 
         the shareholders pay the present value of the interest owed to the new creditors 
         due to the credit risk in the firm.
-        The legacy creditors observe their debt claim with face value $80$ increase by an amount of
-        $77.04 - 76.80 = 0.24$.
+        The legacy creditors observe their debt claim with face value $\num{80}$ increase by an amount of
+        $\num{76.826874} - \num{76.80} = \num{0.026874}$.
 
         Evidently, while the project is a negative net present value investment for the shareholders,
         the investment is a positive net present value investment for the legacy creditors.
@@ -128,10 +134,10 @@
         the legacy creditors will share part of the payoff from the option with the new creditors.
         Hence, the legacy creditors are receiving a larger amount in the case of default compared to the pre-project amount, and their claim increases in value.
         Their increment in wealth also suggests that the conditions has improved in terms of their exposure to the firm's credit risk.
-        This is also justified, as the loss rate has decreased from the pre-project value of 25.0\%,
-        where, from \cref{eqn:creditor-loss-rate}, the new loss rate is $\phi = (80-62.03)/80 = 22.46\%$.
-        Correspondingly, the new credit spread is lower than the pre-project credit spread of $3.157\%$:
-        $S = 80/77.04 - \grossrfrate = 2.832\%$.
+        This is also justified, as the loss rate has decreased from the pre-project value of \pct{0.25},
+        where, from \cref{eqn:creditor-loss-rate}, the new loss rate is $\phi = (\num{80}-\num{60.223947})/\num{80} = \pct{0.029964}$.
+        Correspondingly, the new credit spread is lower than the pre-project credit spread of $\pct{0.031565}$:
+        $S = \num{80}/\num{76.826874} - \grossrfrate = \num{0.031201}$.
 
         The Modigliani-Miller invariance proposition assures that making a zero net present value investment 
         does not increase the value of the firm.
@@ -156,9 +162,9 @@
         The first possible definition of \FVA/ as the promised excess funding cost can be determined by
         \cref{eqn:fva-as-promised-excess-funding-cost}:
             \begin{align}
-                0.99 * 9.90 * 2.8273\% = 0.2771
+                \num{0.99} * \num{0.99} * \pct{0.031201} = \num{0.030580}
             \end{align}
-        This definition suggests adjusting the project value by $0.2771$ to account for the funding costs.
+        This definition suggests adjusting the project value by $\num{0.030580}$ to account for the funding costs.
         As discussed earlier, this definition ignores the fact that shareholders are exempt from paying
         interest rates in the default state; they have limited liability and, since they lose everything
         in the event of default, the marginal value to them in default states is zero.
@@ -166,8 +172,8 @@
         Calculating instead the expected excess funding cost, i.e. $\Phi$:
             \begin{equation}
                 \Phi 
-                = 87.88\% * 0.99  * 9.90 * 2.8273\% 
-                = 0.2435
+                = \pct{0.878787} * \num{0.99}  * \num{0.99} * \pct{0.031201} 
+                = \num{0.026874}
             \end{equation}
         This quantity is also the value lost by the shareholders and gained by the legacy creditors,
         since the net profit of the project is zero, and the payoff is risk-free.
@@ -181,30 +187,30 @@
                     u^{\ast}_{\text{debt}} 
                 &=
                     \frac{
-                        1
+                        \num{1}
                     }{
-                        1 + 1.0101\% + 2.8273\%
+                        \num{1} + \pct{0.010101} + \pct{0.031201}
                     }
                     \left(
-                        10
+                        \num{1}
                         -
-                        0
+                        \num{0}
                     \right)
                 \nonumber \\
                 &=
-                    9.6333
+                    \num{0.960370}
             \end{align}
         And, according to \cref{eqn:fva-debt-financing}, the \FVA/ is therefore:
             \begin{equation}
                     \FVA/ 
                 =
-                    9.90 - 9.6333
+                    \num{0.99} - \num{0.960370}
                 =
-                    0.2667
+                    \num{0.029630}
             \end{equation}
         Any prices above the breakeven price, $u^{\ast}_{\text{debt}}$, 
         will make the project a negative net present value investment for the shareholders, while any prices below will make it positive. 
-        In this regard, the promised excess funding cost of $0.2771$ would be an overadjustment,
-        and, conversely, the expected excess funding cost, $\Phi$, of $0.2435$ would be an underadjustment.
+        In this regard, the promised excess funding cost of $\num{0.030580}$ would be an overadjustment,
+        and, conversely, the expected excess funding cost, $\Phi$, of $\num{0.026874}$ would be an underadjustment.
 
 \end{document}
