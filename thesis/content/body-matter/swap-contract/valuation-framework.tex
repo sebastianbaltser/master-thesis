@@ -11,7 +11,9 @@
         This means that the risk-free rate is not required to be constant,
         and the market value of cash flows is defined as,
         \begin{equation}
-        \pi(\mathcal{C}_{t}) = \sum_{t=1}^{2}\delta_t \mathbb{E}^{\rnmeasure}\left[\mathcal{C}_{t}\right]
+            \pi(\mathcal{C}_{t}) =
+            \sum_{t=1}^{2}
+            \delta_t \mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_{t}\right]
         \end{equation}
         where $\delta_1 = \frac{1}{R_0}$,
         and $\delta_2 = \frac{1}{R_{0}R_{1}}$.
@@ -37,26 +39,28 @@
         The total value of the firm's equity and liabilities are then computed as following:
         \begin{align}
             \pi(S)&=
-            \mathbb{E}^{\rnmeasure}\left[
-                \delta_1\mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} \theta_1\right]
-                +
-                \mathbb{E}^{\rnmeasure}\left[\delta_{2}\mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}} (A-W-L_{2})
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_1\mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} \theta_1
+            \right]
+            +
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_{2}\mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}} (A-W-L_{2})
             \right]
             \label{eqn:shareholder-value-multi-period}
             \\
             \nonumber
             \pi(D)&=
-            \mathbb{E}^{\rnmeasure}\left[
+            \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_1\mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} L_1 + \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}} 
                 \frac{
-                    \kappa_1 \mathbb{E}_{t=1}^{\rnmeasure}\left[A\right]
+                    \kappa_1 \mathbb{E}_{1}^{\rnmeasure}\left[A\right]
                 }{
                     R_1
                 }
             \right]
             \\
             &\quad+
-            \mathbb{E}^{\rnmeasure}\left[
+            \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_{2}\mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}}L_{2}
                 +
                 \mathbbm{1}_{\{\tau_{\mathcal{D}}=2\}}\kappa_{2}(A-W)
@@ -83,31 +87,39 @@
         \begin{equation}
             S_0 =
             \frac{
-                \mathbb{E}^{\rnmeasure}\left[\phi_1\right]R_0
+                \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]R_0
             }{
-                1 - \mathbb{E}^{\rnmeasure}\left[\phi_1\right] 
+                1 - \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right] 
             }
         \end{equation}
         where
         \begin{equation}
-        \phi_1 = \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}}
-        \frac{L_{1}+\mathbb{E}_{t=1}^{\rnmeasure}\left[L_{2}\right]/R_1 - \kappa_{1}\mathbb{E}_{t=1}^{\rnmeasure}\left[A\right]}
-        {L_{1} + \mathbb{E}_{t=1}^{\rnmeasure}\left[L_{2}\right]/R_1}
+            \phi_1 =
+            \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}}
+            \frac{
+                L_{1}+\mathbb{E}_{1}^{\rnmeasure}\left[L_{2}\right]/R_1 - \kappa_{1}\mathbb{E}_{1}^{\rnmeasure}\left[A\right]
+            }{
+                L_{1} + \mathbb{E}_{1}^{\rnmeasure}\left[L_{2}\right]/R_1
+            }
         \end{equation}
         is the creditors' loss rate if the firm defaults at time 1. If the firm survives at time 1, the marginal credit spread for short-term debt starting at the interim date is:
         \begin{equation}
             S_1 =
             \frac{
-                \mathbb{E}_{t=1}^{\rnmeasure}\left[\phi_2\right]R_1
+                \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right]R_1
             }{
-                1 - \mathbb{E}_{t=1}^{\rnmeasure}\left[\phi_2\right] 
+                1 - \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right] 
             }
         \end{equation}
         where
         \begin{equation}
-        \phi_2 = \mathbbm{1}_{\{\tau_{\mathcal{D}}=2\}}
-        \frac{L_{2}-\kappa_{2}(A-W)}
-        {L_{2}}
+            \phi_2 =
+            \mathbbm{1}_{\{\tau_{\mathcal{D}}=2\}}
+            \frac{
+                L_{2}-\kappa_{2}(A-W)
+            }{
+                L_{2}
+            }
         \end{equation}
         is the creditors' loss rate if the firm defaults at time 2.
 
