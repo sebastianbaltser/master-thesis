@@ -11,10 +11,10 @@
         This means, that the risk-free rate is not required to be constant,
         and the market value of cash flows,
         $\pi(\mathcal{C}_{t})$, is defined as
-        $\delta_t \sum_{t=1}^{2}\mathbb{E}^{\rnmeasure}\left[\mathcal{C}_{t}\right]$,
-        where $\delta_1 = \discountfactorone$,
-        and $\delta_2 = \discountfactortwo$.
-        The notation $\mathbb{E}^{\rnmeasure}$ is always assumed to describe the time 0 risk-neutral expectation, unless otherwise clarified.
+        $\delta_t \sum_{t=1}^{2}\mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_{t}\right]$,
+        where $\delta_1 = \frac{1}{R_0}$,
+        and $\delta_2 = \frac{1}{R_{0}R_{1}}$.
+        The notation $\mathbb{E}_{0}^{\rnmeasure}$ is always assumed to describe the time 0 risk-neutral expectation, unless otherwise clarified.
 
         This setup considers a dealer whose assets at time 2 have a payoff given by some random variable $A$.
         Additionally, the firm has short-term liabilities, $L_1$, that expires at time 1 as well as long-term liabilities, $L_2$, that expires at time 2.
