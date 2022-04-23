@@ -1,0 +1,103 @@
+% !TEX root = ./sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Overnight Index Swap Rates}
+    
+    \subsubsection{The LIBOR-\OIS/ spread}
+    An index swap is a contract that exchanges a fixed cash flow, determined at inception,
+    for a floating cash flow tied to some price index.
+    As implied by the name, an Overnight Index Swap, \OIS/, is a special case of an index swap
+    that uses an overnight rate index to calculate the floating leg.
+    The floating payments of an \OIS/ are the daily compounded overnight rate 
+    over the floating coupon period,
+    while the fixed rate is a rate referred to as the \OIS/ rate.
+    The price index that specifies the reference rate is typically the overnight 
+    lending rate between banks published by the central bank, e.g. the Federal Funds Rate.
+    At maturity of the \OIS/, the parties exchange the difference between the interest accrued 
+    at the fixed rate and the interest accrued at the compounded floating index rate.
+    There is no exchange of principal; 
+    therefore, an \OIS/ generally carries very little credit risk. 
+    Conceptually, the \OIS/ rate can be thought of as representing a given country's
+    central bank rate throughout a period set by the \OIS/' term. 
+
+    The London Interbank Offered Rate, LIBOR, represents the average rate 
+    at which major London based banks charge each other for short-term unsecured borrowing.
+    Multiple other reference rates for the interbank market exists, 
+    such as Euribor for Eurozone banks and TIBOR for Tokyo based banks.
+    Some results in the following are not particularly dependent on the specific rate.
+    When that is the case, the generic term xIBOR will be used 
+    to refer to these interest rate benchmarks.
+
+    A common measure of the banking system's health is the difference between the \OIS/ rate
+    and the LIBOR, known as the LIBOR-\OIS/ spread.
+    This spread can be used as an indication of how banks perceive the creditworthiness
+    of other financial institutions. 
+    The LIBOR-\OIS/ spread should be a better indicator of credit risk in the interbank lending market
+    than the LIBOR itself. 
+    The LIBOR is influenced both by the rates set by central banks and 
+    the general credit risk in the interbank lending market,
+    while the \OIS/ rate is only based on the rates set by central banks.
+    Therefore, subtracting the \OIS/ rate from LIBOR should isolate the credit premium.
+    A higher spread could be interpreted as a lower willingness to lend by major banks
+    and therefore lower liquidity in the money market.
+
+    \subsubsection{\OIS/ as the risk-free rate}
+    
+    Before the financial crisis in 2007, banks have typically been discounting
+    derivatives using interest rate curves based on the various interbank borrowing rates.
+    Typically, the interest rate curves were based on 3-Month xIBOR.
+    \textcite[Section 8.6]{Green2015XVA} 
+    mentions two possible reasons for banks using these indices.
+    First, the xIBOR discount curves were considered and used as proxies for the risk-free rate;
+    Pre-crisis the underlying banks in xIBOR generally had high credit ratings
+    and were regarded as very safe counterparties.
+    xIBOR rates were in fact very close to the yields of bonds issued by highly rated governments,
+    and the xIBOR rates could be considered as being very close to risk-free 
+    while being associated with highly liquid market.
+    Second, the xIBOR curves represented the banks' own funding rate for derivatives, since
+    xIBOR referenced unsecured borrowing rates.
+
+    \begin{figure}
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \input{\graphicsfolder/ted-spread/ted-spread.pgf}
+        }
+        \caption{
+            The spread between 3-Month LIBOR in USD and 3-Month Treasury bill.
+            The spread is usually relatively low, 
+            but blows out during recessions, 
+            such as the financial crisis in 2007 to 2009 or
+            the Covid-19 crisis in March 2020.
+            (Source: Federal Reserve Bank of St. Louis)
+        }
+        \label{fig:ted-spread}
+    \end{figure}
+
+    In the beginning of the financial crisis, the xIBORs rose significantly
+    which widened spreads such as LIBOR-\OIS/ or LIBOR against the T-bill.
+    The latter spread is shown in \cref{fig:ted-spread}. This clearly 
+    displays how the LIBOR against a very safe government bond blows out of proportions
+    during recessions in the economy. 
+    While not directly comparing LIBOR and \OIS/, 
+    the TED spread conveys the conclusion very well nonetheless;
+    the xIBOR contains other premiums than simply the risk-free rate.
+
+    When the aforementioned spreads widened, 
+    it had significant influence on the banks' pricing and valuation of derivatives.
+    The arguments for xIBOR discounting previously mentioned
+    were disproven as the spreads ballooned.
+    The market was to find another curve to use for the risk-free rate.
+    In this paper \OIS/ will be used as the risk-free rate;
+    the following paragraph presents arguments for that decision.
+
+    There are two sources of credit risk in an \OIS/.
+    The first is the credit risk in the overnight borrowing of federal funds, which is very small. 
+    The second is the risk of one of the swap counterparties defaulting.
+    \textcite{HullWhiteOISvsLIBOR}
+    argue that this second risk is negligible in collateralized transactions,
+    which standard swaps like \OIS/ are due to legislation.
+    Since credit risk is of inconsiderable size, it can be concluded 
+    that the \OIS/ rate is a good proxy for the risk-free rate.
+
+\end{document}

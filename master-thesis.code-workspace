@@ -29,8 +29,10 @@
 			"rehypothecated",
 			"rehypothecation",
 			"riskless",
+			"tibor",
 			"uncollateralized",
-			"underadjustment"
+			"underadjustment",
+			"xibor",
 		],
 		"cSpell.flagWords": [
 			"cashflow",
