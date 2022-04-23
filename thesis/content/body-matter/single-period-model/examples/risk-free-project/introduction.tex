@@ -50,7 +50,11 @@
     This credit spread is computed as
     $S = 80/76.80 - \grossrfrate = 3.157\%$.
     \\
-    The loss rate of the creditors in the default event is computed using \cref{eqn:creditor-loss-rate}: $\phi = (80-60)/80 = 25.0\%$.
+    Using \cref{eqn:creditor-loss-rate}, the loss rate of the creditors in the default event is:
+        \begin{equation*}
+            \phi(\omega_{5}) = \frac{80-60}{80}  = 25.0\%
+        \end{equation*}
+    while in all other states the loss rate is zero, as the firm does not default.
     
     Assume that the firm faces a new risk-free project in which it can invest
     and that the project has a promised return of $10$ at time 1.
