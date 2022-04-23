@@ -28,8 +28,8 @@
         Also, at time 1 the firm pays out a dividend, $\theta_1 \geq 0$, to its shareholders,
         %Not sure about \theta being the right notation for the dividend
         which is considered a random variable.
-        The default time is denoted by $\tau_{\mathcal{D}}$,
-        where $\tau_{\mathcal{D}} = \infty$ if the firm survives at time 2.
+        The default time of the firm is denoted by $\tau_{F}$,
+        where $\tau_{F} = \infty$ if the firm survives at time 2.
         In case of no default, the firm is liquidated, and the remaining cash is distributed to the shareholders after the creditors are paid back.
         \\
         Finally, it is assumed that all liabilities rank pari passu,
@@ -40,18 +40,18 @@
         \begin{align}
             \pi(S)&=
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_1\mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} \theta_1
+                \delta_1\mathbbm{1}_{\{\tau_{F}>1\}} \theta_1
             \right]
             +
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_{2}\mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}} (A-W-L_{2})
+                \delta_{2}\mathbbm{1}_{\{\tau_{F}>2\}} (A-W-L_{2})
             \right]
             \label{eqn:shareholder-value-multi-period}
             \\
             \nonumber
             \pi(D)&=
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_1\mathbbm{1}_{\{\tau_{\mathcal{D}}>1\}} L_1 + \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}} 
+                \delta_1\mathbbm{1}_{\{\tau_{F}>1\}} L_1 + \mathbbm{1}_{\{\tau_{F}=1\}} 
                 \frac{
                     \kappa_1 \mathbb{E}_{1}^{\rnmeasure}\left[A\right]
                 }{
@@ -61,9 +61,9 @@
             \\
             &\quad+
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_{2}\mathbbm{1}_{\{\tau_{\mathcal{D}}>2\}}L_{2}
+                \delta_{2}\mathbbm{1}_{\{\tau_{F}>2\}}L_{2}
                 +
-                \mathbbm{1}_{\{\tau_{\mathcal{D}}=2\}}\kappa_{2}(A-W)
+                \mathbbm{1}_{\{\tau_{F}=2\}}\kappa_{2}(A-W)
             \right]
             \label{eqn:creditor-value-multi-period}
         \end{align}
@@ -77,7 +77,7 @@
         In \cref{eqn:creditor-value-multi-period} the first and the second term basically defines the same thing but in the two different time periods.
         The first term in each expectation is the expiring liability payoff at the respective point in time given no default.
         The second term in each expectation is the total asset value in case of default.
-        Note that for $\tau_{\mathcal{D}}>1$ the firm survives at time 1.
+        Note that for $\tau_{F}>1$ the firm survives at time 1.
         This means that at time 2 for both the shareholders and the creditors, the liquidated value at time 1, $W$,
         that was used to cover the short-term liabilities, is subtracted from the asset value.
 
@@ -95,7 +95,7 @@
         where
         \begin{equation}
             \phi_1 =
-            \mathbbm{1}_{\{\tau_{\mathcal{D}}=1\}}
+            \mathbbm{1}_{\{\tau_{F}=1\}}
             \frac{
                 L_{1}+\mathbb{E}_{1}^{\rnmeasure}\left[L_{2}\right]/R_1 - \kappa_{1}\mathbb{E}_{1}^{\rnmeasure}\left[A\right]
             }{
@@ -114,7 +114,7 @@
         where
         \begin{equation}
             \phi_2 =
-            \mathbbm{1}_{\{\tau_{\mathcal{D}}=2\}}
+            \mathbbm{1}_{\{\tau_{F}=2\}}
             \frac{
                 L_{2}-\kappa_{2}(A-W)
             }{
