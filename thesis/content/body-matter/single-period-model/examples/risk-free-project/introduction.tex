@@ -11,26 +11,26 @@
             \begin{tabular}{l|rrrrr}
                 $i$ & 1 & 2 & 3 & 4 & 5 \\
                 \hline
-                $\psi_{i}$ & $0.06$ & $0.24$ & $0.29$ & $0.28$ & $0.12$ \\
+                $\psi_{i}$ & $\num{0.06}$ & $\num{0.24}$ & $\num{0.29}$ & $\num{0.28}$ & $\num{0.12}$ \\
             \end{tabular}
             \caption{}
             \label{tbl:example-firm-structure}
         \end{table}
-    implying a discount factor of $\discountfactor = 0.99$ and a risk-free interest rate of $\rfrate = 1.0101\%$.
+    implying a discount factor of $\discountfactor = \num{0.99}$ and a risk-free interest rate of $\rfrate = \pct{0.010101}$.
     A firm operates in this economy and invests in risky assets 
     which are funded by equity and debt deposits and returns payoff specified shortly.
     In the event of default, the firm is assumed to face no distress cost, i.e. $\kappa = 1$, 
     such that the bankruptcy estate is distributed entirely to the creditors.
-    The firm has been funded by debt such that the face value of debt is $80$, 
+    The firm has been funded by debt such that the face value of debt is $\num{80}$, 
     which gives rise to the following payoff structure:
     \begin{table}[H]
         \centering
         \begin{tabular}{l|rrrrr}
             $i$ & 1 & 2 & 3 & 4 & 5 \\
             \hline
-            $A(\omega_{i})$ & 120 & 110 & 100 & 95 & 60 \\
-            $D(\omega_{i})$ & 80 & 80 & 80 & 80 & 60 \\
-            $S(\omega_{i})$ & 40 & 30 & 20 & 15 & 0
+            $A(\omega_{i})$ & \num{120} & \num{110} & \num{100} & \num{95} & \num{60} \\
+            $D(\omega_{i})$ & \num{80} & \num{80} & \num{80} & \num{80} & \num{60} \\
+            $S(\omega_{i})$ & \num{40} & \num{30} & \num{20} & \num{15} & \num{0}
         \end{tabular}
         \caption{}
         \label{tbl:example-pre-project-capital-structure}
@@ -38,9 +38,9 @@
     The associated present values of the payoffs, $A$, $D$ and $S$, 
     are discounted expected value of the payoff with respect to the risk neutral probability measure:
         \begin{gather*}
-            \pi(A) = \discountfactor \mathbb{E}^{\rnmeasure}\left[A\right] = 96.40 \\
-            \pi(D) = \discountfactor \mathbb{E}^{\rnmeasure}\left[D\right] = 76.80
-            \qquad \pi(S) = \discountfactor \mathbb{E}^{\rnmeasure}\left[S\right] = 19.60
+            \pi(A) = \discountfactor \mathbb{E}^{\rnmeasure}\left[A\right] = \num{96.40} \\
+            \pi(D) = \discountfactor \mathbb{E}^{\rnmeasure}\left[D\right] = \num{76.80}
+            \qquad \pi(S) = \discountfactor \mathbb{E}^{\rnmeasure}\left[S\right] = \num{19.60}
         \end{gather*}
     The face value of the debt includes a credit spread that the firm must pay in order to account for its own credit risk.
     As seen in \cref{tbl:example-pre-project-capital-structure},
@@ -55,9 +55,9 @@
     before entering any projects and the credit spread after entering a project.
     The same goes for the loss rate.
 
-    The credit spread before entering any project is $80/76.80 - \grossrfrate = 3.157\%$.
+    The credit spread before entering any project is $\frac{\num{80}}{\num{76.80}} - \grossrfrate = \pct{0.031565}$.
     Using \cref{eqn:creditor-loss-rate}, the loss rate of the creditors in the default event is:
-    $\frac{80-60}{80} = 25.0\%$
+    $\frac{\num{80}-\num{60}}{\num{80}} = \pct{0.25}$
     while in all other states the loss rate is zero, as the firm does not default.
 
     The derivations in previous sections, 
@@ -72,18 +72,18 @@
     that the set of default and no-default states should remain unchanged.
     
     Assume that the firm faces a new risk-free project in which it can invest
-    and that the project has a promised return of $1$ at time 1.
+    and that the project has a promised return of $\num{1}$ at time 1.
     The project is risk-free in the sense that the payoff is known with certainty at time 0, so:
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rrrrr}
                 $i$ & 1 & 2 & 3 & 4 & 5 \\
                 \hline
-                $Y(\omega_{i})$ & $1$ & $1$ & $1$ & $1$ & $1$
+                $Y(\omega_{i})$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{1}$
             \end{tabular}
             \caption{}
         \end{table}
-    which implies a present value of $\pi(Y) = \discountfactor \mathbb{E}^{\rnmeasure}\left[Y\right] = 0.99$, 
+    which implies a present value of $\pi(Y) = \discountfactor \mathbb{E}^{\rnmeasure}\left[Y\right] = \num{0.99}$, 
     corresponding to the price of 1 zero coupon bond, as the project is merely an investment in the risk-free asset.
     Obtaining the payoff requires an upfront cost equal to the fair value of the project.
     With slight abuse of notation, since the project is not infinitesimal, 
