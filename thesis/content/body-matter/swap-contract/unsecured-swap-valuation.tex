@@ -1,0 +1,54 @@
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Valuing unsecured swaps}
+        In this section the client swap is assumed to be fully unsecured.
+        This means that no collateralization is performed at the transaction date nor the interim date between the dealer and the swap client.
+        For simplicity and the purpose of marginal valuation,
+        all counterparties involved in a swap contract defaulting at the interim date default after the coupon payments.
+        This assumption allows the contingent liabilities from the swap to be paid along with the rest of the liabilities at the given time of default.
+        And, as all liabilities rank pari passu, the computational part becomes more interpretive.
+
+        The swap client's time of default is denoted by $\tau_{C}$.
+        At this point in time, the dealer recovers a fraction of the contractual amount denoted by $\beta_{t}$, where $\beta_{t} = 1$ if $\tau_{C}>t$.
+        \\
+        \textcolor{red}{Initially, it is also assumed that there are no legacy positions between the dealer and the swap client.
+        This assumption will be relaxed in SECTION ???, where the effect of netting the swap cash flows against those of the legacy positions with the same client is analysed.}
+
+        Regardless of the method of funding, the apparent marginal market value of the swap is defined by:
+        \begin{align}
+            V &=
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \sum_{t=1}^{2} \delta_{t} \mathcal{C}_{t} - u
+            \right]
+            \nonumber
+            \\
+            &\quad +
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{F} = t,\tau_{C}>t-1\}} \phi_t Y_{t}^{-} 
+            \right]
+            \nonumber
+            \\
+            &\quad -
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{F} = t,\tau_{F}>t-1\}} (1-\beta_t) Y_{t}^{+} 
+            \right]
+            \label{eqn:swap-value-multi-period}
+        \end{align}
+        where $Y_{1} = \mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]/R_{2}$ and $Y_{2} = \mathcal{C}_{2}$.
+
+        The swap value takes into account the credit risks of both the firm and the counterparty.
+        Therefore, two adjustments are performed on the the credit risk-free value, $V_0$.
+        From the dealer's point of view,
+        the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} adding to the total swap value,
+        whereas the \CVA/ is the third term subtracting from the total swap value.
+        As a result of that, the total swap value for the swap client is $-V$.
+
+        Supposing the dealer finances the upfront with new short-term debt, the marginal valuation of dealer's shareholders of entering the swap contract is now analysed.
+        The net positive cash flows stemming from the swap are perceived as funding benefits as they will be used to retire some of the dealer's short-term debt.
+        \\
+        As defined in \cref{sec:marginal-valuation-debt-issuance},
+        the face value of the new debt is the upfront.
+        
+\end{document}
