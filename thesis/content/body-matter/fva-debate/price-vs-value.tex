@@ -21,16 +21,17 @@
         \begin{equation}
             \text{Value to Dealer} 
             =
-            \text{Risk-Neutral Price}
+            \text{Price}
             -
             \text{Cost}
         \end{equation}
-    The trade's risk-neutral price is the price that theoreticians considers as the reference price.
+    The trade's price is the price that the dealer could buy or sell the trade for in the market.
     If the market satisfied the assumptions of the traditional derivative pricing frameworks
-    this would be the price at which the trade would be bought and sold. 
-    The risk-neutral price must reflect the cost of hedging the derivative in the risk-neutral world
+    this would be the risk-neutral price and therefore the price that 
+    theoreticians would consider as the "true" price.
+    The price must reflect the cost of hedging the derivative
     and can therefore be decomposed into three components. 
-    The first being the price of hedging when all parties are risk-free, 
+    The first being the price of hedging when all parties are free of credit risk, 
     the second being the cost of hedging credit risk from the counterparty, $\CVA/$,
     and the third being the cost of hedging credit risk from the dealer itself, $\DVA/$:
         \begin{equation}
@@ -54,6 +55,14 @@
     for the dealer to enter the trade. 
     If the value is negative, the dealer will lose money on the trade;
     if the value is positive, the dealer will make money.
+
+    By these definitions, an \FVA/ should be used to calculate the value of a trade
+    but should not be used to calculate the price of a trade.
+    If the dealing desk does not make an \FVA/, it will not be accounting for the costs of the trade
+    and it will therefore not be able to make the correct decision about obtaining the project.
+    However, when the dealer marks-to-market its trade, it must not use an \FVA/, 
+    as the price is set by the market;
+    the exit price is unconnected to the funding costs of each institution.
     
 \end{document}
         
