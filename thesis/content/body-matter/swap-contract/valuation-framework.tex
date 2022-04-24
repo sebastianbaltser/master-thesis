@@ -90,10 +90,155 @@
         This means that at time 2 for both the shareholders and the creditors, the liquidated value at time 1, $W$,
         that was used to cover the short-term liabilities, is subtracted from the asset value.
 
-        The credit spread is based on the likelihood of the firm defaulting and can therefore change over time.
-        This means that the credit spread is calculated for each time period, making it interpretable as multiple single-periods;
-        so, as in \cref{sec:single-period-model}, the firm's marginal credit spread for short-term debt is:
+        To ensure that the present value of the risk-neutral expected value of the new creditors' payoff equals the amount needed to fund the swap contract, $U(q)$,
+        the idea is fundamentally the same as in the single-period model.
+        To unravel the explicit credit spread in a two-period model,
+        \cref{eqn:new-creditors-breakeven} is now extended.
+        \\
+        As the setup has an additional time period, the default indicator is separated into the two possible default scenarios:
+        $\tau_F = 1$ and $\tau_F = 2$.
+        The firm is assumed to receive a payoff from its secured position, $Y_{1,t}$, as well as its unsecured position, $Y_{2,t}$ at both time periods.
+        Furthermore, the liabilities are, as mentioned, separated into short-term and long-term.
+        The credit spread must then solve the following equation:
+        \begin{align}
+            U(q)
+            &=
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_2
+                    \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                    U(q)
+                    (R_{0}R_{1} + s(q))
+                \right]
+            \nonumber
+            \\
+            &\quad+ \mathbb{E}_{0}^{\rnmeasure}
+            \left[
+                \delta_1\mathbbm{1}_{\{\tau_{F}(q)=1\}} \Pi_1 U(q)(R_{0}R_{1} + s(q))
+            \right]
+            \nonumber
+            \\
+            &\quad+ \mathbb{E}_{0}^{\rnmeasure}
+            \left[
+                \delta_2\mathbbm{1}_{\{\tau_{F}(q)=2\}} \Pi_2 U(q)(R_{0}R_{1} + s(q))
+            \right]
+            \label{eqn:new-creditors-breakeven-two-period-model}
+        \end{align}
+        where
+        \begin{align}
+            \Pi_1
+            &=
+            \frac{
+                \kappa_1
+                \mathbb{E}_{1}^{\rnmeasure}\left[ 
+                    A + q Y_{1,1} + q Y_{2,1}^{+}
+                \right]
+            }{
+                L_{1}
+                +
+                \frac{\mathbb{E}_{1}^{\rnmeasure}\left[L_{2}\right]}{R_{1}}
+                +
+                U(q)
+                (R_{0}R_{1} + s(q))
+                +
+                \frac{\mathbb{E}_{1}^{\rnmeasure}\left[q Y_{2,1}^{-}\right]}{R_{1}}
+            }
+            \nonumber
+            \intertext{and}
+            \Pi_2
+            &=
+            \frac{
+                \kappa_2 \left(
+                A - W + q Y_{1,2} + q Y_{2,1}^{+}
+                \right)
+            }{
+                L_{2}
+                +
+                U(q)
+                (R_{0}R_{1} + s(q))
+                +
+                q Y_{2,2}^{-} 
+            }
+            \nonumber
+        \end{align}
+        The complement of defaulting in neither of time periods is to default at either time 1 or time 2. Using this fact, \cref{eqn:new-creditors-breakeven-two-period-model} can be rewritten as:
         \begin{equation}
+            s(q) =
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2\left(
+                1
+                + \mathbbm{1}_{\{\tau_{F}(q) = 1\}}(\Pi_1 - 1)
+                + \mathbbm{1}_{\{\tau_{F}(q) = 2\}}(\Pi_2 - 1)
+                \right)
+            \right]^{-1} - \mathbb{E}_{0}^{\rnmeasure}\left[R_0 R_1\right]
+        \end{equation}
+        The credit spread is based on the likelihood of the firm defaulting and can therefore change over time.
+        This means that the credit spread is calculated for each time period, making it interpretable as multiple single-periods.
+        \\
+        Corresponding to the single-period model,
+        let $S_0 + S_1$ denote the limiting spread which is defined as the credit spread on debt charged for obtaining an infinitesimal quantity of the project,
+        i.e. $S_0 + S_1 \equiv \lim_{q \downarrow 0} s(q)$.
+        Applying this to the equation:
+        \begin{equation}
+            S_0 + S_1 =
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2\left(
+                1
+                + \mathbbm{1}_{\{\tau_{F} = 1\}}(\Pi_1 - 1)
+                + \mathbbm{1}_{\{\tau_{F} = 2\}}(\Pi_2 - 1)
+                \right)
+            \right]^{-1} - \mathbb{E}_{0}^{\rnmeasure}\left[R_0 R_1\right]
+            \label{eqn:aggregate-credit-spread-multi-period}
+        \end{equation}
+        With the objective to present a credit spread for each time interval, the equation is now divided into two.
+        This will define an expression for both $S_0$ and $S_1$.
+        \\
+        The gross risk-free rate has no effect on the credit spread of a different time period than the applicable.
+        Using this, every instance of the expectation of $R_1$ in the computation of $S_0$ becomes 1.
+        Similarly, the observed gross risk-free rate of time 0 becomes 1 in the computation of $S_1$.
+        Inserting the expression for $\Pi_1$, the credit spread of the first time interval is then defined as following: 
+        \begin{align}
+            S_0 &=
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2\left(
+                    1
+                    + \mathbbm{1}_{\{\tau_{F} = 1\}}\left(
+                        \frac{\kappa_1 \mathbb{E}_{1}^{\rnmeasure}\left[A\right]}{L_1 + \frac{\mathbb{E}_{1}^{\rnmeasure}\left[L_2\right]}{R_1}} - 1
+                    \right)
+                \right)
+            \right]^{-1} - \mathbb{E}_{0}^{\rnmeasure}\left[R_0 R_1\right]
+            \nonumber
+            \\
+            &=
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \left(
+                    1
+                    + \mathbbm{1}_{\{\tau_{F} = 1\}}
+                    \frac{
+                        \kappa_1 \mathbb{E}_{1}^{\rnmeasure}\left[A\right] - \left(L_1 + \frac{\mathbb{E}_{1}^{\rnmeasure}\left[L_2\right]}{R_1}\right)
+                    }{
+                        L_1 + \frac{\mathbb{E}_{1}^{\rnmeasure}\left[L_2\right]}{R_1}
+                    }
+                \right)
+            \right]^{-1} - \mathbb{E}_{0}^{\rnmeasure}\left[R_0 R_1\right]
+            \nonumber
+            \\
+            &=
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                R_0 \left(
+                    1
+                    + \mathbbm{1}_{\{\tau_{F} = 1\}}
+                    \frac{
+                        \kappa_1 \mathbb{E}_{1}^{\rnmeasure}\left[A\right] - \left(L_1 + \frac{\mathbb{E}_{1}^{\rnmeasure}\left[L_2\right]}{R_1}\right)
+                    }{
+                        L_1 + \frac{\mathbb{E}_{1}^{\rnmeasure}\left[L_2\right]}{R_1}
+                    }
+                \right)
+            \right]^{-1} - R_0
+            \nonumber
+        \end{align}
+        So, similar as in \cref{sec:single-period-model}, the firm's marginal credit spread for short-term debt at time 0 is computed as following:
+        \begin{equation}
+            \Leftrightarrow \qquad
             S_0 =
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]R_0
@@ -111,8 +256,40 @@
                 L_{1} + \mathbb{E}_{1}^{\rnmeasure}\left[L_{2}\right]/R_1
             }
         \end{equation}
-        is the creditors' loss rate if the firm defaults at time 1. If the firm survives at time 1, the marginal credit spread for short-term debt starting at the interim date is:
+        is the creditors' loss rate if the firm defaults at time 1.
+        
+        Likewise, if the firm survives at time 1, the marginal credit spread for short-term debt starting at the interim date can be separated from \cref{eqn:aggregate-credit-spread-multi-period}.
+        Here the state of the market filtration for time 1 is known, hence the expectation is now taken from this point in time.
+        The credit spread of the second time interval is computed as following:
+        \begin{align}
+            S_1 &=
+            \mathbb{E}_{1}^{\rnmeasure}\left[
+                R_1 \left(
+                    1
+                    + \mathbbm{1}_{\{\tau_{F} = 2\}}\left(
+                        \frac{\kappa_2 (A-W)}{L_2} - 1
+                    \right)
+                \right)
+            \right]^{-1} - R_1
+            \nonumber
+            \\
+            &=
+            \mathbb{E}_{1}^{\rnmeasure}\left[
+                R_1 \left(
+                    1
+                    + \mathbbm{1}_{\{\tau_{F} = 2\}}
+                    \frac{
+                        \kappa_2 \left(A - W\right) - L_2
+                    }{
+                        L_2
+                    }
+                \right)
+            \right]^{-1} - R_1
+            \nonumber
+        \end{align}
+        And finally:
         \begin{equation}
+            \Leftrightarrow \qquad
             S_1 =
             \frac{
                 \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right]R_1
