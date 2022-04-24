@@ -23,10 +23,10 @@
         The wealth transferred is significantly higher than in the case of debt funding because the legacy creditors are not obliged to share the payoff of the derivative with other new creditors in the case of default. 
         The derivative contract has no impact on the total asset value of the firm, and the funding cost are borne by the legacy shareholders.
 
-        Assume a firm enters a risk-free project with a known payoff at time 1 of $Y=10$. 
-        The present value of the derivative is then $10/(1+0.10)=9.90$. 
+        Assume a firm enters a risk-free project with a known payoff at time 1 of $Y=\num{1}$. 
+        The present value of the derivative is then $\num{1}*\num{0.99}=\num{0.99}$. 
         The project adds to the firm's total asset value. 
-        While the payoff of the legacy creditors, with a face value of 80, only change in the default state, the payoff of the shareholders is computed slightly differently than in the case of debt issuance. 
+        While the payoff of the legacy creditors, with a face value of $\num{80}$, only change in the default state, the payoff of the shareholders is computed slightly differently than in the case of debt issuance. 
         It's now essential to know the share of the payoff, $\alpha$, which the new equity owners are entitled to, remembering that the payoff obtained by the legacy creditors is given as in \cref{eqn:legacy-creditor-payoff}. 
         The difference between the total asset value of the firm, and the payoff of the creditor is what's left to be distributed to the shareholders, who are now separated into two bases. 
         To find the share, compute the net present value of the investment made by the new shareholders, and divide it by the expected discounted value of the residual which is distributed to the shareholders:
@@ -38,24 +38,24 @@
                     \mathbb{E}^{\rnmeasure}\left[A-D\right]
                 }
         \end{equation}
-        The new shareholders then receive their share of the remaining payoff in each state, and the payoff of the legacy shareholders is still the residual with a share of $(1-\alpha)$ equalling the remainder of the distributed payoff. 
-        The results of the example are shown in \cref{tbl:equity-funding-payoff}, where the share of the new equity owners is computed as $\alpha = 34.982\%$.
+        The new shareholders then receive their share of the remaining payoff in each state, and the payoff of the legacy shareholders is still the residual with a share of $(\num{1}-\alpha)$ equalling the remainder of the distributed payoff. 
+        The results of the example are shown in \cref{tbl:equity-funding-payoff}, where the share of the new equity owners is computed as $\alpha = \pct{0.048363}$.
 
         \begin{table}[H]
             \centering\begin{tabular}{l|rrrrr||r}
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                 \hline
-                $A_{i}$ & 130 & 120 & 110 & 105 & 70 & 106.30 \\
-                $D_{i}$ & 80 & 80 & 80 & 80 & 70 & 78 \\
-                $S_{i}$ & 32.51 & 26.01 & 19.51 & 16.25 & 0 & 18.40 \\
-                $\tilde{S}_{i}$ & 17.49 & 13.99 & 10.49 & 8.75 & 0 & 9.90 \\
+                $A_{i}$ & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
+                $D_{i}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{61}$ & $\num{76.92}$ \\
+                $S_{i}$ & $\num{39.017098}$ & $\num{29.500733}$ & $\num{19.984367}$ & $\num{15.226185}$ & $\num{0}$ & $\num{19.48}$ \\
+                $\tilde{S}_{i}$ & $\num{1.982902}$ & $\num{1.499267}$ & $\num{1.015633}$ & $\num{0.773815}$ & $\num{0}$ & $\num{0.99}$ \\
             \end{tabular}
             \caption{}
             \label{tbl:equity-funding-payoff}
         \end{table}
 
         After the transaction, the firm's balance sheet has increased with an amount equal to the premium of the derivative. 
-        The firm has a new asset on the asset side, the derivative receivable worth 9.90, and that is funded by 9.90 worth of new equity.
+        The firm has a new asset on the asset side, the derivative receivable worth $\num{0.99}$, and that is funded by $\num{0.99}$ worth of new equity.
 
         The project is a negative net present value investment for the legacy shareholders. 
         The decrease in the equity value is calculated using
@@ -65,9 +65,9 @@
             =  
                 G_{\text{equity}}
             =
-                - (1 - 87.8788\%) * 9.90
+                - (\num{1} - \pct{0.878787}) * \num{0.99}
             = 
-                -1.20
+                -\num{0.12}
         \end{equation}
         This amount is also what is referred to as the transfer of wealth, $\Delta W$, when no excess yield or donation is received on the derivative. 
         And as mentioned above, the marginal value of the project to the shareholders is even lower when the project is financed by share issuance,
@@ -79,9 +79,9 @@
         The project is a positive net present value investment for the creditors. 
         Their increase in wealth is computed as:
         \begin{equation}\label{eqn:wealth-transfer-equality}
-            \Delta \pi(D) = -\Delta \pi(S) = 78.00 - 76.80 = 1.20
+            \Delta \pi(D) = -\Delta \pi(S) = \num{76.92} - \num{76.80} = \num{0.12}
         \end{equation}
-        The value of the debt increases, since the creditors get the entire derivative's receivables in the default state. Following this, the loss rate as well as the credit spread decreases significantly compared to the pre-project metrics. The new loss rate is $\phi = (80-70)/80 = 12.5\%$, and the new credit spread is $S = 80/78 - \grossrfrate = 1.554\%$.
+        The value of the debt increases, since the creditors get the entire derivative's receivables in the default state. Following this, the loss rate as well as the credit spread decreases significantly compared to the pre-project metrics. The new loss rate is $\phi = (\num{80}-\num{61})/\num{80} = \pct{0.2375}$, and the new credit spread is $S = \num{80}/\num{76.92} - \grossrfrate = \pct{0.029941}$.
         \\
         A possible donation by the counterparty would also have to be significantly higher than in the case of debt funding for the legacy shareholders' equity value to be left unaffected by the investment. 
 
@@ -112,19 +112,19 @@
             \begin{equation}
                     u^{\ast}_{\text{equity}} 
                 =
-                    \frac{1}{1 + 1.01\%} 
+                    \frac{\num{1}}{\num{1} + \pct{0.010101}} 
                     *
-                    87.88\%
+                    \pct{0.878787}
                     *
                     \left(
-                        10
+                        \num{1}
                         -
-                        0
+                        \num{0}
                     \right)
                 =
-                    8.70
+                    \num{0.87}
             \end{equation}
-        meaning $\FVA/ = 9.90-8.70 = 1.20$. Notice that this amount is the same as the wealth transfer.
+        meaning $\FVA/ = \num{0.99}-\num{0.87} = \num{0.12}$. Notice that this amount is the same as the wealth transfer.
         This is because the donation from the counterparty does not affect the total asset value of the firm.
         Hence, the loss rate of the creditors remains unchanged from before the donation, and therefore so does the creditors' present value.
         The creditors will then still receives the wealth transfer, $\Delta \pi(d)$,
