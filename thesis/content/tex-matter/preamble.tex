@@ -37,6 +37,14 @@
 \usepackage{caption}
 \usepackage{makecell}
 
+\usepackage{siunitx}
+\usepackage{xfp}
+\sisetup{
+	round-mode = places,
+	round-precision = 4,
+	round-pad = true
+}
+\newcommand{\pct}[1]{\qty{\fpeval{#1 * 100}}{\percent}}
 
 \usepackage{tikz}
 \usetikzlibrary{calc}
