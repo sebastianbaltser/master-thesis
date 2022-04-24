@@ -56,12 +56,16 @@
     If the value is negative, the dealer will lose money on the trade;
     if the value is positive, the dealer will make money.
     
-    However, when the dealer marks-to-market its trade, it must not use an \FVA/, 
-    as the price is set by the market;
-    the exit price is unconnected to the funding costs of each institution.
-
-    However, with that being said, 
-    it should be noted that the price and the value of a trade is related.
+    According to these definitions, 
+    \FVA/ is a component in the trade's value, but not in the trade's price. 
+    Therefore, it would seem as if the market price of the trade 
+    is completely unconnected to the funding costs of the trade;
+    but, there is in fact a relation between the two. 
+    To see this, remember that the market price of a trade 
+    is actually set by supply and demand forces.
+    It will therefore not necessarily adhere to some rigorous pricing scheme,
+    but rather be influenced by many different factors in the market.
+    One of these factors is the cost of funding the trade.
     If a trade requires a lot of funding that will generate a lot of funding costs,
     the price of the trade will generally be relatively high.
     Since the trade would be expensive to operate, 
