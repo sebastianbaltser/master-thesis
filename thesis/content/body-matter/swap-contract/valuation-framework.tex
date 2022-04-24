@@ -36,9 +36,10 @@
         and the recovery rates at time 1 and time 2 are denoted by $\kappa_1$ and $\kappa_2$ respectively,
         i.e. the portion of the total asset value after distress costs that the creditors receive in case of default.
 
-        The total value of the firm's equity and liabilities are then computed as following:
-        \begin{align}
-            \pi(S)&=
+        To describe the total value of the firm's equity, it is essential to realise that, as always, the shareholders receive a payoff of 0, if the firm defaults.
+        Looking at the potential payoff of the shareholders in case of no default, the total value is defined as following:
+        \begin{equation}
+            \pi(S)=
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_1\mathbbm{1}_{\{\tau_{F}>1\}} \theta_1
             \right]
@@ -47,33 +48,41 @@
                 \delta_{2}\mathbbm{1}_{\{\tau_{F}>2\}} (A-W-L_{2})
             \right]
             \label{eqn:shareholder-value-multi-period}
-            \\
-            \nonumber
-            \pi(D)&=
-            \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_1\mathbbm{1}_{\{\tau_{F}>1\}} L_1 + \mathbbm{1}_{\{\tau_{F}=1\}} 
-                \frac{
-                    \kappa_1 \mathbb{E}_{1}^{\rnmeasure}\left[A\right]
-                }{
-                    R_1
-                }
-            \right]
-            \\
-            &\quad+
-            \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_{2}\mathbbm{1}_{\{\tau_{F}>2\}}L_{2}
-                +
-                \mathbbm{1}_{\{\tau_{F}=2\}}\kappa_{2}(A-W)
-            \right]
-            \label{eqn:creditor-value-multi-period}
-        \end{align}
+        \end{equation}
         The first term in \cref{eqn:shareholder-value-multi-period} defines the discounted expected value of the dividend payout at time 1 in case of no default before time 2.
         If the dividend is non-zero, it benefits the shareholders,
         in the sense that it guarantees the shareholders to receive some payoff before a possible default event at time 2.
         The second term defines the discounted expected residual of the liquidated assets at time 2.
         If the firm does not have enough assets to cover the long-term liabilities, the creditors receive the remaining assets, and the firm defaults.
         This leaves a payoff of 0 for the shareholders.
-        \\
+
+        On the contrary, the creditors receive a payoff in every scenario.
+        The size of the payoff is however fully dependent on if the firm default or not.
+        The total value of the creditor's payoff is defined as following:
+        \begin{align}
+            \pi(D)&=
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_1
+                \left(\mathbbm{1}_{\{\tau_{F}>1\}} L_1 + \mathbbm{1}_{\{\tau_{F}=1\}} 
+                \frac{
+                    \kappa_1 \mathbb{E}_{1}^{\rnmeasure}\left[A\right]
+                }{
+                    R_1
+                }
+                \right)
+            \right]
+            \nonumber
+            \\
+            &\quad+
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_{2}
+                \left(\mathbbm{1}_{\{\tau_{F}>2\}}L_{2}
+                +
+                \mathbbm{1}_{\{\tau_{F}=2\}}\kappa_{2}(A-W)
+                \right)
+            \right]
+            \label{eqn:creditor-value-multi-period}
+        \end{align}
         In \cref{eqn:creditor-value-multi-period} the first and the second term basically defines the same thing but in the two different time periods.
         The first term in each expectation is the expiring liability payoff at the respective point in time given no default.
         The second term in each expectation is the total asset value in case of default.
