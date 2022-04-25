@@ -49,15 +49,20 @@
         The net positive cash flows stemming from the swap are perceived as funding benefits as they will be used to retire some of the dealer's short-term debt.
         \\
         As defined in \cref{sec:marginal-valuation-debt-issuance},
-        the face value of the new debt is the upfront, which is the borrowed amount, including the interest rates paid. The marginal increase in the value of the firm's equity per unit investment is therefore:
+        the face value of the new debt is the upfront,
+        which is the borrowed amount, including the interest rates paid.
+        With the face value of the new debt now defined as $D_{0} = U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q))$,
+        the marginal increase in the value of the firm's equity per unit investment is therefore:
         \begin{equation}
             G_{\text{debt}} =
-            \frac{\partial}{\partial q}
-            \mathbb{E}_{0}^{\rnmeasure}\left[
+            \quad\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left.\left[
                 \delta_{2} \left(
-                    A - W 
-                \right)
-            \right] 
+                    A - W + qY_{1} + qY_{2}
+                    - \left(L_{1}R_{1} + L_{2}\right)
+                    - D_{0}
+                \right)^{+}
+            \right]\right\rvert_{q=0}
         \end{equation}
         
 \end{document}
