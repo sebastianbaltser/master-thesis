@@ -193,8 +193,8 @@
         This will define an expression for both $S_0$ and $S_1$.
         \\
         The gross risk-free rate has no effect on the credit spread of a different time period than the applicable.
-        Using this, every instance of the expectation of $R_1$ in the computation of $S_0$ becomes 1.
-        Similarly, the observed gross risk-free rate of time 0 becomes 1 in the computation of $S_1$.
+        Using this, every instance of the expectation of $R_1$ is removed from the computation of $S_0$.
+        Similarly, the observed gross risk-free rate of time 0 is removed from the computation of $S_1$.
         Inserting the expression for $\Pi_1$, the credit spread of the first time interval is then defined as following: 
         \begin{align}
             S_0 &=
@@ -224,7 +224,7 @@
             \\
             &=
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                R_0 \left(
+                \frac{1}{R_0} \left(
                     1
                     + \mathbbm{1}_{\{\tau_{F} = 1\}}
                     \frac{
@@ -264,7 +264,7 @@
         \begin{align}
             S_1 &=
             \mathbb{E}_{1}^{\rnmeasure}\left[
-                R_1 \left(
+                \frac{1}{R_1} \left(
                     1
                     + \mathbbm{1}_{\{\tau_{F} = 2\}}\left(
                         \frac{\kappa_2 (A-W)}{L_2} - 1
@@ -275,7 +275,7 @@
             \\
             &=
             \mathbb{E}_{1}^{\rnmeasure}\left[
-                R_1 \left(
+                \frac{1}{R_1} \left(
                     1
                     + \mathbbm{1}_{\{\tau_{F} = 2\}}
                     \frac{
