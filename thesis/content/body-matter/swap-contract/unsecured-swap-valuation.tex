@@ -1,4 +1,4 @@
-% !TEX root = sub-main.tex
+% !TEX root = ./sub-main.tex
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
@@ -41,14 +41,23 @@
         The swap value takes into account the credit risks of both the firm and the counterparty.
         Therefore, two adjustments are performed on the the credit risk-free value, $V_0$.
         From the dealer's point of view,
-        the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} adding to the total swap value,
-        whereas the \CVA/ is the third term subtracting from the total swap value.
+        the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} adding to the credit risk-free swap value,
+        whereas the \CVA/ is the third term subtracting from the value.
         As a result of that, the total swap value for the swap client is $-V$.
 
-        Supposing the dealer finances the upfront with new short-term debt, the marginal valuation of dealer's shareholders of entering the swap contract is now analysed.
+        Supposing the dealer finances the upfront with new short-term debt, the marginal valuation of the dealer's shareholders of entering the swap contract is now analysed.
         The net positive cash flows stemming from the swap are perceived as funding benefits as they will be used to retire some of the dealer's short-term debt.
         \\
         As defined in \cref{sec:marginal-valuation-debt-issuance},
-        the face value of the new debt is the upfront.
+        the face value of the new debt is the upfront, which is the borrowed amount, including the interest rates paid. The marginal increase in the value of the firm's equity per unit investment is therefore:
+        \begin{equation}
+            G_{\text{debt}} =
+            \frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_{2} \left(
+                    A - W 
+                \right)
+            \right] 
+        \end{equation}
         
 \end{document}
