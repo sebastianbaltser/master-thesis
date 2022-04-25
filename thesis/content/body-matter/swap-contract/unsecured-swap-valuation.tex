@@ -64,4 +64,36 @@
                 \right)
             \right]\right\rvert_{q=0}
         \end{equation*}
+        By expressing this derivative as a difference quotient, using $U(0)=0$,
+        and by the linearity of the expectation operator,
+        the following limit is obtained:
+        \begin{align*}
+            &=
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                    \left(
+                        qY_{1} + qY_{2}
+                        - D_{0}(q)
+                    \right)
+                \right]
+            }{
+                q
+            }
+            \\
+            &\quad-
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_{2} 
+                    \left(\mathbbm{1}_{\{\tau_{F}(q)>2\}} - \mathbbm{1}_{\{\tau_{F}>2\}}\right)
+                    \left(
+                        A - W
+                        - \left(L_{1}R_{1} + L_{2}\right)
+                    \right)
+                \right]
+            }{
+                q
+            }
+        \end{align*}
 \end{document}
