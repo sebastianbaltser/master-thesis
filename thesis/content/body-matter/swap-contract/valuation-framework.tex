@@ -120,13 +120,13 @@
             \\
             &\quad+ \mathbb{E}_{0}^{\rnmeasure}
             \left[
-                \delta_1\mathbbm{1}_{\{\tau_{F}(q)=1\}} \Pi_1(q) U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
+                \delta_1 \Pi_1(q) U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
             \right]
             \nonumber
             \\
             &\quad+ \mathbb{E}_{0}^{\rnmeasure}
             \left[
-                \delta_2\mathbbm{1}_{\{\tau_{F}(q)=2\}} \Pi_2(q) U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
+                \delta_2\Pi_2(q) U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
             \right]
             \label{eqn:new-creditors-breakeven-two-period-model}
         \end{align}
@@ -134,6 +134,7 @@
         \begin{align}
             \Pi_1(q)
             &=
+            \mathbbm{1}_{\{\tau_{F}(q)=1\}}
             \frac{
                 \kappa_1
                 \mathbb{E}_{1}^{\rnmeasure}\left[ 
@@ -153,6 +154,7 @@
             \intertext{and}
             \Pi_2(q)
             &=
+            \mathbbm{1}_{\{\tau_{F}(q)=2\}}
             \frac{
                 \kappa_2 \left(
                 A - W + q Y_{1,2} + q Y_{2,1}^{+}
@@ -167,16 +169,22 @@
             }
             \nonumber
         \end{align}
-        The complement of defaulting in neither of time periods is to default at either time 1 or time 2. Using this fact, \cref{eqn:new-creditors-breakeven-two-period-model} can be rewritten as:
+        Notice that $\Pi_{t}(q)$ represents the recovery rate of the creditors in period $t$,
+        since it is the share of liabilities remaining in the bankruptcy estate after distress costs.
+        The complement of the recovery rate is the loss rate, denoted by $\phi_{t}(q)$, 
+        so $\phi_{t}(q) = 1 - \Pi_{t}(q)$.
+        The complement of defaulting in neither of time periods is to default at either time 1 or time 2. 
+        Using this fact and the definition of the loss rate,
+        \cref{eqn:new-creditors-breakeven-two-period-model} can be rewritten as:
         \begin{equation}
-            s(q) =
+            (R_{0} + s_{0}(q))(R_{1} + s_{1}(q)) =
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_2\left(
                 1
-                + \mathbbm{1}_{\{\tau_{F}(q) = 1\}}(\Pi_1 - 1)
-                + \mathbbm{1}_{\{\tau_{F}(q) = 2\}}(\Pi_2 - 1)
+                - \phi_1(q)
+                - \phi_2(q)
                 \right)
-            \right]^{-1} - \mathbb{E}_{0}^{\rnmeasure}\left[R_0 R_1\right]
+            \right]^{-1}
         \end{equation}
         The credit spread is based on the likelihood of the firm defaulting and can therefore change over time.
         This means that the credit spread is calculated for each time period, making it interpretable as multiple single-periods.
@@ -186,19 +194,67 @@
         i.e. $S_0 + S_1 \equiv \lim_{q \downarrow 0} s(q)$.
         Applying this to the equation:
         \begin{equation}
-            S_0 + S_1 =
+            (R_{0} + S_{0})(R_{1} + S_{1}) =
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_2\left(
                 1
-                + \mathbbm{1}_{\{\tau_{F} = 1\}}(\Pi_1 - 1)
-                + \mathbbm{1}_{\{\tau_{F} = 2\}}(\Pi_2 - 1)
+                - \phi_1
+                - \phi_2
                 \right)
-            \right]^{-1} - \mathbb{E}_{0}^{\rnmeasure}\left[R_0 R_1\right]
+            \right]^{-1}
             \label{eqn:aggregate-credit-spread-multi-period}
         \end{equation}
         With the objective to present a credit spread for each time interval, the equation is now divided into two.
         This will define an expression for both $S_0$ and $S_1$.
         \\
+        \begin{align}
+            & = 
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \frac{
+                    R_{0}R_{1}
+                }{
+                    1
+                    - 
+                    \phi_1
+                    - 
+                    \phi_2
+                } 
+            \right] \\
+        \intertext{
+            Since the firm can only default once, at least one of the loss rates is going to be zero,
+            implying that $\phi_{1}\phi_{2} = 0$.
+            Hence, the equation can be rewritten:
+        }
+            & = 
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \frac{
+                    R_{0}R_{1}
+                }{
+                    1
+                    - 
+                    \phi_1
+                    - 
+                    \phi_2
+                    +
+                    \phi_1
+                    \phi_2
+                } 
+            \right] \\
+            & = 
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \frac{
+                    R_{0}
+                }{
+                    (1 - \phi_{1})
+                } 
+                \frac{
+                    R_{1}
+                }{
+                    (1 - \phi_{2})
+                } 
+            \right] 
+        \end{align}
+
         The gross risk-free rate has no effect on the credit spread of a different time period than the applicable.
         Using this, every instance of the expectation of $R_1$ is removed from the computation of $S_0$.
         Similarly, the observed gross risk-free rate of time 0 is removed from the computation of $S_1$.
