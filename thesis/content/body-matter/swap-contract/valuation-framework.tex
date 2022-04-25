@@ -103,7 +103,7 @@
         it will be to also define two different credit spreads;
         one for the excess yield from period 0 to period 1,
         and another for the excess yield from period 1 to period 2.
-        The former will be denoted $s_{1}(q)$ and the latter $s_{2}(q)$.
+        The former will be denoted $s_{0}(q)$ and the latter $s_{1}(q)$.
         The credit spreads must then solve the following equation,
         where the right hand side is the value of buying the bond from the firm,
         and the left hand side is the firm's funding needs:
@@ -114,19 +114,19 @@
                     \delta_2
                     \mathbbm{1}_{\{\tau_{F}(q)>2\}}
                     U(q)
-                    (R_{0}R_{1} + s(q))
+                    (R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
                 \right]
             \nonumber
             \\
             &\quad+ \mathbb{E}_{0}^{\rnmeasure}
             \left[
-                \delta_1\mathbbm{1}_{\{\tau_{F}(q)=1\}} \Pi_1 U(q)(R_{0}R_{1} + s(q))
+                \delta_1\mathbbm{1}_{\{\tau_{F}(q)=1\}} \Pi_1 U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
             \right]
             \nonumber
             \\
             &\quad+ \mathbb{E}_{0}^{\rnmeasure}
             \left[
-                \delta_2\mathbbm{1}_{\{\tau_{F}(q)=2\}} \Pi_2 U(q)(R_{0}R_{1} + s(q))
+                \delta_2\mathbbm{1}_{\{\tau_{F}(q)=2\}} \Pi_2 U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
             \right]
             \label{eqn:new-creditors-breakeven-two-period-model}
         \end{align}
@@ -145,7 +145,7 @@
                 \frac{\mathbb{E}_{1}^{\rnmeasure}\left[L_{2}\right]}{R_{1}}
                 +
                 U(q)
-                (R_{0}R_{1} + s(q))
+                (R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
                 +
                 \frac{\mathbb{E}_{1}^{\rnmeasure}\left[q Y_{2,1}^{-}\right]}{R_{1}}
             }
@@ -161,7 +161,7 @@
                 L_{2}
                 +
                 U(q)
-                (R_{0}R_{1} + s(q))
+                (R_{0} + s_{0}(q))(R_{1} + s_{1}(q)))
                 +
                 q Y_{2,2}^{-} 
             }
