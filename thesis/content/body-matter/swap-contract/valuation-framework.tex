@@ -99,7 +99,14 @@
         $\tau_F = 1$ and $\tau_F = 2$.
         The firm is assumed to receive a payoff from its secured position, $Y_{1,t}$, as well as its unsecured position, $Y_{2,t}$ at both time periods.
         Furthermore, the liabilities are, as mentioned, separated into short-term and long-term.
-        The credit spread must then solve the following equation:
+        Since the liabilities have two different terms, 
+        it will be to also define two different credit spreads;
+        one for the excess yield from period 0 to period 1,
+        and another for the excess yield from period 1 to period 2.
+        The former will be denoted $s_{1}(q)$ and the latter $s_{2}(q)$.
+        The credit spreads must then solve the following equation,
+        where the right hand side is the value of buying the bond from the firm,
+        and the left hand side is the firm's funding needs:
         \begin{align}
             U(q)
             &=
