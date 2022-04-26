@@ -155,4 +155,46 @@
         $\mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}$ equals 0 in the limit,
         which entails that the fourth terms equals 0.
         
+        By dividing $q$ into the expectation of the first term, it can be recognized that $U(q)/q$ is the marginal investment cost, $u$.
+        Rearranging and taking the limit yields:
+        \begin{align}
+            G_{\text{debt}} &= 
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \mathbbm{1}_{\{\tau_{F}>2\}}
+                \left(
+                    \delta_{2} \left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right) - u
+                \right)
+            \right]
+            \nonumber
+            \\
+            &\quad-
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \mathbbm{1}_{\{\tau_{F}>2\}}
+                \left(
+                    \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C}=t\}}\left(1-\beta_t\right)Y_{t}^{+}
+                \right)
+            \right]
+            \nonumber
+            \\
+            &\quad-
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}} u \left(
+                    R_{1} S_{0} + R_{0} S_{1} + S_{0} S_{1}
+                \right)
+            \right]
+            \nonumber
+            \\
+            &\quad+
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}
+                \mathcal{C}_{1} S_1
+            \right]
+        \end{align}
+        where the third and the fourth terms together constitutes the second interpretation of \FVA/ according to \cref{sec:defining-fva}.
+        % This result differs a tiny bit from the one ADS presents. The term: $u S_0 S_1$ is somehow gone from ADS' equation but I don't know how. It appears in the third expectation here for now though.
+        \\
+        Since the cash flow at time 2 becomes 0 if the counterparty defaults at the interim date,
+        and the marginal investment cost is constant regardless of the default times of either counterparties,
+        the indicator of $\{\tau_{C}>1\}$ can be removed from the first term.
+
 \end{document}
