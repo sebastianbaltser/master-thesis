@@ -100,9 +100,9 @@
             \lim_{q \rightarrow 0}
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[
-                    \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                    \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}}
                     \left(
-                        qY_{1} + qY_{2}
+                        q\left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
                         - D_{0}(q)
                     \right)
                 \right]
@@ -110,14 +110,40 @@
                 q
             }
             \\
+            &\quad+
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}}
+                    q\mathcal{C}_{1} s_1(q)
+                \right]
+            }{
+                q
+            }
+            \\
             &\quad-
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                    \left(
+                        \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C}(q)=t\}}q\left(1-\beta_t\right)Y_{t}^{+}
+                    \right)
+                \right]
+            }{
+                q
+            }
+            \\
+            &\quad-
+            \lim_{q \rightarrow 0}
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[
                     \delta_{2} 
-                    \left(\mathbbm{1}_{\{\tau_{F}(q)>2\}} - \mathbbm{1}_{\{\tau_{F}>2\}}\right)
+                    \left(\mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}\right)
                     \left(
                         A - W
-                        - \left(L_{1}R_{1} + L_{2}\right)
+                        - L_{2}
+                        + \theta_{1}R_{1}
                     \right)
                 \right]
             }{
