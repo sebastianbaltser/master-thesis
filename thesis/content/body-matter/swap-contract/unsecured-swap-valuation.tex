@@ -52,18 +52,38 @@
         the face value of the new debt is the upfront,
         which is the borrowed amount, including the interest rates paid.
         With the face value of the new debt now defined as $D_{0}(q) = U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q))$,
-        the marginal increase in the value of the firm's equity per unit investment is therefore:
-        \begin{equation*}
-            G_{\text{debt}} =
-            \frac{\partial}{\partial q}
-            \mathbb{E}_{0}^{\rnmeasure}\left.\left[
-                \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2\}}  \left(
-                    A - W + qY_{1} + qY_{2}
-                    - \left(L_{1}R_{1} + L_{2}\right)
+        the marginal increase in the value of the firm's equity per unit investment is:
+        \begin{align}
+            G_{\text{debt}} &=
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}}
+                \left(
+                    A - W
+                    + q\left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
+                    - L_{2}
                     - D_{0}(q)
                 \right)
             \right]\right\rvert_{q=0}
-        \end{equation*}
+            \nonumber
+            \\
+            &\quad+
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}}
+                \left(q\mathcal{C}_{1} s_1(q) + \theta_{1}R_{1}\right)
+            \right]\right\rvert_{q=0}
+            \nonumber
+            \\
+            &\quad-
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                \left(
+                    \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C}(q)=t\}}q\left(1-\beta_t\right)Y_{t}^{+}
+                \right)
+            \right]\right\rvert_{q=0}
+        \end{align}
         By expressing this derivative as a difference quotient, using $U(0)=0$,
         and by the linearity of the expectation operator,
         the following limit is obtained:
