@@ -33,15 +33,16 @@
         By symmetry, $\CVA/_C = \DVA/_F$, 
         where $\DVA/_F$ is the debit value adjustment made by the firm 
         in order to account for its own risk of default.\\
-        The profile of the constructed derivative contract is assumed to make the firm having no exposure to the counterparty,
-        and, as it's a liability to the firm, 
-        no adjustment for the credit risk of the counterparty is performed. 
-        This also implies that $\CVA/_F = \DVA/_C = 0$, 
-        and, by initially ignoring the funding issue, the value of the derivative contract, denoted by $V$, is given by:
+        For simplicity it is assumed that the derivative contract 
+        can only be of negative value to the firm, 
+        such that its expected positive exposure is zero, from the firm's point of view.
+        For this reason, no adjustment for the credit risk of the counterparty is performed and 
+        $\CVA/_F = \DVA/_C = 0$.
+        The theoretical market price of the derivative should therefore be given by:
         \begin{equation}\label{eqn:option-value-credit-risk}
-            V = V_{rf} - \CVA/_C = V_{rf} - \DVA/_F
+            P = P_{rf} - \CVA/_C = P_{rf} - \DVA/_F
         \end{equation}
-        where $V_{rf}$ is the value of the derivative without any risk considered.
+        where $P_{rf}$ is the price of the derivative without any risk considered.
 
         Now consider the funding issue. On the transaction date of the derivative, 
         the firm receives premium from the counterparty that must be invested, 
@@ -64,9 +65,9 @@
             Suppose when the firm receives the derivative premium at time 0, 
             they immediately invest their surplus of cash by retiring some of their already existing debt. 
             The value to the firm will arguably be lower when including this funding benefit, 
-            and one might rewrite \cref{eqn:option-value-credit-risk} as:
+            and, reducing the price with this benefit, the value to the firm could be written as:
             \begin{equation}
-                V = V_{rf} - \CVA/_C - \FVA/ = V_{rf} - \CVA/_C - \FBA/
+                V = P - \FVA/ = P - \FBA/
             \end{equation}
             where a riskless firm would have no benefit of \FVA/ as it would be able to borrow at the risk-free rate.
             
