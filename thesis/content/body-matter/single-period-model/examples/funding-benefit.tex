@@ -121,7 +121,7 @@
             The change happens on the liability side, where the debt is partly swapped with a derivative payable.\\
             The values of the different parties are shown in \cref{tbl:example-debt-retiring}. 
             The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=1-60/80=25\%$. 
-            Similarly, the credit spread remains the same as the pre-project value: $S=79/75.84-r_{f}-1=3.157\%$.
+            Similarly, the credit spread remains the same as the pre-project value: $S=79/\num{75.84}-r_{f}-1=\pct{0.031566}$.
             
             \begin{table}[H]
                 \centering
@@ -167,12 +167,33 @@
                 V = V_{rf} - \DVA/_F = 0.99 - 0.03 = 0.96
             \end{equation}
             which validates \cref{eqn:option-value-credit-risk}. 
-            Including an adjustment from the benefits of funding 
-            would lead to a double counting effect due to two offsetting effects. 
-            (i): By retiring debt with the cash coming from the derivative premium at time 0, 
-            the firm will receive a funding benefit in the sense that it saves some interest expenses. 
-            (ii): However, the debt retiring decreases the \DVA/ of the firm's existing debt 
-            by exactly \FBA/ amount.
+
+            Take the first possible definition of \FVA/, 
+            where it was defined as the promised excess funding cost.
+            Calculating this quantity yields 
+            $\discountfactor u S = \num{0.99} * \num{0.96} * \pct{0.031566} = \num{0.03}$,
+            which is exactly the same as the \DVA/.
+            As hinted in the beginning, 
+            this is not a coincidence as the CDS spread determining \DVA/
+            is identical to the funding rate determining \FVA/.
+            Adjusting the \DVA/-adjusted price with this \FVA/ would be double counting,
+            and lead to the firm undervaluing the derivative.
+            Consider also the last definition of \FVA/,
+            where it was defined as the adjustment needed to the shareholders' breakeven.
+            As already mentioned, the marginal shareholder value of the derivative is zero,
+            meaning that the price is already adjusted to the shareholders' breakeven.
+            The fact is that the derivative in this example needs no \FVA/,
+            as the \DVA/ accounts for all funding benefits.
+            Differences between \DVA/ and \FBA/ can only occur either because of a
+            mismatch between the CDS spread and the funding spread
+            or because of a difference in the portfolio on which the two quantities are calculated. 
+            The former has been assumed non-existing.
+            The latter could occur if the firm had offsetting trades in its portfolio,
+            since the \FVA/ takes into account all sorts of netting benefits.
+            In this example there is no offsetting trades, 
+            which is why there is no difference between \DVA/ and \FBA/;
+            hence, as they are accounting for the same thing, 
+            including both would lead to an undervaluation.
 
         \subsubsection{Equity buyback}
             Assume that the firm enters a project 
