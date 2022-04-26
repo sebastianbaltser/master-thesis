@@ -4,15 +4,23 @@
 \begin{document}
     \subsection{Funding Benefits}
     \label{sec:example-funding-benefit}
-        In some instances the value adjustment coming from funding can have beneficial outcomes for the firm. 
-        Funding value adjustment consist of the both the aforementioned funding cost as well as funding benefits. 
-        A portfolio can include instances of both cases, such that the \FVA/ for a portfolio is given by:
+        In the previous section, 
+        the outgoing cash flows, due to the upfront cost of the derivative,
+        demanded funding from the firm, which led to funding costs. 
+        The firm would ultimately have to do a funding value adjustment,
+        to account for the funding expenses that obtaining the derivative would lead to.
+        On the contrary, when an instrument has cash flows going into the firm,
+        it might have funding implications that are beneficial to the firm.
+        If the firm is buying a derivative,
+        funding value adjustments can both adjust the perceived value downwards due to funding costs,
+        but just as well adjust the perceived value upwards due to funding benefits.
+        Recall, from the introduction of \FVA/, the decomposition of \FVA/ into two elements,
+        repeated here for convenience:
         \begin{equation}
             \FVA/ = \FCA/ + \FBA/
         \end{equation}
         In this section, the firm is assumed to enter a one-year derivative contract 
-        with different counterparty
-        which now has credit risk.
+        with a counterparty that has a positive default probability, i.e. credit risk.
         Suppose the firm sells the derivative to the counterparty. 
         The derivative is unsecured, and will now be treated as a new liability to the firm, 
         which ranks pari passu with the already existing debt.
@@ -26,15 +34,16 @@
         By symmetry, $\CVA/_C = \DVA/_F$, 
         where $\DVA/_F$ is the debit value adjustment made by the firm 
         in order to account for its own risk of default.\\
-        The profile of the constructed derivative contract is assumed to make the firm having no exposure to the counterparty,
-        and, as it's a liability to the firm, 
-        no adjustment for the credit risk of the counterparty is performed. 
-        This also implies that $\CVA/_F = \DVA/_C = 0$, 
-        and, by initially ignoring the funding issue, the value of the derivative contract, denoted by $V$, is given by:
+        For simplicity, it is assumed that the derivative contract 
+        can only be of negative value to the firm, 
+        such that its expected positive exposure is zero, from the firm's point of view.
+        For this reason, no adjustment for the credit risk of the counterparty is performed and 
+        $\CVA/_F = \DVA/_C = 0$.
+        The theoretical market price of the derivative should therefore be given by:
         \begin{equation}\label{eqn:option-value-credit-risk}
-            V = V_{rf} - \CVA/_C = V_{rf} - \DVA/_F
+            P = P_{rf} - \CVA/_C = P_{rf} - \DVA/_F
         \end{equation}
-        where $V_{rf}$ is the value of the derivative without any risk considered.
+        where $P_{rf}$ is the price of the derivative without any risk considered.
 
         Now consider the funding issue. On the transaction date of the derivative, 
         the firm receives premium from the counterparty that must be invested, 
@@ -57,15 +66,28 @@
             Suppose when the firm receives the derivative premium at time 0, 
             they immediately invest their surplus of cash by retiring some of their already existing debt. 
             The value to the firm will arguably be lower when including this funding benefit, 
-            and one might rewrite \cref{eqn:option-value-credit-risk} as:
+            and, reducing the price with this benefit, the value to the firm could be written as:
             \begin{equation}
-                V = V_{rf} - \CVA/_C - \FVA/ = V_{rf} - \CVA/_C - \FBA/
+                V = P - \FVA/ = P_{rf} - \DVA/_F - \FBA/
             \end{equation}
             where a riskless firm would have no benefit of \FVA/ as it would be able to borrow at the risk-free rate.
             
-            The issue with this reformulation is that both adjustments are driven by the firm's credit risk. 
-            This will cause an imbalanced valuation in the sense that the two values overlap, 
-            and the Modigliani-Miller invariance Proposition will be violated. 
+            In \cref{sec:fva-dva-double-counting} it was argued that double counting
+            between \FVA/ and \DVA/ should not be a problem if they are applied properly.
+            The current section will display a case
+            where it has to be considered very carefully which adjustments to apply.
+            Before seeing this from calculations, it can be argued conceptually
+            and the reasons to be careful can be highlighted.
+            By the assumptions in these examples,
+            the only source of the firm's credit spread is the firm's credit risk, 
+            which implies that there is no difference between the CDS spread referencing the firm,
+            and the rate that the firm pays for funding.
+            The CDS spread determines the cost to the counterparty 
+            of hedging its credit exposure to the firm.
+            The funding rate determines the benefits to the firm of cash surpluses.
+            Having hinted the possible concerns in the current setup, 
+            the example can continue and the issues can be quantified.
+
             Notice that when the cash raised by selling the OTC derivative contract 
             is used to purchase debt at a fair market value, a new liability is replacing a part of the existing liability. 
             Remembering the pari passu assumption, this debt-for-debt swap leaves the total liability unchanged.
@@ -81,9 +103,9 @@
             Third, the remaining creditors stay unaffected of the transaction, 
             as the loss rate and credit spread is left intact. 
             Since the derivative contract is a zero net present value for the firm, 
-            and no wealth is transferred at the neither the counterparty nor any of the creditors, 
-            so should it be for the shareholders. 
-            So, the derivative fair value must be given by \cref{eqn:option-value-credit-risk} 
+            the counterparty, and the creditors, there is no wealth to transfer anywhere,
+            and the contract must also have zero net present value to the shareholders. 
+            Hence, the derivative fair value must be given by \cref{eqn:option-value-credit-risk} 
             as any other value would influence the wealth of the parties involved.
 
             Returning to the previous example of a risky firm with a capital structure
@@ -94,13 +116,13 @@
             and is immediately spent on retiring debt from its already existing creditors. 
             The derivative payable is now a liability to the firm, ranking pari passu with the existing debt, 
             which before the derivative contract had a face value of 80. 
-            For simplicity, we assume, as in \cref{sec:risk-free-project},
+            For simplicity, it is assumed, as in \cref{sec:risk-free-project},
             that the derivative payable is known with certainty, hence it's a risk-free project. 
             The firm's balance sheet isn't affected by the transaction. 
             The change happens on the liability side, where the debt is partly swapped with a derivative payable.\\
             The values of the different parties are shown in \cref{tbl:example-debt-retiring}. 
             The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=1-60/80=25\%$. 
-            Similarly, the credit spread remains the same as the pre-project value: $S=79/75.84-r_{f}-1=3.157\%$.
+            Similarly, the credit spread remains the same as the pre-project value: $S=79/\num{75.84}-r_{f}-1=\pct{0.031566}$.
             
             \begin{table}[H]
                 \centering
@@ -137,7 +159,7 @@
 
             The counterparty's payoff coming from the derivative, $Y_C$, has a market value of:
             \begin{equation}
-                \pi(Y_{C}) = \sum_i \psi_i Y_{C,i} = 0.96
+                \pi(Y_{C}) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = 0.96
             \end{equation}
             This concludes that the derivative premium that the firm receives at time 0 is equal to 0.96, 
             which is then the amount used for retiring debt. 
@@ -146,12 +168,33 @@
                 V = V_{rf} - \DVA/_F = 0.99 - 0.03 = 0.96
             \end{equation}
             which validates \cref{eqn:option-value-credit-risk}. 
-            Including an adjustment from the benefits of funding 
-            would lead to a double counting effect due to two offsetting effects. 
-            (i): By retiring debt with the cash coming from the derivative premium at time 0, 
-            the firm will receive a funding benefit in the sense that it saves some interest expenses. 
-            (ii): However, the debt retiring decreases the \DVA/ of the firm's existing debt 
-            by exactly \FBA/ amount.
+
+            Take the first possible definition of \FVA/, 
+            where it was defined as the promised excess funding cost.
+            Calculating this quantity yields 
+            $\discountfactor u S = \num{0.99} * \num{-0.96} * \pct{0.031566} = \num{-0.03}$,
+            which is exactly equal to the \DVA/ with the sign flipped.
+            As hinted in the beginning, 
+            this is not a coincidence as the CDS spread determining \DVA/
+            is identical to the funding rate determining \FVA/.
+            Adjusting the \DVA/-adjusted price with this \FVA/ would be double counting,
+            and leads to the firm undervaluing the derivative.
+            Consider also the last, and chosen, definition of \FVA/,
+            where it was defined as the adjustment needed to the shareholders' breakeven.
+            As already mentioned, the marginal shareholder value of the derivative is zero,
+            meaning that the price is already adjusted to the shareholders' breakeven.
+            The fact is that the derivative in this example needs no \FVA/,
+            as the \DVA/ accounts for all funding benefits.
+            Differences between \DVA/ and \FBA/ can only occur either because of a
+            mismatch between the CDS spread and the funding spread
+            or because of a difference in the portfolio on which the two quantities are calculated. 
+            The former has been assumed non-existing.
+            The latter could occur if the firm had offsetting trades in its portfolio,
+            since the \FVA/ takes into account all sorts of netting benefits.
+            In this example there is no offsetting trades, 
+            which is why there is no difference between \DVA/ and \FBA/;
+            hence, as they are accounting for the same thing, 
+            including both would lead to an undervaluation.
 
         \subsubsection{Equity buyback}
             Assume that the firm enters a project 
