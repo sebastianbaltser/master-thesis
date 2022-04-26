@@ -8,7 +8,7 @@
         Funding value adjustment consist of the both the aforementioned funding cost as well as funding benefits. 
         A portfolio can include instances of both cases, such that the \FVA/ for a portfolio is given by:
         \begin{equation}
-            \text{\FVA/} = \text{\FVA/}_{\text{cost}} + \text{\FVA/}_{\text{benefit}}
+            \FVA/ = \FCA/ + \FBA/
         \end{equation}
         In this section, the firm is assumed to enter a one-year derivative contract 
         with different counterparty
@@ -24,15 +24,15 @@
         For the counterparty's incentives to be re-established, 
         the price of the derivative needs a valuation adjustment, i.e. $\CVA/_C$. 
         By symmetry, $\CVA/_C = \DVA/_F$, 
-        where $\text{\DVA/}(F)$ is the debit value adjustment made by the firm 
+        where $\DVA/_F$ is the debit value adjustment made by the firm 
         in order to account for its own risk of default.\\
         The profile of the constructed derivative contract is assumed to make the firm having no exposure to the counterparty,
         and, as it's a liability to the firm, 
         no adjustment for the credit risk of the counterparty is performed. 
-        This also implies that $\text{\CVA/}(F) = \text{\DVA/}(C) = 0$, 
+        This also implies that $\CVA/_F = \DVA/_C = 0$, 
         and, by initially ignoring the funding issue, the value of the derivative contract, denoted by $V$, is given by:
         \begin{equation}\label{eqn:option-value-credit-risk}
-            V = V_{rf} - \text{\CVA/}(C) = V_{rf} - \text{\DVA/}(F)
+            V = V_{rf} - \CVA/_C = V_{rf} - \DVA/_F
         \end{equation}
         where $V_{rf}$ is the value of the derivative without any risk considered.
 
@@ -59,7 +59,7 @@
             The value to the firm will arguably be lower when including this funding benefit, 
             and one might rewrite \cref{eqn:option-value-credit-risk} as:
             \begin{equation}
-                V = V_{rf} - \text{\CVA/}(C) - \text{\FVA/} = V_{rf} - \text{\CVA/}(C) - \text{\FVA/}_{\text{benefit}}
+                V = V_{rf} - \CVA/_C - \FVA/ = V_{rf} - \CVA/_C - \FBA/
             \end{equation}
             where a riskless firm would have no benefit of \FVA/ as it would be able to borrow at the risk-free rate.
             
@@ -143,7 +143,7 @@
             which is then the amount used for retiring debt. 
             On top of this, the amount is recognized as the difference between the riskless project value and the \DVA/:
             \begin{equation}
-                V = V_{rf} - \text{\DVA/}(F) = 0.99 - 0.03 = 0.96
+                V = V_{rf} - \DVA/_F = 0.99 - 0.03 = 0.96
             \end{equation}
             which validates \cref{eqn:option-value-credit-risk}. 
             Including an adjustment from the benefits of funding 
@@ -151,7 +151,7 @@
             (i): By retiring debt with the cash coming from the derivative premium at time 0, 
             the firm will receive a funding benefit in the sense that it saves some interest expenses. 
             (ii): However, the debt retiring decreases the \DVA/ of the firm's existing debt 
-            by exactly $\text{\FVA/}_{\text{benefit}}$ amount.
+            by exactly \FBA/ amount.
 
         \subsubsection{Equity buyback}
             Assume that the firm enters a project 
