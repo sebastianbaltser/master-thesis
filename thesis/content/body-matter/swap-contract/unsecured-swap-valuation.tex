@@ -20,7 +20,8 @@
         \begin{align}
             V &=
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \sum_{t=1}^{2} \delta_{t} \mathcal{C}_{t} - u
+                \delta_2 \left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
+                - u
             \right]
             \nonumber
             \\
@@ -154,8 +155,34 @@
         which allows for interchanging the limit and the expectation.
         $\mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}$ equals 0 in the limit,
         which entails that the fourth terms equals 0.
+        \\
+        The addend $u S_0 S_1$ appears when expanding the limiting face value, $D_2$.
+        From the expressions of the credit spreads, it is noticed that the expectation the loss rates from the different time periods are multiplied.
+        The following property of expectations can then be used:
+        \begin{equation*}
+            \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]
+            * \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right]
+            = \mathbb{E}_{1}^{\rnmeasure}\left[
+                \phi_2 \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]
+            \right] 
+            = \mathbb{E}_{1}^{\rnmeasure}\left[
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \phi_2
+                    \mathbb{E}_{0}^{\rnmeasure}\left[
+                        \phi_1
+                    \right]
+                \right]
+            \right]
+            = \mathbb{E}_{1}^{\rnmeasure}\left[
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \phi_2 \phi_1
+                \right]
+            \right]
+            = 0
+        \end{equation*}
+        such that $\mathbb{E}_{0}^{\rnmeasure}\left[\delta_2\mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}u S_0 S_1\right] = 0$.
         
-        By dividing $q$ into the expectation of the first term, it can be recognized that $U(q)/q$ is the marginal investment cost, $u$.
+        By dividing $q$ into the expectation of the first limit, it can be recognized that $U(q)/q$ is the marginal investment cost, $u$.
         Rearranging and taking the limit yields:
         \begin{align}
             G_{\text{debt}} &= 
@@ -179,7 +206,7 @@
             &\quad-
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_2 \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}} u \left(
-                    R_{1} S_{0} + R_{0} S_{1} + S_{0} S_{1}
+                    R_{1} S_{0} + R_{0} S_{1}
                 \right)
             \right]
             \nonumber
