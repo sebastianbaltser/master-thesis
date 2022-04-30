@@ -248,68 +248,90 @@
         \subsubsection{No funding buyback}
             Now suppose, instead of buying back debt or equity, 
             the firm spends the cash proceeds from the derivative premium in riskless assets. 
-            If the derivative traded with the counterparty has a known payoff at time 1, this procedure is exactly the same as if the firm borrows money to buy the riskless asset 
+            If the derivative traded with the counterparty has a known payoff at time 1, this procedure is virtually the same as if the firm borrows money to buy the riskless asset 
             as described in \cref{sec:example-risk-free-project-debt-issuance}. 
             To deviate from the exact same conclusions, the derivative is now assumed to have a payoff structure at time 1 
             as described in \cref{tbl:risky-option-payoff}. 
             The derivative will still be fairly priced, i.e. the price is the discounted expected payoff for the counterparty. 
             The credit risk still needs to be accounted for in the price. 
             At time 1 the firm will pay the counterparty accordingly, hence the derivative payable, $Y_C$, 
-            is still a liability to the firm and ranks pari passu with the already existing debt.
+            is still a contingent liability to the firm and ranks pari passu with the already existing debt.
             
             \begin{table}[H]
                 \centering
                 \begin{tabular}{l|rrrrr}
                     $i$ & 1 & 2 & 3 & 4 & 5 \\
                     \hline
-                    $Y(\omega_{i})$ & $4$ & $3.5$ & $2.5$ & $1.5$ & $1$ \\
+                    $Y(\omega_{i})$ & $\num{4}$ & $\num{3.5}$ & $\num{2.5}$ & $\num{1.5}$ & $\num{1}$ \\
                 \end{tabular}
                 \caption{}
                 \label{tbl:risky-option-payoff}
             \end{table}
+
+            After receiving the derivative premium in the form of cash, the firm immediately invests in the riskless asset. 
+            This implies that the firm's total asset value increases with an amount equal to the discounted derivative premium. 
+            The capital structure, after this transaction, is described in \cref{tbl:example-no-funding-buyback}, 
+            where the derivative theoretical fair value price and loss rate are found
+            by solving the following equation system for $\pi(Y_C)$ and $\phi$:
+            \begin{align}
+                \pi(Y_C) &= \discountfactor\mathbb{E}^{\rnmeasure}\left[Y_{C}\right]
+                \label{eqn:no-funding-buyback-derivative-fair-value}
+                \\
+                A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
+                \label{eqn:no-funding-buyback-default-state}
+            \end{align}
+            with \cref{eqn:no-funding-buyback-default-state} making sure that the creditors and derivative payable
+            takes the total asset value amount in case of default, i.e. state $\omega_5$.
 
             \begin{table}[H]
                 \centering
                 \begin{tabular}{l|rrrrr||r}
                     $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                     \hline
-                    $A(\omega_{i})$ & $122.341$ & $112.341$ & $102.341$ & $97.341$ & $62.341$ & $98.717$ \\
-                    $D(\omega_{i})$ & $80$ & $80$ & $80$ & $80$ & $61.571$ & $76.989$ \\
-                    $S(\omega_{i})$ & $38.341$ & $28.841$ & $19.841$ & $15.841$ & $0$ & $19.412$ \\
-                    $Y_C(\omega_{i})$ & $4.000$ & $3.500$ & $2.500$ & $1.500$ & $0.770$ & $2.317$ \\
+                    $A(\omega_{i})$ & $\num{122.3408}$ & $\num{112.3408}$ & $\num{102.3408}$ & $\num{97.3408}$ & $\num{62.3408}$ & $\num{98.71736}$ \\
+                    $D(\omega_{i})$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{61.5711}$ & $\num{76.988534}$ \\
+                    $S(\omega_{i})$ & $38.3408$ & $\num{28.8408}$ & $\num{19.8408}$ & $\num{15.8408}$ & $\num{0}$ & $\num{19.411469}$ \\
+                    $Y_C(\omega_{i})$ & $\num{4}$ & $\num{3.5}$ & $\num{2.5}$ & $\num{1.5}$ & $\num{0.769639}$ & $\num{2.3173567}$ \\
                 \end{tabular}
                 \caption{}
                 \label{tbl:example-no-funding-buyback}
             \end{table}
 
-            After receiving the derivative premium in the form of cash, the firm immediately invests in the riskless asset. 
-            This implies that the firm's total asset value increases with an amount equal to the discounted derivative premium. 
-            The capital structure, after this transaction, is described in \cref{tbl:example-no-funding-buyback}, 
-            where the derivative fair value price and loss rate are found
-            by solving the following equation system for $\pi(Y_C)$ and $\phi$:
-            \begin{align}
-                \pi(Y_C) &= \mathbb{E}^{\rnmeasure}\left[Y_{C}\right]\\
-                A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
-                \label{eqn:no-funding-buyback-default}
-            \end{align}
-            with \cref{eqn:no-funding-buyback-default} making sure that the creditors and derivative payable
-            takes the total asset value amount in case of default, i.e. state $\omega_5$.
+            The loss rate obtained from solving the above problem is $\phi = \pct{0.230361}$, and the credit spread is then calculated as $S = \num{80}/\num{76.988534} - \grossrfrate = \pct{0.0290148}$.
 
             The change in wealth for the creditors is now computed as:
             \begin{equation}
-                \Delta \pi(D) = 76.989 - 76.800 = 0.189
+                \Delta \pi(D) = \num{76.988534} - \num{76.8} = \num{0.188534}
             \end{equation}
             The increment happens as the riskless asset, which the firm invested in with the derivative premium, 
             makes the asset value increase, and a larger total amount is recovered in case of default. 
             In the cases of no default, the creditors are not affected by the new project.\\
             The change in wealth for the shareholders is computed by:
             \begin{equation}
-                \Delta \pi(S) = 19.412 - 19.600 = -0.188
+                \Delta \pi(S) = \num{19.411469} - \num{19.6} = \num{-0.188531}
             \end{equation}
-            where the difference between $\Delta \pi(D)$ and $-\Delta \pi(S)$ is caused by rounding in the present values. 
-            Therefore, this is a negative net present value for the shareholders 
+            Hence, this is a negative net present value for the shareholders 
             and a positive net present value for the creditors. 
             Due to the risk in the derivative, the shareholders do have a chance to gain from the project, 
             where in state $\omega_4$, the derivative payable is less than the return on the riskless asset.
+
+            The \FVA/ is, as always, the adjustment to the project's apparent value to the firm that makes the shareholders indifferent to taking on the project.
+            As the firm is funding the risk-free project with the premium proceeds, no funding costs occur, and the \FVA/ is constituted entirely by the funding benefits, i.e. the \FBA/. 
+            This value can be computed by solving the same system for \FBA/, where the value to the firm is the adjusted fair market value:
+            \begin{equation}
+                V = \pi(Y_C) + \FVA/ = \pi(Y_C) + \FBA/
+                \label{eqn:no-funding-buyback-derivative-adjusted-value}
+            \end{equation}
+            ensuring that $\Delta \pi(S) = 0$.
+
+            The adjusted derivative value to the firm, \cref{eqn:no-funding-buyback-derivative-adjusted-value},
+            will replace the fair market value pricing assumption, \cref{eqn:no-funding-buyback-derivative-fair-value}, in the new setup.
+            Furthermore, the condition of no wealth transfer is added to the equation system.
+            The new problem solved yields a loss rate of $\phi = \pct{0.22768554}$,
+            and the donation needed from the counterparty to make the project a zero net present value for the shareholders is:
+            \begin{equation}
+                \FBA/ = \num{0.21421882}
+            \end{equation}
+            This valuation adjustment suggests a higher derivative premium than the fair market value. Specifically, the premium paid by the counterparty would be $u^{\ast} = \num{2.5318966}$.
 
 \end{document}
