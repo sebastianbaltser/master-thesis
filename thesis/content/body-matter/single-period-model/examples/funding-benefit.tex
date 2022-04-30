@@ -299,7 +299,15 @@
 
             The loss rate obtained from solving the above problem is $\phi = \pct{0.230361}$, and the credit spread is then calculated as $S = \num{80}/\num{76.988534} - \grossrfrate = \pct{0.0290148}$.
 
-            The change in wealth for the creditors is now computed as:
+            The market fair value of the derivative would deem a fair price of the project,
+            as it would be a zero net present value investment for the counterparty.
+            With such pricing, however, a transfer of wealth will occur between the shareholders and the creditors.
+            The firm's incentives of not decreasing the shareholders' wealth
+            makes an argument for a valuation adjustment of the derivative.
+            To support this, the marginal change of the shareholders' wealth is calculated using \cref{eqn:marginal-shareholder-value-cash-financing}.
+            The use of this equation is justified in the sense that instead of paying the opportunity costs of not investing in the risk-free assets with cash,
+            the firm now receives cash and invests in the risk-free asset,
+            such that the sign of the payoff is switched.
             \begin{equation}
                 \Delta \pi(D) = \num{76.988534} - \num{76.8} = \num{0.188534}
             \end{equation}
