@@ -317,7 +317,23 @@
 
             The \FVA/ is, as always, the adjustment to the project's apparent value to the firm that makes the shareholders indifferent to taking on the project.
             As the firm is funding the risk-free project with the premium proceeds, no funding costs occur, and the \FVA/ is constituted entirely by the funding benefits, i.e. the \FBA/. 
-            This value can be computed by solving the same system for \FBA/, where the value to the firm is the adjusted fair market value:
+            \\
+            The valuation adjustment suggests a higher derivative premium than the fair market value. Specifically, the premium paid by the counterparty would be $u^{\ast}$.
+            Using \cref{eqn:shareholdes-breakeven-cash-financing}, which describes the shareholders' price of breakeven with cash financing, the adjusted price becomes:
+            \begin{equation}
+                u^{\ast} = \discountfactor \left(
+                    \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] -
+                    \frac{\text{Cov}^{\rnmeasure}\left(\mathbbm{1}_{\mathcal{D}},Y_{C}\right)}
+                    {p^{\rnmeasure}}
+                \right)
+                = \num{2.5318966}
+            \end{equation}
+            yielding a valuation adjustment of:
+            \begin{equation}
+                \FBA/ = u^{\ast} - u = \num{2.5318966} - \num{2.3173567} = \num{0.2145446}
+            \end{equation}
+
+            Alternatively, this value can be computed by solving the same equation system for \FBA/ as described above, where the value to the firm is the adjusted fair market value:
             \begin{equation}
                 V = \pi(Y_C) + \FVA/ = \pi(Y_C) + \FBA/
                 \label{eqn:no-funding-buyback-derivative-adjusted-value}
