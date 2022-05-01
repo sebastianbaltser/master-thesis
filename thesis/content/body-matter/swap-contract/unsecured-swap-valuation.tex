@@ -4,13 +4,14 @@
 \begin{document}
     \subsection{Valuing unsecured swaps}
         In this section the client swap is assumed to be fully unsecured.
-        This means that no collateralization is performed at the transaction date nor the interim date between the dealer and the swap client.
-        For simplicity and the purpose of marginal valuation,
-        all counterparties involved in a swap contract defaulting at the interim date default after the coupon payments.
+        In other words, no collateral is exchanged between the dealer and the swap client, 
+        neither at the transaction date nor the interim date.
+        For simplicity and for the purpose of marginal valuation,
+        if a swap party defaults at the interim date, the coupon payments will have been paid immediately prior.
         This assumption allows the contingent liabilities from the swap to be paid along with the rest of the liabilities at the given time of default.
         And, as all liabilities rank pari passu, the computational part becomes more interpretive.
 
-        The swap client's time of default is denoted by $\tau_{C}$.
+        The swap counterparty's time of default is denoted by $\tau_{C}$.
         At this point in time, the dealer recovers a fraction of the contractual amount denoted by $\beta_{t}$, where $\beta_{t} = 1$ if $\tau_{C}>t$.
         \\
         \textcolor{red}{Initially, it is also assumed that there are no legacy positions between the dealer and the swap client.
@@ -33,7 +34,7 @@
             \\
             &\quad -
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{F} = t,\tau_{F}>t-1\}} (1-\beta_t) Y_{t}^{+} 
+                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C} = t,\tau_{F}>t-1\}} (1-\beta_t) Y_{t}^{+} 
             \right]
             \label{eqn:swap-value-multi-period}
         \end{align}
@@ -224,7 +225,7 @@
         and the marginal investment cost is constant regardless of the default times of either counterparties,
         the indicator of $\{\tau_{C}>1\}$ can be removed from the first term.
 
-        To find the value of the swap contract that makes the shareholders indifferent of entering the project, $u^{*}$,
+        To find the value of the swap contract that makes the shareholders indifferent to entering the project, $u^{\ast}$,
         the following equation must be solved for $u$:
         \begin{equation}
             0 = G_{\text{debt}}
