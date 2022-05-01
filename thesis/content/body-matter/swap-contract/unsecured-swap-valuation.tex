@@ -28,13 +28,13 @@
             \\
             &\quad +
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{F} = t,\tau_{C}>t-1\}} \phi_t Y_{t}^{-} 
+                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{F} = t\}}\mathbbm{1}_{\{\tau_{C}>t-1\}} \phi_t Y_{t}^{-} 
             \right]
             \nonumber
             \\
             &\quad -
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C} = t,\tau_{F}>t-1\}} (1-\beta_t) Y_{t}^{+} 
+                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C} = t\}}\mathbbm{1}_{\{\tau_{F}>t-1\}} (1-\beta_t) Y_{t}^{+} 
             \right]
             \label{eqn:swap-value-multi-period}
         \end{align}
@@ -64,7 +64,7 @@
             G_{\text{debt}} &=
             \left.\frac{\partial}{\partial q}
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}}
+                \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
                 \left(
                     A - W
                     + q\left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
@@ -77,7 +77,7 @@
             &\quad+
             \left.\frac{\partial}{\partial q}
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}}
+                \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
                 \left(q\mathcal{C}_{1} s_1(q) + \theta_{1}R_{1}\right)
             \right]\right\rvert_{q=0}
             \nonumber
@@ -114,7 +114,7 @@
             \lim_{q \rightarrow 0}
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[
-                    \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}}
+                    \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
                     \left(
                         q\left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
                         - D_{2}(q)
@@ -128,7 +128,7 @@
             \lim_{q \rightarrow 0}
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[
-                    \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}}
+                    \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
                     q\mathcal{C}_{1} s_1(q)
                 \right]
             }{
@@ -152,8 +152,8 @@
             \lim_{q \rightarrow 0}
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[
-                    \delta_{2} 
-                    \left(\mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}\right)
+                    \delta_{2} \left(
+                    \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}\right)
                     \left(
                         A - W
                         - L_{2}
@@ -166,7 +166,7 @@
         \end{align*}
         It is assumed that $A$, $W$, $L_{2}$, $\mathcal{C}_1$, $\mathcal{C}_2$, and $\theta_1$ all have finite expectations,
         which allows for interchanging the limit and the expectation.
-        $\mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}$ equals 0 in the limit,
+        $\mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}$ equals 0 in the limit,
         which entails that the fourth terms equals 0.
         \\
         Expanding the limiting face value, $D_{2}$, yields:
@@ -222,7 +222,7 @@
             \\
             &\quad-
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_2 \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}} u \left(
+                \delta_2 \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}} u \left(
                     R_{1} S_{0} + R_{0} S_{1}
                 \right)
             \right]
@@ -230,7 +230,7 @@
             \\
             &\quad+
             \mathbb{E}_{0}^{\rnmeasure}\left[
-                \delta_2 \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}
+                \delta_2 \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}
                 \mathcal{C}_{1} S_1
             \right]
         \end{align}
