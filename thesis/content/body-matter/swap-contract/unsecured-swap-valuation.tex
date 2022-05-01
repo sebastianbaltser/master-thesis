@@ -163,9 +163,13 @@
         $\mathbbm{1}_{\{\tau_{F}(q)>2,\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}$ equals 0 in the limit,
         which entails that the fourth terms equals 0.
         \\
-        The addend $u S_0 S_1$ appears when expanding the limiting face value, $D_2$.
-        From the expressions of the credit spreads, it is noticed that the expectation the loss rates from the different time periods are multiplied.
-        The following property of expectations can then be used:
+        Expanding the limiting face value, $D_{2}$, yields:
+        \begin{equation}
+            D_2 = u(R_0 + S_0)(R_1 + S_1) = u R_0 R_1 + u R_0 S_1 + u R_1 S_0 + u S_0 S_1
+        \end{equation}
+        Focussing on the addend $u S_0 S_1$, remember that the value of each credit spread depends on the loss rate from the respective time period.
+        From the expressions of the credit spreads, it is noticed that the expectation of the loss rates from the different time periods are multiplied.
+        Using the linearity of expectations and the tower property, the following derivation can then be used:
         \begin{equation*}
             \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]
             * \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right]
