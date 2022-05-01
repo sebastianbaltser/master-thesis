@@ -456,26 +456,64 @@
             \end{align}
         Turning to the limit of the second term in \cref{eqn:G-debt-step-1}.
         Using again the assumption that $A$, $L$, and $Y$ have finite expectations,
-        and that the limit of $\mathbbm{1}_{\mathcal{D}^{c}(q)} - \mathbbm{1}_{\mathcal{D}^{c}}$ equals zero:
-            \begin{equation}
-                \lim_{q\rightarrow0} 
+        the following equation is obtained:
+            \begin{equation*}
                 \discountfactor
-                \frac{
-                    \mathbb{E}^{\mathbb{Q}}\left[
-                    \left(
+                \mathbb{E}^{\mathbb{Q}}\left[
+                    \lim_{q\rightarrow0} 
+                    \frac{
                         \mathbbm{1}_{\mathcal{D}^{c}(q)} 
                         - \mathbbm{1}_{\mathcal{D}^{c}}
-                    \right)
+                    }{
+                        q
+                    }
                     \left(
                         A - L
                     \right)
                 \right] 
-                }{
-                    q
-                }
-                = 0
-                \label{eqn:G-debt-step-3}
-            \end{equation}
+            \end{equation*}
+        Using the algebraic limit theorem on 
+        $\lim_{q\rightarrow0}
+        \left(
+            (\mathbbm{1}_{\mathcal{D}^{c}(q)} 
+            - \mathbbm{1}_{\mathcal{D}^{c}})
+        / q
+        \right) 
+        $
+        yields an indeterminate form, "$0/0$", since both the numerator and the denominator 
+        approaches zero as $q$ approaches zero.
+        This limit can therefore be evaluated by applying 
+        L'H\^{o}pital's  % cspell: disable-line
+        rule.
+        The derivative of the denominator, $q$, with respect to $q$, is $1$,
+        which is different from $0$ as required. 
+        Turning to the numerator, $\mathbbm{1}_{\mathcal{D}^{c}(q)} - \mathbbm{1}_{\mathcal{D}^{c}}$.
+        The pre-project default event is constant in $q$, and its derivative is zero. 
+        For an infinitesimal investment the post-project default indicator, 
+        $\mathbbm{1}_{\mathcal{D}^{c}(q)}$, can only change its value if $A = L$. 
+        However, the assumption $\mathbb{P}\left(A = L\right) = 0$ ensures that this does not occur;
+        the derivative of the post-project default event
+        is therefore surely zero in an interval around $q=0$.
+        Hence, it can be concluded that:
+        \begin{equation}
+            \lim_{q\rightarrow0} 
+            \discountfactor
+            \frac{
+            \mathbb{E}^{\mathbb{Q}}\left[
+                \left(
+                    \mathbbm{1}_{\mathcal{D}^{c}(q)} 
+                    - \mathbbm{1}_{\mathcal{D}^{c}}
+                \right)
+                \left(
+                    A - L
+                \right)
+            \right] 
+            }{
+                q
+            }
+            = 0
+            \label{eqn:G-debt-step-3}
+        \end{equation}
         Applying the results of \cref{eqn:G-debt-step-2} and \cref{eqn:G-debt-step-3}
         to \cref{eqn:G-debt-step-1} yields:
             \begin{align}
