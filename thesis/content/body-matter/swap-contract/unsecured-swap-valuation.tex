@@ -109,7 +109,7 @@
         By expressing this derivative as a difference quotient, using $U(0)=0$,
         and by the linearity of the expectation operator,
         the following limit is obtained:
-        \begin{align*}
+        \begin{align}
             &=
             \lim_{q \rightarrow 0}
             \frac{
@@ -123,6 +123,7 @@
             }{
                 q
             }
+            \nonumber
             \\
             &\quad+
             \lim_{q \rightarrow 0}
@@ -134,6 +135,7 @@
             }{
                 q
             }
+            \nonumber
             \\
             &\quad-
             \lim_{q \rightarrow 0}
@@ -147,6 +149,7 @@
             }{
                 q
             }
+            \nonumber
             \\
             &\quad-
             \lim_{q \rightarrow 0}
@@ -163,7 +166,8 @@
             }{
                 q
             }
-        \end{align*}
+            \label{eqn:G-debt-multi-step-1}
+        \end{align}
         It is assumed that $A$, $W$, $L_{2}$, $\mathcal{C}_1$, $\mathcal{C}_2$, and $\theta_1$ all have finite expectations,
         which allows for interchanging the limit and the expectation.
         $\mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}$ equals 0 in the limit,
