@@ -49,14 +49,14 @@
                 $A_{i}$ & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
                 $D_{i}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{61}$ & $\num{76.92}$ \\
                 $S_{i}$ & $\num{39.017098}$ & $\num{29.500733}$ & $\num{19.984367}$ & $\num{15.226185}$ & $\num{0}$ & $\num{19.48}$ \\
-                $\tilde{S}_{i}$ & $\num{1.982902}$ & $\num{1.499267}$ & $\num{1.015633}$ & $\num{0.773815}$ & $\num{0}$ & $\num{0.99}$ \\
+                $\tilde{S}_{i}$ & $\num{1.982902}$ & $\num{1.499267}$ & $\num{1.015633}$ & $\num{0.773815}$ & $\num{0}$ & $\num{0.989994}$ \\
             \end{tabular}
             \caption{}
             \label{tbl:equity-funding-payoff}
         \end{table}
 
         After the transaction, the firm's balance sheet has increased with an amount equal to the premium of the derivative. 
-        The firm has a new asset on the asset side, the derivative receivable worth $\num{0.99}$, and that is funded by $\num{0.99}$ worth of new equity.
+        The firm has a new asset on the asset side, the derivative receivable worth $\num{0.989994}$, and that is funded by $\num{0.989994}$ worth of new equity.
 
         The project is a negative net present value investment for the legacy shareholders. 
         The decrease in the equity value is calculated using
@@ -66,9 +66,9 @@
             =  
                 G_{\text{equity}}
             =
-                - (\num{1} - \pct{0.878787}) * \num{0.99}
+                - (\num{1} - \pct{0.878787}) * \num{0.989994}
             = 
-                -\num{0.12}
+                -\num{0.120001}
         \end{equation}
         This amount is also what is referred to as the transfer of wealth, $\Delta W$, when no excess yield or donation is received on the derivative. 
         And as mentioned above, the marginal value of the project to the shareholders is even lower when the project is financed by share issuance,
@@ -80,7 +80,7 @@
         The project is a positive net present value investment for the creditors. 
         Their increase in wealth is computed as:
         \begin{equation}\label{eqn:wealth-transfer-equality}
-            \Delta \pi(D) = -\Delta \pi(S) = \num{76.92} - \num{76.80} = \num{0.12}
+            \Delta \pi(D) = -\Delta \pi(S) = \num{76.92} - \num{76.80} = \num{0.120001}
         \end{equation}
         The value of the debt increases, since the creditors get the entire derivative's receivables in the default state. Following this, the loss rate as well as the credit spread decreases significantly compared to the pre-project metrics. The new loss rate is $\phi = (\num{80}-\num{61})/\num{80} = \pct{0.2375}$, and the new credit spread is $S = \num{80}/\num{76.92} - \grossrfrate = \pct{0.029941}$.
         \\
@@ -113,7 +113,7 @@
             \begin{equation}
                     u^{\ast}_{\text{equity}} 
                 =
-                    \frac{\num{1}}{\num{1} + \pct{0.010101}} 
+                    \frac{1}{1 + \pct{0.010101}} 
                     *
                     \pct{0.878787}
                     *
@@ -123,9 +123,15 @@
                         \num{0}
                     \right)
                 =
-                    \num{0.87}
+                    \num{0.869999}
             \end{equation}
-        meaning $\FVA/ = \num{0.99}-\num{0.87} = \num{0.12}$. Notice that this amount is the same as the wealth transfer.
+        meaning 
+        \begin{equation}
+            \FVA/ = u^{\ast}_{\text{equity}} - u =
+            \num{0.989994}-\num{0.869999} =
+            \num{0.12}
+        \end{equation}
+        Notice that this amount is the same as the wealth transfer.
         This is because the donation from the counterparty does not affect the total asset value of the firm.
         Hence, the loss rate of the creditors remains unchanged from before the donation, and therefore so does the creditors' payoff's present value.
         The creditors will then still receives the wealth transfer, $\Delta \pi(D)$,
