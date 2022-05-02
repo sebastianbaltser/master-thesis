@@ -213,40 +213,109 @@
             The firm's balance sheet is left unchanged, meaning that the sum of the market values of debt, equity, 
             and derivative payable is the same after the transaction. 
             The values of the different parties are shown in \cref{tbl:example-equity-buyback}. 
-            The loss rate increases and is computed as: $\phi = 1 - 60/81 = 25.93\%$. 
-            Similarly, the credit spread increases from the pre-project value of 3.157\%: $S = 80/76.711 - \grossrfrate = 3.28\%$.
+            The loss rate increases from the pre-derivative value and is computed as:
+            $\phi = 1 - \num{60}/\num{81} = \pct{0.25925926}$.
+            Similarly, the credit spread increases:
+            $S = \num{80}/\num{76.711111} - \grossrfrate = \pct{0.032772686}$.
             \begin{table}[H]
                 \centering
                 \begin{tabular}{l|rrrrr||r}
                     $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                     \hline
-                    $A(\omega_{i})$ & $120$ & $110$ & $100$ & $95$ & $60$ & $96.400$ \\
-                    $D(\omega_{i})$ & $80$ & $80$ & $80$ & $80$ & $59.259$ & $76.711$ \\
-                    $S(\omega_{i})$ & $39$ & $29$ & $19$ & $14$ & $0$ & $18.730$ \\
-                    $Y_C(\omega_{i})$ & $1$ & $1$ & $1$ & $1$ & $0.741$ & $0.959$ \\
+                    $A(\omega_{i})$ & $\num{120}$ & $\num{110}$ & $\num{100}$ & $\num{95}$ & $\num{60}$ & $\num{96.4}$ \\
+                    $D(\omega_{i})$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{59.259259}$ & $\num{76.711111}$ \\
+                    $S(\omega_{i})$ & $\num{39}$ & $\num{29}$ & $\num{19}$ & $\num{14}$ & $\num{0}$ & $\num{18.73}$ \\
+                    $Y_C(\omega_{i})$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{0.74074074}$ & $\num{0.95888889}$ \\
                 \end{tabular}
                 \caption{}
                 \label{tbl:example-equity-buyback}
             \end{table}
 
-            Is assumed that the firm receives the credit risk adjusted market price, i.e. $u=0.959$ as the derivative premium at time 0, which is immediately spend on equity buyback. 
-            
-            The derivative contract is a negative net present value for the for the creditors, 
-            where the change of wealth is computed by:
-            \begin{equation}
-                \Delta \pi(D) = 76.711 - 76.800 = -0.089
-            \end{equation}
-            On the other hand, the transaction is a positive net present value for the shareholders:
-            \begin{equation}
-                \Delta \pi(S) = (18.730 + 0.959) - 19.600 = 0.089
-            \end{equation}
-            meaning there is a wealth transfer from the creditors to the shareholders.
+            It is assumed that the firm receives the credit risk adjusted market price,
+            i.e. $u=\num{-0.95888889}$, as the derivative premium at time 0, which is immediately spend on equity buyback.
 
-            The derivative is a zero net present value for the counterparty. 
-            The price of the derivative is lower compared to the case of debt retiring, 
-            which is explained by the higher loss rate in case of default. 
-            The only valuation adjustment to the price is still the \CVA/ charged by the counterparty, 
-            which again validates \cref{eqn:option-value-credit-risk}.
+            Buying back equity from shareholders leaves two payoffs that must be added together:
+            (i) the immediate payoff corresponding to the derivative premium, and
+            (ii) the present value of the expected payoff at time 1.
+            To establish whether entering into this project is attractive for the shareholders,
+            the marginal valuation expression by equity funding, \cref{eqn:marginal-shareholder-value-equity-financing}, is used.
+            The payoff function for the firm is here the negative derivative payable,
+            as the premium of the derivative serves as funding benefit.
+            The change of wealth for the shareholders is then given by:
+            \begin{equation}
+                G_{\text{equity}} =
+                p^{\mathbb{Q}}
+                    \pi
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(
+                        \mathbbm{1}_{D},
+                        Y
+                    \right)
+                    -
+                    \left(
+                        1
+                        -
+                        p^{\mathbb{Q}}
+                    \right)
+                    u
+                = \num{0.088888889}
+            \end{equation}
+            
+            As the price of the derivative is assumed to be the credit risk adjusted market value,
+            the derivative is a zero net present value for the counterparty.
+            The positive marginal valuation for the shareholders then implies a wealth transfer from the creditors to the shareholders.
+            Hence, the derivative contract is a positive net present value investment for the for the shareholders, 
+            where the change of wealth is verified by the change of expected payoff:
+            \begin{equation}
+                \Delta \pi(S) = (\num{18.73} + \num{0.95888889}) - \num{19.6} = \num{0.088888889}
+            \end{equation}
+            On the other hand, the transaction is a negative net present value investment for the creditors:
+            \begin{equation}
+                \Delta \pi(D) = \num{76.711111} - \num{76.8} = \num{-0.088888889}
+            \end{equation}
+
+            For the project to be a zero net present value investment for the shareholders,
+            the firm is willing to receive an amount lower than the credit risk adjusted market price.
+            This value is denoted by $u_{\text{equity}}^{\ast}$, and can be computed from the derived expression of the breakeven price under equity financing, \cref{eqn:shareholders-breakeven-equity-financing}:
+            \begin{equation}
+                u_{\text{equity}}^{\ast} =
+                \discountfactor
+                p^{\mathbb{Q}}
+                \left(
+                    \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                    -
+                    \frac{
+                        \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                    }{
+                        p^{\mathbb{Q}}  
+                    }  
+                \right)
+                = \num{-0.87}
+            \end{equation}
+            which suggest an \FVA/ given by:
+            \begin{equation}
+                \FVA/ =
+                u_{\text{equity}}^{\ast} - u =
+                \num{-0.87} - \left(\num{-0.95888889}\right) =
+                \num{0.088888889}
+            \end{equation}
+            Since the \FVA/ is not originated from any funding costs but solely from the benefits of buying back equity,
+            the \FVA/ is constituted entirely by \FBA/.
+            
+            Similar to the case of buying the derivative by issuing new shares analysed in \cref{sec:example-equity-issuance},
+            the \FVA/ amount is equal to the wealth transfer.
+            This is because the donation,
+            that the counterparty potentially offers,
+            does not affect the total asset value of the firm.
+            The loss rate on the debt and the derivative payable remains unchanged,
+            and as a direct consequence,
+            so does the present value of the creditors' and counterparty's payoffs.
+            \\
+            The creditors still lose a wealth transfer worth $\Delta \pi(D)$ due to the project being entered into.
+            The shareholders are however willing to receive a lower price of the project than $-u$.
+            For all prices down to $-u_{\text{equity}}^{\ast}$,
+            the shareholders will still consider the transaction a non-negative net present value investment.
 
         \subsubsection{No funding buyback}
             Now suppose, instead of buying back debt or equity, 
