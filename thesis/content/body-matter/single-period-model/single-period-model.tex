@@ -34,43 +34,55 @@
                 r_{f} = \frac{1}{d_{0}} - 1
             \end{equation}
         The gross risk-free rate will be denoted by $\grossrfrate \equiv 1 + r_{f}$.
-        The product between the gross risk-free rate and the state price vector produces the risk neutral probability distribution, $\mathbb{Q}$, i.e. $q_{i} = \grossrfrate\psi_{i}$.
+        The product between the gross risk-free rate and the state price vector produces the risk-neutral probability distribution, $\mathbb{Q}$, i.e. $q_{i} = \grossrfrate\psi_{i}$.
 
         In an OTC market, the market valuations of a derivative $i$ need not coincide with the price, $U_{i}(q)$, at which dealers are trading this derivative.
         At almost the same point in time, the same asset can be traded at several different prices reflecting distinct bids and asks of different dealers.
         The associated deviation in prices is partly explained by search costs, differences in dealer-client relationships, and differences in the dealers' capital structure.
 
     \subsection{Firm capital structure}
-        Consider now a firm operating in a single-period economy with $S$ states and state prices.
+        Consider now a firm operating in a single-period economy.
         The firm can invest in assets with risk but needs financing for supporting it's investments.
         Assume that the firm has no cash, such that financing can only be obtained at two different sources, namely equity funding through distribution of the firm's own stocks or issuance of debt.
         The sum of the amount of equity funding obtained and the amount of debt issued decides the value of risky assets the firm can invest in.
         The value of the firm at time $1$ is given by the random variable $A$.
-        At time 1 the creditors are promised to receive the face value of the debt $D_{FV}$ earning an interest rate on their investment.
+        At time 1 the creditors are promised to receive some cash flow denoted by $L$.
+        This cash flow might be fixed, i.e. a face value, 
+        or random, i.e. depending on the realized state.
         In the event that the value of the firm $A$ is not sufficient to pay the face value in it's entirety, the firm defaults and the creditors takes over the remaining estate. 
-        The firms' default event will be denoted by $D$.
-        The payoff to the creditors is thus a random variable denoted by $L$.
+        The firm's default event will be denoted by $\mathcal{D}$ and defined as $\{A < L\}$.
+        The complement to the firm's default, its survival event, 
+        will be denoted by $\mathcal{D}^{c}$.
         In a default event the firm can suffer distress costs due to for example liquidation of its assets.
         The remaining estate after a default depends on the recovery parameter $\kappa \in (0;1]$, such that the remaining estate is $\kappa A$.
+        The creditors' payoff is therefore random; 
+        it is equal to $L$ in states where the firm does not default
+        and equal to the remaining assets, $\kappa A$ in states where the firm does default.
+        The time 1 payoff to the creditors will be denoted by $D$, short for debt,
+        and is mathematically given by:
+            \begin{equation}
+                D
+                =
+                \mathbbm{1}_{\mathcal{D}} \kappa A
+                +
+                \mathbbm{1}_{\mathcal{D}^{c}} L
+            \end{equation}
+        The firm is owned by its shareholders who have a limited liability claim on the firm.
         Shareholders receives the remainder of the firm value after the debt has been paid and in particular receives nothing when the firm defaults.
-        The shareholders' random payoff is denoted by $S$.
-        Hence, the payoff of creditors and shareholders is given respectively by:
-            \begin{gather}
-                L = \min\left(
-                        D_{FV},\; A
-                    \right)
-                    = D_{FV} - \max\left(
-                        D_{FV} - A, 0
-                    \right) \label{eqn:legacy-creditor-payoff}\\
-                S
-                    = \max\left(
-                        A - D_{FV},\; 0
-                    \right)
-            \end{gather}
-        It is worth noting that the creditors security, i.e. the debt claim, can be replicated by buying a riskless bond with face value $D_{FV}$ and selling a put option on the firm with strike $D_{FV}$.
-        The shareholders claim is equivalent to buying a call option on the firm with strike $D_{FV}$.
+        Hence, the shareholders' payoff is also random;
+        equal to $A - D$ in no-default states and equal to zero in default states.
+        The time 1 payoff to the shareholders will be denoted by $E$, short for equity,
+        and is given by:
+            \begin{equation}
+                E
+                =
+                \mathbbm{1}_{\mathcal{D}^{c}} 
+                (A - L)
+            \end{equation}
+        It is worth noting that the creditors security, i.e. the debt claim, can be replicated by buying a riskless bond with face value $L$ and selling a put option on the firm with strike $L$.
+        The shareholders claim is equivalent to buying a call option on the firm with strike $L$.
 
-        After deciding it's capital structure, the firm has an opportunity to engage in a new project, e.g. buying or selling a security.
+        After deciding its capital structure, the firm has an opportunity to engage in a new project, e.g. buying or selling a security.
         The project has a, possibly random, payoff denoted by $Y$, a value denoted by $Y_{0}$, and a price denoted by $\pi(Y)$.
         If the project is fairly priced the price equals the value, i.e. $\pi(Y) = Y_{0}$, but this is not necessarily the case in the following examples.
         In order to invest in the project the firm must pay the upfront price, $\pi(Y)$, or receive it if it's negative.
