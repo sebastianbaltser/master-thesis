@@ -360,16 +360,20 @@
                 \FVA/ = u^{\ast} - u = \num{2.5318966} - \num{2.3173567} = \num{0.2145446}
             \end{equation}
 
-            Alternatively, this value can be computed by solving the same equation system for \FCA/ as described above, where the value to the firm is the funding  cost adjusted market value:
-            \begin{equation}
+            Alternatively, this value can be computed by solving the related equation system for \FCA/ as described above, where the value to the firm is the funding  cost adjusted market value:
+            \begin{align}
                 V = \pi(Y_C) + \FVA/ = \pi(Y_C) + \FCA/
                 \label{eqn:no-funding-buyback-derivative-adjusted-value}
-            \end{equation}
-            while ensuring that $\Delta \pi(S) = 0$.
+                \\
+                A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
+                \\
+                \Delta \pi(S) = 0
+                \label{{eqn:no-wealth-transfer-no-funding-buyback}}
+            \end{align}
 
             The adjusted derivative value to the firm, \cref{eqn:no-funding-buyback-derivative-adjusted-value},
             will replace the fair market value pricing assumption, \cref{eqn:no-funding-buyback-derivative-fair-value}, in the new setup.
-            Furthermore, the condition of no wealth transfer is added to the equation system.
+            Furthermore, the condition of no wealth transfer away from the shareholders, \cref{eqn:no-wealth-transfer-no-funding-buyback}, is added to the equation system.
             The new problem solved yields a loss rate of $\phi = \pct{0.22768554}$,
             which is slightly lower,
             and as before the donation needed from the counterparty to make the project a zero net present value for the shareholders is $\FCA/ = \num{0.2145446}$.
