@@ -214,7 +214,7 @@
                     \right)
                 \nonumber
             \end{align}
-        The limit of $\mathcal{D}^{c}(q)$ is $D^{c}$,
+        The limit of $\mathcal{D}^{c}(q)$ is $\mathcal{D}^{c}$,
         since the post-project default event with an infinitesimal investment in the project
         corresponds to the pre-project default event.
         This stems from the fact that the upfront price of the $U(q)$
@@ -228,7 +228,7 @@
                         \mathbb{E}^{\rnmeasure}\left[
                             1
                             +
-                            \mathbbm{1}_{D}
+                            \mathbbm{1}_{\mathcal{D}}
                             \left(
                                 \frac{
                                     \kappa 
@@ -250,7 +250,7 @@
                         \mathbb{E}^{\rnmeasure}\left[
                             1
                             +
-                            \mathbbm{1}_{D}
+                            \mathbbm{1}_{\mathcal{D}}
                                 \frac{
                                     \kappa 
                                     A
@@ -374,7 +374,7 @@
                     \right]
                     -
                     \mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{D^{c}}  
+                    \mathbbm{1}_{\mathcal{D}^{c}}  
                     \left(
                         A - L
                     \right)
@@ -397,7 +397,7 @@
                     \mathbb{E}^{\mathbb{Q}}\left[
                     \left(
                         \mathbbm{1}_{\mathcal{D}^{c}(q)} 
-                        - \mathbbm{1}_{D^{c}}
+                        - \mathbbm{1}_{\mathcal{D}^{c}}
                     \right)
                     \left(
                         A - L
@@ -440,14 +440,14 @@
                 The limit of $U(q)/q$ can be recognized as the marginal investment cost, $u$,
                 while the limit of $s(q)$ is the limiting spread, $S$.
                 The limit of the post-project no-default event, $\mathcal{D}^{c}(q)$, 
-                is the pre-project no-default event $D^{c}$.
+                is the pre-project no-default event $\mathcal{D}^{c}$.
                 The reformulation again uses the algebraic limit theorem,
                 which applies since the limits of the factors exists:
             }
                 &=
                 \discountfactor
                 \mathbb{E}^{\mathbb{Q}}\left[ 
-                    \mathbbm{1}_{D^{c}} 
+                    \mathbbm{1}_{\mathcal{D}^{c}} 
                     \left(
                         Y - u (\grossrfrate + S)
                     \right)
@@ -456,7 +456,7 @@
             \end{align}
         Turning to the limit of the second term in \cref{eqn:G-debt-step-1}.
         Using again the assumption that $A$, $L$, and $Y$ have finite expectations,
-        and that the limit of $\mathbbm{1}_{\mathcal{D}^{c}(q)} - \mathbbm{1}_{D^{c}}$ equals zero:
+        and that the limit of $\mathbbm{1}_{\mathcal{D}^{c}(q)} - \mathbbm{1}_{\mathcal{D}^{c}}$ equals zero:
             \begin{equation}
                 \lim_{q\rightarrow0} 
                 \discountfactor
@@ -464,7 +464,7 @@
                     \mathbb{E}^{\mathbb{Q}}\left[
                     \left(
                         \mathbbm{1}_{\mathcal{D}^{c}(q)} 
-                        - \mathbbm{1}_{D^{c}}
+                        - \mathbbm{1}_{\mathcal{D}^{c}}
                     \right)
                     \left(
                         A - L
@@ -482,7 +482,7 @@
                 G_{\text{debt}} &=
                 \discountfactor
                 \mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{D^{c}} 
+                    \mathbbm{1}_{\mathcal{D}^{c}} 
                     \left(
                         Y - u (\grossrfrate + S)
                     \right)
@@ -493,31 +493,31 @@
                 &=
                 \discountfactor\left(
                     \mathbb{E}^{\mathbb{Q}}\left[
-                        \mathbbm{1}_{D^{c}}Y
+                        \mathbbm{1}_{\mathcal{D}^{c}}Y
                     \right]
                     - 
                     \mathbb{E}^{\mathbb{Q}}\left[
-                        \mathbbm{1}_{D^{c}} u (\grossrfrate + S)
+                        \mathbbm{1}_{\mathcal{D}^{c}} u (\grossrfrate + S)
                     \right]
                 \right)
                 \nonumber \\
                 &=
                 \discountfactor
                 \mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{D^{c}}Y
+                    \mathbbm{1}_{\mathcal{D}^{c}}Y
                 \right]
                 - 
                 \mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{D^{c}}
+                    \mathbbm{1}_{\mathcal{D}^{c}}
                 \right] u
                 - 
                 \mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{D^{c}}
+                    \mathbbm{1}_{\mathcal{D}^{c}}
                 \right] \discountfactor u S
                 \label{eqn:G-debt-step-4}
             \end{align}
         The expected value of two dependent terms in the first term, 
-        $\mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}Y\right]$,
+        $\mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}Y\right]$,
         can be reformulated by applying the definition of the covariance operator.
         This reformulation will later make interpretation easier.
         Using the linearity of the expectation operator,
@@ -535,26 +535,26 @@
         According to this result, the aforementioned expectation can be rewritten as follows:
             \begin{align}
                 \mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{D^{c}}Y
+                    \mathbbm{1}_{\mathcal{D}^{c}}Y
                 \right]
                 &=
-                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right] 
+                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
                 \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
                 + 
-                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D^{c}}, Y\right) 
+                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}^{c}}, Y\right) 
                 \nonumber\\
                 &=
-                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right] 
+                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
                 \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
                 - 
-                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D}, Y\right) 
+                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
             \end{align}
-        Where the last equality uses $\mathbbm{1}_{D^{c}} = 1 - \mathbbm{1}_{D}$ 
+        Where the last equality uses $\mathbbm{1}_{\mathcal{D}^{c}} = 1 - \mathbbm{1}_{\mathcal{D}}$ 
         combined with a property of the covariance operator.
         Substituting into \cref{eqn:G-debt-step-4} finally yields the marginal value to shareholders of debt financing:
             \begin{align}
                 G_{\text{debt}} &=
-                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{D^{c}}\right] 
+                \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
                 \left(
                     \discountfactor
                     \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
@@ -562,23 +562,24 @@
                 \right)
                 -
                 \discountfactor
-                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D}, Y\right) 
+                \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
                 - 
                 \mathbb{E}^{\mathbb{Q}}\left[
-                    \mathbbm{1}_{D^{c}}
+                    \mathbbm{1}_{\mathcal{D}^{c}}
                 \right] \discountfactor u S
                 \nonumber \\
                 &= 
                 p^{\mathbb{Q}} \pi 
                 - \discountfactor 
                 \text{Cov}^{\mathbb{Q}}\left(
-                    \mathbbm{1}_{D}, 
+                    \mathbbm{1}_{\mathcal{D}}, 
                     Y
                 \right) 
                 - \Phi
                 \label{eqn:marginal-shareholder-value-debt-financing}
             \end{align}
-        Where $p^{\mathbb{Q}} = 1 - \mathbb{P}^{\mathbb{Q}}\left(D\right)$ is the risk neutral probability of the firm not defaulting. 
+        Where $p^{\mathbb{Q}} = 1 - \mathbb{P}^{\mathbb{Q}}\left(\mathcal{D}\right)$ 
+        is the risk-neutral probability of the firm not defaulting. 
         $\pi = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[Y\right] - u$ 
         is the difference between the present value of the expected payoff and the upfront price, 
         i.e. $\pi$ is the promised marginal profit on the new project. 
@@ -591,6 +592,6 @@
         the shareholders will miss out on an even higher firm value when the firm defaults.
         The opposite is the case when the default event is negatively correlated with the payoff.
         This effect is captured by the term 
-        $\text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{D}, Y\right)$.
+        $\text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)$.
 
 \end{document}
