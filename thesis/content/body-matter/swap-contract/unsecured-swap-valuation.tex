@@ -19,7 +19,10 @@
 
         Regardless of the method of funding, the apparent marginal market value of the swap is defined by:
         \begin{align}
-            V &=
+            V &= V_{rf} + \DVA/ - \CVA/
+            \nonumber
+            \\
+            &=
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_2 \left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
                 - u
@@ -43,9 +46,9 @@
         The swap value takes into account the credit risks of both the firm and the counterparty.
         Therefore, two adjustments are performed on the the credit risk-free value, $V_0$.
         From the dealer's point of view,
-        the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} adding to the credit risk-free swap value,
-        whereas the \CVA/ is the third term subtracting from the value.
-        As a result of that, the total swap value for the swap client is $-V$.
+        the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} describing the lost amount of the outstanding liability related to the swap in case of the dealer's default.
+        Additionally, the \CVA/ is the third term describing the recovered outstanding positive cash flow in case of the counterparty's default.
+        As a result of that, the total swap value for the swap counterparty is $-V$.
 
         In the multi-period framework, it is assumed that the dealer always use debt funding for financing financial instruments.
         Many established companies have a high credit score,
