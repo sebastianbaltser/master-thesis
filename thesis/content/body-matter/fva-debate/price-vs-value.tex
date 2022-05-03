@@ -5,67 +5,67 @@
     \subsection{The difference between Price and Value}
     \label{sec:price-versus-value}
 
-    It would seem like the debaters could not disagree more 
-    about whether \FVA/s are appropriate or not.
-    One side argues against adjustments due to funding costs, while the other argues in favour.
-    However, following \cite{Ruiz2015XVA}, 
-    it appears that much of the disagreement in the debate is due to theoreticians and practitioners
-    considering an adjustment to two different quantities.
-    Theoreticians are arguing that the derivative \textit{prices} should not be adjusted,
-    while practitioners are arguing that derivative \textit{values} should be adjusted.
-    This section will try to explain the differences between a derivative's price and value
-    as well as presenting some arguments of the previous sections in light of these definitions.
+    It would seem that, if theoreticians are correct in their assessment of \FVA/s,
+    the thesis could be concluded at this point.
+    However, there will probably be no in time point where one side
+    can be considered the sole winner of the debate.
+    In fact, it will soon appear that the two sides might be debating
+    about applying \FVA/s to multiple different things.
+    This section will come to a conclusion about whether \FVA/s should be used
+    on, respectively, a derivative's market price and a derivative's value.
+    These two quantities will be defined shortly. 
+    Still, this will, of course, not settle the entire debate,
+    as there are many other aspects in which \FVA/'s use are being discussed.
+    This paper will not try to reach a conclusion on all of these other aspects.
+    The following arguments are inspired by \textcite{Ruiz2015XVA},
+    and starts of by defining the market price and value of a derivative.
 
-    When a derivatives dealer considers entering a trade, 
-    it is going to take into account two different numbers; 
-    namely, the trade's price and the trade's value to the dealer.
+    When a dealer sells a derivative at the inception date it is going to receive some price,
+    which will be referred to as the market price.
+    Since it is selling at that price, the dealer would like it to be as high as possible.
+    \\
+    "Creating" or "manufacturing" the derivative has an associated cost to the dealer,
+    which is constituted by multiple different terms.
+    Assume, after selling the derivative, the dealer is going to hedge the market risk
+    by trading derivatives in an exchange.
+    This market is highly collateralized and has a minimum of credit risk;
+    for simplicity, assume that the dealer is able to hedge the market risk by paying
+    the price of the derivative without credit risk. 
+    This price will be referred to as the risk-free price.
+    The dealer is also going to hedge the counterparty's default risk which costs \CVA/.
+    Assume also that the dealer decides to hedge its own default risk
+    and that it is able to fully hedge it; therefore, generating the benefit \DVA/.
+    As a final cost, the dealer will be paying or receiving its funding rate on unsecured borrowing
+    for the derivative's cash flow, which costs \FVA/.
+    
+    In total, the cost of creating the derivative is:
+        \begin{equation*}
+            \text{Cost} = \text{Risk Free Price} - \CVA/ + \DVA/ - \FVA/
+        \end{equation*}
     The trade's value to the dealer is given by the difference in the trade's price
     and the cost to the dealer of obtaining and holding the trade:
-        \begin{equation}
+        \begin{align*}
             \text{Value to Dealer} 
-            =
-            \text{Price}
+            &=
+            \text{Market Price}
             -
-            \text{Cost}
-        \end{equation}
-    The trade's price is the price that the dealer could buy or sell the trade for in the market.
-    If the market satisfies the assumptions of the traditional derivative pricing frameworks,
-    this will be the risk-neutral price and therefore the price that 
-    theoreticians considers as the "true" price.
-    The price must reflect the cost of hedging the derivative
-    and can thus be decomposed into three components. 
-    The first being the price of hedging when all parties are free of credit risk, 
-    the second being the cost of hedging credit risk from the counterparty, $\CVA/$,
-    and the third being the cost of hedging credit risk from the dealer itself, $\DVA/$:
-        \begin{equation}
-            P = 
-            P_{rf} 
-            -
-            \CVA/
-            +
-            \DVA/
-        \end{equation}
-    The trade's value to the dealer represents how much the trade is worth to the dealer.
-    As already mentioned, this corresponds to the trade's price less the cost to the dealer
-    of "creating" or "producing" the trade by buying it.
-    In this thesis the discussion concerns funding costs,
-    which is one of the costs that entering into a trade will entail.
-    Therefore, the trade's value to the dealer is given by:
-        \begin{equation}
-            V = P - \FVA/
-        \end{equation}
+            \text{Cost} 
+            \\
+            &= \text{Market Price} - \text{Risk Free Price} + \CVA/ - \DVA/ + \FVA/
+        \end{align*}
     The value of the trade is going to decide whether it will be economical 
     for the dealer to enter the trade. 
     If the value is negative, the dealer will lose money on the trade;
     if the value is positive, the dealer will make money.
-    
-    According to these definitions, 
-    \FVA/ is a component in the trade's value, but not in the trade's price. 
-    It would seem as if the market price of the trade 
-    is completely unconnected to the funding costs of the trade;
-    however, there is in fact a relation between the two. 
-    To see this, remember that the market price of a trade 
-    is actually set by supply and demand forces.
+    Setting the value to zero in the above equation and solving for the market price, 
+    would yield the breakeven price:
+        \begin{align*}
+            \text{Breakeven Price}
+            =
+            \text{Risk Free Price} - \CVA/ + \DVA/ - \FVA/
+        \end{align*}
+    The question is now how the market price and the \FVA/ of the firm are related.
+    Remember that the market price of a trade is set by supply and demand forces.
     It will therefore not necessarily adhere to some rigorous pricing scheme,
     but rather be influenced by many different factors in the market.
     One of these factors is the cost of funding the trade.
@@ -78,8 +78,46 @@
     simply because the cost of operating it is high.
     The price is set by the market by the invisible hand of supply and demand,
     and will therefore be driven by many other factors than the operating cost of the trade.
+    
+    Therefore, there is no \FVA/ in the market price, 
+    but there is certainly an \FVA/ in the value to the dealer.
 
-    Assume that the dealer have calculated the value of the trade and decided to buy it.
+    A confusing case occurs if the dealer has a very dominant position in the market.
+    In that case, the dealer is able to influence the market price.
+    Of course, the dealer is going to increase the price to a level above its breakeven price
+    and for as long as there is a counterparty willing to buy the derivative at that price.
+    Since the breakeven price is a lower bound for the price that the dealer is happy with,
+    it might be said that the \FVA/ is used to calculate the price.
+    However, that is inaccurate. 
+    If the dealer charges a price $\hat{P}$ that ensures the derivative's value is positive,
+    it is only able to do so because the the demand side accepts the price.
+    If, for some reason, the dealer's \FVA/ drops to zero,
+    it is clearly not going to change its price from $\hat{P}$,
+    simply because the demand side accepts it 
+    and the dealer will always charge as high a price as possible.
+
+    That \FVA/ should not be included in the market price 
+    is part of the conclusion that \textcite{HullWhite2012FVA} argue for: 
+    \textit{
+        FVA should not be considered when determining the value of the 
+        derivatives portfolio, and it should not be considered when determining the prices 
+        the dealer should charge when buying or selling derivatives.
+    }
+    Some practitioners' argue that funding costs are are very real costs to a dealers operation,
+    and that they therefore need to apply an \FVA/.
+    This is an argument for applying \FVA/s to the value of the trade,
+    which is a very sensible thing to do.
+    An \FVA/ is necessary to arrive at the dealers breakeven price;
+    therefore, the dealer will not be able to make sound trading decisions without an \FVA/.
+    
+    As such, theoreticians and practitioners are not disagreeing entirely on the subject.
+    However, the debate is not limited to the difference between price and value
+    that was accounted for here. 
+    There exists yet another price to consider, which is what the quote above 
+    refers to as \textit{the value of the derivatives portfolio}.
+
+    Assume that the dealer is instead the buyer of a derivative.
+    The dealer has calculated the value of the trade and decided to buy it.
     After obtaining the trade, at the price decided by the market, another price forms. 
     The dealer is now interested in the price it would receive 
     if it sold the trade again to a third party; namely, the exit price of the trade.
@@ -99,7 +137,7 @@
     If the dealer decides on a funding rate, the problem expands further
     because each institution will have different funding rates, but no one will reveal their own.
     It is therefore impossible to really estimate the correct adjustment to make,
-    which is why theoreticians like Hull and White oppose these adjustments including \FVA/.
+    which is why theoreticians like \textcite{HullWhite2012FVA} oppose \FVA/s to exit prices.
     Coming to a conclusion about whether to use \FVA/s when marking-to-market a trade
     is an interesting but vast topic.
     Asserting this could include research on the current market practice and
