@@ -1,4 +1,5 @@
 import abc
+import math
 import logging
 import functools
 from scipy import optimize
@@ -103,7 +104,7 @@ class SinglePeriodEconomy:
                 raise ValueError(f"Probability must be between 0 and 1, but was {probability} for state {state}")
             total_probability += probability
 
-        if total_probability != 1.0:
+        if not math.isclose(total_probability, 1.0, abs_tol=1e-10):
             raise ValueError(f"Probability distribution must sum to 1.0, but sum to {total_probability}")
 
     def __str__(self):
@@ -112,6 +113,10 @@ class SinglePeriodEconomy:
             string += f"\t{state}, Probability: {probability}\n"
 
         return string
+
+    def map(self, func) -> States:
+        """Map function to states."""
+        return States(OrderedDict((state, func(state)) for state, _ in self.states))
 
     @property
     def discount_factor(self):
@@ -130,6 +135,17 @@ class SinglePeriodEconomy:
     def risk_neutral_expectation(self, values: States) -> float:
         """Returns the risk neutral expectation of a set of an instance of ``States``."""
         return sum(self.risk_neutral_probability(state) * value for state, value in values)
+
+    def risk_neutral_covariance(self, left_values: States, right_values: States) -> float:
+        """Returns the risk neutral covariance of two sets of instances of ``States``."""
+        left_expected_value = self.risk_neutral_expectation(left_values)
+        right_expected_value = self.risk_neutral_expectation(right_values)
+
+        states = left_values.states | right_values.states
+        return self.risk_neutral_expectation(States({
+            state: (left_values[state] - left_expected_value) * (right_values[state] - right_expected_value)
+            for state in states
+        }))
 
 
 class Payoffs:
@@ -292,3 +308,26 @@ class DebtPariPassu(Derivative):
     def bond_yield(self) -> float:
         """The gross yield of the bond."""
         return self.face_value / self.present_value - 1
+
+
+class Firm:
+    """
+    Represents a firm in a single period economy.
+
+    Args:
+        assets (Asset):
+        debt_face_value (float):
+    """
+    def __init__(self, assets, debt_face_value):
+        self.assets = assets
+        self.debt_face_value = debt_face_value
+
+    def is_default_state(self, state: State) -> bool:
+        return self.assets[state] < self.debt_face_value
+
+    def loss_rate(self, state: State) -> float:
+        is_default = self.is_default_state(state)
+        if not is_default:
+            return 0.0
+        else:
+            return (self.debt_face_value - self.assets[state]) / self.debt_face_value

@@ -3,6 +3,7 @@ import pytest
 from itertools import repeat
 from spm.spm import (
     Equity,
+    Firm,
     State,
     States,
     SinglePeriodEconomy,
@@ -84,6 +85,33 @@ class TestSinglePeriodEconomy:
     def test_risk_neutral_probability(self, economy, expected_risk_neutral_probabilities):
         for state, probability in expected_risk_neutral_probabilities.items():
             assert math.isclose(economy.risk_neutral_probability(state), probability, rel_tol=1e-3)
+
+    @pytest.mark.parametrize("economy, states, expected_risk_neutral_expectation", [
+        (test_economy_1, States(test_states_1, [10, 10, 10, 10, 10]), 10),
+        (test_economy_1, States(test_states_1, [15, 14, 13, 10, 10]), 12.234694),
+    ])
+    def test_risk_neutral_expectation(self, economy, states, expected_risk_neutral_expectation):
+        result = test_economy_1.risk_neutral_expectation(states)
+        assert math.isclose(result, expected_risk_neutral_expectation, rel_tol=1e-3)
+
+    @pytest.mark.parametrize("economy, states_1, states_2, expected_covariance", [
+        (test_economy_1, States(test_states_1, [10, 10, 10, 10, 10]),
+         States(test_states_1, [0, 0, 0, 1, 1]), 0),
+        (test_economy_1, States(test_states_1, [15, 14, 13, 10, 10]),
+         States(test_states_1, [0, 0, 0, 1, 1]), -0.866514),
+        (test_economy_1, States(test_states_1, [15, 14, 13, 10, 10]),
+         States(test_states_1, [10, 10, 13, 14, 15]), -3.0609121),
+    ])
+    def test_risk_neutral_covariance(self, economy, states_1, states_2, expected_covariance):
+        result = economy.risk_neutral_covariance(states_1, states_2)
+        assert math.isclose(result, expected_covariance, rel_tol=1e-3)
+
+    @pytest.mark.parametrize("economy, states, expected", [
+        (test_economy_1, dict(zip(test_states_1, test_asset_values_1)).get, States(test_states_1, test_asset_values_1))
+    ])
+    def test_map(self, economy, states, expected):
+        result = economy.map(states)
+        assert result == expected
 
 
 class TestAsset:
@@ -219,3 +247,31 @@ class TestEquity:
     def test_payoff_with_equity_share(self, asset, equity_share, expected):
         equity = Equity(asset, debt_face_value=80, equity_share=equity_share)
         assert equity.payoff == expected
+
+
+class TestFirm:
+    @pytest.mark.parametrize("asset_value, debt_value, expected", [
+        (100,   1, False),
+        (100,  10, False),
+        (100, 110,  True),
+        (100, 120,  True),
+    ])
+    def test_is_default_state(self, asset_value, debt_value, expected):
+        state = State(1, 1)
+        asset = Asset(States({state: asset_value}))
+        firm = Firm(asset, debt_value)
+
+        assert firm.is_default_state(state) == expected
+
+    @pytest.mark.parametrize("asset_value, debt_value, expected", [
+        (100, 90, 0),
+        (90, 100, 0.10),
+        (50, 100, 0.50),
+        (0, 100, 1.00),
+    ])
+    def test_loss_rate(self, asset_value, debt_value, expected):
+        state = State(1, 1)
+        asset = Asset(States({state: asset_value}))
+        firm = Firm(asset, debt_value)
+
+        assert math.isclose(firm.loss_rate(state), expected)
