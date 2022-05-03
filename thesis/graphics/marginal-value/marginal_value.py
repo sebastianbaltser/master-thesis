@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib
 
 import numpy as np
 import tqdm
@@ -19,6 +20,16 @@ from spm.marginal_value_plots import (
     marginal_shareholder_value_of_cash_financing,
     plot_marginal_shareholder_value
 )
+
+plt.style.use("ggplot")
+
+matplotlib.use("pgf")
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
 
 
 def debt_financing_plot():
