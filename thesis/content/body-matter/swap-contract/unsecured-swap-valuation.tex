@@ -1,0 +1,263 @@
+% !TEX root = ./sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Valuing unsecured swaps}
+        In this section the client swap is assumed to be fully unsecured.
+        In other words, no collateral is exchanged between the dealer and the swap client, 
+        neither at the transaction date nor the interim date.
+        For simplicity and for the purpose of marginal valuation,
+        if a swap party defaults at the interim date, the coupon payments will have been paid immediately prior.
+        This assumption allows the contingent liabilities from the swap to be paid along with the rest of the liabilities at the given time of default.
+        And, as all liabilities rank pari passu, the computational part becomes more interpretive.
+
+        The swap counterparty's time of default is denoted by $\tau_{C}$.
+        At this point in time, the dealer recovers a fraction of the contractual amount denoted by $\beta_{t}$, where $\beta_{t} = 1$ if $\tau_{C}>t$.
+        \\
+        \textcolor{red}{Initially, it is also assumed that there are no legacy positions between the dealer and the swap client.
+        This assumption will be relaxed in SECTION ???, where the effect of netting the swap cash flows against those of the legacy positions with the same client is analysed.}
+
+        Regardless of the method of funding, the apparent marginal market value of the swap is defined by:
+        \begin{align}
+            V &= V_{rf} + \DVA/ - \CVA/
+            \nonumber
+            \\
+            &=
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
+                - u
+            \right]
+            \nonumber
+            \\
+            &\quad +
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{F} = t\}}\mathbbm{1}_{\{\tau_{C}>t-1\}} \phi_t Y_{t}^{-} 
+            \right]
+            \nonumber
+            \\
+            &\quad -
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C} = t\}}\mathbbm{1}_{\{\tau_{F}>t-1\}} (1-\beta_t) Y_{t}^{+} 
+            \right]
+            \label{eqn:swap-value-multi-period}
+        \end{align}
+        where $Y_{1} = \mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]/R_{2}$ and $Y_{2} = \mathcal{C}_{2}$.
+
+        The swap value takes into account the credit risks of both the firm and the counterparty.
+        Therefore, two adjustments are performed on the the credit risk-free value, $V_0$.
+        From the dealer's point of view,
+        the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} describing the lost amount of the outstanding liability related to the swap in case of the dealer's default.
+        Additionally, the \CVA/ is the third term describing the recovered outstanding positive cash flow in case of the counterparty's default.
+        As a result of that, the total swap value for the swap counterparty is $-V$.
+
+        In the multi-period framework, it is assumed that the dealer always use debt funding for financing financial instruments.
+        Many established companies have a high credit score,
+        hence they have no issues obtaining debt and become leveraged.
+        It is not unusual for large firms to have multiple creditors.
+        This common use of taking on loans constitutes the decision of the above assumption.
+        By financing the upfront with new short-term debt, the marginal valuation of the dealer's shareholders of entering the swap contract is now analysed.
+        The net positive cash flows stemming from the swap are perceived as funding benefits as they will be used to retire some of the dealer's short-term debt.
+        
+        As defined in \cref{sec:marginal-valuation-debt-issuance} about marginal shareholder valuation using debt funding,
+        the face value of the new debt is the upfront including a spread, such that the loan is a zero net present value investment for the new creditors.
+        Similar to the single-period model, the firm is interested in not decreasing its shareholders' value.
+        With the face value of the new debt now defined as $D_{2}(q) = U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q))$,
+        the marginal increase in the value of the firm's equity per unit investment is:
+        \begin{align}
+            G_{\text{debt}} &=
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                \left(
+                    A - W
+                    + q\left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
+                    - L_{2}
+                    - D_{2}(q)
+                \right)
+            \right]\right\rvert_{q=0}
+            \nonumber
+            \\
+            &\quad+
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                \left(q\mathcal{C}_{1} s_1(q) + \theta_{1}R_{1}\right)
+            \right]\right\rvert_{q=0}
+            \nonumber
+            \\
+            &\quad-
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                \left(
+                    \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C}(q)=t\}}q\left(1-\beta_t\right)Y_{t}^{+}
+                \right)
+            \right]\right\rvert_{q=0}
+        \end{align}
+        The first term describes the residual of the total asset value at time 2 if the firm does not default in either of the time periods, and the counterparty does not default at time 1.
+        The residual of the total asset value is the asset value including the swap cash flow less the value of the debt paid at time 1 and the debt to pay at time 2.
+        \\
+        At the interim date the firm is obliged to either pay of receive the contractual coupon payment.
+        If the cash flow is negative for the firm, a new debt is assumed to finance the payment,
+        and if the cash flow is positive for the firm, a portion of the firm's existing debt is assumed to be retired.
+        The second term expresses the spread of having debt from time 1 until time of maturity scaled by the amount that is either retiring or funding debt at the interim date.
+        Evidently, if the cash flow at time 1 is positive, the term has a positive impact of the shareholders' value,
+        and if the cash flow at time 1 is negative, the term has a negative impact of the shareholders' value.
+        Furthermore, the second term includes the random dividend that the shareholders receive at the interim date.
+        \\
+        The third term reflects the cases of the counterparty defaulting.
+        The contractual outstanding amount, i.e. the potential positive cash flow at time 2, will not be fully paid to the firm.
+        The fraction of the amount recovered is indicated by $\beta_{t}$.
+        \\
+        By expressing this derivative as a difference quotient, using $U(0)=0$,
+        and by the linearity of the expectation operator,
+        the following limit is obtained:
+        \begin{align}
+            &=
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                    \left(
+                        q\left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right)
+                        - D_{2}(q)
+                    \right)
+                \right]
+            }{
+                q
+            }
+            \nonumber
+            \\
+            &\quad+
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                    q\mathcal{C}_{1} s_1(q)
+                \right]
+            }{
+                q
+            }
+            \nonumber
+            \\
+            &\quad-
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                    \left(
+                        \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C}(q)=t\}}q\left(1-\beta_t\right)Y_{t}^{+}
+                    \right)
+                \right]
+            }{
+                q
+            }
+            \nonumber
+            \\
+            &\quad-
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_{2} \left(
+                    \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}\right)
+                    \left(
+                        A - W
+                        - L_{2}
+                        + \theta_{1}R_{1}
+                    \right)
+                \right]
+            }{
+                q
+            }
+            \label{eqn:G-debt-multi-step-1}
+        \end{align}
+        It is assumed that $A$, $W$, $L_{2}$, $\mathcal{C}_1$, $\mathcal{C}_2$, and $\theta_1$ all have finite expectations,
+        which allows for interchanging the limit and the expectation.
+        $\mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}$ equals 0 in the limit,
+        which entails that the fourth terms equals 0.
+        \\
+        Expanding the limiting face value, $D_{2}$, yields:
+        \begin{equation}
+            D_2 = u(R_0 + S_0)(R_1 + S_1) = u R_0 R_1 + u R_0 S_1 + u R_1 S_0 + u S_0 S_1
+        \end{equation}
+        Focussing on the addend $u S_0 S_1$, remember that the value of each credit spread depends on the loss rate from the respective time period.
+        From the expressions of the credit spreads, it is noticed that the expectation of the loss rates from the different time periods are multiplied.
+        Using the linearity of expectations and the tower property, the following derivation can then be used:
+        \begin{equation*}
+            \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]
+            * \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right]
+            = \mathbb{E}_{1}^{\rnmeasure}\left[
+                \phi_2 \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]
+            \right] 
+            = \mathbb{E}_{1}^{\rnmeasure}\left[
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \phi_2
+                    \mathbb{E}_{0}^{\rnmeasure}\left[
+                        \phi_1
+                    \right]
+                \right]
+            \right]
+            = \mathbb{E}_{1}^{\rnmeasure}\left[
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \phi_2 \phi_1
+                \right]
+            \right]
+            = 0
+        \end{equation*}
+        and, since the loss rate must be zero in at least one of the two periods,
+        $\mathbb{E}_{0}^{\rnmeasure}\left[\delta_2\mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}u S_0 S_1\right] = 0$.
+        
+        By dividing $q$ into the expectation of the first limit in \cref{eqn:G-debt-multi-step-1}
+        it can be recognized that $U(q)/q$ is the marginal investment cost, $u$.
+        Rearranging and taking the limits yields:
+        \begin{align}
+            G_{\text{debt}} &= 
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \mathbbm{1}_{\{\tau_{F}>2\}}
+                \left(
+                    \delta_{2} \left(\mathcal{C}_{1} R_{1} + \mathcal{C}_{2}\right) - u
+                \right)
+            \right]
+            \nonumber
+            \\
+            &\quad-
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \mathbbm{1}_{\{\tau_{F}>2\}}
+                \left(
+                    \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C}=t\}}\left(1-\beta_t\right)Y_{t}^{+}
+                \right)
+            \right]
+            \nonumber
+            \\
+            &\quad-
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}} u \left(
+                    R_{1} S_{0} + R_{0} S_{1}
+                \right)
+            \right]
+            \nonumber
+            \\
+            &\quad+
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}
+                \mathcal{C}_{1} S_1
+            \right]
+        \end{align}
+        where the third and the fourth terms together constitutes the second interpretation of \FVA/ according to \cref{sec:defining-fva}.
+        % This result differs a tiny bit from the one ADS presents. The term: $u S_0 R_1$ is somehow within another indicator function, and I don't know how.
+        They correspond to the quantity $\Phi$, which is the marginal valuation of the swap contract to the firm's legacy creditors.
+        \\
+        Since the cash flow at time 2 becomes 0 if the counterparty defaults at the interim date,
+        and the marginal investment cost is constant regardless of the default times of either counterparties,
+        the indicator of $\{\tau_{C}>1\}$ has been removed from the first term.
+
+        To find the value of the swap contract that makes the shareholders indifferent to entering the project, $u^{\ast}$,
+        the following equation must be solved for $u$:
+        \begin{equation}
+            0 = G_{\text{debt}}
+        \end{equation}
+
+        This valuation considers several scenarios, as different counterparties can default at different dates.
+        As a consequence, both the dealer and the counterparty has a possibility to lose an otherwise promised income.
+        In the next section the dealer hedges the unsecured swap with an interdealer swap that requires both initial margin and variation margin.
+\end{document}
