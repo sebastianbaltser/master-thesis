@@ -41,6 +41,21 @@ def marginal_shareholder_value_of_debt_financing(economy: SinglePeriodEconomy, f
     return expected_profit - payoff_default_covariance - marginal_excess_return
 
 
+def marginal_creditor_value_of_debt_financing(firm: Firm, option, option_price):
+    legacy_debt = DebtPariPassu(firm.assets, other_face_value=0, face_value=firm.debt_face_value)
+    old_value = legacy_debt.present_value
+
+    firm_assets = firm.assets
+    new_firm_assets = firm_assets + option
+    new_firm = Firm(new_firm_assets, debt_face_value=firm.debt_face_value)
+
+    new_debt = DebtPariPassu(firm.assets, other_face_value=new_firm.debt_face_value, present_value=option_price)
+    legacy_debt = DebtPariPassu(new_firm.assets, other_face_value=new_debt.face_value, face_value=new_firm.debt_face_value)
+    new_value = legacy_debt.present_value
+
+    return new_value - old_value
+
+
 def get_new_firm_from_cash_financed_option(economy: SinglePeriodEconomy, firm: Firm, option, option_price):
     firm_assets = firm.assets
     forward_discounted_option_price = option_price / economy.discount_factor
