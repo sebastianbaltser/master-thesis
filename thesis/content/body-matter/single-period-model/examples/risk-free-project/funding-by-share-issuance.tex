@@ -12,7 +12,7 @@
 
         The new shareholders will subscribe to the newly issued shares only to the extent that the investment has a net present value of zero; paying an amount equal to the premium of the derivative, $\pi(Y)$:
         \begin{equation}\label{eqn:derivative-zero-npv}
-            \pi(Y) = \pi(\tilde{S})
+            \pi(Y) = \pi(\tilde{E})
         \end{equation}
         Intuitively, the total asset value will then increase by the fair value of the derivative, and, all things being equal, the project will result in more value left for the creditors in the default state. 
         The creditors have not had anything changed in their deal with the firm, and the increment in asset base due to the receivables of the derivative will be added to their payoff if the firm defaults. 
@@ -47,8 +47,8 @@
                 \hline
                 $A_{i}$ & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
                 $D_{i}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{61}$ & $\num{76.92}$ \\
-                $S_{i}$ & $\num{39.017098}$ & $\num{29.500733}$ & $\num{19.984367}$ & $\num{15.226185}$ & $\num{0}$ & $\num{19.48}$ \\
-                $\tilde{S}_{i}$ & $\num{1.982902}$ & $\num{1.499267}$ & $\num{1.015633}$ & $\num{0.773815}$ & $\num{0}$ & $\num{0.99}$ \\
+                $E_{i}$ & $\num{39.017098}$ & $\num{29.500733}$ & $\num{19.984367}$ & $\num{15.226185}$ & $\num{0}$ & $\num{19.48}$ \\
+                $\tilde{E}_{i}$ & $\num{1.982902}$ & $\num{1.499267}$ & $\num{1.015633}$ & $\num{0.773815}$ & $\num{0}$ & $\num{0.99}$ \\
             \end{tabular}
             \caption{}
             \label{tbl:equity-funding-payoff}
@@ -61,7 +61,7 @@
         The decrease in the equity value is calculated using
         \cref{eqn:marginal-shareholder-value-equity-financing}:
         \begin{equation}
-                \Delta \pi(S) 
+                \Delta \pi(E) 
             =  
                 G_{\text{equity}}
             =
@@ -79,7 +79,7 @@
         The project is a positive net present value investment for the creditors. 
         Their increase in wealth is computed as:
         \begin{equation}\label{eqn:wealth-transfer-equality}
-            \Delta \pi(D) = -\Delta \pi(S) = \num{76.92} - \num{76.80} = \num{0.12}
+            \Delta \pi(D) = -\Delta \pi(E) = \num{76.92} - \num{76.80} = \num{0.12}
         \end{equation}
         The value of the debt increases, since the creditors get the entire derivative's receivables in the default state. Following this, the loss rate as well as the credit spread decreases significantly compared to the pre-project metrics. The new loss rate is $\phi = (\num{80}-\num{61})/\num{80} = \pct{0.2375}$, and the new credit spread is $S = \num{80}/\num{76.92} - \grossrfrate = \pct{0.029941}$.
         \\
@@ -87,12 +87,12 @@
 
         The marginal impact on the firm's balance sheet of entering the project is given by:
         \begin{equation}
-            \pi(A) + \pi(Y) = (\pi(S) + \Delta \pi(S) + \pi(\tilde{S})) + (\pi(D) + \Delta \pi(D))
+            \pi(A) + \pi(Y) = (\pi(E) + \Delta \pi(E) + \pi(\tilde{E})) + (\pi(D) + \Delta \pi(D))
         \end{equation}
-        where $\pi(\tilde{S})$ is the market value of the newly issued equity. 
+        where $\pi(\tilde{E})$ is the market value of the newly issued equity. 
         \Cref{eqn:wealth-transfer-equality} implies that:
         \begin{equation}
-            \pi(A) + \pi(Y) = (\pi(S) + \pi(\tilde{S})) + \pi(D)
+            \pi(A) + \pi(Y) = (\pi(E) + \pi(\tilde{E})) + \pi(D)
         \end{equation}
         As mentioned in \cref{eqn:derivative-zero-npv}, the firm assumes to raise an amount of new equity equal to the premium of the derivative. 
         This means that the Modigliani-Miller invariance proposition holds, and also shows, that regardless of the strategy of funding a financial project, the funding costs has no impact on the valuation of the derivative nor the asset base of the firm itself.
@@ -127,7 +127,7 @@
         meaning $\FVA/ = \num{0.99}-\num{0.87} = \num{0.12}$. Notice that this amount is the same as the wealth transfer.
         This is because the donation from the counterparty does not affect the total asset value of the firm.
         Hence, the loss rate of the creditors remains unchanged from before the donation, and therefore so does the creditors' present value.
-        The creditors will then still receives the wealth transfer, $\Delta \pi(d)$,
+        The creditors will then still receives the wealth transfer, $\Delta \pi(D)$,
         due to the project being entered.
         The new shareholders will however finance a cheaper project as a result of the \FVA/, and since it is still assumed to be a zero net present value investment for them, their share of the firm's remaining capital, $\alpha$, is reduced.
         This leads to a direct increase in the legacy shareholders' wealth from before the valuation adjustment by an amount of exactly the donation, as they are now the only ones to benefit from the price reduction. 

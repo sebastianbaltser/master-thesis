@@ -4,7 +4,7 @@
 \begin{document}
     \subsection{Funding Value Adjustments}
         Funding Value Adjustment (FVA) is a quantity meant for accounting for the funding costs 
-        experienced by a firm due to their obtainment of a financial instrument.
+        experienced by a firm due to their acquisition of a financial instrument.
         Funding risks and costs arise wherever there is a cash flow in the firm. 
         Outgoing cash flows will need to be financed while incoming cash flows
         can be used to retire debt elsewhere in the firm, thus reducing the need for funding.
@@ -12,23 +12,34 @@
         Again, funding costs, and the valuation adjustments that accounts for them,
         are best introduced by an example.
 
-        Assume a firm buys a bond from a financial institution.
-        If the financial institution is considered credit risk-free,
-        the upfront price of the bond is the discounted payoff at maturity.
-        This amount will be paid by the firm with financing, where the different types of financing will be elaborated later in this paper.
-        Whenever a derivative is financed some costs may occur depending on the type of funding.
-        These costs of funding will cause the firm to value the bond differently.
-        Essentially, this means that the firm will demand a valuation adjustment 
-        in order for the bond not to be a negative net present value investment. 
-        If the firm is assumed to have credit risk, funding the bond by obtaining debt will become more expensive. 
-        This is because of a credit spread which the funding institution charges in addition to the usual interest rate.
+        Assume a dealer wanting to purchase an asset with low risk and high liquidity, 
+        e.g. to keep the security for the purpose of always having access to liquid assets.
+        Assume also, for simplicity, that the the risk-free rate, OIS, is zero.
+        Suppose the dealer purchases 100\$ worth of face value in 1-Year Treasury bills,
+        at an upfront price of 100\$. 
+        The upfront price is funded by the dealer issuing unsecured debt, 
+        for which it pays an unsecured credit spread of, say, $50\basispoint$.
+        One year later, the Treasury bills mature and pay the face value of $100\$$.
+        The dealer's debt also matures and the dealer pays $100\$ * (1 + 50\basispoint) = 100.50\$$.
+        Through this operation, the dealer have costed its shareholders a one year loss of $0.50\$$.
+        At a glance, it seems like a rather poor decision for any institution to do this trade,
+        but again it should be emphasised, that the dealer might have regulatory reasons to do so.
+
+        Since the dealer does not want its shareholders to lose value on their claim,
+        it will reduce its valuation of the Treasury bills to account for the value lost.
+        However, the price of the Treasury bills is set by the market at $100\$$;
+        if the dealer had no regulatory incentives, 
+        it would not purchase the Treasury bills at the market price. 
+        By considering its financing costs when valuing the Treasury bills, 
+        the dealer has made an \FVA/.
+        By adjusting its valuation of the asset, 
+        the dealer is trying to align its shareholders' interests with its market operations.
         
         This valuation adjustment can also work in the opposite direction, 
-        where the cash flow at the date of inception is positive for the firm.
-        In this case, the firm arguably benefits from the transaction 
-        in the sense that it has the possibility to buy off existing liabilities.
-        This issue will be analyzed further in \cref{sec:example-funding-benefit}.
-        
+        for example if the dealer was to sell an instrument instead.
+        The sale proceeds could be used by the firm to lower its financing needs elsewhere,
+        and therefore the dealer would value the instrument higher. 
+
         From the example, it is clear that FVA conceptually can be thought of 
         as consisting of two elements, according to the following decomposition:
         \begin{equation}
@@ -71,7 +82,7 @@
             and not directly from the price of an OTC derivative transaction,
             as described in the earlier example.
             Later in this article the issue is discussed further, 
-            where in \cref{sec:example-secured-derivative} a numerical example is analyzed.
+            where in \cref{sec:example-secured-derivative} a numerical example is analysed.
             
             Assume that the firm chooses to fund the collateral by obtaining debt
             that is borrowed at the firm's unsecured borrowing rate, which depends on the firm's credit rating.
