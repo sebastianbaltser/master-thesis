@@ -344,12 +344,12 @@
             As the firm is funding the risk-free project with the premium proceeds, no funding benefits actually occur, and the \FVA/ is constituted entirely by the funding costs from paying the derivative payable, i.e. the \FCA/.
             \\
             The valuation adjustment suggests a higher derivative premium than the market value.
-            Specifically, the theoretical premium to be paid by the counterparty would be $u^{\ast}$.
+            Specifically, the theoretical premium to be paid by the counterparty would be $u_{\text{cash}}^{\ast}$.
             However, whether the counterparty is willing to pay the adjusted price still remains indeterminate.
             \\
             Using \cref{eqn:shareholdes-breakeven-cash-financing}, which describes the shareholders' price of breakeven with cash financing, the adjusted price becomes:
             \begin{equation}
-                u^{\ast} = \discountfactor \left(
+                u_{\text{cash}}^{\ast} = \discountfactor \left(
                     \mathbb{E}^{\rnmeasure}\left[Y\right] -
                     \frac{\text{Cov}^{\rnmeasure}\left(\mathbbm{1}_{\mathcal{D}},Y\right)}
                     {p^{\rnmeasure}}
@@ -358,7 +358,7 @@
             \end{equation}
             yielding a valuation adjustment of:
             \begin{equation}
-                \FVA/ = u^{\ast} - u = \num{2.5318966} - \num{2.3173567} = \num{0.2145446}
+                \FVA/ = u_{\text{cash}}^{\ast} - u = \num{2.5318966} - \num{2.3173567} = \num{0.2145446}
             \end{equation}
 
             Alternatively, this value can be computed by solving the related equation system for \FCA/ as described above, where the value to the firm is the funding  cost adjusted market value:
