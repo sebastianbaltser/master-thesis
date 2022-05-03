@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import matplotlib
-
-import numpy as np
+import pathlib
 import tqdm
+import numpy as np
 
 from spm import (
     State,
@@ -161,7 +161,11 @@ def marginal_shareholder_value_plot():
 
 
 if __name__ == '__main__':
-    debt_financing_plot()
-    equity_financing_plot()
-    cash_financing_plot()
-    plt.show()
+    PATH = pathlib.Path(__file__).parent.absolute()
+
+    fig = debt_financing_plot()
+    fig.savefig(PATH / "debt-financing.pgf")
+    fig = equity_financing_plot()
+    fig.savefig(PATH / "equity-financing.pgf")
+    fig = cash_financing_plot()
+    fig.savefig(PATH / "cash-financing.pgf")
