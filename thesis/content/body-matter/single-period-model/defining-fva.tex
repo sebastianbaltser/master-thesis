@@ -1,4 +1,4 @@
-% !TEX root = ../main.tex
+% !TEX root = single-period-model.tex
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
@@ -10,16 +10,16 @@
         The definitions are due to \textcite{Hillion2016}.
 
         \subsubsection*{FVA as the promised excess funding cost}
-            Since the firm obtains funds for the project at a spread in excess of the risk free rate, 
+            Since the firm obtains funds for the project at a spread in excess of the risk-free rate, 
             the shareholders pay an additional rate when the firm does not default. 
-            This is a form of funding cost and argues in favor of defining the \FVA/ as
-            the present value of the costs paid by the shareholders in excess of the risk free rate:
+            This is a form of funding cost and argues in favour of defining the \FVA/ as
+            the present value of the costs paid by the shareholders in excess of the risk-free rate:
                 \begin{align}
                     \FVA/ 
                     &= 
                         \discountfactor \left(
                             U(q) (1 + \rfrate + s(q))
-                            - U (1 + \rfrate)
+                            - U(q) (1 + \rfrate)
                         \right) 
                         \nonumber \\
                     &= 
@@ -126,7 +126,7 @@
             inflated by the probability of not defaulting. 
             The shareholders' breakeven value can then be seen as the discounted expected value of the cash flow
             adjusted for the inflated covariance.
-            The discounting rate used is however not the risk free rate, but rather the funding rate, $\grossrfrate+S$.
+            The discounting rate used is however not the risk-free rate, but rather the funding rate, $\grossrfrate+S$.
             Having derived the shareholders' breakeven value, the definition of the \FVA/ under debt financing
             can be defined as the adjustment to the actual price needed to arrive at breakeven:
                 \begin{equation}
@@ -227,7 +227,7 @@
             Once more, the breakeven value is the expected value of the cash flow
             adjusted for the inflated covariance, both discounted. 
             Under cash funding the discount rate is the funding cost of using excess cash,
-            i.e. the opportunity cost of tying up capital which equals the risk free rate.
+            i.e. the opportunity cost of tying up capital which equals the risk-free rate.
             The \FVA/ under cash funding is:
                 \begin{equation}
                     \FVA/_{\text{cash}} 
@@ -238,5 +238,53 @@
             If the firm has as objective to maximize shareholder value, 
             it will not trade unless the upfront payment to the counterparty is at most the breakeven value,
             or, conversely, unless the upfront payment to the firm from the counterparty is at least the breakeven value.
+
+        Referring to the \FVA/ as \textit{the donation} needed from the counterparty to the dealer
+        might be off-putting at first;
+        derivative dealers and hedge funds are seldom perceived as being charitable organizations.
+        \textit{Donation} is used rather figuratively in this context;
+        it is meant to describe the counterparty agreeing 
+        to sell (buy) at a lower (higher) price than the theoretical,
+        but not for any specific reason.
+        Though these reasons are not crucial for this thesis,
+        it will be helpful to have an idea about the situations that can motivate organizations
+        to make a donation by price adjustments.
+        To do so, it is worthwhile to recall \cref{sec:price-versus-value},
+        where the difference between the derivative price and the derivative value was discussed.
+        Any derivative has a theoretical price 
+        at which it would trade under ideal market conditions,
+        but in reality, derivatives trade at a price set by an imperfect market.
+        In this market, dealers have different incentives and frictions
+        that might lead to prices deviating from the theoretical price.
+        These incentives are plentiful; they could for example be regulatory, 
+        like stocking up liquidity buffers with high quality assets,
+        as was mentioned in the example when introducing \FVA/.
+        Another possible motivation that is worth mentioning, considering the topics of this paper,
+        arises when the counterparty itself has a relatively high funding cost.
+
+        Suppose that the counterparty is selling an unsecured derivative to the dealer, 
+        for some upfront price. 
+        For simplicity, the only cash flow considered is the upfront price.
+        The dealer will have to fund the upfront price, for which it pays its funding rate,
+        and it is going to take this funding cost into consideration when valuing the derivative.
+        The counterparty is also going to apply an \FVA/, however, as it receives the upfront price,
+        the adjustment will be due to the funding benefits.
+        If the counterparty's funding rate is higher than the dealer's funding rate,
+        all else being equal, it is going to adjust its own valuation upwards more 
+        than the dealer adjusts the dealer's valuation downwards. 
+        If the two funding rates are sufficiently different, 
+        the counterparty will be able to offer a price to the dealer
+        that is low enough to make the dealers' shareholders indifferent to buying the derivative.
+        This price reduction is \textit{the donation}.
+        It is simply driven by the fact that different organizations 
+        have different valuations or incentives such that they can agree on transactions
+        even though the prices deviate from the theoretical.
+
+        As mentioned, there are many of such incentives, 
+        that could motivate organizations to making donations by reducing prices. 
+        An organization's particular motive for raising or reducing prices
+        is not of interest in this paper and will be left unspecified.
+        The examples above are merely a justification for using the term \textit{donation},
+        in the definition of \FVA/.
 
 \end{document}

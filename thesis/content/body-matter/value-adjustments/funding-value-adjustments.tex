@@ -4,31 +4,42 @@
 \begin{document}
     \subsection{Funding Value Adjustments}
         Funding Value Adjustment (FVA) is a quantity meant for accounting for the funding costs 
-        experienced by a firm due to their obtainment of a financial instrument.
+        experienced by a firm due to their acquisition of a financial instrument.
         Funding risks and costs arise wherever there is a cash flow in the firm. 
         Outgoing cash flows will need to be financed while incoming cash flows
         can be used to retire debt elsewhere in the firm, thus reducing the need for funding.
 
         Again, funding costs, and the valuation adjustments that accounts for them,
         are best introduced by an example.
-        Consider a single interest rate swap between a firm and a counterparty that have in place a CSA agreement.
-        The CSA agreement ensures that collateral is posted or received,
-        as the market value of the swap changes over time.
-        If the value of the firm's leg is lower than the counterparty's,
-        the firm is required to post collateral, 
-        which it must necessarily fund by some method of financing.
-        Assume that the firm chooses to fund the collateral by obtaining debt
-        that is borrowed at the firm's unsecured borrowing rate, which depends on the firm's credit rating.
-        When posting the funds as collateral, the firm earns the OIS rate.
-        The asymmetri between the cost of borrowing and posting collateral
-        adds additional costs to the swap transaction; 
-        these are an example of funding costs and an \FVA/ is a price alteration made to account for these.
 
-        On the contrary, if the firm must receive collateral that can be rehypothecated,
-        they pay the OIS rate and can receive a higher rate
-        by reducing funding elsewhere in the organization.
-        This asymmetri can be referred to as funding benefit rather than a cost.
+        Assume a dealer wanting to purchase an asset with low risk and high liquidity, 
+        e.g. to keep the security for the purpose of always having access to liquid assets.
+        Assume also, for simplicity, that the the risk-free rate, OIS, is zero.
+        Suppose the dealer purchases 100\$ worth of face value in 1-Year Treasury bills,
+        at an upfront price of 100\$. 
+        The upfront price is funded by the dealer issuing unsecured debt, 
+        for which it pays an unsecured credit spread of, say, $50\basispoint$.
+        One year later, the Treasury bills mature and pay the face value of $100\$$.
+        The dealer's debt also matures and the dealer pays $100\$ * (1 + 50\basispoint) = 100.50\$$.
+        Through this operation, the dealer have costed its shareholders a one year loss of $0.50\$$.
+        At a glance, it seems like a rather poor decision for any institution to do this trade,
+        but again it should be emphasised, that the dealer might have regulatory reasons to do so.
+
+        Since the dealer does not want its shareholders to lose value on their claim,
+        it will reduce its valuation of the Treasury bills to account for the value lost.
+        However, the price of the Treasury bills is set by the market at $100\$$;
+        if the dealer had no regulatory incentives, 
+        it would not purchase the Treasury bills at the market price. 
+        By considering its financing costs when valuing the Treasury bills, 
+        the dealer has made an \FVA/.
+        By adjusting its valuation of the asset, 
+        the dealer is trying to align its shareholders' interests with its market operations.
         
+        This valuation adjustment can also work in the opposite direction, 
+        for example if the dealer was to sell an instrument instead.
+        The sale proceeds could be used by the firm to lower its financing needs elsewhere,
+        and therefore the dealer would value the instrument higher. 
+
         From the example, it is clear that FVA conceptually can be thought of 
         as consisting of two elements, according to the following decomposition:
         \begin{equation}
@@ -54,6 +65,36 @@
         
         Further investigation of Funding Value Adjustments will be focused on the two other components,
         \FCA/ and \FBA/.
+
+        \subsubsection*{Margin requirements}
+            Suppose an OTC derivative transaction between the firm and a counterparty requires the firm to post collateral.
+            The firm may necessarily be obliged to fund the margin requirements on top of the price of the derivative.
+            To understand this setup,
+            consider a single interest rate swap between a firm and a counterparty that have in place a CSA agreement.
+            The CSA agreement ensures that collateral is posted or received,
+            as the market value of the swap changes over time.
+            If the value of the firm's leg is lower than the counterparty's,
+            the firm is required to post collateral, 
+            which it must necessarily fund by some method of financing.
+            This type of funding is a category within the \FVA/ framework, 
+            hence the use of it should be treated as a funding cost to the firm.
+            The funding costs occur due to the posting of margin as a consequence of the swap contract,
+            and not directly from the price of an OTC derivative transaction,
+            as described in the earlier example.
+            Later in this article the issue is discussed further, 
+            where in \cref{sec:example-secured-derivative} a numerical example is analysed.
+            
+            Assume that the firm chooses to fund the collateral by obtaining debt
+            that is borrowed at the firm's unsecured borrowing rate, which depends on the firm's credit rating.
+            When posting the funds as collateral, the firm earns the OIS rate.
+            The asymmetry between the cost of borrowing and posting collateral
+            adds additional costs to the swap transaction; 
+            these are an example of funding costs and an \FVA/ is a price alteration made to account for these.
+
+            On the contrary, if the firm must receive collateral that can be rehypothecated,
+            they pay the OIS rate and can receive a higher rate
+            by reducing funding elsewhere in the organization.
+            This asymmetry can be referred to as funding benefit rather than a cost.
 
 \end{document}
         

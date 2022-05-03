@@ -36,10 +36,14 @@ def main():
     expected_loss_rate = economy.risk_neutral_expectation(
         States({state: (1 - payoff / debt.face_value) for state, payoff in debt.payoff})
     )
+    credit_spread = (debt.bond_yield - risk_free_rate)
+
+    print(f"Expected loss rate: {expected_loss_rate}")
+    print(f"Credit spread: {credit_spread}")
     debit_value_adjustment = expected_loss_rate * debt.face_value / gross_risk_free_rate
     print(f"DVA: {debit_value_adjustment:.4f}")
 
-    option_promised_payoff = 10
+    option_promised_payoff = 1
     option_price = option_promised_payoff / (gross_risk_free_rate + 0.00)
     option = Asset(States(states, [option_promised_payoff]*len(states)))
     print("\nNew option payoffs:")
@@ -54,43 +58,48 @@ def main():
     total_face_value = legacy_debt.face_value + new_debt.face_value
     new_equity = Equity(firm, debt_face_value=total_face_value)
 
+    expected_loss_rate = economy.risk_neutral_expectation(
+        States({state: (1 - payoff / legacy_debt.face_value) for state, payoff in legacy_debt.payoff})
+    )
+
     credit_spread = (legacy_debt.bond_yield - risk_free_rate)
 
-    print(f"Credit spread: {credit_spread:.4%}")
-    print(f"Firm present value: {firm.present_value:.3f}")
-    print(f"\tChange in firm value: {firm.present_value:.4f} - {legacy_firm.present_value:.4f} "
-          f"= {firm.present_value-legacy_firm.present_value:.4f}")
-    print(f"Equity present value: {new_equity.present_value:.4f}")
-    print(f"\tChange in equity value: {new_equity.present_value:.4f} - {equity.present_value:.4f} "
-          f"= {new_equity.present_value - equity.present_value:.4f}")
+    print(f"Expected loss rate: {expected_loss_rate}")
+    print(f"Credit spread: {credit_spread}")
+    print(f"Firm present value: {firm.present_value:.6f}")
+    print(f"\tChange in firm value: {firm.present_value:.6f} - {legacy_firm.present_value:.6f} "
+          f"= {firm.present_value-legacy_firm.present_value:.6f}")
+    print(f"Equity present value: {new_equity.present_value:.6f}")
+    print(f"\tChange in equity value: {new_equity.present_value:.6f} - {equity.present_value:.6f} "
+          f"= {new_equity.present_value - equity.present_value:.6f}")
     state_is_no_default = States({state: total_face_value <= value for state, value in firm})
     promised_return = (option_promised_payoff - option.present_value * (gross_risk_free_rate + credit_spread))
     expected_promised_return = economy.risk_neutral_expectation(
         States({state: promised_return*is_no_default for state, is_no_default in state_is_no_default})
     )
     marginal_value_to_shareholders = 1 / gross_risk_free_rate * expected_promised_return
-    print(f"\tADS marginal value to shareholders of debt financing: {marginal_value_to_shareholders:.3f}")
-    print(f"Legacy debt present value: {legacy_debt.present_value:.3f}")
-    print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.3f}")
+    print(f"\tADS marginal value to shareholders of debt financing: {marginal_value_to_shareholders:.6f}")
+    print(f"Legacy debt present value: {legacy_debt.present_value:.6f}")
+    print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.6f}")
     print(f"Equity payoff:\n{new_equity.payoff}")
     print(f"Legacy debt payoff:\n{legacy_debt.payoff}")
     print(f"New debt payoff:\n{new_debt.payoff}")
-    print(f"New debt present value: {new_debt.present_value:.3f}")
-    print(f"New debt face value: {new_debt.face_value:.3f}")
+    print(f"New debt present value: {new_debt.present_value:.6f}")
+    print(f"New debt face value: {new_debt.face_value:.6f}")
 
     print("\nFunding Value Adjustments")
-    print(f"FVA 1: {(new_debt.face_value - new_debt.present_value*gross_risk_free_rate) / gross_risk_free_rate:.4f}")
+    print(f"FVA 1: {(new_debt.face_value - new_debt.present_value*gross_risk_free_rate) / gross_risk_free_rate:.6f}")
     expected_loss_rate = economy.risk_neutral_expectation(
         States({state: (1 - payoff / new_debt.face_value) for state, payoff in new_debt.payoff})
     )
     debit_value_adjustment = expected_loss_rate * new_debt.face_value / gross_risk_free_rate
-    print(f"DVA: {debit_value_adjustment:.4f}")
-
-    print(f"FVA 2: {equity.present_value - new_equity.present_value:.4f}")
+    print(f"DVA: {debit_value_adjustment:.6f}")
+    print(f"Expected loss rate: {expected_loss_rate}")
+    print(f"FVA 2: {equity.present_value - new_equity.present_value:.6f}")
     option_pv_expected_payoff = economy.risk_neutral_expectation(option.values) / gross_risk_free_rate
     no_default_probability = economy.risk_neutral_expectation(state_is_no_default)
     wealth_transfer = option_pv_expected_payoff * credit_spread * no_default_probability / gross_risk_free_rate
-    print(f"ADS wealth transfer: {wealth_transfer:.4f}")
+    print(f"ADS wealth transfer: {wealth_transfer:.6f}")
 
     print("\nFund Transfer Pricing")
     new_debt = DebtPariPassu(firm, face_value=option_promised_payoff, other_face_value=legacy_debt.face_value)
@@ -99,13 +108,13 @@ def main():
     total_face_value = legacy_debt.face_value + new_debt.face_value
     new_equity = Equity(firm, debt_face_value=total_face_value)
 
-    print(f"New debt fair present value: {new_debt.present_value:.4f}")
-    print(f"Donation size: {option.present_value - new_debt.present_value:.4f}")
+    print(f"New debt fair present value: {new_debt.present_value:.6f}")
+    print(f"Donation size: {option.present_value - new_debt.present_value:.6f}")
 
-    print(f"Equity present value: {new_equity.present_value:.4f}")
-    print(f"\tChange in equity value: {new_equity.present_value - equity.present_value:.4f}")
-    print(f"Legacy debt present value: {legacy_debt.present_value:.4f}")
-    print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.4f}")
+    print(f"Equity present value: {new_equity.present_value:.6f}")
+    print(f"\tChange in equity value: {new_equity.present_value - equity.present_value:.6f}")
+    print(f"Legacy debt present value: {legacy_debt.present_value:.6f}")
+    print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.6f}")
 
     state_is_no_default = States({state: total_face_value <= value for state, value in firm})
     no_default_probability = economy.risk_neutral_expectation(state_is_no_default)
@@ -113,14 +122,14 @@ def main():
     wealth_transfer = option_pv_expected_payoff * credit_spread * no_default_probability / gross_risk_free_rate
 
     breakeven_price = 1 / (gross_risk_free_rate + credit_spread) * (economy.risk_neutral_expectation(option.values))
-    print(f"Breakeven price: {breakeven_price:.4f}")
+    print(f"Breakeven price: {breakeven_price:.6f}")
     donation_size = wealth_transfer/no_default_probability * gross_risk_free_rate/(gross_risk_free_rate+credit_spread)
-    print(f"FVA 3: {donation_size:.4f}")
+    print(f"FVA 3: {donation_size:.6f}")
     expected_loss_rate = economy.risk_neutral_expectation(
         States({state: (1 - payoff / new_debt.face_value) for state, payoff in new_debt.payoff})
     )
     debit_value_adjustment = expected_loss_rate * new_debt.face_value / gross_risk_free_rate
-    print(f"DVA: {debit_value_adjustment:.4f}")
+    print(f"DVA: {debit_value_adjustment:.6f}")
 
     print("Equity Funding:")
     legacy_debt = DebtPariPassu(firm, face_value=legacy_debt_face_value)
@@ -129,11 +138,16 @@ def main():
     legacy_equity = Equity(firm, debt_face_value=legacy_debt.face_value, equity_share=1-new_equity_share)
     new_equity = Equity(firm, debt_face_value=legacy_debt.face_value, equity_share=new_equity_share)
 
-    print(f"\tLegacy debt present value: {legacy_debt.present_value:.4f}")
-    print(f"\tLegacy equity present value: {legacy_equity.present_value:.4f}")
-    print(f"\tNew equity present value: {new_equity.present_value:.4f}")
-    print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.4f}")
-    print(f"\tChange in legacy equity value: {legacy_equity.present_value - equity.present_value:.4f}")
+    print("Legacy equity payoff:")
+    print(legacy_equity.payoff)
+    print("New equity payoff:")
+    print(new_equity.payoff)
+
+    print(f"\tLegacy debt present value: {legacy_debt.present_value:.6f}")
+    print(f"\tLegacy equity present value: {legacy_equity.present_value:.6f}")
+    print(f"\tNew equity present value: {new_equity.present_value:.6f}")
+    print(f"\tChange in legacy debt value: {legacy_debt.present_value - debt.present_value:.6f}")
+    print(f"\tChange in legacy equity value: {legacy_equity.present_value - equity.present_value:.6f}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,123 @@
+% !TEX root = ./sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \subsection{The difference between Price and Value}
+    \label{sec:price-versus-value}
+
+    It would seem like the debaters could not disagree more 
+    about whether \FVA/s are appropriate or not.
+    One side argues against adjustments due to funding costs, while the other argues in favour.
+    However, following \cite{Ruiz2015XVA}, 
+    it appears that much of the disagreement in the debate is due to theoreticians and practitioners
+    considering an adjustment to two different quantities.
+    Theoreticians are arguing that the derivative \textit{prices} should not be adjusted,
+    while practitioners are arguing that derivative \textit{values} should be adjusted.
+    This section will try to explain the differences between a derivative's price and value
+    as well as presenting some arguments of the previous sections in light of these definitions.
+
+    When a derivatives dealer considers entering a trade, 
+    it is going to take into account two different numbers; 
+    namely, the trade's price and the trade's value to the dealer.
+    The trade's value to the dealer is given by the difference in the trade's price
+    and the cost to the dealer of obtaining and holding the trade:
+        \begin{equation}
+            \text{Value to Dealer} 
+            =
+            \text{Price}
+            -
+            \text{Cost}
+        \end{equation}
+    The trade's price is the price that the dealer could buy or sell the trade for in the market.
+    If the market satisfies the assumptions of the traditional derivative pricing frameworks,
+    this will be the risk-neutral price and therefore the price that 
+    theoreticians considers as the "true" price.
+    The price must reflect the cost of hedging the derivative
+    and can thus be decomposed into three components. 
+    The first being the price of hedging when all parties are free of credit risk, 
+    the second being the cost of hedging credit risk from the counterparty, $\CVA/$,
+    and the third being the cost of hedging credit risk from the dealer itself, $\DVA/$:
+        \begin{equation}
+            P = 
+            P_{rf} 
+            -
+            \CVA/
+            +
+            \DVA/
+        \end{equation}
+    The trade's value to the dealer represents how much the trade is worth to the dealer.
+    As already mentioned, this corresponds to the trade's price less the cost to the dealer
+    of "creating" or "producing" the trade by buying it.
+    In this thesis the discussion concerns funding costs,
+    which is one of the costs that entering into a trade will entail.
+    Therefore, the trade's value to the dealer is given by:
+        \begin{equation}
+            V = P - \FVA/
+        \end{equation}
+    The value of the trade is going to decide whether it will be economical 
+    for the dealer to enter the trade. 
+    If the value is negative, the dealer will lose money on the trade;
+    if the value is positive, the dealer will make money.
+    
+    According to these definitions, 
+    \FVA/ is a component in the trade's value, but not in the trade's price. 
+    It would seem as if the market price of the trade 
+    is completely unconnected to the funding costs of the trade;
+    however, there is in fact a relation between the two. 
+    To see this, remember that the market price of a trade 
+    is actually set by supply and demand forces.
+    It will therefore not necessarily adhere to some rigorous pricing scheme,
+    but rather be influenced by many different factors in the market.
+    One of these factors is the cost of funding the trade.
+    If a trade requires a lot of funding, which will generate a lot of funding costs,
+    the price of the trade will generally be relatively high.
+    Since the trade would be expensive to operate, 
+    dealers will generally need to charge a higher price, 
+    in order for the value to stay above a level which they can accept.
+    But, the price of the trade does not have to be high 
+    simply because the cost of operating it is high.
+    The price is set by the market by the invisible hand of supply and demand,
+    and will therefore be driven by many other factors than the operating cost of the trade.
+
+    Assume that the dealer have calculated the value of the trade and decided to buy it.
+    After obtaining the trade, at the price decided by the market, another price forms. 
+    The dealer is now interested in the price it would receive 
+    if it sold the trade again to a third party; namely, the exit price of the trade.
+    This is the price that is marked-to-market for balance sheet accounting.
+    The exit price is problematic because it is not observable in the market; 
+    it can only be estimated.
+    If the dealer could, it would ask all potential buyers to reveal the price 
+    at which they would buy the trade, and use that information to calculate the actual exit price.
+    That is not possible, hence, the dealer must instead try to estimate the price
+    while conforming to the accounting rules.
+    Accounting rules say that the dealer should account for its own credit risk 
+    when marking to market, which could prompt the dealer to making a \DVA/.
+    However, any buyer of the trade will calculate the value of the trade
+    based on their own funding rate to determine the price at which the trade is beneficial.
+    The dealer is therefore left to choose between making adjustments to the exit price
+    using their own funding rate or someone else's funding rate.
+    If the dealer decides on a funding rate, the problem expands further
+    because each institution will have different funding rates, but no one will reveal their own.
+    It is therefore impossible to really estimate the correct adjustment to make,
+    which is why theoreticians like Hull and White oppose these adjustments including \FVA/.
+    Coming to a conclusion about whether to use \FVA/s when marking-to-market a trade
+    is an interesting but vast topic.
+    Asserting this could include research on the current market practice and
+    the opinion of accounting institutions.
+    However, this topic is too broad to fit within the scope of this paper,
+    and it will therefore be left as a possible extension.
+
+    Still, with this discussion, 
+    a partial conclusion on the appropriateness of \FVA/ can be reached.
+    By the previous definitions, an \FVA/ should be used to calculate the value of a trade.
+    If the dealing desk does not make an \FVA/, it will not be accounting for the costs of the trade
+    and it will therefore not be able to make the correct decision about obtaining the project.
+    This conclusion will be the primer for the discussions following in the rest of the thesis.
+    
+    In the following sections the discussion will move beyond the validity of \FVA/,
+    into the topic of how it should be defined and applied.
+    The current section might already have hinted a possible interaction between \FVA/ and \DVA/;
+    regardless, this is exactly the topic of the next section.
+    
+\end{document}
+        
