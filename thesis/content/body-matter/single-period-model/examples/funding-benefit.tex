@@ -240,25 +240,10 @@
             To establish whether entering into this project is attractive for the shareholders,
             the expression for the marginal valuation of equity funding, \cref{eqn:marginal-shareholder-value-equity-financing}, is used.
             The payoff for the firm is here the negative derivative payoff, i.e. $Y$.
-            The change of wealth for the shareholders is then given by:
+            The survival probability is in this constructed framework given by $p^{\rnmeasure} = \sum_{i=1}^{4} \psi_{i} * \grossrfrate = \pct{0.878788}$, and the covariance between the indicator of default states and $Y$ is 0 as the promised payoff is known with certainty.
+            The change of wealth for the shareholders is then calculated as:
             \begin{equation}
-                G_{\text{equity}} =
-                p^{\mathbb{Q}}
-                    \pi
-                    -
-                    \discountfactor
-                    \text{Cov}^{\mathbb{Q}}\left(
-                        \mathbbm{1}_{D},
-                        Y
-                    \right)
-                    -
-                    \left(
-                        1
-                        -
-                        p^{\mathbb{Q}}
-                    \right)
-                    u
-                = \num{0.088888889}
+                G_{\text{equity}} = \num{0.088888889}
             \end{equation}
             
             As the price of the derivative is assumed to be the credit risk adjusted market value,
