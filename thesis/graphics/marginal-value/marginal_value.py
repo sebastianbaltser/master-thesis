@@ -54,7 +54,7 @@ def debt_financing_plot():
     h_debt = [marginal_creditor_value_of_debt_financing(base_firm, option, option_price)
               for option_price in tqdm.tqdm(option_price_range, desc="Creditors", total=len(firms))]
 
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(7, 4))
     ax.plot(option_price_range, g_debt, label="Shareholders")
     ax.plot(option_price_range, h_debt, label="Creditors")
     ax.set_xlim([option_price_range[0], option_price_range[-1]])
@@ -90,7 +90,7 @@ def equity_financing_plot():
 
     h_equity = [theoretical_option_price - option_price - g for g, option_price in zip(g_equity, option_price_range)]
 
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(7, 4))
     ax.plot(option_price_range, g_equity, label="Shareholders")
     ax.plot(option_price_range, h_equity, label="Creditors")
     ax.set_xlim([option_price_range[0], option_price_range[-1]])
@@ -126,7 +126,7 @@ def cash_financing_plot():
 
     h_equity = [theoretical_option_price - option_price - g for g, option_price in zip(g_equity, option_price_range)]
 
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(7, 4))
     ax.plot(option_price_range, g_equity, label="Shareholders")
     ax.plot(option_price_range, h_equity, label="Creditors")
     ax.set_xlim([option_price_range[0], option_price_range[-1]])
