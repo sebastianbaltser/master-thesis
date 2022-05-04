@@ -29,7 +29,7 @@
         As shareholders have an even higher required rate of return compared to creditors,
         the wealth transfer from the shareholders in this section should also be higher.
 
-        While the payoff of the legacy creditors, with a face value of $\num{80}$, 
+        While the payoff of the legacy creditors, with a face value of $L = \num{80}$, 
         only change in the default state, 
         the payoff of the shareholders is computed slightly differently than in the case of debt issuance. 
         It's now essential to know the share of the equity, $\alpha$, 
@@ -43,12 +43,12 @@
                 }{
                     \discountfactor
                     \mathbb{E}^{\rnmeasure}\left[
-                        A - D
+                        (A - L)^{+}
                     \right]
                 }
         \end{equation}
         The expected value of the equity is 
-        $\mathbb{E}^{\rnmeasure}\left[A - D\right] = \num{20.47}$,
+        $\mathbb{E}^{\rnmeasure}\left[(A - L)^{+}\right] = \num{20.47}$,
         and with a project price of $u = 0.99$, the new shareholders are entitled to a share
         $\alpha = \pct{0.048363}$ of the equity.
         The new shareholders then receive their share of the equity in each state, 
@@ -58,12 +58,12 @@
                 E 
                 &= 
                 (1 - \alpha)
-                (A - D) 
+                (A - L)^{+} 
                 \\
                 \tilde{E}
                 &=
                 \alpha
-                (A - D)
+                (A - L)^{+}
             \end{align}
         The resulting payoffs of the example are shown in \cref{tbl:equity-funding-payoff}.
         \begin{table}[H]
