@@ -87,7 +87,7 @@
         The amount available for paying claimants divided by the amount owed to claimants, is the loss rate.
 
         Since the credit spread depends on the decomposition of the payoff into a secured and unsecured part,
-        it is easier to consider the limiting spread, $\lim_{q\downarrow0}s(q)$. 
+        it is easier to consider the limiting spread, $\lim_{q\rightarrow0}s(q)$. 
         This quantity is derived in the following paragraphs.
         Dividing first both sides of \cref{eqn:new-creditors-breakeven} by the face value $U(q)(\grossrfrate+s(q))$ 
         and using the linearity of the expected value operator:
@@ -184,7 +184,7 @@
             \end{align}
         Let $S$ denote the limiting spread which is defined as the credit spread on debt 
         charged for obtaining an infinitesimal quantity of the project, i.e.
-        $S \equiv \lim_{q\downarrow 0} s(q)$.
+        $S \equiv \lim_{q\rightarrow 0} s(q)$.
         If the limits of two addends in a sum are finite, 
         the algebraic limit theorem ensures that the limit of the summation operation,
         can be expressed as the summation of the addends' limits.
@@ -200,7 +200,7 @@
                         \mathbb{E}^{\rnmeasure}\left[
                             1
                             +
-                            \lim_{q\downarrow 0}
+                            \lim_{q\rightarrow 0}
                             \mathbbm{1}_{\mathcal{D}(q)}
                             \left(
                                 \frac{
