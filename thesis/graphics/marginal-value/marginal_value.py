@@ -67,7 +67,7 @@ def debt_financing_plot():
              (0.960370, 0, 0.99-0.960370)]
     for price, shareholder_value, creditor_value in marks:
         ax.plot([price, price], [ylim[0]*0.9, ylim[1]*0.9], "--", color="black", linewidth=0.5)
-        ax.scatter([price, price], [shareholder_value, creditor_value], marker="o", color="black", s=15)
+        ax.scatter([price, price], [shareholder_value, creditor_value], marker="o", color="black", s=15, zorder=20)
         # ax.text(price, shareholder_value, f"{shareholder_value:.2f}", ha="right", va="bottom")
         annotate_kwargs = dict(xytext=(4, 4), textcoords="offset points", fontsize=8)
         for value in [shareholder_value, creditor_value]:
@@ -115,7 +115,7 @@ def equity_financing_plot():
              (0.87, 0, 0.99-0.87)]
     for price, shareholder_value, creditor_value in marks:
         ax.plot([price, price], [ylim[0]*0.9, ylim[1]*0.9], "--", color="black", linewidth=0.5)
-        ax.scatter([price, price], [shareholder_value, creditor_value], marker="o", color="black", s=15)
+        ax.scatter([price, price], [shareholder_value, creditor_value], marker="o", color="black", s=15, zorder=20)
         # ax.text(price, shareholder_value, f"{shareholder_value:.2f}", ha="right", va="bottom")
         annotate_kwargs = dict(xytext=(4, 4), textcoords="offset points", fontsize=8)
         for value in [shareholder_value, creditor_value]:
