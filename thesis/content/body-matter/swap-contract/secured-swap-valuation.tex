@@ -5,7 +5,7 @@
     \subsection{Valuing swaps with a fully collateralized hedged position}
         When a dealer trades an unsecured swap with a counterparty,
         it is likely that she combines the position with an appropriate hedge.
-        Practically it is often the case that the dealer would use two hedges; one hedge position will mitigate the counterparty credit risk, i.e. a CDS, and the hedge position other will account for market risk exposure of the floating payments, $X_t$.
+        Practically it is often the case that the dealer would use two hedges; one hedge position will mitigate the counterparty credit risk, i.e. a CDS, and the other hedge position will account for market risk exposure of the floating payments, $X_t$.
         
         The cash flow at time $t$, stemming from the swap contract between the dealer and the counterparty,
         is still denoted by $\mathcal{C}_t$.
@@ -16,11 +16,246 @@
         Similar to the secured derivative in the single-period model analysed in \cref{sec:example-secured-derivative},
         and as is common practice,
         the dealer is required to post both initial margin, $I_{t}$, and variation margin, $M_{t}$.
-        Both postings of margins happen at time 0 and time 1, and the variation margins are defined as:
+        Both postings of margins happen at time 0 and time 1,
+        and, assuming the dealer is still the payer swap,
+        the variation margins are defined as:
         \begin{align}
-            M_0 &= \mathbb{E}_{0}^{\rnmeasure}\left[\delta_t (X_t - K_t)\right]
+            M_0 &= \mathbb{E}_{0}^{\rnmeasure}\left[\sum_{t=1}^{2}\delta_t (X_t - K_t)\right]
             \\
             M_1 &= \frac{1}{R_1}\mathbb{E}_{1}^{\rnmeasure}\left[X_2 - K_2\right] 
+        \end{align}
+        i.e. the market value of the hedging swap at the given point in time.
+        The hedging swap is assumed to have an upfront payment of $\tilde{u}$, such that $M_0 = \tilde{u}$.
+        In addition to providing default protection for both the dealer and the hedge dealer,
+        the variation margin mechanism provides an instinctive source of cash funding of the hedged position. 
+
+        The valuation of the secured swap contract does not differ too much from the previous section analysing an unsecured swap.
+        However, a natural extension to the expression in \cref{eqn:shareholders-value-multi-period-swap}
+        must take place in order to account for the margin requirements.
+        The dealer is assumed to finance margin postings by obtaining new short-term debt,
+        as well as use incoming margin postings to retire existing debt.
+        The extension to the shareholder marginal valuation expression
+        as a result of the fully collateralized hedged position is denoted by $\Gamma$.
+        This quantity is then defined by:
+        \begin{align}
+            \Gamma &=
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                \left(
+                    - q\left(\mathcal{C}_1 R_1 + \mathcal{C}_2
+                    + M_0 R_0 s_1(q)
+                    + M_1 R_1\right)
+                \right) 
+            \right]\right\rvert_{q=0}
+            \nonumber
+            \\
+            &\quad+
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                \left(
+                    I_0 R_0 s_1(q)
+                    + I_1 R_1
+                \right) 
+            \right]\right\rvert_{q=0}
+            \nonumber
+            \\
+            &\quad-
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                \left(
+                    q\left(\mathcal{C}_{1} s_{1}(q)
+                    + M_1 s_{1}(q)\right)
+                    + I_1 s_{1}(q)
+                \right)
+            \right]\right\rvert_{q=0}
+            \nonumber
+            \\
+            &\quad-
+            \left.\frac{\partial}{\partial q}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>1\}}
+                \left(
+                    I_0 s_{0}(q) R_{1}
+                    + qM_0 s_{0}(q) R_{1}
+                \right) 
+            \right]\right\rvert_{q=0}
+            \label{eqn:sharholders-value-hedged-swap-step-1}
+        \end{align}
+        At the interim date the dealer receives back both the variation margin and the initial margin posted at time 0.
+        Both are including the risk-free rate as interest.
+        The dealer then immediately use the amounts to retire existing debt.
+        Similarly, at the maturity date the dealer receives back the variation margin and the initial margin posted at time 1.
+        These inflows are reflected in the first and the second term of \cref{eqn:sharholders-value-hedged-swap-step-1},
+        where also the cash flows stemming from the hedged swap contract are reflected in the first term.
+        Notice that only the amount of the variation margin posted,
+        and not the initial margin,
+        is dependent on the size of the investment, $q$.
+        \\
+        Term 3 describes the margin requirements that the dealer must finance by obtaining short-term debt at the interim date.
+        Also the cash flow from the hedged swap contract is either financed by- or retiring some debt depending on the floating payment.
+        This quantity will however be offset with the amount stemming from the original swap contract between the dealer and the counterparty.
+        \\
+        Finally, term 4 is the amount funded to cover the margin requirements at time 0.
+
+        By expressing \cref{eqn:sharholders-value-hedged-swap-step-1} as a difference quotient, and by linearity of expectations, the following limit is obtained:
+        \begin{align}
+            &=
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                    \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                    \left(
+                        - q\left(\mathcal{C}_1 R_1 + \mathcal{C}_2
+                        + M_0 R_0 s_1(q)
+                        + M_1 R_1\right)
+                    \right)
+                \right]
+            }{
+                q
+            }
+            \nonumber
+            \\
+            % &\quad+
+            % \lim_{q \rightarrow 0}
+            % \frac{
+            %     \mathbb{E}_{0}^{\rnmeasure}\left[
+            %         \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+            %         \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+            %         \left(
+            %             I_0 R_0 R_1
+            %             % I_0 R_0 s_1(q)
+            %             % The dealer is assumed to only retire debt with only the received variation margin, and not initial margin.
+            %             + I_1 R_1
+            %         \right) 
+            %     \right]
+            % }{
+            %     q
+            % }
+            % \nonumber
+            % \\
+            &\quad-
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                    \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                    \left(
+                        q\left(\mathcal{C}_{1} s_{1}(q)
+                        + M_1 s_{1}(q)\right)
+                        + I_1 s_{1}(q)
+                    \right)
+                \right]
+            }{
+                q
+            }
+            \nonumber
+            \\
+            &\quad-
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>1\}}
+                    \left(
+                        I_0 s_{0}(q) R_{1}
+                        + qM_0 s_{0}(q) R_{1}
+                    \right) 
+                \right]
+            }{
+                q
+            }
+            \nonumber
+            % \\
+            % &\quad-
+            % \lim_{q \rightarrow 0}
+            % \frac{
+            %     \mathbb{E}_{0}^{\rnmeasure}\left[
+            %         \delta_2
+            %         \mathbbm{1}_{\{\tau_{F}>2\}}
+            %         \mathbbm{1}_{\{\tau_{C}>1\}}
+            %         \left(
+            %             I_0 R_0 S_1
+            %             + I_1 R_1
+            %             - I_1 S_1
+            %         \right)
+            %         -
+            %         \delta_2
+            %         \mathbbm{1}_{\{\tau_{F}>1\}}
+            %         I_0 S_0 R_1
+            %     \right]
+            % }{
+            %     q
+            % }
+            \\
+            &\quad-
+            \lim_{q \rightarrow 0}
+            \frac{
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_2
+                    \left(
+                        \mathbbm{1}_{\{\tau_{F}>2\}}
+                        \mathbbm{1}_{\{\tau_{C}>1\}}
+                        -
+                        \mathbbm{1}_{\{\tau_{F}(q)>2\}}
+                        \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+                    \right)
+                    \left(
+                        I_0 R_0 R_1
+                        + I_1 R_1
+                    \right)
+                \right]
+            }{
+                q
+            }
+            \label{eqn:sharholders-value-hedged-swap-step-2}
+        \end{align}
+        Following the exact same proof as in the previous section $\mathbbm{1}_{\{\tau_{F}(q)>2\}}
+        \mathbbm{1}_{\{\tau_{C}(q)>1\}}
+        -
+        \mathbbm{1}_{\{\tau_{F}>2\}}
+        \mathbbm{1}_{\{\tau_{C}>1\}}
+        = 0$,
+        and the fourth term becomes 0.
+
+        \begin{align}
+            \Gamma &=
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_2 \mathbbm{1}_{\{\tau_{F}>2\}}
+                    \mathbbm{1}_{\{\tau_{C}>1\}}
+                    \left(
+                        -\left(\mathcal{C}_1 R_1 + \mathcal{C}_2
+                        + M_0 R_0 S_1
+                        + M_1 R_1\right)
+                    \right)
+                \right]
+            \nonumber
+            \\
+            &\quad-
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}>2\}}
+                \mathbbm{1}_{\{\tau_{C}>1\}}
+                \left(
+                    \mathcal{C}_{1} S_1
+                    + M_1 S_1
+                    + I_1 S_1
+                \right)
+            \right]
+            \nonumber
+            \\
+            &\quad-
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                \delta_2 \mathbbm{1}_{\{\tau_{F}>1\}}
+                \left(
+                    I_0 S_0 R_{1}
+                    + M_0 S_0 R_{1}
+                \right) 
+            \right]
         \end{align}
 
 \end{document}
