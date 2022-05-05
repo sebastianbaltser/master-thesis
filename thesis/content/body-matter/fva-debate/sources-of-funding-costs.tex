@@ -202,36 +202,19 @@
         and thus the funding costs. 
         However, even when repo market exists, hedging might require unsecured funding,
         which can be shown with an example by \textcite{Castagna2012FVA}.
-        Consider a dealer buying a european call option, with the intention to hedge the market risk.
+        Consider a dealer buying a European call option, with the intention to hedge the market risk.
         To create the hedging strategy the dealer must short an amount of the underlying asset corresponding to the option Delta of the call option.
         If the underlying asset can be sold at repo the dealer will receive the repo rate.
         However, to pay the premium for the call option the dealer must borrow unsecured funds from its funding institution,
         paying again the funding spread. 
 
-        For financial institutions, funding costs, as the aforementioned, justifies an adjustment 
-        to the derivatives' price corresponding to the funding cost the derivatives introduce if they are obtained.
-        This justification is however refused by \textcite{HullWhite2012FVA}.
-        They state that, since a hedge consists of buying and selling assets for their market prices,
-        performing a hedge is an investment with zero net present value.
-        Exchanging money for assets of identical value,
-        is simply moving value around and these operations should not influence valuations. 
-
-        In any case,
-        the funding spread could very well be part of the hedging strategy which makes it undeniable for dealers when performing valuation of the initial investments.
-
-        Another argument proposed by \textcite{HullWhite2012FVA} is the fact that dealers buy Treasury instruments and other low-yielding assets returning less than the dealers' average funding cost.
-        They do this without applying an FVA and the implication of the argument is that there is an inconsistency in dealer practice,
-        as the low-yielding instruments would be unprofitable if an FVA was made.
-        The previous discussion however nests an explanation for this dealer behaviour.
-        For Treasury instruments and the like,
-        very developed repo markets exists such that the purchase of these instruments can be financed with secured funding.
-        Consequently the funding cost of buying these instruments is likely much lower than the dealers' average funding cost,
-        which partly explains why dealers willingly buy them.
-        As shown by the example of the OTC derivatives dealer, 
-        the lack of a repo market for derivatives is exactly the reason why funding costs appear in the first place.
-        In fact \textcite[Section~9.4.1]{Green2015XVA}, 
-        using the \footcite{BurgardKjaer2013Funding} Semi-Replication model,
-        shows that the existence of a repo market would eliminate the need for an \FVA/ on derivatives. 
+        This section has shown how asymmetrical collateralization schemes
+        can lead to funding costs. 
+        When trades and their hedges have identical CSA agreements, 
+        the collateral cash flows can offset each other and there is no need for funding collateral.
+        However, when the hedge has stronger collateralization than the trade itself,
+        the cash flows will not always align, which creates cash surpluses and deficits;
+        and therefore funding costs or benefits.
         
     \subsubsection{Funding costs from derivatives cash flows}
         The fact that the dealer does not have access to risk-free funding
