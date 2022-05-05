@@ -5,39 +5,40 @@
     \subsection{Funding Secured Derivatives}
     \label{sec:example-secured-derivative}
         Now consider the same derivative contract as above which is sold by the firm to the counterparty.
-        The firm spends the premium by posting collateral at a third party, possibly a custodian, where it earns the risk-free rate.
-        The collateral posted is a variation margin that covers the entire amount of the derivative payable.
-        On top of the variation margin, the firm also posts an initial margin worth 
-        \qty[round-precision=0]{50}{\percent} of the purchase price at time 0.
-        The initial margin is funded by new debt.
-        The firm as still assumed to have credit risk, whereas the counterparty is without credit risk.
+        Assume now that the firm and the counterparty have in place a CSA agreement
+        that requires collateralization with no threshold or minimum transfer amount.
+        Therefore at time 0, when the counterparty pays the upfront price,
+        the firm posts the same amount as collateral to the counterparty.
 
+        In addition to the variation margin, 
+        the CSA agreement requires an independent amount to be posted,
+        corresponding to \qty[round-precision=0]{50}{\percent} of the purchase price at time 0.
+
+        Since the upfront price equals offsets the call for variation margin,
+        neither the upfront price nor the variation margin will have any funding costs or benefits.
+        The independent amount, on the other hand, has no offsetting cash flows, 
+        and therefore requires financing.
+        In this section it is assumed that the firm finances the independent amount by issuing new debt,
+        and the issue issue raised by this setup is how this affects the valuation of the derivative.
+        
         % Hillion creates a portfolio where the option is bought by the counterparty and also sold to a hedger dealer. This will cause a wealth transfer that consist of both \MVA/ and \FCA/.
 
-        This example suggests that, for a derivative contract as such,
-        the variation margin will not cause any funding costs or benefits,
-        as the option premium offsets the posted collateral.
-        However, this is not the case for the initial margin which requires funding.
-        The collateral must be posted in cash or assets, and cannot be rehypothecated by the third party.
-        The issue raised by this setup is whether a valuation adjustment to the derivative is needed due to the margin requirements.
-        This is denoted by \MVA/.
+        As previously, financing for the independent amount is obtained 
+        such that the new creditors make a zero net present value investment.
+        The new creditors debt claim ranks pari passu with the existing debt.
+        At time 0 the asset value increases by the upfront price,
+        and by the debt obtained for the independent amount.
+        At time 1 the asset value increases by these amounts forward discounted,
+        since the quantities earn the risk-free rate when posted as collateral.
 
-        The financing costs for the initial margin do not differ much from the principles of funding costs discussed in \cref{sec:risk-free-project}.
-        Issuing debt to fund the initial margin is a zero net present value for the new creditors.
-        This leads to the conclusion that the shareholders are worse off, as they pay the funding of the risk-free security held by the third party, i.e. the initial margin, in the event of no default.
-        The wealth transfer favours the legacy creditors,
-        and the derivative contract seems eligible for an \MVA/.
-        The \MVA/ determine the difference between the market value and value that makes the shareholders indifferent to entering the new secured project.
-
-        At time 1, the firm's asset value has increased with the future value of the initial- and variation margin posted to the third party.
-        By funding this initial margin the firm obtains a new liability in terms of a new debt which is assumed to rank pari passu with the existing debt.
-        The payoff structure at time 1 of the firm and its stakeholders
-        is summarized in \cref{tbl:example-collateralized-derivative}.
-
-        The premium of the derivative contract is computed as:
+        The credit risk-free value of the derivative contract to the firm 
+        is the discounted promised payoff and is given by:
         \begin{equation}
-            \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = \num{2.345}
+            \pi(Y) = \num{-2.345}
         \end{equation}
+        The required collateralization there
+        The premium of the derivative contract is computed as:
+
         To enter this project, the firm must post \qty[round-precision=0]{50}{\percent}
         of the price as initial margin as well as the total price in variation margin.
         The variation margin has higher priority than the existing debt, hence the derivative contract becomes risk-free.
@@ -48,6 +49,9 @@
             \cdot 
             \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[\tilde{D}\right] = \num{1.1725}
         \end{equation}
+
+        The payoff structure at time 1 of the firm and its stakeholders
+        is summarized in \cref{tbl:example-collateralized-derivative}.
 
         \begin{table}[H]
             \centering
