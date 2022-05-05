@@ -58,8 +58,21 @@ def debt_financing_plot():
     ax.plot(option_price_range, g_debt, label="Shareholders")
     ax.plot(option_price_range, h_debt, label="Creditors")
     ax.set_xlim([option_price_range[0], option_price_range[-1]])
-    ax.set_ylim([-0.045, 0.045])
-    ax.plot([option_price_range[0], option_price_range[-1]], [0, 0], "--", color="black", linewidth=0.5)
+    ylim = [-0.045, 0.045]
+    ax.set_ylim(ylim)
+    ax.plot([option_price_range[0], option_price_range[-1]], [0, 0], "-.", color="grey", linewidth=0.5)
+
+    marks = [(0.99, -0.026874, 0.026874),
+             (0.97, -0.008734, 0.028734),
+             (0.960370, 0, 0.99-0.960370)]
+    for price, shareholder_value, creditor_value in marks:
+        ax.plot([price, price], [ylim[0]*0.9, ylim[1]*0.9], "--", color="black", linewidth=0.5)
+        ax.scatter([price, price], [shareholder_value, creditor_value], marker="o", color="black", s=15)
+        # ax.text(price, shareholder_value, f"{shareholder_value:.2f}", ha="right", va="bottom")
+        annotate_kwargs = dict(xytext=(4, 4), textcoords="offset points", fontsize=8)
+        for value in [shareholder_value, creditor_value]:
+            ax.annotate(f"${value:.4f}$", (price, value), **annotate_kwargs)
+
     ax.set_xlabel("Option Price")
     ax.set_ylabel("Marginal Value")
     ax.set_title("Marginal shareholder and creditor value for different option prices")
@@ -79,8 +92,8 @@ def equity_financing_plot():
     base_firm = Firm(Asset(States(states, [120, 110, 100, 95, 60])), debt_face_value=80)
     option = Asset(States(states, [1, 1, 1, 1, 1]))
 
-    theoretical_option_price = economy.risk_neutral_expectation(option.values)
-    option_price_range = np.arange(0.70, 1.01, 0.01)
+    theoretical_option_price = economy.risk_neutral_expectation(option.values) * economy.discount_factor
+    option_price_range = np.arange(0.70, 1.05, 0.01)
 
     firms = [get_new_firm_from_debt_financed_option(base_firm, option, option_price)
              for option_price in option_price_range]
@@ -94,8 +107,20 @@ def equity_financing_plot():
     ax.plot(option_price_range, g_equity, label="Shareholders")
     ax.plot(option_price_range, h_equity, label="Creditors")
     ax.set_xlim([option_price_range[0], option_price_range[-1]])
-    ax.set_ylim([-0.15, 0.15])
-    ax.plot([option_price_range[0], option_price_range[-1]], [0, 0], "--", color="black", linewidth=0.5)
+    ylim = [-0.18, 0.18]
+    ax.set_ylim(ylim)
+    ax.plot([option_price_range[0], option_price_range[-1]], [0, 0], "-.", color="grey", linewidth=0.5)
+
+    marks = [(0.99, -0.12, 0.12),
+             (0.87, 0, 0.99-0.87)]
+    for price, shareholder_value, creditor_value in marks:
+        ax.plot([price, price], [ylim[0]*0.9, ylim[1]*0.9], "--", color="black", linewidth=0.5)
+        ax.scatter([price, price], [shareholder_value, creditor_value], marker="o", color="black", s=15)
+        # ax.text(price, shareholder_value, f"{shareholder_value:.2f}", ha="right", va="bottom")
+        annotate_kwargs = dict(xytext=(4, 4), textcoords="offset points", fontsize=8)
+        for value in [shareholder_value, creditor_value]:
+            ax.annotate(f"${value:.4f}$", (price, value), **annotate_kwargs)
+
     ax.set_xlabel("Option Price")
     ax.set_ylabel("Marginal Value")
     ax.set_title("Marginal shareholder and creditor value for different option prices")
