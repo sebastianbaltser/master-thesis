@@ -7,13 +7,18 @@
         Still remaining at this point is to properly define \FVA/, at least in a technical manner.
         According to \textcite{ADS2019} there are multiple ways of calculating \FVA/ used in practice and theory,
         and a couple of viable definitions will be explained in this section.
-        The definitions are due to \textcite{Hillion2016}.
 
         \subsubsection*{FVA as the promised excess funding cost}
             Since the firm obtains funds for the project at a spread in excess of the risk-free rate, 
             the shareholders pay an additional rate when the firm does not default. 
             This is a form of funding cost and argues in favour of defining the \FVA/ as
-            the present value of the costs paid by the shareholders in excess of the risk-free rate:
+            the present value of the costs paid by the shareholders in excess of the risk-free rate.
+            This is the definition used by \textcite{HullWhiteFVA} who define \FVA/ as 
+            \textit{
+                the present value of the extra return required by lenders to compensate them 
+                for costs associated with possible defaults by the dealer on the funding.
+            }
+            Using the notation introduced in this paper, the adjustment would then be defined as:
                 \begin{align}
                     \FVA/ 
                     &= 
@@ -26,17 +31,14 @@
                         \discountfactor U(q) s(q)
                     \label{eqn:fva-as-promised-excess-funding-cost}
                 \end{align}
-            Since the entire credit spread is compensation for credit risk,
-            the \FVA/ defined here is the compensation provided to the creditors,
-            for the possibility that the firm might default. 
-            If the firm defaults, this amount is not to be paid; 
-            the \FVA/ is therefore equal to the expected benefit to the firm from defaulting, also known as the DVA. 
-            The result that the \FVA/ equals the DVA when credit spreads are merely compensation for credit risk
-            is shown by \textcite{HullWhiteFVA}.
-
-            This definition of \FVA/ does not taking into account 
-            that the shareholders are not paying the credit spread when the firm defaults, 
-            as opposed to the next possible definition.
+            If the CDS-bond spread is zero, this definition of \FVA/ is equal to the \DVA/.
+            This fact is used by \textcite{HullWhiteFVA} as an argument against \FVA/s,
+            since the \DVA/ should already be accounted for and therefore including the adjustment
+            for funding costs would be double counting.
+            The problem with this definition is that it does not take into account 
+            that the shareholders are not paying the credit spread when the firm defaults.
+            It will be more meaningful to account for the default risk, 
+            which is done by the next possible definition of \FVA/.
 
         \subsubsection*{FVA as the expected excess funding cost}
             The FVA could also be defined by the quantity $\Phi$ in \cref{eqn:marginal-shareholder-value-debt-financing}, 
@@ -117,7 +119,6 @@
                         \right)
                     \label{eqn:shareholders-breakeven-debt-financing}
                 \end{align}
-            A result named Proposition 3 by \textcite{ADS2019}.
             The expected value of the cash flow, $\mathbb{E}^{\mathbb{Q}}\left[Y\right]$,
             includes the counterparty credit risk, since that is inherited in the cash flow, 
             but excludes the firm's own credit risk. 
