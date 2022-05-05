@@ -302,4 +302,29 @@
         %     \right]
         % \end{align}
 
+        This value defines the transfer of wealth for the dealer's shareholders.
+        If it assumed that the project is a zero net present value investment for the counterparty, the new creditors, and the hedge dealer,
+        then the legacy creditors will end up with a wealth transfer of $-G_{\text{swap,hedged}}$.
+
+        Fixing the price of the swap contract between the dealer and the counterparty,
+        the value of the swap contract that makes the shareholders indifferent of entering the project, $\tilde{u}^{\ast}$,
+        is found by solving the following equation for $\tilde{u}$:
+        \begin{equation}
+            G_{\text{swap,hedged}} = 0
+            \label{eqn:shareholder-breakeven-swap-hedged}
+        \end{equation}
+        The \FVA/ is then the donation of the hedge dealer, i.e. the difference between the first price of the swap and the regulated price:
+        \begin{equation}
+            \FVA/ = \tilde{u}^{\ast} - \tilde{u}
+        \end{equation}
+
+        Alternatively, the value that makes the project a zero net present value investment for the shareholders is found by instead fixing the price of the hedged swap contract,
+        and then solve \cref{eqn:shareholder-breakeven-swap-hedged}
+        for $u$.
+        The two approaches will provide the same \FVA/ amount.
+
+        Having obtained a result for both an unsecured swap contract as well as a swap contract with a fully collateralized hedged position,
+        the next section will then who how use the results in a simple constructed multi-period framework.
+        The examples will have multiple states in each of the two time periods, where also the interest is will change over time.
+
 \end{document}
