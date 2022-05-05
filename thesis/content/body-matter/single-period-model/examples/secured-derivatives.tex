@@ -7,7 +7,8 @@
         Now consider the same derivative contract as above which is sold by the firm to the counterparty.
         The firm spends the premium by posting collateral at a third party, possibly a custodian, where it earns the risk-free rate.
         The collateral posted is a variation margin that covers the entire amount of the derivative payable.
-        On top of the variation margin, the firm also posts an initial margin worth 50\% of the purchase price at time 0.
+        On top of the variation margin, the firm also posts an initial margin worth 
+        \qty[round-precision=0]{50}{\percent} of the purchase price at time 0.
         The initial margin is funded by new debt.
         The firm as still assumed to have credit risk, whereas the counterparty is without credit risk.
 
@@ -35,14 +36,17 @@
 
         The premium of the derivative contract is computed as:
         \begin{equation}
-            \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = 2.345
+            \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = \num{2.345}
         \end{equation}
-        To enter this project, the firm must post 50\% of the price as initial margin as well as the total price in variation margin.
+        To enter this project, the firm must post \qty[round-precision=0]{50}{\percent}
+        of the price as initial margin as well as the total price in variation margin.
         The variation margin has higher priority than the existing debt, hence the derivative contract becomes risk-free.
 
         While the variation margin is funded by the premium of the derivative contract, the initial margin is funded by new debt. And since this debt is not secured, the firm must pay a credit spread to cover its own credit risk. The deal is still a zero net present value investment for the new creditors, meaning that the present value equals the initial margin paid at time 0:
         \begin{equation}
-            50\% \cdot \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[\tilde{D}\right] = 1.1725
+            \qty[round-precision=0]{50}{\percent} 
+            \cdot 
+            \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[\tilde{D}\right] = \num{1.1725}
         \end{equation}
 
         \begin{table}[H]
@@ -50,11 +54,15 @@
             \begin{tabular}{l|rrrrr||r}
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                 \hline
-                $A(\omega_{i})$ & $123.553$ & $113.553$ & $103.553$ & $98.553$ & $63.553$ & $99.918$ \\
-                $D(\omega_{i})$ & $80.000$ & $80.000$ & $80.000$ & $80.000$ & $61.615$ & $76.994$ \\
-                $E(\omega_{i})$ & $38.335$ & $28.835$ & $19.835$ & $15.835$ & $0$ & $19.406$ \\
-                $\tilde{D}(\omega_{i})$ & $1.218$ & $1.218$ & $1.218$ & $1.218$ & $0.938$ & $1.173$ \\
-                $Y_C(\omega_{i})$ & $4.000$ & $3.500$ & $2.500$ & $1.500$ & $1.000$ & $2.345$ \\
+                $A(\omega_{i})$ & 
+                    \num{123.553030} & \num{113.553030} & \num{103.553030} & \num{98.553030} & \num{63.553030} & \num{99.918} \\
+                $D(\omega_{i})$ & 
+                    \num{80} & \num{80} & \num{80} & \num{80} & \num{61.61472} & \num{76.993768} \\
+                $E(\omega_{i})$ & 
+                    \num{38.334747} & \num{28.834747} & \num{28.834747} & \num{15.834747} & \num{0} & \num{19.406232} \\
+                $\tilde{D}(\omega_{i})$ & 
+                    \num{1.218283} & \num{1.218283} & \num{1.218283} & \num{1.218283} & \num{0.938302} & \num{1.172502} \\
+                $Y_C(\omega_{i})$ & \num{4} & \num{3.5} & \num{2.5} & \num{1.5} & \num{1} & \num{2.345} \\
             \end{tabular}
             \caption{}
             \label{tbl:example-collateralized-derivative}
@@ -63,15 +71,15 @@
         As can be seen on \cref{tbl:example-collateralized-derivative}, the payoff of the legacy creditors at the default event is less than the pre-project value, while the payoff of the shareholders in the events of no default has also decreased. As the project is a zero net present value for the new creditors, there must be a wealth transfer from both the legacy creditors and the shareholders to the counterparty. Being the only party secured from the firm's credit risk, they receive the full derivative payable even in the event of default.
 
         The loss rate, as defined in \cref{eqn:creditor-loss-rate}, is computed as
-        $\phi = 1-(0.938+61.615)/(1.218+80) = 22.98\%$,
+        $\phi = 1-(\num{0.938302}+\num{61.61472})/(\num{1.218283}+\num{80}) = \pct{0.229816}$,
         and the credit spread is computed as
-        $S = 80/76.994 - \grossrfrate = 1.218/1.173 - \grossrfrate = 2.89\%$. These have both clearly decreased compared to the pre-project values, which suggest that the legacy creditors' position has improved.
+        $S = \num{80}/\num{76.993768} - \grossrfrate = \num{1.218283}/\num{1.172502} - \grossrfrate = \pct{0.028944}$. 
+        These have both clearly decreased compared to the pre-project values, which suggest that the legacy creditors' position has improved.
         The change of wealth for the legacy creditors as well as the shareholders verify this and are given by:
         \begin{align}
-            \Delta \pi(D) &= 76.994 - 76.80 = 0.194\\
-            \Delta \pi(E) &= 19.406 - 19.60 = -0.194
+            \Delta \pi(D) &= \num{76.993768} - \num{76.80} = \num{0.193768}\\
+            \Delta \pi(E) &= \num{19.406232} - \num{19.60} = \num{-0.193768}
         \end{align}
-
         In case the variation margin is ignored from the setup, the counterparty would likewise suffer from the credit risk of the firm.
         The loss rate would then decrease,
         as the recovered total asset amount would have to be shared between the three parties on the liability side now ranking pari passu.
@@ -89,7 +97,7 @@
         \begin{equation}
             \Delta \pi(E) = 0
         \end{equation}
-        yielding $\MVA/ = 0.220$. So, for the shareholders to accept entering the project, the derivative premium must be at least $2.345 + 0.220 = 2.565$.
+        yielding $\MVA/ = \num{0.220082}$. So, for the shareholders to accept entering the project, the derivative premium must be at least $\num{2.345} + \num{0.220082} = \num{2.565082}$.
         The donation adds to the total asset value of the firm,
         which eventually makes it possible for the firm to give more back to the creditors in case of defaulting.
         This will give the firm a lower credit spread on the debt, as well as it will give the creditors a lower loss rate.
