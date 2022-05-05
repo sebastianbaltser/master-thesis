@@ -1,0 +1,34 @@
+% !TEX root = ./test-graphics.tex
+
+
+
+\tikzset{
+    baseblock/.style n args = {1}{
+        minimum width=0.5cm,
+        minimum height=#1*2/3 px,
+    },
+    debt/.style n args = {1}{
+        baseblock={#1},
+        fill=blue,
+        anchor=south west,
+    },
+    equity/.style n args = {1}{
+        baseblock={#1},
+        fill=yellow,
+        anchor=south
+    }
+};
+
+\coordinate (cursor) at (0, 0);
+\foreach \debt/\equity in {80/40, 80/20, 60/0}{
+    \node (debt) [debt={\debt}] at (cursor) {};
+    \node (equity) [equity={\equity}] at (debt.north) {};
+    \coordinate (cursor) at (debt.south east);
+};
+
+\coordinate (cursor) at (0, 0);
+\foreach \debt/\equity in {80/40, 80/20, 60/0}{
+    \node (debt) [debt={\debt}] at (cursor) {};
+    \node (equity) [equity={\equity}] at (debt.north) {};
+    \coordinate (cursor) at (debt.south east);
+};
