@@ -70,10 +70,40 @@
 
         As can be seen on \cref{tbl:example-collateralized-derivative}, the payoff of the legacy creditors at the default event is less than the pre-project value, while the payoff of the shareholders in the events of no default has also decreased. As the project is a zero net present value for the new creditors, there must be a wealth transfer from both the legacy creditors and the shareholders to the counterparty. Being the only party secured from the firm's credit risk, they receive the full derivative payable even in the event of default.
 
-        The loss rate, as defined in \cref{eqn:creditor-loss-rate}, is computed as
-        $\phi = 1-(\num{0.938302}+\num{61.61472})/(\num{1.218283}+\num{80}) = \pct{0.229816}$,
-        and the credit spread is computed as
-        $S = \num{80}/\num{76.993768} - \grossrfrate = \num{1.218283}/\num{1.172502} - \grossrfrate = \pct{0.028944}$. 
+        The loss rate and the credit spread is respectively computed as:
+            \begin{gather}
+                \phi 
+                = 
+                    1 
+                    - 
+                    \frac{
+                        \num{0.938302}+\num{61.61472}
+                    }{
+                        \num{1.218283}+\num{80}
+                    }
+                = 
+                    \pct{0.229816}
+                \\
+                S 
+                = 
+                    \frac{
+                        \num{80}    
+                    }{
+                        \num{76.993768} 
+                    } 
+                    - 
+                    \grossrfrate 
+                = 
+                    \frac{
+                        \num{1.218283}
+                    }{        
+                        \num{1.172502} 
+                    } 
+                    -
+                    \grossrfrate 
+                = 
+                    \pct{0.028944} 
+            \end{gather}
         These have both clearly decreased compared to the pre-project values, which suggest that the legacy creditors' position has improved.
         The change of wealth for the legacy creditors as well as the shareholders verify this and are given by:
         \begin{align}
