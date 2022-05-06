@@ -56,22 +56,45 @@
     The same goes for the loss rate.
 
     The credit spread before entering into any projects is 
-    $\num{80}/\num{76.80} - \grossrfrate = \pct{0.031565}$.
+    $\num{80}/\num{76.80} - \grossrfrate = \pct{0.031566}$.
     Using \cref{eqn:creditor-loss-rate}, the loss rate of the creditors in the default event is:
     $\phi = (\num{80}-\num{60})/\num{80} = \pct{0.25}$
     while in all other states the loss rate is zero, as the firm does not default.
-
-    The derivations in previous sections, 
-    which described limiting spreads and marginal shareholder valuations, 
+    Recall that the limiting spread is the spread on the firm's debt 
+    after obtaining an infinitesimal amount of a project. 
+    This is identical to the pre-project spread on debt, 
+    but for completeness the loss rate can be substituted into \cref{eqn:limiting-spread} 
+    and limiting spread can be calculated:
+        \begin{equation}
+            S
+            =
+            \frac{
+                \mathbb{E}_{t}\left[\phi\right]
+                R
+            }{
+                1 
+                -
+                \mathbb{E}_{t}\left[\phi\right] 
+            } 
+            =
+            \pct{0.031566}
+        \end{equation}
+    The marginal shareholder valuations derived in previous sections, 
     were rooted in the assumption of the firm obtaining an infinitesimal project.
     This section will use the results in a practical application,
     where a larger than infinitesimal project will be obtained by the firm.
-    All equations describing marginal shareholder valuations will still hold,
-    as long as the project is not \textit{too large}.
-    The project is not too large as long as its payoff and financing do not 
-    alter the firm's default probability, which, in this discrete setting, means
-    that the set of default and no-default states should remain unchanged.
-    Such a project will be presented in the following paragraph.
+    Therefore, the results obtained from the equations will, to some extent, be inaccurate.
+    The magnitude of the inaccuracy will depend on how much the new project alters
+    the creditors' loss rate, since that controls the credit spread.
+    The impact on the creditors' loss rate depends on both the payoff structure of the project,
+    as well as the actual size of the project.
+
+    Fortunately, in the discrete framework used here, 
+    the actual marginal shareholder valuations can be obtained with numerical methods,
+    such that the results of the equations can be verified and compared to the correct results.
+    For that reason, the first project considered will be of a size that
+    results in a slight inaccuracy of the equations such that
+    it gives a sense of the problem's magnitude.
     
     Assume that the firm faces a new risk-free project in which it can invest
     and that the project has a promised return of $\num{1}$ at time 1.
