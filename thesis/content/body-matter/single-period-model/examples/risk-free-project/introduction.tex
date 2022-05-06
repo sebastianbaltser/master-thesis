@@ -104,6 +104,8 @@
     As was calculated above, the limiting spread is equal to the credit spread of the existing debt.
     This is no coincidence, and this digression will explain why it is so,
     and what the implications are.
+    As it turns out, 
+    the framework presented here provides a helpful interpretation of the limiting spread.
     Recall the definition of the limiting spread, repeated here for convenience:
         \begin{equation*}
             S
@@ -117,12 +119,13 @@
                 \mathbb{E}^{\rnmeasure}\left[\phi\right]
             }
         \end{equation*}
-    The credit spread of existing debt can be calculated by dividing the face value of the debt
+    For a constant face value,
+    the credit spread can be calculated by dividing the face value of the debt
     with the present value of the debt claim and subtracting the gross risk free rate.
     Denote the face value by $F$. 
     The present value of the debt claim is the discounted face value, $\discountfactor F$,
     adjusted for the credit risk. 
-    The credit value adjustment as usual corresponds to the discounted expected value of
+    The credit value adjustment, as usual, corresponds to the discounted expected value of
     the positive exposure, $F$, multiplied by the loss given default, $\phi$.
     Hence the credit spread of existing debt is given by:
         \begin{equation*}
