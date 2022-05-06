@@ -121,18 +121,18 @@
             The firm's balance sheet isn't affected by the transaction. 
             The change happens on the liability side, where the debt is partly swapped with a derivative payable.\\
             The values of the different parties are shown in \cref{tbl:example-debt-retiring}. 
-            The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=1-60/80=25\%$. 
-            Similarly, the credit spread remains the same as the pre-project value: $S=79/\num{75.84}-r_{f}-1=\pct{0.031566}$.
+            The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=1-\num{60}/\num{80}=\pct{0.25}$. 
+            Similarly, the credit spread remains the same as the pre-project value: $S=\num{79}/\num{75.84}-r_{f}-1=\pct{0.031566}$.
             
             \begin{table}[H]
                 \centering
                 \begin{tabular}{l|rrrrr||r}
                     $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                     \hline
-                    $A(\omega_{i})$ & $120$ & $110$ & $100$ & $95$ & $60$ & $96.40$ \\
-                    $D(\omega_{i})$ & $79$ & $79$ & $79$ & $79$ & $59.25$ & $75.84$ \\
-                    $E(\omega_{i})$ & $40$ & $30$ & $20$ & $15$ & $0$ & $19.60$ \\
-                    $Y_C(\omega_{i})$ & $1$ & $1$ & $1$ & $1$ & $0.75$ & $0.96$ \\
+                    $A(\omega_{i})$ & $\num{120}$ & $\num{110}$ & $\num{100}$ & $\num{95}$ & $\num{60}$ & $\num{96.40}$ \\
+                    $D(\omega_{i})$ & $\num{79}$ & $\num{79}$ & $\num{79}$ & $\num{79}$ & $\num{59.25}$ & $\num{75.84}$ \\
+                    $E(\omega_{i})$ & $\num{40}$ & $\num{30}$ & $\num{20}$ & $\num{15}$ & $\num{0}$ & $\num{19.60}$ \\
+                    $Y_C(\omega_{i})$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{0.75}$ & $\num{0.96}$ \\
                 \end{tabular}
                 \caption{}
                 \label{tbl:example-debt-retiring}
@@ -145,11 +145,11 @@
                 \begin{tabular}{l|c|c|c}
                      & \textbf{Book Value} & \textbf{\DVA/} & \textbf{Market Value} \\
                     \hline
-                    Equity & $19.60$ & $0$ & $19.60$\\
-                    Debt & $79.20$ & $3.36$ & $75.84$\\
-                    Derivative Payable & $0.99$ & $0.03$ & $0.96$\\
+                    Equity & $\num{19.60}$ & $\num{0}$ & $\num{19.60}$\\
+                    Debt & $\num{79.20}$ & $\num{3.36}$ & $\num{75.84}$\\
+                    Derivative Payable & $\num{0.99}$ & $\num{0.03}$ & $\num{0.96}$\\
                     \hline
-                    Total & 99.79 & 3.39 & 96.40
+                    Total & $\num{99.79}$ & $\num{3.39}$ & $\num{96.40}$
                 \end{tabular}
             \end{table}
 
@@ -159,13 +159,13 @@
 
             The counterparty's payoff coming from the derivative, $Y_C$, has a market value of:
             \begin{equation}
-                \pi(Y_{C}) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = 0.96
+                \pi(Y_{C}) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = \num{0.96}
             \end{equation}
-            This concludes that the derivative premium that the firm receives at time 0 is equal to 0.96, 
+            This concludes that the derivative premium that the firm receives at time 0 is equal to $\num{0.96}$, 
             which is then the amount used for retiring debt. 
             On top of this, the amount is recognized as the difference between the riskless project value and the \DVA/:
             \begin{equation}
-                V = V_{rf} - \DVA/_F = 0.99 - 0.03 = 0.96
+                V = V_{rf} - \DVA/_F = \num{0.99} - \num{0.03} = \num{0.96}
             \end{equation}
             which validates \cref{eqn:option-value-credit-risk}. 
 
