@@ -100,4 +100,89 @@
     Financing through debt issuance is examined in the following section 
     and financing by share issuance in the section after that.
 
+    \subparagraph{Digression on the limiting spread}
+    As was calculated above, the limiting spread is equal to the credit spread of the existing debt.
+    This is no coincidence, and this digression will explain why it is so,
+    and what the implications are.
+    Recall the definition of the limiting spread, repeated here for convenience:
+        \begin{equation*}
+            S
+            =
+            \frac{
+                \mathbb{E}^{\rnmeasure}\left[\phi\right]
+                \grossrfrate
+            }{
+                1
+                -
+                \mathbb{E}^{\rnmeasure}\left[\phi\right]
+            }
+        \end{equation*}
+    The credit spread of existing debt can be calculated by dividing the face value of the debt
+    with the present value of the debt claim and subtracting the gross risk free rate.
+    Denote the face value by $F$. 
+    The present value of the debt claim is the discounted face value $F\discountfactor$
+    adjusted by the credit risk. 
+    The credit value adjustment as usual corresponds to the discounted expected value of
+    the positive exposure, $F$, multiplied by the loss given default, $\phi$.
+    Hence the credit spread of existing debt is given by:
+        \begin{equation*}
+            \frac{
+                F
+            }{
+                \discountfactor F
+                -
+                \discountfactor
+                \mathbb{E}^{\rnmeasure}\left[
+                    F \phi
+                \right] 
+            } 
+            -
+            \grossrfrate
+            =
+            R \left(
+            \frac{
+                1
+            }{
+                    1
+                    -
+                    \mathbb{E}^{\rnmeasure}\left[
+                        \phi
+                    \right] 
+            } 
+            - 
+            1
+            \right)
+            =
+            \frac{
+                \mathbb{E}^{\rnmeasure}\left[\phi\right]
+                \grossrfrate
+            }{
+                1
+                -
+                \mathbb{E}^{\rnmeasure}\left[\phi\right]
+            }
+        \end{equation*}
+        Which can be recognized as the limiting spread. 
+        Hence, the definitions of the marginal shareholder valuations are based on
+        the assumption that the post-project credit spread 
+        will equal the pre-project credit spread.
+        However, these definitions are derived using infinitesimal projects. 
+        In practical applications,
+        it would therefore be more appropriate to refer to the limiting spread as an approximation 
+        of the credit spread after obtaining a larger-than-infinitesimal project.
+        The mathematics have been accounted for, 
+        but the approximation does seem to be financial sound as well.
+        First of all, the post-project credit spread are based on the the risk of the entire firm,
+        which most likely encompasses many projects.
+        Each new project is therefore going to be of relatively small size compared
+        to the entire firm, and it will only have a small effect on the overall riskiness.
+        Second, this effect is enhanced if the firm mostly invests in projects that matches
+        its overall riskiness in the first place.
+        Third and last, as was mentioned earlier, according to \textcite{Castagna2012FVA},
+        the cost of capital will only gradually update, 
+        such that obtaining a new project only have a very marginal effect on the credit spread.
+
+        In conclusion, the limiting spread is not merely a mathematical result
+        but also a financially sound approximation of the incremental cost of obtaining new projects.
+
 \end{document}
