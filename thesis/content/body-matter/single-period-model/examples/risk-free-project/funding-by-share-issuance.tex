@@ -8,48 +8,72 @@
         In this section the impact on the firm's capital structure of issuing new shares is discussed.
         This includes a study of the effects on the shareholders' and creditors' wealth. 
         Funding by share issuance will create a dilution, and the value of the already existing shares, owned by the legacy shareholders, will be reduced. 
-        The counterparty of the new project which the firm enters is still supposed to be risk-free, meaning that the payoff at time 1, $Y$, is known with certainty. 
-        What differences from funding a project with new debt does this take have?
+        The counterparty of the new project is still credit risk-free, 
+        and the payoff at time 1, $Y$, is known with certainty. 
+        To compare debt and equity funding, 
+        the project under consideration will be the same as in the previous section.
 
-        The new shareholders will subscribe to the newly issued shares only to the extent that the investment has a net present value of zero; paying an amount equal to the premium of the derivative, $\pi(Y)$:
+        The random payoff of the new shareholders will be denoted by $\tilde{E}$.
+        The new shareholders will subscribe to the newly issued shares 
+        only to the extent that the investment has a net present value of zero.
+        To be able to finance the project, the value of the new equity,
+        should therefore equal the upfront price of the project:
         \begin{equation}\label{eqn:derivative-zero-npv}
-            \pi(Y) = \pi(\tilde{E})
+            u = \pi(\tilde{E})
         \end{equation}
-        Intuitively, the total asset value will then increase by the fair value of the derivative, and, all things being equal, the project will result in more value left for the creditors in the default state. 
-        The creditors have not had anything changed in their deal with the firm, and the increment in asset base due to the receivables of the derivative will be added to their payoff if the firm defaults. 
-        This reduces their loss rate as well as the credit spread.
-        And as a result of that, the creditors are better off, since the market value of the debt increases.\\
-        The legacy shareholders, on the other hand, are worse off by an amount equal to the increment of the debt value, and the only change of structure is the transfer of wealth from the legacy shareholders to the legacy creditors. 
-        The loss of value for the legacy shareholders comes from the dilution, where their share of the payoff has fallen without any compensation of capital. 
-        The wealth transferred is significantly higher than in the case of debt funding because the legacy creditors are not obliged to share the payoff of the derivative with other new creditors in the case of default. 
-        The derivative contract has no impact on the total asset value of the firm, and the funding cost are borne by the legacy shareholders.
+        The new equity will increase the total asset value of the firm,
+        reducing the loss rate of the creditors in the default state.
+        Therefore, the creditors should see an increase in the value of their claim.\\
+        The increase in wealth for the creditors is, however, at the expense of the legacy shareholders,
+        since, as under debt financing, the shareholders bear the funding costs.
+        As shareholders have an even higher required rate of return compared to creditors,
+        the wealth transfer from the shareholders in this section should also be higher.
 
-        Assume a firm enters a risk-free project with a known payoff at time 1 of $Y=\num{1}$. 
-        The present value of the derivative is then $\num{1}*\num{0.99}=\num{0.99}$. 
-        The project adds to the firm's total asset value. 
-        While the payoff of the legacy creditors, with a face value of $\num{80}$, only change in the default state, the payoff of the shareholders is computed slightly differently than in the case of debt issuance. 
-        It's now essential to know the share of the payoff, $\alpha$, which the new equity owners are entitled to, remembering that the payoff obtained by the legacy creditors is given as in \cref{eqn:legacy-creditor-payoff}. 
-        The difference between the total asset value of the firm, and the payoff of the creditor is what's left to be distributed to the shareholders, who are now separated into two bases. 
-        To find the share, compute the net present value of the investment made by the new shareholders, and divide it by the expected discounted value of the residual which is distributed to the shareholders:
+        While the payoff of the creditors, with a face value of $L = \num{80}$, 
+        only change in the default state, 
+        the payoff of the legacy shareholders is computed slightly differently than in the case of debt issuance. 
+        It's now essential to know the share of the equity, $\alpha$, 
+        which the new shareholders are entitled to.
+        The new shareholders are entitled to a share equal to the size of their investment,
+        relative to the discounted expected value of the total payoff to shareholders:
         \begin{equation}
             \alpha = 
                 \frac{
-                    \pi(Y)
+                    u
                 }{
-                    \mathbb{E}^{\rnmeasure}\left[A-D\right]
+                    \discountfactor
+                    \mathbb{E}^{\rnmeasure}\left[
+                        (A - L)^{+}
+                    \right]
                 }
         \end{equation}
-        The new shareholders then receive their share of the remaining payoff in each state, and the payoff of the legacy shareholders is still the residual with a share of $(\num{1}-\alpha)$ equalling the remainder of the distributed payoff. 
-        The results of the example are shown in \cref{tbl:equity-funding-payoff}, where the share of the new equity owners is computed as $\alpha = \pct{0.048363}$.
-
+        The expected value of the equity is 
+        $\mathbb{E}^{\rnmeasure}\left[(A - L)^{+}\right] = \num{20.676768}$,
+        and with a project price of $u = 0.99$, the new shareholders are entitled to a share
+        $\alpha = \pct{0.048363}$ of the equity.
+        The new shareholders then receive their share of the equity in each state, 
+        and the payoff to the legacy shareholders is the residual share of the equity.
+        The random variables denoting the shareholders' payoffs are therefore given by:
+            \begin{align}
+                E 
+                &= 
+                (1 - \alpha)
+                (A - L)^{+} 
+                \\
+                \tilde{E}
+                &=
+                \alpha
+                (A - L)^{+}
+            \end{align}
+        The resulting payoffs of the example are shown in \cref{tbl:equity-funding-payoff}.
         \begin{table}[H]
             \centering\begin{tabular}{l|rrrrr||r}
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                 \hline
-                $A_{i}$ & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
-                $D_{i}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{61}$ & $\num{76.92}$ \\
-                $E_{i}$ & $\num{39.017098}$ & $\num{29.500733}$ & $\num{19.984367}$ & $\num{15.226185}$ & $\num{0}$ & $\num{19.48}$ \\
-                $\tilde{E}_{i}$ & $\num{1.982902}$ & $\num{1.499267}$ & $\num{1.015633}$ & $\num{0.773815}$ & $\num{0}$ & $\num{0.989994}$ \\
+                $A(\omega_{i})$ & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
+                $D(\omega_{i})$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{61}$ & $\num{76.92}$ \\
+                $E(\omega_{i})$ & $\num{39.017098}$ & $\num{29.500733}$ & $\num{19.984367}$ & $\num{15.226185}$ & $\num{0}$ & $\num{19.48}$ \\
+                $\tilde{E}(\omega_{i})$ & $\num{1.982902}$ & $\num{1.499267}$ & $\num{1.015633}$ & $\num{0.773815}$ & $\num{0}$ & $\num{0.989994}$ \\
             \end{tabular}
             \caption{}
             \label{tbl:equity-funding-payoff}
@@ -58,8 +82,9 @@
         After the transaction, the firm's balance sheet has increased with an amount equal to the premium of the derivative. 
         The firm has a new asset on the asset side, the derivative receivable worth $\num{0.989994}$, and that is funded by $\num{0.989994}$ worth of new equity.
 
-        The project is a negative net present value investment for the legacy shareholders. 
-        The decrease in the equity value is calculated using
+        As anticipated,
+        the project is a negative net present value investment for the legacy shareholders. 
+        The decrease in the value of their claim is calculated using
         \cref{eqn:marginal-shareholder-value-equity-financing}:
         \begin{equation}
                 \Delta \pi(E) 
@@ -99,11 +124,10 @@
         This means that the Modigliani-Miller invariance proposition holds, and also shows, that regardless of the strategy of funding a financial project, the funding costs has no impact on the valuation of the derivative nor the asset base of the firm itself.
 
         When trading decisions are made, the firm's preferences are assumed to be determined by the shareholders.
-        However, in the case of funding by share issuance, it's clear that the legacy shareholders' position deteriorates, as they bear the funding costs.\\
-        An adjustment to the value of the derivative would require a donation by the counterparty, such that the value of derivatives' receivables would be worth more than the premium.
-        This should only go to an extent so that the legacy shareholders become indifferent of whether the the firm enters the project or not.
-        But whether the counterparty has incentives to do so requires more information about their capital structure, and will remain indeterminate.\\
-        These conclusions hold for both types of funding, but the amount of wealth transfer does depend on the instrument used. Shareholders are worse off with share issuance than with debt issuance.
+        However, it is clear that the legacy shareholders' position deteriorates, 
+        as they bear the funding costs from financing the project. \\
+        To get the shareholders on board would require a donation by the counterparty, 
+        via a reduction in the upfront price of the project.
         The availability of cash in the firm's deposits would solve the issue faced by the shareholders:
         Suppose the firm uses their own cash to purchase the derivative from the counterparty at a market fair value.
         This is a zero net present value investment for the firm, where, in addition, no wealth is transferred from the shareholders, and neither does the creditors become better off. 
@@ -133,10 +157,31 @@
         \end{equation}
         Notice that this amount is the same as the wealth transfer.
         This is because the donation from the counterparty does not affect the total asset value of the firm.
-        Hence, the loss rate of the creditors remains unchanged from before the donation, and therefore so does the creditors' payoff's present value.
-        The creditors will then still receives the wealth transfer, $\Delta \pi(D)$,
-        due to the project being entered.
-        The new shareholders will however finance a cheaper project as a result of the \FVA/, and since it is still assumed to be a zero net present value investment for them, their share of the firm's remaining capital, $\alpha$, is reduced.
-        This leads to a direct increase in the legacy shareholders' wealth from before the valuation adjustment by an amount of exactly the donation, as they are now the only ones to benefit from the price reduction. 
+        Hence, the loss rate of the creditors remains unchanged from before the donation, and therefore so does the creditors' present value.
+
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+                \input{\graphicsfolder/marginal-value/equity-financing.pgf}
+            }
+            \caption{
+                Marginal valuation of equity financing 
+                assuming that new shareholders break even.
+            }
+            \label{fig:marginal-value-equity-financing}
+        \end{figure}
+
+        This is confirmed by \cref{fig:marginal-value-equity-financing} showing
+        the marginal value for creditors and shareholders for different upfront prices.
+        The creditors marginal value is constant in the donation from the counterparty,
+        but they benefit from a fixed wealth increase since the project increases the asset value.
+        Therefore, under equity financing, 
+        the legacy shareholders receive the entire counterparty donation.
+        As the donation from the counterparty increases,
+        the new shareholders will finance a still cheaper project 
+        and, since it is still assumed to be a zero net present value investment for them, 
+        their share of the firm's remaining capital is reduced.
+        On the contrary, the legacy shareholders' share increases,
+        and so does the value of their claim.
 
 \end{document}

@@ -64,7 +64,7 @@
         With the face value of the new debt now defined as $D_{2}(q) = U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q))$,
         the marginal increase in the value of the firm's equity per unit investment is:
         \begin{align}
-            G_{\text{debt}} &=
+            G_{\text{swap}} &=
             \left.\frac{\partial}{\partial q}
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_{2} \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}
@@ -159,7 +159,7 @@
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[
                     \delta_{2} \left(
-                    \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}} - \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}\right)
+                    \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}} - \mathbbm{1}_{\{\tau_{F}(q)>2\}} \mathbbm{1}_{\{\tau_{C}(q)>1\}}\right)
                     \left(
                         A - W
                         - L_{2}
@@ -209,13 +209,15 @@
             = 0
         \end{equation*}
         and, since the loss rate must be zero in at least one of the two periods,
-        $\mathbb{E}_{0}^{\rnmeasure}\left[\delta_2\mathbbm{1}_{\{\tau_{F}>2,\tau_{C}>1\}}u S_0 S_1\right] = 0$.
+        \begin{equation}
+            \mathbb{E}_{0}^{\rnmeasure}\left[\delta_2\mathbbm{1}_{\{\tau_{F}>2} \mathbbm{1}_{\{\tau_{C}>1\}}u S_0 S_1\right] = 0
+        \end{equation}
         
         By dividing $q$ into the expectation of the first limit in \cref{eqn:G-debt-multi-step-1}
         it can be recognized that $U(q)/q$ is the marginal investment cost, $u$.
         Rearranging and taking the limits yields:
         \begin{align}
-            G_{\text{debt}} &= 
+            G_{\text{swap}} &= 
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \mathbbm{1}_{\{\tau_{F}>2\}}
                 \left(
@@ -246,8 +248,9 @@
                 \delta_2 \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}
                 \mathcal{C}_{1} S_1
             \right]
+            \label{eqn:shareholders-value-multi-period-swap}
         \end{align}
-        where the third and the fourth terms together constitutes the second interpretation of \FVA/ according to \cref{sec:defining-fva}.
+        where the third and the fourth terms together constitute the second interpretation of \FVA/ according to \cref{sec:defining-fva}.
         % This result differs a tiny bit from the one ADS presents. The term: $u S_0 R_1$ is somehow within another indicator function, and I don't know how.
         They correspond to the quantity $\Phi$, which is the marginal valuation of the swap contract to the firm's legacy creditors.
         \\
