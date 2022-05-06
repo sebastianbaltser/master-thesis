@@ -211,5 +211,62 @@
         will make the project a negative net present value investment for the shareholders, while any prices below will make it positive. 
         In this regard, the promised excess funding cost of $\num{0.030580}$ would be an overadjustment,
         and, conversely, the expected excess funding cost, $\Phi$, of $\num{0.026874}$ would be an underadjustment.
+        
+        Consider \cref{fig:marginal-value-debt-financing} showing the marginal value 
+        of debt financing for creditors and shareholders for different values of the upfront price.
+        The first price to consider is the price that was analysed so far, $\num{0.99}$.
+        At this price the entire gain for creditors can be attributed the loss for shareholders.
+
+        Suppose that the counterparty has some additional incentive to sell the derivative,
+        such that it quotes a lower price than the theoretical, say $\num{0.97}$.
+        Selling the derivative is now a negative net present value investment for the counterparty;
+        in other words, the counterparty has made a donation to the firm. 
+        The marginal valuation of the project to the shareholders is then $\num{-0.008734}$,
+        and to the creditors $\num{0.028734}$.
+        The donation from the counterparty has increased the shareholders' 
+        \textit{and} the creditors' marginal valuation relative to the price of $\num{0.99}$.
+        Still, for a firm maximizing shareholder value, the issue is the same as before;
+        the project is a negative net present value investment for the shareholders,
+        and therefore it will not be accepted.
+        From a theoretical point of view, one might soon realize that this problem is solvable.
+        Clearly, the donation from the counterparty can be distributed between the 
+        stakeholders in a non-wealth destructive way. 
+        For example, if the legacy creditors were willing to lower the face value of their claim
+        to $\num{79.98}$ that would leave a wealth gain for the creditors and shareholders
+        of $\num{0.011313}$ and $\num{0.008687}$ respectively.
+        This leaves all stakeholders economically happy, 
+        except of course from the counterparty who has other incentives.
+
+        From the perspective of a social planner this problem seems to be a no-brainer. 
+        However, the operation relies solely on the willingness of creditors to 
+        reduce their face value, lower their seniority, or otherwise worsen the terms of their claim.
+        In reality it is very unlikely for the firm to be able to renegotiate 
+        the terms of their debt issuance, with multiple creditors all with different incentives.
+        The issue here is a free rider problem. 
+        The shareholders pay the funding costs of the new debt in the no-default states,
+        but they do not reap the benefits.
+        The creditors, on the other hand, pay nothing 
+        but still see the value of their claim increase.
+
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+                \input{\graphicsfolder/marginal-value/debt-financing.pgf}
+            }
+            \caption{
+                Marginal valuation of debt financing 
+                assuming that new creditors break even.
+            }
+            \label{fig:marginal-value-debt-financing}
+        \end{figure}
+
+        Another observation from the chart is that the donation from the counterparty 
+        is distributed between creditors and shareholders.
+        As evident from the slope, the shareholders receive a larger share than the creditors.
+        The creditors benefit from the donation since a lower price will
+        decrease the face value of the new creditors, and therefore decrease the loss rate
+        of the legacy creditors in the default state.
+        The decrease of the new creditors' face value reduces the funding costs,
+        which benefits the shareholders in the no-default state and increases their wealth.  
 
 \end{document}
