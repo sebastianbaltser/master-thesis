@@ -1,5 +1,7 @@
 % !TEX root = ./test-graphics.tex
 
+\colorlet{funding-color}{-red!75}
+\colorlet{rate-color}{red!75}
 \colorlet{shareholder-color}{-red!50!yellow!75}
 \colorlet{creditor-color}{red!50!yellow!75}
 
@@ -22,7 +24,7 @@
 \node (price) at (center) [
     anchor=south,
     draw,
-    fill=red,
+    fill=rate-color,
     very thick,
     minimum width=\barwidth,
     minimum height=\pvheight*\pricereduction,
@@ -41,7 +43,7 @@
 \node (pv) at ([xshift=-\bardistance]price.south west) [
     anchor=south east,
     draw,
-    fill=green,
+    fill=funding-color,
     very thick,
     minimum width=\barwidth,
     minimum height=\pvheight,
@@ -61,7 +63,7 @@
 \node (npv) at ([xshift=\bardistance]price.south east) [
     anchor=south west,
     draw,
-    fill=green,
+    fill=funding-color,
     very thick,
     minimum width=\barwidth,
     minimum height=\pvheight*(1-\pricereduction),
