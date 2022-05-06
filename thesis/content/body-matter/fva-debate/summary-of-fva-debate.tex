@@ -135,8 +135,35 @@
             However, for unspecified reasons, the bond is trading at a discount compared to the theoretical price.
             Specifically, at the price offered it promises an excess yield of $80\basispoint$.
             
+            To put some numbers to this example,
+            consider a firm financed by equity and debt, 
+            with a riskiness such that its weighted average cost of capital is $200\basispoint$.
+            The firm considers a new project with a present value of $100$.
+            However, the project is actually trading at a price of $99.50$,
+            and therefore have an excess yield of approximately $80\basispoint$.
+            This situation is depicted in \cref{fig:hw-example}
+
+            \begin{figure}
+                \centering
+                \resizebox{10cm}{!}{%
+                \begin{tikzpicture}
+                    \input{\graphicsfolder/hw-example/hw-example.tex}
+                \end{tikzpicture}        
+                }   
+                \caption{
+                    Depiction of Hull \& White's example where a debt and equity financed firm
+                    considers investing in a project with a positive net present value.
+                }
+                \label{fig:hw-example}
+            \end{figure}
+
             Based on the information provided, \textcite{HullWhite2012FVA} argue that the bond should be acquired,
             since it trades at a discount and therefore has a positive net present value.
+            The firm therefore only needs to get financing either from an equity- or debt issuance,
+            and the provider of capital can receive a share of the net present value of the project.
+            Since the riskiness of the project only corresponds to a yield of $30\basispoint$,
+            the firm should be able to obtain financing at a lower rate 
+            than the actual return of $80\basispoint$.
             Furthermore, as the firm's average excess funding cost is higher than the excess yield of the bond, 
             the average riskiness of the firm's existing projects is higher than the riskiness of the new bond.
             Acquiring the bond would therefore reduce the firm's riskiness,
