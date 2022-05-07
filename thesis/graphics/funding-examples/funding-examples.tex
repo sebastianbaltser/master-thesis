@@ -1,16 +1,36 @@
 % !TEX root = ./test-graphics.tex
 
-
+\tikzmath{
+    \stateSeperator=5px;
+}
 
 \tikzset{
     baseblock/.style n args = {1}{
-        minimum width=0.5cm,
+        minimum width=0.35cm,
+        inner sep=0,
+        outer xsep=0,
+        outer ysep=0,
         minimum height=#1*2/3 px,
+    },
+    asset/.style n args = {1}{
+        baseblock={#1},
+        fill=red,
+        anchor=south west,
+    },
+    new-asset/.style n args = {1}{
+        asset={#1},
+        anchor=south,
+        postaction={pattern=north east lines, pattern color=white},
     },
     debt/.style n args = {1}{
         baseblock={#1},
         fill=blue,
         anchor=south west,
+    },
+    new-debt/.style n args = {1}{
+        debt={#1},
+        anchor=south,
+        postaction={pattern=north east lines, pattern color=white},
     },
     equity/.style n args = {1}{
         baseblock={#1},
@@ -19,16 +39,38 @@
     }
 };
 
-\coordinate (cursor) at (0, 0);
-\foreach \debt/\equity in {80/40, 80/20, 60/0}{
-    \node (debt) [debt={\debt}] at (cursor) {};
-    \node (equity) [equity={\equity}] at (debt.north) {};
-    \coordinate (cursor) at (debt.south east);
-};
+\tikzmath{
+    \assetUp = 80;
+    \assetDown = 70;
+    \debtUp = 60;
+    \debtDown = \assetDown;
+    \equityUp = \assetUp - \debtUp;
+    \equityDown = 0;
+    \projectUp = 15;
+    \projectDown = 10;
+    \legacyDebtDownShare=0.5;
+}
 
 \coordinate (cursor) at (0, 0);
-\foreach \debt/\equity in {80/40, 80/20, 60/0}{
-    \node (debt) [debt={\debt}] at (cursor) {};
+\coordinate (block1) at (cursor);
+\foreach \debt/\equity in {\debtUp/\equityUp, \debtDown/\equityDown}{
+    \node (asset) [asset={(\debt+\equity)}] at (cursor) {};
+    \node (debt) [debt={\debt}] at (asset.south east) {};
     \node (equity) [equity={\equity}] at (debt.north) {};
-    \coordinate (cursor) at (debt.south east);
+    \coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+};
+
+\coordinate (cursor) at ([xshift=1cm]debt.south east);
+\coordinate (block2) at (cursor);
+\foreach \newAsset/\debt/\newDebt/\equity in {
+    \projectUp/\debtUp/\projectUp/\equityUp, 
+    \projectDown/(\debtDown+(\projectDown*\legacyDebtDownShare))/
+        \projectDown*(1-\legacyDebtDownShare)/\equityDown
+}{
+    \node (asset) [asset={(\debt-\newDebt+\equity)}] at (cursor) {};
+    \node (new-asset) [new-asset={\newAsset}] at (asset.north) {};
+    \node (debt) [debt={\debt}] at (asset.south east) {};
+    \node (new-debt) [new-debt={\newDebt}] at (debt.north) {};
+    \node (equity) [equity={\equity}] at (new-debt.north) {};
+    \coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
 };
