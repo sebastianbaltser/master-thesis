@@ -3,5 +3,286 @@
 
 \begin{document}
     \subsection{Numerical computations of a multi-period swap contract}
-        This section aims to illustrate how the funding costs and benefits of a multi-period swap contract can be described by a simple economical setup.
+    \label{sec:swap-examples}
+        This section aims to illustrate
+        how the funding costs and benefits of a multi-period swap contract
+        can be described by a simple economical setup.
+        The examples will be based on the two results derived in the previous sections,
+        namely the shareholders' marginal valuation of both an unsecured swap as well as a secured hedging swap.
+        As opposed to the single-period model analysed in \cref{sec:single-period-model},
+        different fundamental values in this \namecref{sec:swap-examples} will have a probability of changing over time.
+        The values in reference are specifically
+        the asset base of the dealer,
+        the risk-free rate,
+        the swap market value,
+        and of course the swap floating rate.
+        
+        Maintaining the purposes of the examples,
+        the count of possible states in each time period is narrowed down from 5 to 2.
+        These will be referred to as the \textit{up-state} and the \textit{down-state},
+        as the asset base will either increase in value or decrease in value.
+        At the interim date, the two possible states are denoted by $\omega_u$ and $\omega_d$.
+        Correspondingly, at the maturity date the two possible states are either
+        $\omega_{u,u}$ and $\omega_{u,d}$,
+        or $\omega_{d,u}$ and $\omega_{d,d}$,
+        depending on the asset value going up or down in the first time period respectively.
+        \\
+        At the state $\omega_{d,d}$, the liabilities are assumed to exceed the asset value,
+        and the dealer defaults.
+        In this case the shareholders receive a payoff of 0.
+        \\
+        The asset value structure is defined using a binomial tree
+        and illustrated in \cref{fig:example-asset-value-multi-period-dealer}.
+        Each period the asset values are assumed to either increase with a factor $\mathscr{u} = 1.1$
+        or decrease with a factor $\mathscr{d} = 0.85$.
+        The asset values are determined under the risk-neutral measure,
+        such that at each point in time the value is equal to the expected discounted value of the next period.
+        By that definition, and by a short-term risk-free rate assumed to be $r_{0,1}=2\%$ at the inception date,
+        the probability of being in the up-state at the interim date is calculated as:
+        \begin{equation*}
+            \mathbb{P}^{\rnmeasure}\left(A_1 = 110\right) = 
+            p_{\mathscr{u}} =
+            \frac{
+                1 + 2\% - 0.85
+            }{
+                1.1 - 0.85
+            }
+            = \num{0.68}
+        \end{equation*}
+        And consequently, $p_{\mathscr{d}} = 1 - p_{\mathscr{u}} = \num{0.32}$.
+
+        The long-term risk-free discount rate from time 0 to time 2 is assumed to be $r_{0,2}=2.2\%$.
+        To determine the expected short-term rate at the interim date, the forward rate is calculated:
+        \begin{equation*}
+            r_{1,2} = \left(
+                \frac{
+                    \left(1 + 2.2\%\right)^{2}
+                }{
+                    \left(1 + 2\%\right)^{1}
+                }
+            \right)^{1/(2-1)} - 1
+            = 2.4\%
+        \end{equation*}
+        
+        The risk-neutral probabilities of moving to the three different states at the maturity date are calculated as:
+        \begin{align*}
+            \mathbb{P}^{\rnmeasure}\left(A_2 = 121\right) = 
+            p_{\mathscr{u},\mathscr{u}}
+            &=
+            % p_{\mathscr{u}}
+            % \frac{
+            %     1 + 2.4\% - 0.85
+            % }{
+            %     1.1 - 0.85
+            % }
+            % =
+            \num{0.473291}
+            \\
+            \mathbb{P}^{\rnmeasure}\left(A_2 = 93.5\right) = 
+            p_{\mathscr{u},\mathscr{d}} +
+            p_{\mathscr{d},\mathscr{u}}
+            &=
+            % p_{\mathscr{d}}
+            % \frac{
+            %     1 + 2.4\% - 0.85
+            % }{
+            %     1.1 - 0.85
+            % }
+            % +
+            % p_{\mathscr{u}}
+            % \frac{
+            %     1.1 - (1 + 2.4\%)
+            % }{
+            %     1.1 - 0.85
+            % }
+            % =
+            \num{0.429434}
+            \\
+            \mathbb{P}^{\rnmeasure}\left(A_2 = 72.25\right) = 
+            p_{\mathscr{d},\mathscr{d}}
+            &=
+            % p_{\mathscr{d}}
+            % \frac{
+            %     1.1 - (1 + 2.4\%)
+            % }{
+            %     1.1 - 0.85
+            % }
+            % =
+            \num{0.097275}
+        \end{align*}
+
+        At the interim date, the dealer's creditors are assumed to have a pre-project known claim of 10,
+        i.e. the short-term liabilities,
+        meaning $W=10(1+r_{1,2})=\num{10.240039}$.
+        Meanwhile, the long-term liabilities, which are also known with certainty, are $L_{2} = 70$.
+        The dividend paid to the shareholders at the interim date is assumed to be $\theta_1 = 0$, and there are no distress costs.
+        As mentioned above, the asset value does not cover the total liabilities at state $\omega_{\mathscr{d},\mathscr{d}}$ as $72.25 < L_{2} + W$,
+        hence the dealer defaults.
+        \\
+        The short-term liabilities are, on the other hand, not large enough to trigger a default at the interim date
+        regardless of the state outcome.
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[>=stealth,sloped]
+                \matrix (tree) [
+                  matrix of nodes,
+                  minimum size=1cm,
+                  column sep=3.5cm,
+                  row sep=0.85cm,
+                ]
+                {
+                &               & $\mathscr{u}^{2}A_{0}=121$ \\
+                & $\mathscr{u}A_{0} = 110$ & \\
+    $A_0 = 100$ &               & $\mathscr{u}\mathscr{d}A_{0}=93.5$ \\
+                & $\mathscr{d}A_{0} = 85$  & \\
+                &               & $\mathscr{d}^{2}A_{0}=72.25$ \\
+                };
+                \draw[->] (tree-3-1) -- (tree-2-2) node [midway,above] {\tiny
+                $p_{\mathscr{u}}=\num{0.68}$};
+                \draw[->] (tree-3-1) -- (tree-4-2) node [midway,below] {\tiny
+                $p_{\mathscr{d}}=\num{0.32}$};
+                \draw[->] (tree-2-2) -- (tree-1-3) node [midway,above] {\tiny
+                $p_{\mathscr{u},\mathscr{u}}=\num{0.473291}$};
+                \draw[->] (tree-2-2) -- (tree-3-3) node [midway,below] {\tiny
+                $p_{\mathscr{u},\mathscr{d}}=\num{0.222725}$};
+                \draw[->] (tree-4-2) -- (tree-3-3) node [midway,above] {\tiny
+                $p_{\mathscr{d},\mathscr{u}}=\num{0.206709}$};
+                \draw[->] (tree-4-2) -- (tree-5-3) node [midway,below] {\tiny
+                $p_{\mathscr{d},\mathscr{d}}=\num{0.097275}$};
+            \end{tikzpicture}
+            \caption{This figure shows the asset value of the dealer in each time period as a binomial tree.}
+            \label{fig:example-asset-value-multi-period-dealer}
+        \end{figure}
+
+        Having defined the setup of the dealer's capital structure,
+        a swap contract is now introduced between the dealer and a counterparty.
+        For simplicity, the counterparty is assumed to have no credit-risk.
+        The swap will have a relatively small notional payoff to the extend
+        that it does not affect the default- and no-default states of the dealer.
+
+        The first example will apply the theory from \cref{sec:unsecured-swap-valuation}
+        to find the shareholders' valuation of the project being entered.
+        In the second example the same swap will be agreed between the dealer and the counterparty.
+        Additionally, the dealer takes a fully collateralized hedged position at a hedge dealer.
+        This allows for the theory discussed in \cref{sec:secured-swap-valuation} to be applied.
+
+        \subsubsection{Example of unsecured swap}
+            Suppose the dealer enters a swap contract with the credit risk-free counterparty.
+            The dealer pays a constant fixed leg, $K_t$, to the counterparty at each time period whose amount is $\num{1}$.
+            Correspondingly, at each time period,
+            the dealer receives a random floating leg, $X_t$, from the counterparty.
+
+            As a consequence of the counterparty being credit-risk free,
+            the dealer can always expect to receive the full contractual amount of the floating leg.
+            Therefore, when valuing the swap contract,
+            the dealer will not make a \CVA/; 
+            the only difference between the risk-free value and the credit risk adjusted price is the \DVA/.
+
+            The floating legs can take on any amount within reason,
+            such that the cash flows at each time period are random.
+            However, the market neutral expected cash flows are assumed to be known
+            by both the dealer and the counterparty.
+            If the swap is of positive value for the dealer,
+            the dealer will have to pay an upfront price to the counterparty,
+            and vice versa.
+
+            The time 0 expected payments of the swap contract are summarized in \cref{tbl:swap-legs}.
+            Notice, that at the interim date the dealer expects a positive cash flow of
+            $\mathcal{C}_1 = X_1 - K_1 = \num{0.2}$,
+            which will be used to retire existing debt.
+            At the maturity date the dealer is assumed to liquidate all of its assets,
+            which it uses to pay the remaining outstanding amounts.
+            \\
+            Since the expected discounted market value of the floating payments is largest,
+            the dealer seems to be obliged to pay the counterparty an upfront price of.
+            However, it is assumed that the swap is traded as a zero net present value investment
+            for both the dealer and the counterparty,
+            where no wealth is destroyed as per the Modigliani-Miller proposition.
+            For this to be applicable, the price of the swap must also account for the dealer's own default risk,
+            i.e. make the aforementioned \DVA/.
+            
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l|rr||r}
+                    $t$ & 1 & 2 & Present value \\
+                    \hline
+                    \rule{0pt}{1.1em}
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[K_t\right]$ & $\num{1}$ & $\num{1}$ & $\num{1.9378}$ \\
+                    \rule{0pt}{1.1em}
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[X_t\right]$ & $\num{1.2}$ & $\num{0.95}$ & $\num{2.08601}$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:swap-legs}
+            \end{table}
+
+            When defaulting at time 2
+            the dealer's total liabilities being paid to the creditors are calculated as:
+            \begin{align*}
+                \mathbb{E}_{t}\left[
+                    (1-\phi)\left(L_{2} - 
+                    \mathcal{C}_{1}R_{1}
+                    - \mathcal{C}_2\right)
+                \right]
+                &=
+                (1-\phi)\left(\num{70} - \num{0.204801} + \num{0.05}\right)\\
+                &=
+                (1-\phi)\num{69.8452}
+            \end{align*}
+            And by definition, this amount has equal the total remaining asset value.
+            Remember that the dealer has at time 2 already paid the liabilities due at the interim date.
+            To find the price of the project
+            as well as the loss rate after obtaining the project,
+            the following equation system must be solved must be solved for $u$ and $\phi$:
+            \begin{align}
+                \num{72.25} - W
+                =
+                (1-\phi)\num{69.8452}
+                \\
+                u =
+                (\num{2.08601} - \num{1.9378})(1-\phi)\left(1-p_{\mathscr{d},\mathscr{d}}\right)
+                +
+                (\num{2.08601} - \num{1.9378})p_{\mathscr{d},\mathscr{d}}
+            \end{align}
+            Solving this equation system yields a market neutral swap price of $u=\num{0.115334}$,
+            and a loss rate of $\phi=\pct{0.11218}$.
+            The dealer's creditors of the long-term debt then receives a payoff of $70(1-\pct{0.11218})=\num{62.1474}$ in case of default.
+            This suggests a post-project actual credit spread of:
+            \begin{equation}
+                S = \frac{
+                    \num{70}
+                }{  
+                    \delta_{2}\left(
+                        \num{70}(1-p_{\mathscr{d},\mathscr{d}})
+                        +
+                        \num{62.03197}p_{\mathscr{d},\mathscr{d}}
+                    \right)
+                } - (1+r_{0,2})^{2}
+                =
+                \pct{0.0115265}
+            \end{equation}
+            Since the dealer survives at time 1 with 100\% certainty,
+            the upfront price can be funded with short-term debt paying 0 credit spread.
+            If the firm were to pay a spread on the short-term debt starting at time 0,
+            this would be subtracted from the liquidated asset value. 
+
+            By using the risk-neutral marginal market valuation of the swap contract
+            defined in \cref{eqn:swap-value-multi-period},
+            the \DVA/ can then be computed as:
+            \begin{align}
+                \DVA/ &= V_{rf} - u
+                \\
+                &= \sum_{t=1}^{2}\delta_t \mathcal{C}_t - u
+                = 0.0129949
+            \end{align}
+
+            Turning to the shareholder valuation of the project.
+            As cash flows from swap contract are either funded by obtaining debt if negative or retiring some existing debt if positive,
+            an impact on the shareholders' value is may have occurred.
+            Using the market neutral expected discounted value to determine the price, the project is a zero net present value investment for the counterparty.
+            If a wealth transfer has happened, it is bound to be between the shareholders and the long-term creditors.
+
+            \textcolor{red}{Unfinished}
+
+        \subsubsection{Example of secured hedging swap}
 \end{document}
