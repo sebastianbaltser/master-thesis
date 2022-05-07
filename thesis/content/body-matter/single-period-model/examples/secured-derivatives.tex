@@ -135,6 +135,74 @@
         which eventually makes it possible for the firm to give more back to the creditors in case of defaulting.
         This will give the firm a lower credit spread on the debt, as well as it will give the creditors a lower loss rate.
 
+        The marginal value to shareholders of debt financing is then:
+            \begin{align}
+                G_{\text{debt}} 
+                &=
+                    \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
+                    \left(
+                        \discountfactor
+                        \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
+                        - u
+                    \right)
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                    - 
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}}
+                    \right] \discountfactor I S
+                    \nonumber \\
+                &=
+                    p^{\mathbb{Q}} \pi 
+                    - \discountfactor 
+                    \text{Cov}^{\mathbb{Q}}\left(
+                        \mathbbm{1}_{\mathcal{D}}, 
+                        Y
+                    \right) 
+                    - \Lambda
+            \end{align}
+        Where the last term, $\Lambda$, can be rewritten to 
+        $-\mathbb{E}^{\mathbb{Q}}\left[
+            \mathbbm{1}_{\mathcal{D}^{c}}
+        \right] \discountfactor \frac{1}{2} u S$
+        since $I = -\frac{1}{2} u$.
+        Substituting this into the above equation, setting it equal to zero 
+        and solving for $u$ yields the breakeven price:
+            \begin{align}
+                0
+                &=
+                    \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
+                    \left(
+                        \discountfactor
+                        \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
+                        - u
+                    \right)
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                    +
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}}
+                    \right] \discountfactor \frac{1}{2} u S
+                    \nonumber \\
+                u^{\ast}_{\text{debt}}
+                &\equiv
+                    \frac{
+                        1
+                    }{
+                        \grossrfrate - \frac{1}{2} S
+                    } 
+                    \left(
+                        \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                        - \frac{
+                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                        }{
+                            p^{\mathbb{Q}}  
+                        } 
+                    \right)
+            \end{align}
+
         \textcolor{red}{A comparison to the FVAs computed in the other sections could be interesting to discuss.}
         
 \end{document}
