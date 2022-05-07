@@ -1,12 +1,17 @@
 % !TEX root = ./test-graphics.tex
+\colorlet{debt-color}{-red!50!yellow!75}
+\colorlet{equity-color}{red!50!yellow!75}
+\colorlet{funding-color}{-red!75}
+\colorlet{rate-color}{red!75}
 
 \tikzmath{
     \stateSeperator=5px;
+    \firmSeperator=0.6cm;
 }
 
 \tikzset{
     baseblock/.style n args = {1}{
-        minimum width=0.35cm,
+        minimum width=0.55cm,
         inner sep=0,
         outer xsep=0,
         outer ysep=0,
@@ -14,7 +19,7 @@
     },
     asset/.style n args = {1}{
         baseblock={#1},
-        fill=red,
+        fill=rate-color,
         anchor=south west,
     },
     new-asset/.style n args = {1}{
@@ -24,7 +29,7 @@
     },
     debt/.style n args = {1}{
         baseblock={#1},
-        fill=blue,
+        fill=debt-color,
         anchor=south west,
     },
     new-debt/.style n args = {1}{
@@ -32,16 +37,30 @@
         anchor=south,
         postaction={pattern=north east lines, pattern color=white},
     },
+    lost-debt/.style n args = {1}{
+        debt={#1},
+        anchor=south,
+        opacity=0.15,
+    },
     equity/.style n args = {1}{
         baseblock={#1},
-        fill=yellow,
+        fill=equity-color,
         anchor=south
+    },
+    new-equity/.style n args = {1}{
+        equity={#1},
+        anchor=south,
+        postaction={pattern=north east lines, pattern color=white},
+    },
+    firm/.style n args = {1}{
+        inner sep=0,
+        label=below:\footnotesize #1,
     }
 };
 
 \tikzmath{
     \assetUp = 80;
-    \assetDown = 70;
+    \assetDown = 40;
     \debtUp = 60;
     \debtDown = \assetDown;
     \equityUp = \assetUp - \debtUp;
@@ -52,25 +71,104 @@
 }
 
 \coordinate (cursor) at (0, 0);
-\coordinate (block1) at (cursor);
-\foreach \debt/\equity in {\debtUp/\equityUp, \debtDown/\equityDown}{
-    \node (asset) [asset={(\debt+\equity)}] at (cursor) {};
-    \node (debt) [debt={\debt}] at (asset.south east) {};
-    \node (equity) [equity={\equity}] at (debt.north) {};
-    \coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+
+%%%% First block:
+\coordinate (start) at (cursor);
+\coordinate (block-south-west) at (cursor);
+\node (asset) [asset={(\debtUp+\equityUp)}] at (cursor) {};
+\coordinate (block-north-west) at (asset.north west);
+\node (debt) [debt={\debtUp}] at (asset.south east) {};
+\node (equity) [equity={\equityUp}] at (debt.north) {};
+\coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+
+\node (asset) [asset={(\debtDown)}] at (cursor) {};
+\node (debt) [debt={\debtDown}] at (asset.south east) {};
+\node [lost-debt={(\debtUp-\debtDown)}] at (debt.north) {};
+\coordinate (block-south-east) at (debt.south east);
+
+\node[firm=Pre-project,
+    fit=(block-south-west) (block-south-east) (block-north-west)] (firm-base) {};
+
+%%%% Second block:
+
+\coordinate (cursor) at ([xshift=\firmSeperator]firm-base.south east);
+\coordinate (block-south-west) at (cursor);
+\node (asset) [asset={\assetUp}] at (cursor) {};
+\node (new-asset) [new-asset={\projectUp}] at (asset.north) {};
+\coordinate (block-north-west) at (new-asset.north west);
+\node (debt) [debt={\debtUp}] at (asset.south east) {};
+\node (equity) [equity={(\equityUp-5)}] at (debt.north) {};
+\node (new-debt) [new-debt={(\projectUp+5)}] at (equity.north) {};
+\coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+
+\node (asset) [asset={\assetDown}] at (cursor) {};
+\node (new-asset) [new-asset={\projectDown}] at (asset.north) {};
+\node (debt) [debt={(\debtDown + \projectDown*\legacyDebtDownShare)}] at (asset.south east) {};
+\coordinate (block-south-east) at (debt.south east);
+\node (new-debt) [new-debt={(\projectDown*(1-\legacyDebtDownShare))}] at (debt.north) {};
+\node [lost-debt={(\debtUp-\debtDown+\projectUp+5-\projectDown)}] at (new-debt.north) {};
+
+\node[firm=Debt funding,
+    fit=(block-south-west) (block-south-east) (block-north-west)] (firm-debt) {};
+
+
+%%%% Second block:
+
+\coordinate (cursor) at ([xshift=\firmSeperator]firm-debt.south east);
+\coordinate (block-south-west) at (cursor);
+\node (asset) [asset={\assetUp}] at (cursor) {};
+\node (new-asset) [new-asset={\projectUp}] at (asset.north) {};
+\coordinate (block-north-west) at (new-asset.north west);
+\node (debt) [debt={\debtUp}] at (asset.south east) {};
+\node (equity) [equity={(\equityUp-5)}] at (debt.north) {};
+\node (new-equity) [new-equity={(\projectUp+5)}] at (equity.north) {};
+\coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+
+\node (asset) [asset={\assetDown}] at (cursor) {};
+\node (new-asset) [new-asset={\projectDown}] at (asset.north) {};
+\node (debt) [debt={(\debtDown + \projectDown)}] at (asset.south east) {};
+\node [lost-debt={(\debtUp-\debtDown-\projectDown)}] at (debt.north) {};
+\coordinate (block-south-east) at (debt.south east);
+
+\node[firm=Equity funding,
+    fit=(block-south-west) (block-south-east) (block-north-west)] (firm-equity) {};
+
+
+\draw [thick, dotted] 
+    ([xshift=-1cm]firm-base.south west) -- 
+    ([xshift=1cm]firm-equity.south east)
+;
+
+
+\node[fit=(firm-base) (firm-debt) (firm-equity)] (main) {};
+
+\tikzset{
+    legend/.style n args = {1}{
+        minimum width=0.3cm,
+        minimum height=0.3cm,
+        inner sep=0,
+        outer xsep=0,
+        outer ysep=0,
+        label=right:#1
+    },
 };
 
-\coordinate (cursor) at ([xshift=1cm]debt.south east);
-\coordinate (block2) at (cursor);
-\foreach \newAsset/\debt/\newDebt/\equity in {
-    \projectUp/\debtUp/\projectUp/\equityUp, 
-    \projectDown/(\debtDown+(\projectDown*\legacyDebtDownShare))/
-        \projectDown*(1-\legacyDebtDownShare)/\equityDown
-}{
-    \node (asset) [asset={(\debt-\newDebt+\equity)}] at (cursor) {};
-    \node (new-asset) [new-asset={\newAsset}] at (asset.north) {};
-    \node (debt) [debt={\debt}] at (asset.south east) {};
-    \node (new-debt) [new-debt={\newDebt}] at (debt.north) {};
-    \node (equity) [equity={\equity}] at (new-debt.north) {};
-    \coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+\node [
+    matrix, 
+    column sep = 1cm,
+] (labels) at ([yshift=-1cm]main.south) {
+    \node[asset=0, legend=Assets] {}; &
+    \node[debt=0, legend=Debt] {}; &
+    \node[equity=0, legend=Equity] {}; \\
 };
+\node [
+    matrix, 
+    column sep = 1cm,
+] (stripe-labels) at ([yshift=-0.2cm]labels.south) {
+    \node[asset=0, fill=gray, legend=Legacy] {}; &
+    \node[new-debt=0, fill=gray, legend=New] {}; \\
+};
+
+% \draw 
+%     ([yshift=-1cm]main.south west) 
+% ;
