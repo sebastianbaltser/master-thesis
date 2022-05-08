@@ -4,9 +4,13 @@
 \colorlet{funding-color}{-red!75}
 \colorlet{rate-color}{red!75}
 
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
 \tikzmath{
     \stateSeperator=5px;
-    \firmSeperator=0.6cm;
+    \firmSeperator=1.5cm;
+    \valueMultiplier=2/3 px;
 }
 
 \tikzset{
@@ -15,7 +19,7 @@
         inner sep=0,
         outer xsep=0,
         outer ysep=0,
-        minimum height=#1*2/3 px,
+        minimum height=#1*\valueMultiplier,
     },
     asset/.style n args = {1}{
         baseblock={#1},
@@ -134,41 +138,51 @@
     fit=(block-south-west) (block-south-east) (block-north-west)] (firm-equity) {};
 
 
-\draw [thick, dotted] 
-    ([xshift=-1cm]firm-base.south west) -- 
-    ([xshift=1cm]firm-equity.south east)
-;
-
+\coordinate (origin) at ([xshift=-1cm]firm-base.south west);
+\coordinate (x-limit) at ([xshift=1cm]firm-equity.south east);
+\begin{pgfonlayer}{background}
+    \draw [thick, dotted] 
+        (origin) -- 
+        (x-limit)
+    ;
+    \draw [thick, dotted]
+        (origin) --
+        ++(0, 3cm)
+    ;
+    \draw [dotted] 
+        ([yshift=\assetUp*\valueMultiplier]origin) -- 
+        ([yshift=\assetUp*\valueMultiplier]x-limit)
+    ;
+    \draw [dotted] 
+        ([yshift=\assetDown*\valueMultiplier]origin) -- 
+        ([yshift=\assetDown*\valueMultiplier]x-limit)
+    ;
+\end{pgfonlayer}
 
 \node[fit=(firm-base) (firm-debt) (firm-equity)] (main) {};
 
 \tikzset{
     legend/.style n args = {1}{
-        minimum width=0.3cm,
-        minimum height=0.3cm,
+        minimum width=0.4cm,
+        minimum height=0.4cm,
         inner sep=0,
         outer xsep=0,
         outer ysep=0,
-        label=right:#1
+        label=right:\scriptsize#1,
+        anchor=center,
     },
 };
 
 \node [
     matrix, 
     column sep = 1cm,
-] (labels) at ([yshift=-1cm]main.south) {
-    \node[asset=0, legend=Assets] {}; &
-    \node[debt=0, legend=Debt] {}; &
-    \node[equity=0, legend=Equity] {}; \\
+    row sep=0,
+    inner sep=3px,
+] (labels) at ([yshift=-1.5cm]main.south) {
+    \node[asset=0, legend=Legacy Assets] {}; &
+    \node[debt=0, legend=Legacy Debt] {}; &
+    \node[equity=0, legend=Legacy Equity] {}; \\
+    \node[new-asset=0, legend=New Project] {}; &
+    \node[new-debt=0, legend=New Debt] {}; &
+    \node[new-equity=0, legend=New Equity] {}; \\
 };
-\node [
-    matrix, 
-    column sep = 1cm,
-] (stripe-labels) at ([yshift=-0.2cm]labels.south) {
-    \node[asset=0, fill=gray, legend=Legacy] {}; &
-    \node[new-debt=0, fill=gray, legend=New] {}; \\
-};
-
-% \draw 
-%     ([yshift=-1cm]main.south west) 
-% ;
