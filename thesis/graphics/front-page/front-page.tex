@@ -1,0 +1,61 @@
+% !TEX root = ./test-graphics.tex
+
+\colorlet{in-color}{black!30!green}
+\colorlet{out-color}{black!30!red}
+
+\node[
+    circle, 
+    draw,
+    minimum size=7cm,
+    fill=lightgray,
+] (circle) at (0, 0) {}; 
+
+\tikzmath{
+    \nArrows=5;
+    \arrowDistance=20;
+    \startAngle=90 - \arrowDistance*(\nArrows)/2;
+}
+
+\tikzset{
+    base-line/.style = {
+        line width=1mm,
+    },
+    base-arrow/.style = {
+        base-line,
+        -{Stealth[length=5mm]},
+    },
+    in-arrow/.style = {
+        base-arrow,
+        in-color,
+    },
+    out-arrow/.style = {
+        base-arrow,
+        out-color,
+    },
+    offset-line/.style = {
+        base-line,
+        in-color,
+        path fading=south,
+        postaction={
+            draw,
+            out-color,
+            path fading=north
+        },
+    }
+}
+
+\foreach \arrow in {0,...,\nArrows}{
+    \tikzmath{\currentAngle=\startAngle+\arrow*\arrowDistance;}
+    \coordinate (in-arrow-\arrow) at (circle.\currentAngle);
+    \coordinate (out-arrow-\arrow) at (circle.\currentAngle-180);
+    
+    \draw[in-arrow] (in-arrow-\arrow) ++(\currentAngle: 2cm) -- (in-arrow-\arrow);
+    \draw[out-arrow] (out-arrow-\arrow) -- ++(\currentAngle-180: 2cm);
+    
+    \draw[offset-line] 
+        (in-arrow-\arrow) ++(\currentAngle:1cm) --
+        (in-arrow-\arrow) -- 
+        (out-arrow-\arrow) --
+        (out-arrow-\arrow) ++ (\currentAngle-180: 1cm)
+        ;
+}
