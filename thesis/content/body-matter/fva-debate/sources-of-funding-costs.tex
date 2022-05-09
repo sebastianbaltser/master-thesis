@@ -27,6 +27,7 @@
         This source of funding costs is best introduced in its most extreme case, 
         where the dealer trades unsecured derivatives. 
 
+        \begin{example}
         Consider the situation depicted in \cref{fig:funding-costs-unsecured-derivative}.
         The derivatives dealer is selling an unsecured OTC derivative to a counterparty,
         and the counterparty pays the upfront price.
@@ -60,6 +61,7 @@
         Alternatively, the exchange posts collateral to the dealer, which the dealer pays \OIS/ for.
         If rehypothecation is allowed, the dealer can retire debt and save the funding spread.
         In this case, S drives the funding benefit.
+        \end{example}
 
         \begin{figure}
             \centering
@@ -81,6 +83,7 @@
         and collateral postings from one party could therefore, partly or fully, 
         cover collateral needs from the other party.
 
+        \begin{example}
         Consider the example illustrated in \cref{fig:funding-costs-secured-derivative}.
         Again, the dealer sells a derivative to her counterparty,
         but in this case the two parties are trading under a CSA agreement, 
@@ -105,6 +108,7 @@
         collateral posted by the counterparty might only partly cover collateral calls from the exchange 
         and collateral posted by the exchange will more than cover collateral calls from the counterparty.
         The former is a source of funding costs and the latter a source of funding benefit.
+        \end{example}
 
         \begin{figure}
             \centering
@@ -129,6 +133,7 @@
         This example displays the possible implications of hedging a secured derivative
         with a trade that calls for collateral more frequently.
 
+        \begin{example}
         The same dealer as previously trades an interest rate swap with a counterparty with whom a CSA is agreed upon. 
         The value of the dealer's part of the contract is drawn as a function of time by the blue line with dots.
         To hedge the market risk, the dealer enters into the opposite trade with an exchange.
@@ -178,6 +183,7 @@
         would convey the same message.
         When there is asymmetry in the collateral cash flows the dealer must provide or receive funding,
         which generates funding costs or benefits.
+        \end{example}
 
         \begin{figure}
             \centering
@@ -237,6 +243,7 @@
         depends on the type of cash flow and the reason why it occurs,
         as not all entail funding costs for the same reason.
 
+        \begin{example}
         Consider a firm buying a simple option, without the intention to hedge its market risk.
         Buying the option requires paying an upfront price to the counterparty,
         which would seemingly require financing;
@@ -252,13 +259,17 @@
         Hedging cash flows might also generate funding needs or surpluses, 
         e.g. if a dealer must apply leverage to properly hedge a positions 
         and pay the higher rates of leverage due to financing spreads.
+        \end{example}
 
         Another source of funding costs materializes in the next example when the dealer applies an imperfect hedge.
+        
+        \begin{example}
         The dealer have entered into a 10 year OTC swap with semi-annual payments, 
         but for the replication the dealer is only able to obtain a 10 year swap with quarterly payments.
         As a result, the dealer will have a cash flow from the hedge every three months
         that does not correspond to the cash flow from the OTC derivative. 
         Both of these are examples of funding costs essentially stemming from the lack of perfect hedging.
+        \end{example}
 
         Having established some possible sources of funding costs, 
         the discussion can move on to the debate about whether accounting for these is appropriate for derivatives pricing.
