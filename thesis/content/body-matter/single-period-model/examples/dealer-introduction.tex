@@ -1,0 +1,64 @@
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    This section will provide an example of funding costs in a single-period model
+    using a risk-free asset as the project under the firm's consideration.
+    Consider the economy defined by a single-period model with $N=5$ states, 
+    and the following associated Arrow-Debreu prices:
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{l|rrrrr}
+                $i$ & 1 & 2 & 3 & 4 & 5 \\
+                \hline
+                $\psi_{i}$ & $\num{0.06}$ & $\num{0.24}$ & $\num{0.29}$ & $\num{0.28}$ & $\num{0.12}$ \\
+            \end{tabular}
+            \caption{}
+            \label{tbl:example-firm-structure}
+        \end{table}
+    implying a discount factor of $\discountfactor = \num{0.99}$ and a risk-free interest rate of $\rfrate = \pct{0.010101}$.
+    A firm operates in this economy and invests in risky assets 
+    which are funded by equity and debt deposits and returns payoff specified shortly.
+    In the event of default, the firm is assumed to face no distress cost, i.e. $\kappa = 1$, 
+    such that the bankruptcy estate is distributed entirely to the creditors.
+    The firm has been funded by debt such that the face value of debt is $\num{80}$, 
+    which gives rise to the following payoff structure:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|rrrrr}
+            $i$ & 1 & 2 & 3 & 4 & 5 \\
+            \hline
+            $A(\omega_{i})$ & \num{120} & \num{110} & \num{100} & \num{95} & \num{60} \\
+            $D(\omega_{i})$ & \num{80} & \num{80} & \num{80} & \num{80} & \num{60} \\
+            $E(\omega_{i})$ & \num{40} & \num{30} & \num{20} & \num{15} & \num{0}
+        \end{tabular}
+        \caption{}
+        \label{tbl:example-pre-project-capital-structure}
+    \end{table}
+    The associated present values of the payoffs, $A$, $D$ and $E$, 
+    are discounted expected value of the payoff with respect to the risk-neutral probability measure:
+        \begin{gather*}
+            \pi(A) = \discountfactor \mathbb{E}^{\rnmeasure}\left[A\right] = \num{96.40} \\
+            \pi(D) = \discountfactor \mathbb{E}^{\rnmeasure}\left[D\right] = \num{76.80}
+            \qquad \pi(E) = \discountfactor \mathbb{E}^{\rnmeasure}\left[E\right] = \num{19.60}
+        \end{gather*}
+    The face value of the debt includes a credit spread that the firm must pay in order to account for its own credit risk.
+    As seen in \cref{tbl:example-pre-project-capital-structure},
+    the creditors do not receive their entire face value in the default event, $\omega_5$.
+    The relative difference between the discounted payoff and the promised face value
+    represents the credit spread of the creditors.
+    If the creditors obtain the debt by paying the discounted payoff,
+    the credit spread will ensure that the net present value of obtaining the debt is zero.
+    In addition to calculating the shareholders' marginal valuation of a new project,
+    it is interesting to also evaluate the impact on the creditors' valuation of their claim. 
+    Therefore, it is useful to calculate the credit spread of the firm's debt 
+    before entering any projects and the credit spread after entering a project.
+    The same goes for the loss rate.
+
+    The credit spread before entering into any projects is 
+    $\num{80}/\num{76.80} - \grossrfrate = \pct{0.031565}$.
+    Using \cref{eqn:creditor-loss-rate}, the loss rate of the creditors in the default event is:
+    $\phi = (\num{80}-\num{60})/\num{80} = \pct{0.25}$
+    while in all other states the loss rate is zero, as the firm does not default.
+
+\end{document}
