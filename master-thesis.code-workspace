@@ -62,5 +62,9 @@
 			"*.code-workspace"
 		],
 		"latex-workshop.latex.outDir": "build",
+		"explorer.fileNesting.patterns": {
+			"sub-main.tex": "*.tex",
+		},
+		"explorer.fileNesting.enabled": true,
 	}
 }
