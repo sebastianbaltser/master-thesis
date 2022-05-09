@@ -1,8 +1,4 @@
 % !TEX root = ./test-graphics.tex
-\colorlet{debt-color}{-red!50!yellow!75}
-\colorlet{equity-color}{red!50!yellow!75}
-\colorlet{funding-color}{-red!75}
-\colorlet{rate-color}{red!75}
 
 \pgfdeclarelayer{background}
 \pgfsetlayers{background,main}
@@ -23,7 +19,7 @@
     },
     asset/.style n args = {1}{
         baseblock={#1},
-        fill=rate-color,
+        fill=wtf-red,
         anchor=south west,
     },
     new-asset/.style n args = {1}{
@@ -33,7 +29,7 @@
     },
     debt/.style n args = {1}{
         baseblock={#1},
-        fill=debt-color,
+        fill=wtf-blue,
         anchor=south west,
     },
     new-debt/.style n args = {1}{
@@ -48,7 +44,7 @@
     },
     equity/.style n args = {1}{
         baseblock={#1},
-        fill=equity-color,
+        fill=wtf-orange,
         anchor=south
     },
     new-equity/.style n args = {1}{
