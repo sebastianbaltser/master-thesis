@@ -174,6 +174,7 @@
     column sep = 1cm,
     row sep=0,
     inner sep=3px,
+    nodes={minimum height=0.5cm},
 ] (labels) at ([yshift=-1.5cm]main.south) {
     \node[asset=0, legend=Legacy Assets] {}; &
     \node[debt=0, legend=Legacy Debt] {}; &
@@ -181,4 +182,5 @@
     \node[new-asset=0, legend=New Project] {}; &
     \node[new-debt=0, legend=New Debt] {}; &
     \node[new-equity=0, legend=New Equity] {}; \\
+    & \node[lost-debt=0, legend=Lost Face Value] {};\\
 };
