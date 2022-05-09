@@ -263,9 +263,9 @@
                 \\
                 u &=
                 \frac{
-                (\num{2.08601} - \num{1.9378})(1-\phi)\left(1-p_{\mathscr{d},\mathscr{d}}\right)
-                +
-                (\num{2.08601} - \num{1.9378})p_{\mathscr{d},\mathscr{d}}
+                    (\num{2.08601} - \num{1.9378})(1-\phi)\left(1-p_{\mathscr{d},\mathscr{d}}\right)
+                    +
+                    (\num{2.08601} - \num{1.9378})p_{\mathscr{d},\mathscr{d}}
                 }{
                     (1+r_{0,2})^{2}
                 }
@@ -295,7 +295,7 @@
             \begin{align}
                 S_0 &= \frac{
                     D_{\mathscr{u}}p_{\mathscr{u}}^{0}+D_{\mathscr{d}}(1-p_{\mathscr{u}}^{0})+\num{10}
-                }{  
+                }{
                     D_{0}
                 }
                 -
@@ -306,7 +306,7 @@
                     \num{69.8452}+\num{10}(1+r_{1,2})
                 }{
                     (D_{\mathscr{u}})p_{\mathscr{u}}^{0}
-                        +
+                    +
                     (D_{\mathscr{d}})(1-p_{\mathscr{u}}^{0})
                     +
                     10
@@ -377,4 +377,47 @@
             The margin requirements will then potentially imply a larger exposure to funding costs.
 
         \subsection{Example of secured hedging swap}
+            Suppose that the dealer enters the same swap contract with the same counterparty as described above.
+            Additionally, she hedges the swap contract by entering the reversed position with a hedging dealer
+            by paying the floating leg.
+            The hedging dealer requires the dealer to post margin requirements,
+            i.e. both initial margin and variation margin.
+            The initial margin is,
+            similar to the single-period model,
+            assumed to be 50\% of the market neutral credit risk adjusted value of the swap,
+            and it is posted at both the inception date and the interim date.
+            The margin requirements have higher priority than any other existing liabilities and outstanding contractual amounts due to the swap contract,
+            hence the collateralization must be paid first when the dealers's assets are liquidated at time 2.
+
+            The swap contract is still assumed to be priced as the market neutral credit risk adjusted value.
+            Since the dealer enters two offsetting positions of the swap,
+            there is no amount received or funded at time 0 due to the swap price.
+            Furthermore, the cash flows at time 1 and time 2 from the two positions also offset each other.
+            The dealer must however fund the margin requirements by obtaining new short-term debt,
+            and similarly, she uses the received margin postings to retire existing debt.
+            \\
+            The specific required margin postings are summarized in \cref{tbl:swap-margin-postings}.
+
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l|rr}
+                    $t$ & 0 & 1 \\
+                    \hline
+                    \rule{0pt}{1.1em}
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[M_t\right]$ & $u$ & $\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
+                    \rule{0pt}{1.1em}
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[I_t\right]$ & $\frac{1}{2}u$ & $\frac{1}{2}\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
+                \end{tabular}
+                \caption{}
+                \label{tbl:swap-margin-postings}
+            \end{table}
+
+            As in the previous section the dealer cannot default at time 1,
+            hence no credit spread is paid for the short-term loans at time 0.
+            The debt obtained funding the margin requirements at the inception date increases the asset value,
+            whereas to pay back the debt at time 1,
+            the dealer liquidates the exact asset amount forward discounted.
+            \\
+            The dealer will not have any contingent liabilities due to the swap payments at the maturity date.
+            
 \end{document}
