@@ -35,6 +35,7 @@
     offset-line/.style = {
         base-line,
         in-color,
+        opacity=0.9,
         path fading=south,
         postaction={
             draw,
@@ -49,13 +50,13 @@
     \coordinate (in-arrow-\arrow) at (circle.\currentAngle);
     \coordinate (out-arrow-\arrow) at (circle.\currentAngle-180);
     
-    \draw[in-arrow] (in-arrow-\arrow) ++(\currentAngle: 2cm) -- (in-arrow-\arrow);
-    \draw[out-arrow] (out-arrow-\arrow) -- ++(\currentAngle-180: 2cm);
-    
     \draw[offset-line] 
         (in-arrow-\arrow) ++(\currentAngle:1cm) --
         (in-arrow-\arrow) -- 
         (out-arrow-\arrow) --
         (out-arrow-\arrow) ++ (\currentAngle-180: 1cm)
         ;
+
+    \draw[in-arrow] (in-arrow-\arrow) ++(\currentAngle: 2cm) -- (in-arrow-\arrow);
+    \draw[out-arrow] (out-arrow-\arrow) -- ++(\currentAngle-180: 2cm);
 }
