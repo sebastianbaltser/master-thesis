@@ -111,7 +111,7 @@
             Returning to the previous example of a risky firm with a capital structure
             as described in \cref{tbl:example-firm-structure}, 
             the firm now enters a derivative contract by selling a project to a counterparty
-            with a credit value adjusted present value of 1. 
+            with a credit value adjusted present value of \num{0.96}. 
             The derivative premium is priced with no discount 
             and is immediately spent on retiring debt from its already existing creditors. 
             The derivative payable is now a liability to the firm, ranking pari passu with the existing debt, 
@@ -215,8 +215,8 @@
             The values of the different parties are shown in \cref{tbl:example-equity-buyback}. 
             The loss rate increases from the pre-derivative value and is computed as:
             $\phi = 1 - \num{60}/\num{81} = \pct{0.25925926}$.
-            Similarly, the credit spread increases:
-            $S = \num{80}/\num{76.711111} - \grossrfrate = \pct{0.032772686}$.
+            Similarly, the credit spread increases to
+            $\num{80}/\num{76.711111} - \grossrfrate = \pct{0.032772686}$.
             \begin{table}[H]
                 \centering
                 \begin{tabular}{l|rrrrr||r}
@@ -353,7 +353,16 @@
                 \label{tbl:example-no-funding-buyback}
             \end{table}
 
-            The loss rate obtained from solving the above problem is $\phi = \pct{0.230361}$, and the credit spread is then calculated as $S = \num{80}/\num{76.988534} - \grossrfrate = \pct{0.0290148}$.
+            The loss rate obtained from solving the above problem is $\phi = \pct{0.230361}$, 
+            and the new credit spread is then 
+            $\num{80}/\num{76.988534} - \grossrfrate = \pct{0.0290148}$.
+            Compare the new credit spread with the pre-project limiting spread of \pct{0.031566};
+            by obtaining the new project, the credit spread has decreased quite significantly.
+            The reduction can be explained by the project's payoff structure,
+            as the states where the firm's asset value is the highest are
+            also the states where the project's payoff is the highest and vice versa. 
+            Therefore, by selling the project, the firm has reduced its riskiness
+            as well as the loss rate and credit spread of the creditors.
 
             The market value of the derivative including adjustments for credit risk would deem a fair price of the project,
             as it would be a zero net present value investment for the counterparty.
@@ -421,7 +430,7 @@
                 \\
                 A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
                 \\
-                \Delta \pi(S) &= 0
+                \Delta \pi(E) &= 0
                 \label{eqn:no-wealth-transfer-no-funding-buyback}
             \end{align}
 

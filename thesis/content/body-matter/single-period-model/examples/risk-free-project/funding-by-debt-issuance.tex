@@ -84,18 +84,6 @@
                 \Leftrightarrow  \qquad
                 \tilde{D}_{FV} &= \num{1.030889}
             \end{align}
-        This face value results in an expected default loss to creditors of 
-        $\mathbb{E}^{\rnmeasure}\left[\phi\right] = \pct{0.029964}$,
-        and a limiting spread of:
-        \begin{equation}
-            S 
-            = \frac{
-                \pct{0.029964} * R
-            }{
-                \num{1} - \pct{0.029964}
-            } 
-            = \pct{0.031201}
-        \end{equation}
         Entering into the project and issuing new debt with face value $\num{1.030889}$ 
         alters the payoffs associated with the firm in the following way:
         \begin{table}[H]
@@ -114,6 +102,41 @@
             \end{tabular}
             \caption{}
         \end{table}
+
+        The new project has therefore resulted in an expected default loss to creditors of 
+        $\mathbb{E}^{\rnmeasure}\left[\phi\right] = \pct{0.029964}$,
+        and a new credit spread on debt of:
+        \begin{equation}
+            \frac{
+                1.030889
+            }{    
+                0.99
+            } 
+            -
+            R
+            = 
+            \frac{
+                76.826874
+            }{    
+                80
+            } 
+            -
+            R
+            =
+            \pct{0.031201}
+        \end{equation}
+        The example will continue with this credit spread, instead of the limiting spread,
+        to calculate the correct funding costs.
+        Recall that the limiting spread, i.e. the estimation of the post-project credit spread, 
+        was calculated as $S = \pct{0.031566}$.
+        Since the limiting spread was an overestimation of the actual credit spread,
+        the funding costs would have been overestimated as well.
+        The overestimation is due to the project's risk compared to the firm's assets;
+        since the project is risk-free, it reduces the overall riskiness of the firm
+        as well as the loss rate and the credit spread.
+        Thus, the examples use the actual credit spread instead of the estimation, 
+        such that the focus can remain on the funding implications
+        without the uncertainty of estimations.
 
         Investing in the project increases the present value of the firm's assets by $\num{97.39} - \num{96.40} = \num{0.99}$, 
         which, not surprisingly, is the value of the the project.
@@ -134,10 +157,8 @@
         the legacy creditors will share part of the payoff from the option with the new creditors.
         Hence, the legacy creditors are receiving a larger amount in the case of default compared to the pre-project amount, and their claim increases in value.
         Their increment in wealth also suggests that the conditions has improved in terms of their exposure to the firm's credit risk.
-        This is also justified, as the loss rate has decreased from the pre-project value of \pct{0.25},
-        where, from \cref{eqn:creditor-loss-rate}, the new loss rate is $\phi = (\num{80}-\num{60.223947})/\num{80} = \pct{0.029964}$.
-        Correspondingly, the new credit spread is lower than the pre-project credit spread of $\pct{0.031565}$:
-        $S = \num{80}/\num{76.826874} - \grossrfrate = \num{0.031201}$.
+        This is also justified, as the loss rate has decreased from the pre-project value of \pct{0.25}.
+        Correspondingly, the new credit spread is lower than the pre-project credit spread.
 
         The Modigliani-Miller invariance proposition assures that making a zero net present value investment 
         does not increase the value of the firm.
