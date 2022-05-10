@@ -280,47 +280,42 @@
             \end{align}
             \Cref{eqn:swap-example-equation-system-1} is assuring that the creditors receive the entire asset base in case of the firm defaulting,
             and \cref{eqn:swap-example-equation-system-2} sets the price of the swap as the discounted expected payoff.
-            Solving this equation system yields a market neutral swap price of $u=\num{0.126928}$,
-            and a loss rate of $\phi=\pct{0.11218}$.
-            The dealer's creditors of the long-term debt and the swap counterparty then receive a total payoff of $69.8452(1-\pct{0.11218})=\num{62.009965}$ in case of default.
-            With $D_{\mathscr{u},\mathscr{u}}=D_{\mathscr{u},\mathscr{d}}=D_{\mathscr{d},\mathscr{u}}=\num{69.8452}$,
-            and $D_{\mathscr{d},\mathscr{d}}=\num{62.009965}$,
-            the payoff of the debt is now defined as:
+            Solving this equation system yields a market neutral swap price of $u=\num{0.115334}$,
+            and a loss rate in the default state of 
+            $\phi(\omega_{\mathscr{d},\mathscr{d}})=\pct{0.11218}$.
+            Using the loss rate, the value of the legacy creditors' long term claim can be calculated.
+            At time 2 the payoff in the default state is 
+            $L_{2}*(1-\phi(\omega_{\mathscr{d},\mathscr{d}})) = \num{62.147436}$.
+            At time 1 the expected value of the claim is therefore \num{67.613161},
+            and at time 0 the value is \num{66.287413}.
+
+            The credit spread in each period is the debt's no-default value one period ahead
+            divided by its current value less the risk-free rate.
+            Hence the post-project actual credit spreads for time 0 and time 1 is:
             \begin{align}
-                D_{\mathscr{u}} =
-                \frac{D_{\mathscr{u},\mathscr{u}}}{1+r_{1,2}}
-                &\qquad
-                D_{\mathscr{d}} =
-                \frac{D_{\mathscr{d},\mathscr{u}}}{1+r_{1,2}}p_{\mathscr{u}}^{1}+
-                \frac{D_{\mathscr{d},\mathscr{d}}}{1+r_{1,2}}(1-p_{\mathscr{u}}^{1})
-                \nonumber
-                \\
-                D_0 &= \frac{(D_{\mathscr{u}}+10)p_{\mathscr{u}}^{0}+(D_{\mathscr{d}}+10)(1-p_{\mathscr{u}}^{0})}{1+r_{0,1}}
-                \nonumber
-            \end{align}
-            This suggests the post-project actual credit spreads for time 0 and time 1 respectively as:
-            \begin{align}
-                S_0 &= \frac{
-                    D_{\mathscr{u}}p_{\mathscr{u}}^{0}+D_{\mathscr{d}}(1-p_{\mathscr{u}}^{0})+\num{10}
+                S_{0} 
+                &=
+                \frac{
+                    \num{67.613161}
                 }{
-                    D_{0}
+                    \num{66.287413}
                 }
                 -
-                (1+r_{0,1})
-                = \pct{0}
+                R_{0}
+                =
+                \pct{0}
                 \\
-                S_1 &= \frac{
-                    \num{69.8452}+\num{10}(1+r_{1,2})
+                S_{1} 
+                &= 
+                \frac{
+                    \num{70}
                 }{
-                    (D_{\mathscr{u}})p_{\mathscr{u}}^{0}
-                    +
-                    (D_{\mathscr{d}})(1-p_{\mathscr{u}}^{0})
-                    +
-                    10
-                }
+                    \num{67.613161}
+                } 
                 -
-                (1+r_{1,2})
-                = \pct{0.00983866}
+                R_{1}
+                =
+                \pct{0.011298}
             \end{align}
             Since the dealer survives at time 1 with 100\% certainty,
             the upfront price can be funded with short-term debt paying 0 credit spread.
@@ -484,6 +479,6 @@
             as the dealer cannot default at the interim date.
             
             Finally, the shareholders' valuation of the project is analysed.
-            
+
             
 \end{document}
