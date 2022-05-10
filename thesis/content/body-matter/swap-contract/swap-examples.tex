@@ -171,7 +171,7 @@
 
         \subsection{Example of unsecured swap}
             Suppose the dealer enters a swap contract with the credit risk-free counterparty.
-            She pays a constant fixed leg, $K_t$, to the counterparty at each time period whose amount is $\num{1}$.
+            She pays a constant fixed leg, $K$, to the counterparty at each time period whose amount is $\num{1}$.
             Correspondingly, at each time period,
             the dealer receives a random floating leg, $X_t$, from the counterparty.
 
@@ -191,7 +191,7 @@
 
             The time 0 expected payments of the swap contract are summarized in \cref{tbl:swap-legs}.
             Notice, that at the interim date the dealer expects a positive cash flow of
-            $\mathcal{C}_1 = X_1 - K_1 = \num{0.2}$,
+            $\mathcal{C}_1 = X_1 - K = \num{0.2}$,
             which will be used to retire existing debt.
             The expected cash flow at time 2 does not change over time.
 
@@ -213,7 +213,7 @@
                     $t$ & 1 & 2 & Present value \\
                     \hline
                     \rule{0pt}{1.1em}
-                    $\mathbb{E}_{0}^{\rnmeasure}\left[K_t\right]$ & $\num{1}$ & $\num{1}$ & $\num{1.9378}$ \\
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[K\right]$ & $\num{1}$ & $\num{1}$ & $\num{1.9378}$ \\
                     \rule{0pt}{1.1em}
                     $\mathbb{E}_{0}^{\rnmeasure}\left[X_t\right]$ & $\num{1.2}$ & $\num{0.95}$ & $\num{2.08601}$ \\
                 \end{tabular}
