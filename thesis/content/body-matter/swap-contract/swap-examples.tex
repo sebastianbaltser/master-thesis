@@ -478,6 +478,26 @@
             as the dealer cannot default at the interim date.
             
             Finally, the shareholders' valuation of the project is analysed.
-
+            As the project is priced to be a zero net present value investment for the counterparty,
+            a potential change of wealth must again be between the dealer's creditors and shareholders.
+            The shareholders' change of wealth is computed the derived expression in \cref{eqn:shareholder-valuation-swap-hedged}.
+            This derivation includes the extension of the fully collateralized hedged position.
+            \\
+            With the above computed credit spreads, and $u=\num{0.126904}$
+            the shareholders' marginal valuation of entering the swap contract is calculated as:
+            \begin{equation}
+                G_{\text{swap,hedged}} = \num{-0.000727784}
+            \end{equation}
+            suggesting a negative net present value investment for the shareholders. 
+            The price that makes the shareholders indifferent of entering the project, $u^{\ast}$, is then defined by fixing $G_{\text{swap,hedged}}$ to 0.
+            This implies:
+            \begin{equation}
+                u^{\ast} = \num{0.12649211399483182}
+            \end{equation}
+            and an \FVA/ defined as:
+            \begin{equation}
+                \FVA/ = u^{\ast} - u = \num{-0.000411886}
+            \end{equation}
+            Hence the donation required of the counterparty would be a price reduction of \num{-0.000411886}.
             
 \end{document}
