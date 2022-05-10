@@ -395,6 +395,7 @@
             and it is posted at both the inception date and the interim date.
             The margin requirements have higher priority than any other existing liabilities and outstanding contractual amounts due to the swap contract,
             hence the collateralization must be paid first when the dealers's assets are liquidated at time 2.
+            Corresponding to the dealer, the hedging dealer is assumed credit risk-free at the interim date.
 
             The swap contract is still assumed to be priced as the market neutral credit risk adjusted value.
             Since the dealer enters two offsetting positions of the swap,
@@ -411,9 +412,9 @@
                     $t$ & 0 & 1 \\
                     \hline
                     \rule{0pt}{1.3em}
-                    $\mathbb{E}_{0}^{\rnmeasure}\left[M_t\right]$ & $u$ & $\mathbb{E}_{1}^{\rnmeasure}\left[\frac{1}{1+r_{1,2}}\mathcal{C}_{2}\right]$ \\
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[M_t\right]$ & $-u$ & $-\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
                     \rule{0pt}{1.3em}
-                    $\mathbb{E}_{0}^{\rnmeasure}\left[I_t\right]$ & $\frac{1}{2}u$ & $\frac{1}{2}\mathbb{E}_{1}^{\rnmeasure}\left[\frac{1}{1+r_{1,2}}\mathcal{C}_{2}\right]$ \\
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[I_t\right]$ & $-\frac{1}{2}u$ & $-\frac{1}{2}\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
                 \end{tabular}
                 \caption{}
                 \label{tbl:swap-margin-postings}
@@ -421,10 +422,68 @@
 
             As in the previous section the dealer cannot default at time 1,
             hence no credit spread is paid for the short-term loans at time 0.
-            The debt obtained funding the margin requirements at the inception date increases the asset value,
-            whereas to pay back the debt at time 1,
-            the dealer liquidates the exact asset amount forward discounted.
+            Posting margin requirements increases the asset value,
+            and funding them increases the short-term liabilities.
+            When the dealer receives back the forward discounted collateral,
+            she then uses it to pay the debt with the exact amount at the interim date.
             \\
             The dealer will not have any contingent liabilities due to the swap payments at the maturity date.
+            The margin requirements received (posted) at the interim date will be paid (received) back at the maturity date.
+            As a result of that,
+            the liabilities at time 2 has both increased and decreased with the margin requirements at time 1.
+            If defaulting, the dealer's creditors will have a total payoff calculated as:
+            \begin{align}
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    (1-\phi)\left(
+                        L_{2}
+                        -(M_1+I_1)R_{1}
+                        +(M_1+I_1)R_{1}
+                    \right)
+                \right] 
+                &= (1-\phi)\num{70}
+            \end{align}
+            To find the market neutral credit risk adjusted price of the project, $u$, as well as the loss rate, $\phi$,
+            the following equation system must be solved.
+            \begin{align}
+                \mathscr{d}^{2} A - W
+                &=
+                (1-\phi)\num{70}
+                \\
+                u &=
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \mathbbm{1}_{\{\tau_{F}>2\}} 
+                    \sum_{t=1}^{2}
+                    \delta_{t}\mathcal{C}_{t}
+                \right]
+            \end{align}
+            As in the example with the unsecured swap the first equation makes sure
+            that the entire asset value amount is distributed to the creditors.
+            The second equation again sets the price as the discounted expected cash flows.
+            \\
+            By solving, a swap price of $u=\num{0.126904}$ is obtained.
+            The price is slightly smaller than in the previous example,
+            however it is only visible with five decimals,
+            and not too relevant for this analysis.
+            The new loss rate is computed as $\phi = \pct{0.114143}$.
+
+            With the long-term debt creditors' expected payoff at time 1 calculated as $\num{67.600104}$,
+            the credit spread at time 1 is given by:
+            \begin{align}
+                S_1 &=
+                \frac{
+                    \num{70}
+                }{
+                    \num{67.600104}
+                }
+                - R_{1}
+                \nonumber
+                \\
+                &= \pct{0.0114974}
+            \end{align}
+            where the credit spread at time 0 is 0,
+            as the dealer cannot default at the interim date.
+            
+            Finally, the shareholders' valuation of the project is analysed.
+            
             
 \end{document}
