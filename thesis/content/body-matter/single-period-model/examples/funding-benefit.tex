@@ -72,12 +72,10 @@
             \end{equation}
             where a riskless firm would have no benefit of \FVA/ as it would be able to borrow at the risk-free rate.
             
-            In \cref{sec:fva-dva-double-counting} it was argued that double counting
-            between \FVA/ and \DVA/ should not be a problem if they are applied properly.
-            The current section will display a case
-            where it has to be considered very carefully which adjustments to apply.
+            The current section will display a case where the \DVA/
+            accounts for all funding benefits and eliminates the need for an \FVA/.
             Before seeing this from calculations, it can be argued conceptually
-            and the reasons to be careful can be highlighted.
+            and the reasons for that can be highlighted.
             By the assumptions in these examples,
             the only source of the firm's credit spread is the firm's credit risk, 
             which implies that there is no difference between the CDS spread referencing the firm,
@@ -85,6 +83,7 @@
             The CDS spread determines the cost to the counterparty 
             of hedging its credit exposure to the firm.
             The funding rate determines the benefits to the firm of cash surpluses.
+            Therefore there is a strong relation between the two adjustments.
             Having hinted the possible concerns in the current setup, 
             the example can continue and the issues can be quantified.
 
@@ -169,32 +168,34 @@
             \end{equation}
             which validates \cref{eqn:option-value-credit-risk}. 
 
+            All funding benefits have already been accounted for by the \DVA/;
+            therefore, there is no \FVA/ to make.
             Take the first possible definition of \FVA/, 
             where it was defined as the promised excess funding cost.
             Calculating this quantity yields 
             $\discountfactor u S = \num{0.99} * \num{-0.96} * \pct{0.031566} = \num{-0.03}$,
             which is exactly equal to the \DVA/ with the sign flipped.
+            Recall that \textcite{HullWhite2012FVA} use this exact argument to argue against \FVA/s.
             As hinted in the beginning, 
             this is not a coincidence as the CDS spread determining \DVA/
             is identical to the funding rate determining \FVA/.
-            Adjusting the \DVA/-adjusted price with this \FVA/ would be double counting,
-            and leads to the firm undervaluing the derivative.
+            Adjusting the \DVA/-adjusted price with the first definition of \FVA/ would be double counting,
+            and would lead to the firm undervaluing the derivative.
+            
             Consider also the last, and chosen, definition of \FVA/,
             where it was defined as the adjustment needed to the shareholders' breakeven.
             As already mentioned, the marginal shareholder value of the derivative is zero,
             meaning that the price is already adjusted to the shareholders' breakeven.
             The fact is that the derivative in this example needs no \FVA/,
             as the \DVA/ accounts for all funding benefits.
-            Differences between \DVA/ and \FBA/ can only occur either because of a
-            mismatch between the CDS spread and the funding spread
+            Differences between \DVA/ and an adjustment for funding benefits can only occur 
+            either because of a mismatch between the CDS spread and the funding spread
             or because of a difference in the portfolio on which the two quantities are calculated. 
             The former has been assumed non-existing.
             The latter could occur if the firm had offsetting trades in its portfolio,
             since the \FVA/ takes into account all sorts of netting benefits.
             In this example there is no offsetting trades, 
-            which is why there is no difference between \DVA/ and \FBA/;
-            hence, as they are accounting for the same thing, 
-            including both would lead to an undervaluation.
+            which is why there is no need an \FVA/, as the \DVA/ have already accounted for everything;
 
         \subsubsection{Equity buyback}
             Assume that the firm enters a project 
