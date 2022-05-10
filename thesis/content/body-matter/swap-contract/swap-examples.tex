@@ -213,9 +213,11 @@
                     $t$ & 1 & 2 & Present value \\
                     \hline
                     \rule{0pt}{1.1em}
-                    $\mathbb{E}_{0}^{\rnmeasure}\left[K\right]$ & $\num{1}$ & $\num{1}$ & $\num{1.9378}$ \\
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[K\right]$ & $\num{1}$ & $\num{1}$ & $\num{1.937802706}$ \\
                     \rule{0pt}{1.1em}
                     $\mathbb{E}_{0}^{\rnmeasure}\left[X_t\right]$ & $\num{1.2}$ & $\num{0.95}$ & $\num{2.08601}$ \\
+                    \rule{0pt}{1.1em}
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_t\right]$ & $\num{0.2}$ & $\num{-0.05}$ & $\num{0.1482079039}$ \\
                 \end{tabular}
                 \caption{}
                 \label{tbl:swap-legs}
@@ -269,9 +271,9 @@
                     \displaystyle
                     u =
                     \frac{
-                        (\num{2.08601} - \num{1.9378})(1-\phi)\left(1-p_{\mathscr{d},\mathscr{d}}\right)
+                        \num{0.1482079039}(1-\phi)\left(1-p_{\mathscr{d},\mathscr{d}}\right)
                         +
-                        (\num{2.08601} - \num{1.9378})p_{\mathscr{d},\mathscr{d}}
+                        \num{0.1482079039}p_{\mathscr{d},\mathscr{d}}
                     }{
                         (1+r_{0,2})^{2}
                     }
@@ -280,7 +282,7 @@
             \end{align}
             The first equation in \cref{eqn:swap-example-equation-system} assures that the creditors receive the entire asset base if the firm defaults.
             The second equation sets the price of the swap as the discounted expected payoff.
-            Solving this equation system yields a market neutral swap price of $u=\num{0.115334}$,
+            Solving this equation system yields a market neutral swap price of $u=\num{0.140347}$,
             and a loss rate in the default state of 
             $\phi(\omega_{\mathscr{d},\mathscr{d}})=\pct{0.11218}$.
             Using the loss rate, the value of the legacy creditors' long term claim can be calculated.
@@ -330,7 +332,7 @@
                 \nonumber
                 \\
                 &= \mathbb{E}_{0}^{\rnmeasure}\left[\sum_{t=1}^{2}\delta_t \mathcal{C}_t\right] - u
-                = \num{0.00140089}
+                = \num{0.00154881}
             \end{align}
 
             Turning to the shareholder valuation of the project.
@@ -347,15 +349,15 @@
             This entails a funding benefit, as the credit spread paid from time 1 to time 2 has decreased,
             and the shareholders' payoff increases.
             
-            With $\mathcal{C}_1=\num{0.2}$,
-            $\mathcal{C}_2=\num{-0.05}$,
-            $u=\num{0.126928}$,
+            With $\mathbb{E}_{t}\left[\mathcal{C}_1\right]=\num{0.2}$,
+            $\mathbb{E}_{t}\left[\mathcal{C}_2\right]=\num{-0.05}$,
+            $u=\num{0.140347}$,
             and the assumption that the counterparty is credit risk-free,
             the total impact on the shareholders' benefit is calculated using \cref{eqn:shareholders-value-multi-period-swap}:
             \begin{equation}
-                G_{swap} = \num{0.0198091}
+                G_{swap} = \num{0.0076609}
             \end{equation}
-            This value suggests a wealth transfer of $\num{0.0198091}$
+            This value suggests a wealth transfer of $\num{0.0076609}$
             between the shareholders and the creditors of the long-term debt,
             such that the project is a negative net present value investment for the creditors.
 
@@ -366,11 +368,11 @@
             \begin{equation}
                 G_{swap} = 0
             \end{equation}
-            yielding a funding adjusted price of $u^{\ast} = \num{0.1486634684084602}$.
+            yielding a funding adjusted price of $u^{\ast} = \num{0.148739}$.
             \\
             The donation from the counterparty required is then:
             \begin{equation}
-                \FVA/ = u^{\ast} - u = \num{0.0217355}
+                \FVA/ = u^{\ast} - u = \num{0.008392}
             \end{equation}
 
             The project's positive impact on the shareholders' wealth is an of expression of the limited funding costs
