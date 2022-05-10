@@ -192,6 +192,8 @@
             Notice, that at the interim date the dealer expects a positive cash flow of
             $\mathcal{C}_1 = X_1 - K_1 = \num{0.2}$,
             which will be used to retire existing debt.
+            The expected cash flow at time 2 does not change over time.
+
             At the maturity date the dealer is assumed to liquidate all of its assets,
             which it uses to pay the remaining outstanding amounts.
             Additionally, the existing creditors' liabilities are assumed to rank pari passu with the counterparty's contingent liabilities.
@@ -219,12 +221,14 @@
             \end{table}
 
             When defaulting at time 2
-            the dealer's expected total liabilities being paid to the creditors are calculated as:
+            the dealer's total liabilities are calculated as:
             \begin{align*}
                 \mathbb{E}_{0}^{\rnmeasure}\left[
-                    (1-\phi)\left(L_{2} - 
+                    (1-\phi)\left(
+                        L_{2} - 
                     \mathcal{C}_{1}R_{1}
-                    - \mathcal{C}_2\right)
+                        - \mathcal{C}_2
+                    \right)
                 \right]
                 &=
                 (1-\phi)\left(\num{70} - \num{0.204801} + \num{0.05}\right)\\
@@ -239,14 +243,17 @@
             \begin{align}
                 \mathscr{d}^{2}A_{0} - W&=
                 \mathbb{E}_{0}^{\rnmeasure}\left[
-                    (1-\phi)\left(L_{2} - 
+                    (1-\phi)\left(
+                        L_{2} - 
                     \mathcal{C}_{1}R_{1}
-                    - \mathcal{C}_2\right)
+                        - \mathcal{C}_2
+                    \right)
                 \right]
                 \label{eqn:swap-example-equation-system-1}
                 \\
                 u &=
                 \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \mathbbm{1}_{\{\tau_{F}>2\}} 
                     \sum_{t=1}^{2}
                     \delta_{t}\mathcal{C}_{t}
                 \right]
@@ -327,8 +334,8 @@
                 \DVA/ &= V_{rf} - u
                 \nonumber
                 \\
-                &= \sum_{t=1}^{2}\delta_t \mathcal{C}_t - u
-                = \num{0.0129949}
+                &= \mathbb{E}_{0}^{\rnmeasure}\left[\sum_{t=1}^{2}\delta_t \mathcal{C}_t\right] - u
+                = \num{0.00140089}
             \end{align}
 
             Turning to the shareholder valuation of the project.
@@ -347,13 +354,13 @@
             
             With $\mathcal{C}_1=\num{0.2}$,
             $\mathcal{C}_2=\num{-0.05}$,
-            $u=\num{0.115334}$,
+            $u=\num{0.126928}$,
             and the assumption that the counterparty is credit risk-free,
             the total impact on the shareholders' benefit is calculated using \cref{eqn:shareholders-value-multi-period-swap}:
             \begin{equation}
-                G_{swap} = \num{0.0303756}
+                G_{swap} = \num{0.0198091}
             \end{equation}
-            This value suggests a wealth transfer of $\num{0.0303756}$
+            This value suggests a wealth transfer of $\num{0.0198091}$
             between the shareholders and the creditors of the long-term debt,
             such that the project is a negative net present value investment for the creditors.
 
@@ -368,7 +375,7 @@
             \\
             The donation from the counterparty required is then:
             \begin{equation}
-                \FVA/ = u^{\ast} - u = \num{0.0333295}
+                \FVA/ = u^{\ast} - u = \num{0.0217355}
             \end{equation}
 
             The project's positive impact on the shareholders' wealth is an of expression of the limited funding costs
