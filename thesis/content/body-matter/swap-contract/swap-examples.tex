@@ -21,16 +21,16 @@
         the possible states are now represented by a binomial tree.
         At the interim date, the two possible states are denoted by $\omega_\mathscr{u}$ and $\omega_\mathscr{d}$.
         Correspondingly, at the maturity date the two possible states are either
-        $\omega_{u,u}$ and $\omega_{u,d}$,
-        or $\omega_{d,u}$ and $\omega_{d,d}$,
+        $\omega_{\mathscr{u},\mathscr{u}}$ and $\omega_{\mathscr{u},\mathscr{d}}$,
+        or $\omega_{\mathscr{d},\mathscr{u}}$ and $\omega_{\mathscr{d},\mathscr{d}}$,
         depending on the asset value going up or down in the first time period respectively.
         \\
-        In the state $\omega_{d,d}$, the liabilities exceed the asset value,
+        In the state $\omega_{\mathscr{d},\mathscr{d}}$, the liabilities exceed the asset value,
         and the dealer defaults.
         In this case the shareholders receive a payoff of 0.
         \\
-        The asset value structure is defined using a binomial tree
-        and illustrated in \cref{fig:example-asset-value-multi-period-dealer}.
+        The asset value structure is illustrated in 
+        \cref{fig:example-asset-value-multi-period-dealer}.
         Each period the asset values are assumed to either increase with a factor $\mathscr{u} = 1.1$
         or decrease with a factor $\mathscr{d} = 0.85$.
         The asset values are determined under the risk-neutral measure,
