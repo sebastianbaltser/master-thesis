@@ -4,95 +4,278 @@
 \begin{document}
     \subsection{Funding Secured Derivatives}
     \label{sec:example-secured-derivative}
-        Now consider the same derivative contract as above which is sold by the firm to the counterparty.
-        The firm spends the premium by posting collateral at a third party, possibly a custodian, where it earns the risk-free rate.
-        The collateral posted is a variation margin that covers the entire amount of the derivative payable.
-        On top of the variation margin, the firm also posts an initial margin worth 50\% of the purchase price at time 0.
-        The initial margin is funded by new debt.
-        The firm as still assumed to have credit risk, whereas the counterparty is without credit risk.
+        Consider again the risk-free contract that had a promised payoff of $1$ in every state.
+        In this section, the firm sells the contract to a counterparty.
+        Assume now that the firm and the counterparty have in place a CSA agreement
+        that requires collateralization with no threshold or minimum transfer amount.
+        Therefore, at time 0, when the counterparty pays the upfront price,
+        the firm posts the same amount as collateral.
 
+        In addition to the variation margin, 
+        the CSA agreement requires an independent amount to be posted,
+        corresponding to \qty[round-precision=0]{50}{\percent} of the purchase price at time 0.
+
+        The independent amount will be a source of funding costs.
+        Since the upfront price offsets the call for variation margin,
+        neither the upfront price nor the variation margin will have any funding costs or benefits.
+        The independent amount, on the other hand, has no offsetting cash flows, 
+        and therefore requires financing.
+        In this section it is assumed that the firm finances the independent amount by issuing new debt,
+        and the issue raised by this setup is how the valuation of the derivative is affected.
+        
         % Hillion creates a portfolio where the option is bought by the counterparty and also sold to a hedger dealer. This will cause a wealth transfer that consist of both \MVA/ and \FCA/.
 
-        This example suggests that, for a derivative contract as such,
-        the variation margin will not cause any funding costs or benefits,
-        as the option premium offsets the posted collateral.
-        However, this is not the case for the initial margin which requires funding.
-        The collateral must be posted in cash or assets, and cannot be rehypothecated by the third party.
-        The issue raised by this setup is whether a valuation adjustment to the derivative is needed due to the margin requirements.
-        This is denoted by \MVA/.
+        As previously, financing with debt issuance is obtained 
+        such that the new creditors make a zero net present value investment.
+        The new creditors' debt claim ranks pari passu with the existing debt.
+        At time 0, the asset value increases by the upfront price,
+        and by the debt obtained for the independent amount.
+        At time 1 the asset value increases by these amounts forward discounted,
+        since the quantities earn the risk-free rate when posted as collateral.
 
-        The financing costs for the initial margin do not differ much from the principles of funding costs discussed in \cref{sec:risk-free-project}.
-        Issuing debt to fund the initial margin is a zero net present value for the new creditors.
-        This leads to the conclusion that the shareholders are worse off, as they pay the funding of the risk-free security held by the third party, i.e. the initial margin, in the event of no default.
-        The wealth transfer favors the legacy creditors,
-        and the derivative contract seems eligible for an \MVA/.
-        The \MVA/ determine the difference between the market value and value that makes the shareholders indifferent to entering the new secured project.
-
-        At time 1, the firm's asset value has increased with the future value of the initial- and variation margin posted to the third party.
-        By funding this initial margin the firm obtains a new liability in terms of a new debt which is assumed to rank pari passu with the existing debt.
-        The capital structure of the firm at time 0 is summarized in \cref{tbl:example-collateralized-derivative}.
-
-        The premium of the derivative contract is computed as:
-        \begin{equation}
-            \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = 2.345
-        \end{equation}
-        To enter this project, the firm must post 50\% of the price as initial margin as well as the total price in variation margin.
-        The variation margin has higher priority than the existing debt, hence the derivative contract becomes risk-free.
-
-        While the variation margin is funded by the premium of the derivative contract, the initial margin is funded by new debt. And since this debt is not secured, the firm must pay a credit spread to cover its own credit risk. The deal is still a zero net present value investment for the new creditors, meaning that the present value equals the initial margin paid at time 0:
-        \begin{equation}
-            50\% \cdot \pi(Y_C) = \mathbb{E}^{\rnmeasure}\left[\tilde{D}\right] = 1.1725
-        \end{equation}
+        The collateralization is more than enough to secure the payoff of the derivative;
+        therefore, the counterparty cannot suffer losses on the contract.
+        Assume then that the price of the derivative is given as the credit risk-free
+        value, which is the discounted promised payoff:
+            \begin{equation}
+                u = \num{-0.99}
+            \end{equation}
+        Since the new debt is unsecured, 
+        the firm must pay a credit spread to cover its own credit risk. 
+        The deal is still a zero net present value investment for the new creditors.
+        Hence, the present value of the new creditors claim, $\tilde{D}$, 
+        must equal the borrowed amount, $-u \frac{1}{2}$,
+        and the face value of the new debt must therefore solve:
+            \begin{equation}
+                -
+                u 
+                \frac{1}{2} 
+                = 
+                \num{0.495}
+                =
+                \discountfactor
+                \mathbb{E}^{\rnmeasure}[\tilde{D}]
+            \end{equation}
+        Solving this numerically yields a face value of \num{0.515534}.
+        The payoff structure at time 1 of the firm and its stakeholders
+        is summarized in \cref{tbl:example-collateralized-derivative}.
 
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rrrrr||r}
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                 \hline
-                $A(\omega_{i})$ & $123.553$ & $113.553$ & $103.553$ & $98.553$ & $63.553$ & $99.918$ \\
-                $D(\omega_{i})$ & $80.000$ & $80.000$ & $80.000$ & $80.000$ & $61.615$ & $76.994$ \\
-                $E(\omega_{i})$ & $38.335$ & $28.835$ & $19.835$ & $15.835$ & $0$ & $19.406$ \\
-                $\tilde{D}(\omega_{i})$ & $1.218$ & $1.218$ & $1.218$ & $1.218$ & $0.938$ & $1.173$ \\
-                $Y_C(\omega_{i})$ & $4.000$ & $3.500$ & $2.500$ & $1.500$ & $1.000$ & $2.345$ \\
+                $A(\omega_{i})$ & 
+                    \num{120.5} & \num{110.5} & \num{100.5} & \num{95.5} & \num{60.5} & \num{96.895} \\
+                $D(\omega_{i})$ & 
+                    \num{80} & \num{80} & \num{80} & \num{80} & \num{60.112624} & \num{76.813515} \\
+                $E(\omega_{i})$ & 
+                    \num{39.984466} & \num{29.984466} & \num{19.984466} & \num{14.984466} & \num{0} & \num{19.586485}\\
+                $\tilde{D}(\omega_{i})$ & 
+                    \num{0.515534} & \num{0.515534} & \num{0.515534} & \num{0.515534} & \num{0.387376} & \num{0.495}\\
+                $Y_C(\omega_{i})$ & 
+                    \num{-1} & \num{-1} & \num{-1} & \num{-1} & \num{-1} & \num{-0.99} \\
             \end{tabular}
             \caption{}
             \label{tbl:example-collateralized-derivative}
         \end{table}
+        The loss rate given default and the new credit spread is respectively computed as:
+            \begin{gather}
+                \phi 
+                = 
+                    1 
+                    - 
+                    \frac{
+                        \num{0.387376}+\num{60.112624}
+                    }{
+                        \num{0.515534}+\num{80}
+                    }
+                = 
+                    \pct{0.248592}
+                \\
+                    \frac{
+                        \num{80}    
+                    }{
+                        \num{76.813515} 
+                    } 
+                    - 
+                    \grossrfrate 
+                = 
+                    \frac{
+                        \num{0.515534}
+                    }{        
+                        \num{0.495}
+                    } 
+                    -
+                    \grossrfrate 
+                = 
+                    \pct{0.031382} 
+            \end{gather}
+        These have both clearly decreased compared to the pre-project values, 
+        which suggests that the legacy creditors' position has improved.
 
-        As can be seen on \cref{tbl:example-collateralized-derivative}, the payoff of the legacy creditors at the default event is less than the pre-project value, while the payoff of the shareholders in the events of no default has also decreased. As the project is a zero net present value for the new creditors, there must be a wealth transfer from both the legacy creditors and the shareholders to the counterparty. Being the only party secured from the firm's credit risk, they receive the full derivative payable even in the event of default.
+        The collateralization has turned the funding implications around,
+        such that selling the derivative no longer provides funding benefits.
+        In the default state, all creditors share the independent amount,
+        and the payoff of the legacy creditors increases. 
+        Since the legacy creditors maintain their payoff in all other states,
+        the total value of their claim increases.
+        The shareholders are unable to capitalize on the upfront price,
+        since that rests with the counterparty earning the risk-free rate.
+        Instead, they bear the funding costs of obtaining unsecured funds 
+        for financing the independent amount;
+        hence, the value of the shareholders claim has decreased.
+        The exact change of wealths for the legacy creditors as well as the shareholders are given by:
+            \begin{align}
+                \Delta \pi(D) &= \num{76.813515} - \num{76.80} = \num{0.013515}\\
+                \Delta \pi(E) &= \num{19.586485} - \num{19.60} = \num{-0.013515}
+            \end{align}
+        The shareholders pay the funding costs of the project,
+        and their welfare loss is transferred to the legacy creditors
+        who enjoy the increase in asset value.
 
-        The loss rate, as defined in \cref{eqn:creditor-loss-rate}, is computed as
-        $\phi = 1-(0.938+61.615)/(1.218+80) = 22.98\%$,
-        and the credit spread is computed as
-        $S = 80/76.994 - \grossrfrate = 1.218/1.173 - \grossrfrate = 2.89\%$. These have both clearly decreased compared to the pre-project values, which suggest that the legacy creditors' position has improved.
-        The change of wealth for the legacy creditors as well as the shareholders verify this and are given by:
-        \begin{align}
-            \Delta \pi(D) &= 76.994 - 76.80 = 0.194\\
-            \Delta \pi(E) &= 19.406 - 19.60 = -0.194
-        \end{align}
+        These results were found numerically, 
+        but can be verified by the marginal valuation equations
+        if they are adapted slightly to the collateral postings.
+        If the independent amount for an investment of size $q$ is denoted by $I(q)$,
+        the marginal increase in the value of the firms equity per unit investment is given by:
+            \begin{equation*}
+                G_{\text{secured}} = 
+                    \left.
+                    \frac{
+                        \partial 
+                    }{
+                        \partial 
+                        q
+                    }
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \discountfactor 
+                        \left(
+                            A + qY - L - U(q)\grossrfrate - I(q) s(q))
+                        \right)^{+}
+                    \right] 
+                    \right\rvert_{q=0} 
+                    \nonumber
+            \end{equation*}
+        The upfront price $U(q)$ earns the risk free rate,
+        while borrowing the independent amount costs $s(q)$.
+        Using the same derivation as earlier this can be rewritten to:
+            \begin{equation}
+                G_{\text{secured}} 
+                =
+                    \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
+                    \left(
+                        \discountfactor
+                        \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
+                        - u
+                    \right)
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                    - 
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}}
+                    \right] \discountfactor I S
+                \label{eqn:marginal-shareholder-value-debt-financing-collateral}
+            \end{equation}
+        The last term might be referred to as the \textit{margin value adjustment} of the derivative;
+        as the name implies, it accounts for the funding implications of the margin postings.
+        In this paper it is simply considered a part of the \FVA/.
 
-        In case the variation margin is ignored from the setup, the counterparty would likewise suffer from the credit risk of the firm.
-        The loss rate would then decrease,
-        as the recovered total asset amount would have to be shared between the three parties on the liability side now ranking pari passu.
-        The face value of the new debt would then decrease as well, as the credit spread would be reduced.
-
-        To find the price that makes the shareholders indifferent to the project,
-        a variable representing the donation is added to the price, i.e. the \MVA/.
-        The donation is essentially the counterparty paying the firm more for the derivative contract than its market value.
-        The problem is solved again including the valuation adjustment,
-        such that the received premium on the derivative contract, $u$, is its present value plus an \MVA/:
+        If the independent amount is a share of the upfront price, 
+        the wealth increase for shareholders in this setup is lower than
+        if there was no collateralization. 
+        If the independent amount is determined as $I=-\alpha u$ for some positive share $\alpha$, 
+        then, comparing with $\Phi$ from \cref*{eqn:marginal-shareholder-value-debt-financing}:
         \begin{equation}
-            u = \pi(Y_C) + \MVA/
+            \mathbb{E}^{\mathbb{Q}}\left[
+                \mathbbm{1}_{\mathcal{D}^{c}}
+            \right] \discountfactor (-\alpha u) S
+            >
+            \Phi
         \end{equation}
-        which is solved for the shareholder's point of breakeven:
-        \begin{equation}
-            \Delta \pi(E) = 0
-        \end{equation}
-        yielding $\MVA/ = 0.220$. So, for the shareholders to accept entering the project, the derivative premium must be at least $2.345 + 0.220 = 2.565$.
-        The donation adds to the total asset value of the firm,
-        which eventually makes it possible for the firm to give more back to the creditors in case of defaulting.
-        This will give the firm a lower credit spread on the debt, as well as it will give the creditors a lower loss rate.
+        if $u<0$.
+        This leads to the, perhaps unsurprising, conclusion
+        that shareholders are worse of when required to invest the upfront price at the risk-free rate
+        and obtaining unsecured funding
+        than if they could retire debt with the upfront price.
 
-        \textcolor{red}{A comparison to the FVAs computed in the other sections could be interesting to discuss.}
+        Returning to the example at hand;
+        \cref{eqn:marginal-shareholder-value-debt-financing-collateral} verifies the results
+        by substituting in the survival probability, the independent amount, 
+        and the actual credit spread after obtaining the project:
+            \begin{equation}
+                G_{\text{secured}}
+                =
+                - 
+                \discountfactor
+                *
+                \pct{0.878788}
+                *
+                \num{0.495}
+                *
+                \pct{0.031382}
+                =
+                -\num{0.013515}
+            \end{equation}
+        In addition, the equation can help estimate the breakeven price.
+        Substituting $I=-\frac{1}{2} u$ into 
+        \cref{eqn:marginal-shareholder-value-debt-financing-collateral}, 
+        setting equal to zero, and solving for $u$ yields:
+            \begin{align}
+                0
+                &=
+                    \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
+                    \left(
+                        \discountfactor
+                        \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
+                        - u
+                    \right)
+                    -
+                    \discountfactor
+                    \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
+                    +
+                    \mathbb{E}^{\mathbb{Q}}\left[
+                        \mathbbm{1}_{\mathcal{D}^{c}}
+                    \right] \discountfactor \frac{1}{2} u S
+                    \nonumber \\
+                u^{\ast}_{\text{secured}}
+                &\equiv
+                    \frac{
+                        1
+                    }{
+                        \grossrfrate - \frac{1}{2} S
+                    } 
+                    \left(
+                        \mathbb{E}^{\mathbb{Q}}\left[Y\right]
+                        - \frac{
+                            \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)
+                        }{
+                            p^{\mathbb{Q}}  
+                        } 
+                    \right)
+            \end{align}
+        Substituting the quantities from the example:
+            \begin{equation*}
+                u^{\ast}_{\text{secured}}
+                =
+                \num{-1.005622}
+            \end{equation*}    
+        So, for the shareholders to accept entering the project,
+        the counterparty must be willing to donate a price increase of \num{0.015622}.
         
+        Again, the shareholders are not willing to enter into the project 
+        at the credit risk-free price.
+        The shareholders bear the funding costs of financing the independent amount,
+        and so they transfer wealth to the legacy creditors, 
+        who reaps the benefits of entering the project.
+        
+        Even if the counterparty donated the amount lost by shareholders, \num{0.013515},
+        the project would still be a losing trade for the shareholders.
+        The donation to breakeven must be more than the amount lost,
+        since the legacy creditors receive a share of the donation. 
+
+        In conclusion, a strong CSA agreement requiring independent amounts, 
+        might quickly turn a derivative with possible funding benefits into one with funding costs, 
+        such that shareholders are no longer on board without price adjustments.
 \end{document}
