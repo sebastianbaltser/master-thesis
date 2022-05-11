@@ -244,7 +244,8 @@
             the following system of equations must be solved for $u$ and $\phi(\omega_{\mathscr{d},\mathscr{d}})$:
             \begin{align}
                 &\left\{\begin{array}{@{}l@{}}
-                    \mathscr{d}^{2}A_{0} - W=
+                    \mathscr{d}^{2}A_{0} - \left(W+\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_2\right]\right)
+                    =
                     \mathbb{E}_{0}^{\rnmeasure}\left[
                         (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\left(L_{2} - 
                         \mathcal{C}_{1}R_{1}
@@ -282,13 +283,13 @@
             \end{align}
             The first equation in \cref{eqn:swap-example-equation-system} assures that the creditors receive the entire asset base if the firm defaults.
             The second equation sets the price of the swap as the discounted expected payoff.
-            Solving this equation system yields a market neutral swap price of $u=\num{0.140347}$,
+            Solving this equation system yields a market neutral swap price of $u=\num{0.14035728027040353}$,
             and a loss rate in the default state of 
-            $\phi(\omega_{\mathscr{d},\mathscr{d}})=\pct{0.11218}$.
+            $\phi(\omega_{\mathscr{d},\mathscr{d}})=\pct{0.11146418821616146}$.
             Using the loss rate, the value of the legacy creditors' long term claim can be calculated.
             At time 2 the payoff in the default state is 
-            $L_{2}*(1-\phi(\omega_{\mathscr{d},\mathscr{d}})) = \num{62.147436}$.
-            At time 1 the expected value of the claim is therefore \num{67.613161},
+            $L_{2}*(1-\phi(\omega_{\mathscr{d},\mathscr{d}})) = \num{62.19750682}$.
+            At time 1 the expected value of the claim is therefore \num{67.61791744},
             and at time 0 the value is \num{66.287413}.
 
             The credit spread in each period is the debt's no-default value one period ahead
@@ -298,9 +299,9 @@
                 S_{0} 
                 &=
                 \frac{
-                    \num{67.613161}
+                    \num{67.61791744}
                 }{
-                    \num{66.287413}
+                    \num{66.29207592}
                 }
                 -
                 R_{0}
@@ -312,12 +313,12 @@
                 \frac{
                     \num{70}
                 }{
-                    \num{67.613161}
+                    \num{67.61791744}
                 } 
                 -
                 R_{1}
                 =
-                \pct{0.011298}
+                \pct{0.0112246}
             \end{align}
             Since the dealer survives at time 1 with 100\% certainty,
             the upfront price can be funded with short-term debt paying 0 credit spread.
@@ -332,7 +333,7 @@
                 \nonumber
                 \\
                 &= \mathbb{E}_{0}^{\rnmeasure}\left[\sum_{t=1}^{2}\delta_t \mathcal{C}_t\right] - u
-                = \num{0.00154881}
+                = \num{0.00153853}
             \end{align}
 
             Turning to the shareholder valuation of the project.
@@ -355,9 +356,9 @@
             and the assumption that the counterparty is credit risk-free,
             the total impact on the shareholders' benefit is calculated using \cref{eqn:shareholders-value-multi-period-swap}:
             \begin{equation}
-                G_{swap} = \num{0.0076609}
+                G_{swap} = \num{0.00763833}
             \end{equation}
-            This value suggests a wealth transfer of $\num{0.0076609}$
+            This value suggests a wealth transfer of $\num{0.00763833}$
             between the shareholders and the creditors of the long-term debt,
             such that the project is a negative net present value investment for the creditors.
 
@@ -368,11 +369,11 @@
             \begin{equation}
                 G_{swap} = 0
             \end{equation}
-            yielding a funding adjusted price of $u^{\ast} = \num{0.148739}$.
+            yielding a funding adjusted price of $u^{\ast} = \num{0.148727}$.
             \\
             The donation from the counterparty required is then:
             \begin{equation}
-                \FVA/ = u^{\ast} - u = \num{0.008392}
+                \FVA/ = u^{\ast} - u = \num{0.00836967}
             \end{equation}
 
             The project's positive impact on the shareholders' wealth is an of expression of the limited funding costs
