@@ -107,7 +107,7 @@
             \num{0.097275}
         \end{align*}
 
-        At the interim date, the dealer's creditors have a known claim of 10,
+        At the interim date, the dealer's creditors have a known claim of $L_{1} = 10$,
         meaning $W=10(1+r_{1,2})=\num{10.240039}$.
         Meanwhile, the long-term liabilities, which are also known with certainty, are $L_{2} = 70$.
         The dividend paid to the shareholders at the interim date is $\theta_1 = 0$, and there are no distress costs.
@@ -146,7 +146,7 @@
                 \draw[->] (tree-4-2) -- (tree-5-3) node [midway,below] {\tiny
                 $p_{\mathscr{d},\mathscr{d}}=\num{0.097275}$};
             \end{tikzpicture}
-            \caption{This figure shows the asset value of the dealer in each time period as a binomial tree.}
+            \caption{The asset value of the dealer in each time period.}
             \label{fig:example-asset-value-multi-period-dealer}
         \end{figure}
 
@@ -158,36 +158,35 @@
 
         The first example will apply the theory from \cref{sec:unsecured-swap-valuation}
         to find the shareholders' valuation of the project being entered.
-       In the second example, the dealer additionally hedges the swap's market risk 
-       by trading the opposite position in an exchange.
-       The original trade will be unsecured 
-       while the hedge will be traded under a collateralization agreement,
-       which allows for the theory discussed in \cref{sec:secured-swap-valuation} to be applied.
+        In the second example, the dealer additionally hedges the swap's market risk 
+        by trading the opposite position in an exchange.
+        The original trade will be unsecured 
+        while the hedge will be traded under a collateralization agreement,
+        which allows for the theory discussed in \cref{sec:secured-swap-valuation} to be applied.
 
         \subsection{Example of unsecured swap}
             Suppose the dealer enters a swap contract with the credit risk-free counterparty.
-            She pays a constant fixed leg, $K$, to the counterparty at each time period whose amount is $\num{1}$.
+            She pays a constant fixed leg $K=\num{1}$ to the counterparty at each time period.
             Correspondingly, at each time period,
             the dealer receives a random floating leg, $X_t$, from the counterparty.
 
             Since the counterparty is credit-risk free,
             the dealer can always expect to receive the full contractual amount of the floating leg.
-            Therefore, when valuing the swap contract,
-            she will not make a \CVA/; 
+            Therefore, there is no \CVA/ and
             the difference between the risk-free value and the credit risk adjusted price is the \DVA/.
 
             The floating legs can take on any amount within reason,
             such that the cash flows at each time period are random.
             However, the market neutral expected cash flows are known
             by both the dealer and the counterparty.
-            If the swap is of positive value for the dealer,
+            If the dealer's swap leg has a higher value than the counterparty's,
             she will have to pay an upfront price to the counterparty,
             and vice versa.
 
             The time 0 expected payments of the swap contract are summarized in \cref{tbl:swap-legs}.
             Notice, that at the interim date the dealer expects a positive cash flow of
             $\mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_1\right] = \mathbb{E}_{0}^{\rnmeasure}\left[X_1 - K\right] = \num{0.2}$,
-            which will be used to retire existing debt.
+            which will be used for retiring existing debt.
             The expected cash flow at time 2 does not change over time.
 
             At the maturity date the dealer liquidates all of her assets,
@@ -199,8 +198,8 @@
             As per the Modigliani-Miller proposition, 
             a zero net present value investment leaves the aggregate wealth unchanged.
             For this to be applicable, the price of the swap must also account for the dealer's own default risk,
-            i.e. include the aforementioned \DVA/.s
-            Otherwise it cannot be a zero net present value investment for both the dealer and the counterparty.
+            i.e. include the aforementioned \DVA/.
+            Otherwise, it cannot be a zero net present value investment for both the dealer and the counterparty.
             
             \begin{table}[H]
                 \centering
@@ -218,7 +217,7 @@
                 \label{tbl:swap-legs}
             \end{table}
 
-            When defaulting at time 2, i.e. in state $\omega_{\mathscr{d},\mathscr{d}})$,
+            When defaulting at time 2, i.e. in state $\omega_{\mathscr{d},\mathscr{d}}$,
             the dealer's total liabilities are calculated as:
             \begin{align*}
                 \mathbb{E}_{0}^{\rnmeasure}\left[
