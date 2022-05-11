@@ -1,0 +1,186 @@
+% !TEX root = ./test-graphics.tex
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\tikzmath{
+    \stateSeperator=5px;
+    \firmSeperator=1.5cm;
+    \valueMultiplier=2/3 px;
+}
+
+\tikzset{
+    baseblock/.style n args = {1}{
+        minimum width=0.55cm,
+        inner sep=0,
+        outer xsep=0,
+        outer ysep=0,
+        minimum height=#1*\valueMultiplier,
+    },
+    asset/.style n args = {1}{
+        baseblock={#1},
+        fill=wtf-red,
+        anchor=south west,
+    },
+    new-asset/.style n args = {1}{
+        asset={#1},
+        anchor=south,
+        postaction={pattern=north east lines, pattern color=white},
+    },
+    debt/.style n args = {1}{
+        baseblock={#1},
+        fill=wtf-blue,
+        anchor=south west,
+    },
+    new-debt/.style n args = {1}{
+        debt={#1},
+        anchor=south,
+        postaction={pattern=north east lines, pattern color=white},
+    },
+    lost-debt/.style n args = {1}{
+        debt={#1},
+        anchor=south,
+        opacity=0.15,
+    },
+    equity/.style n args = {1}{
+        baseblock={#1},
+        fill=wtf-orange,
+        anchor=south
+    },
+    new-equity/.style n args = {1}{
+        equity={#1},
+        anchor=south,
+        postaction={pattern=north east lines, pattern color=white},
+    },
+    firm/.style n args = {1}{
+        inner sep=0,
+        label=below:\footnotesize #1,
+    }
+};
+
+\tikzmath{
+    \assetUp = 80;
+    \assetDown = 40;
+    \debtUp = 60;
+    \debtDown = \assetDown;
+    \equityUp = \assetUp - \debtUp;
+    \equityDown = 0;
+    \projectUp = 15;
+    \projectDown = 10;
+    \legacyDebtDownShare=0.5;
+}
+
+\coordinate (cursor) at (0, 0);
+
+%%%% First block:
+\coordinate (start) at (cursor);
+\coordinate (block-south-west) at (cursor);
+\node (asset) [asset={(\debtUp+\equityUp)}] at (cursor) {};
+\coordinate (block-north-west) at (asset.north west);
+\node (debt) [debt={\debtUp}] at (asset.south east) {};
+\node (equity) [equity={\equityUp}] at (debt.north) {};
+\coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+
+\node (asset) [asset={(\debtDown)}] at (cursor) {};
+\node (debt) [debt={\debtDown}] at (asset.south east) {};
+\node [lost-debt={(\debtUp-\debtDown)}] at (debt.north) {};
+\coordinate (block-south-east) at (debt.south east);
+
+\node[firm=Pre-project,
+    fit=(block-south-west) (block-south-east) (block-north-west)] (firm-base) {};
+
+%%%% Second block:
+
+\coordinate (cursor) at ([xshift=\firmSeperator]firm-base.south east);
+\coordinate (block-south-west) at (cursor);
+\node (asset) [asset={\assetUp}] at (cursor) {};
+\node (new-asset) [new-asset={\projectUp}] at (asset.north) {};
+\coordinate (block-north-west) at (new-asset.north west);
+\node (debt) [debt={\debtUp}] at (asset.south east) {};
+\node (equity) [equity={(\equityUp-5)}] at (debt.north) {};
+\node (new-debt) [new-debt={(\projectUp+5)}] at (equity.north) {};
+\coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+
+\node (asset) [asset={\assetDown}] at (cursor) {};
+\node (new-asset) [new-asset={\projectDown}] at (asset.north) {};
+\node (debt) [debt={(\debtDown + \projectDown*\legacyDebtDownShare)}] at (asset.south east) {};
+\coordinate (block-south-east) at (debt.south east);
+\node (new-debt) [new-debt={(\projectDown*(1-\legacyDebtDownShare))}] at (debt.north) {};
+\node [lost-debt={(\debtUp-\debtDown+\projectUp+5-\projectDown)}] at (new-debt.north) {};
+
+\node[firm=Debt funding,
+    fit=(block-south-west) (block-south-east) (block-north-west)] (firm-debt) {};
+
+
+%%%% Third block:
+
+\coordinate (cursor) at ([xshift=\firmSeperator]firm-debt.south east);
+\coordinate (block-south-west) at (cursor);
+\node (asset) [asset={\assetUp}] at (cursor) {};
+\node (new-asset) [new-asset={\projectUp}] at (asset.north) {};
+\coordinate (block-north-west) at (new-asset.north west);
+\node (debt) [debt={\debtUp}] at (asset.south east) {};
+\node (equity) [equity={(\equityUp-8)}] at (debt.north) {};
+\node (new-equity) [new-equity={(\projectUp+8)}] at (equity.north) {};
+\coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
+
+\node (asset) [asset={\assetDown}] at (cursor) {};
+\node (new-asset) [new-asset={\projectDown}] at (asset.north) {};
+\node (debt) [debt={(\debtDown + \projectDown)}] at (asset.south east) {};
+\node [lost-debt={(\debtUp-\debtDown-\projectDown)}] at (debt.north) {};
+\coordinate (block-south-east) at (debt.south east);
+
+\node[firm=Equity funding,
+    fit=(block-south-west) (block-south-east) (block-north-west)] (firm-equity) {};
+
+
+\coordinate (origin) at ([xshift=-1cm]firm-base.south west);
+\coordinate (x-limit) at ([xshift=1cm]firm-equity.south east);
+\begin{pgfonlayer}{background}
+    \draw [thick, dotted] 
+        (origin) -- 
+        (x-limit)
+    ;
+    \draw [thick, dotted]
+        (origin) --
+        ++(0, 2.5cm)
+    ;
+    \draw [dotted] 
+        ([yshift=\assetUp*\valueMultiplier]origin) -- 
+        ([yshift=\assetUp*\valueMultiplier]x-limit)
+    ;
+    \draw [dotted] 
+        ([yshift=\assetDown*\valueMultiplier]origin) -- 
+        ([yshift=\assetDown*\valueMultiplier]x-limit)
+    ;
+\end{pgfonlayer}
+
+\node[fit=(firm-base) (firm-debt) (firm-equity)] (main) {};
+
+\tikzset{
+    legend/.style n args = {1}{
+        minimum width=0.4cm,
+        minimum height=0.4cm,
+        inner sep=0,
+        outer xsep=0,
+        outer ysep=0,
+        label=right:\scriptsize#1,
+        anchor=center,
+    },
+};
+
+\node [
+    matrix, 
+    column sep = 1cm,
+    row sep=0,
+    inner sep=3px,
+    nodes={minimum height=0.5cm},
+] (labels) at ([yshift=-1.5cm]main.south) {
+    \node[asset=0, legend=Legacy Assets] {}; &
+    \node[debt=0, legend=Legacy Debt] {}; &
+    \node[equity=0, legend=Legacy Equity] {}; \\
+    \node[new-asset=0, legend=New Project] {}; &
+    \node[new-debt=0, legend=New Debt] {}; &
+    \node[new-equity=0, legend=New Equity] {}; \\
+    & \node[lost-debt=0, legend=Lost Face Value] {};\\
+};
