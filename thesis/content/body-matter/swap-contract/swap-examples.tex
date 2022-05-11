@@ -368,10 +368,40 @@
                 \FVA/ = u^{\ast} - u = \num{-0.00992852}
             \end{equation}
 
-            The project's positive impact on the shareholders' wealth is an of expression of the limited funding costs
-            that the dealer faces in this setup.
-            In the next section the example is extended to include a fully collateralized hedged position.
-            The margin requirements will then potentially imply an exposure to funding costs or funding benefits.
+            This example has shown a situation where some of the derivatives cash flows have
+            been a source of funding benefits,
+            but where the overall effect were still a loss to the shareholders.
+            The primary effect is clearly from the upfront price,
+            that is the largest outgoing cash flow of the swap.
+            Still, there are smaller effects which are interesting to study.
+        
+            The payment time of a cash flow has an influence on its funding implications.
+            As the upfront price should be paid at time 0, 
+            the firm could obtain funding in the first period at a very low credit spread of \pct{0}.
+            However, the intermediate incoming cash flow could retire debt
+            that would otherwise have appreciated 
+            by the dealer's credit spread at time 1 of \pct{0.011298}.
+            Therefore, the time 1 cash flow provided a funding benefit,
+            but the time 0 cash flow had no funding cost.
+            Of course, the setup considered here is incredible simplistic,
+            which exaggerates the actual effects.
+            In reality, creditors would clearly not offer a credit spread of zero on, say,
+            1 month tenors because they feel certain that the firm can only default in 2 months.
+
+            Still, the general lesson is useful anyway.
+            If institutions have high credit spreads in certain periods,
+            it will be more costly for them to obtain projects 
+            that have outgoing cash flows in these periods.
+            This is the case at play in the example.
+            The firm has a large face value maturing at time 2, 
+            so its default probability, and therefore credit spread,
+            is high around this time period.
+            Hence funding requirements at time 1 have a high impact.
+
+            As has been covered previously, trading unsecured derivatives without hedging market risk
+            has the most extreme funding implications;
+            any outgoing cash flow has to be funded, 
+            as there are no offsetting cash flows from hedges.
 
         \subsection{Example of secured hedging swap}
             Suppose that the dealer enters the same swap contract with the same counterparty as described above.
