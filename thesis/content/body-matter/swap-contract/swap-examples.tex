@@ -256,6 +256,7 @@
                     \mathbb{E}_{0}^{\rnmeasure}\left[
                         \sum_{t=1}^{2}
                         \delta_{t}\mathcal{C}_{t}
+                        (1-\phi)
                     \right]
                 \end{array}\right.
                 \label{eqn:swap-example-equation-system}
@@ -441,18 +442,20 @@
             \end{align}
             To find the market neutral credit risk adjusted price of the project, $u$, as well as the loss rate, $\phi$,
             the following equation system must be solved.
-            \begin{align}
-                \mathscr{d}^{2} A - W
-                &=
-                (1-\phi)\num{70}
-                \\
-                u &=
-                \mathbb{E}_{0}^{\rnmeasure}\left[
-                    \mathbbm{1}_{\{\tau_{F}>2\}} 
-                    \sum_{t=1}^{2}
-                    \delta_{t}\mathcal{C}_{t}
-                \right]
-            \end{align}
+            \begin{equation}
+                \left\{\begin{array}{@{}l@{}}
+                    \mathscr{d}^{2} A - W
+                    =
+                    (1-\phi)\num{70}
+                    \\
+                    u =
+                    \mathbb{E}_{0}^{\rnmeasure}\left[
+                        \sum_{t=1}^{2}
+                        \delta_{t}\mathcal{C}_{t}
+                        (1-\phi)
+                    \right]
+                \end{array}\right.
+            \end{equation}
             As in the example with the unsecured swap the first equation makes sure
             that the entire asset value amount is distributed to the creditors.
             The second equation again sets the price as the discounted expected cash flows.
