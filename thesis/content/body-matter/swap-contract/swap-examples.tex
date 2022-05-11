@@ -409,9 +409,9 @@
                     $t$ & 0 & 1 \\
                     \hline
                     \rule{0pt}{1.3em}
-                    $\mathbb{E}_{0}^{\rnmeasure}\left[M_t\right]$ & $u$ & $\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[M_t\right]$ & $\tilde{u}$ & $\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
                     \rule{0pt}{1.3em}
-                    $\mathbb{E}_{0}^{\rnmeasure}\left[I_t\right]$ & $\frac{1}{2}u$ & $\frac{1}{2}\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
+                    $\mathbb{E}_{0}^{\rnmeasure}\left[I_t\right]$ & $\frac{1}{2}\tilde{u}$ & $\frac{1}{2}\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
                 \end{tabular}
                 \caption{}
                 \label{tbl:swap-margin-postings}
@@ -439,12 +439,18 @@
                 \right] 
                 &= (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\num{70}
             \end{align}
+            The short-term debt is paid at the interim date with liquidated assets.
+            If there is a difference in price between the two swap contract,
+            this will either increase or reduce the amount due,
+            depending on which swap is more expensive.
+            The total asset base at the default event will then have to account for covering this amount. 
+
             To find the market neutral credit risk adjusted price of the project, $u$, 
             as well as the loss rate given default, $\phi(\omega_{\mathscr{d},\mathscr{d}}$,
             the following equation system must be solved.
             \begin{equation}
                 \left\{\begin{array}{@{}l@{}}
-                    \mathscr{d}^{2} A - W
+                    \mathscr{d}^{2} A - W - (\tilde{u}-u)R_{0}R_{1}
                     =
                     (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\num{70}
                     \\
@@ -458,6 +464,7 @@
             \end{equation}
             As in the example with the unsecured swap the first equation makes sure
             that the entire asset value amount is distributed to the creditors in a default.
+            The price of the secured swap is perceived as the credit-risk free expected discounted cash-flows.
             The second equation again sets the price as the discounted expected cash flows.
             \\
             By solving, a swap price of $u=\num{0.126904}$ is obtained.
