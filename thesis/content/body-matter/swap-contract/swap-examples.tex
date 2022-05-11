@@ -469,8 +469,8 @@
             The price of the secured swap, $\tilde{u}$, is perceived as the credit-risk free expected discounted cash-flows.
             The second equation again sets the price as the discounted expected cash flows.
             \\
-            By solving, a new loss rate of $\phi = \pct{0.1140257490725447}$ is obtained.
-            The new swap price is computed as $u=\num{0.14032192327080525}$,
+            By solving, a new loss rate of $\phi = \pct{0.11423357857841265}$ is obtained.
+            The new swap price is computed as $u=\num{0.15425039456453227}$,
             which is slightly smaller than in the previous example,
             since the counterparty now trades with a marginally more secured dealer.
 
@@ -481,11 +481,11 @@
                 \frac{
                     \num{70}
                 }{
-                    \num{67.600104}
+                    \num{67.59950202}
                 }
                 - R_{1}
                 \nonumber
-                = \pct{0.01148549589}
+                = \pct{0.01150666521}
             \end{equation}
             The credit spread at time 0 is 0,
             as the dealer cannot default at the interim date.
@@ -496,23 +496,23 @@
             The shareholders' change of wealth is computed the derived expression in \cref{eqn:shareholder-valuation-swap-hedged}.
             This derivation includes the extension of the fully collateralized hedged position.
             \\
-            With the above computed credit spreads, and $u=\num{0.126904}$
+            With the above computed credit spreads, and $u=\num{0.15425039456453227}$
             the shareholders' marginal valuation of entering the swap contract is calculated as:
             \begin{equation}
-                G_{\text{swap,hedged}} = \num{0.0146616}
+                G_{\text{swap,hedged}} = \num{-0.00994871}
             \end{equation}
-            suggesting a positive net present value investment for the shareholders. 
+            suggesting a negative net present value investment for the shareholders. 
             The price that makes the shareholders indifferent of entering the project, $u^{\ast}$, is then defined by fixing $G_{\text{swap,hedged}}$ to 0.
             This implies:
             \begin{equation}
-                u^{\ast} = \num{0.14861936207449744}
+                u^{\ast} = \num{0.1486201204475151}
             \end{equation}
             and an \FVA/ defined as:
             \begin{equation}
-                \FVA/ = u^{\ast} - u = \num{0.00829744}
+                \FVA/ = u^{\ast} - u = \num{-0.00563027}
             \end{equation}
-            Hence the donation required of the counterparty is \num{0.00829744},
-            meaning they would pay more than the original swap price.
+            Hence the donation required of the counterparty is \num{-0.00563027},
+            meaning the dealer would pay less than the original swap price.
             Seemingly, this would result in a negative net present value investment for the counterparty,
             and whether they have incentives to enter the funding value adjusted project remains indeterminate.
             
