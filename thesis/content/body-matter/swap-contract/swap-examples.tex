@@ -38,7 +38,6 @@
         By that definition, and by a short-term risk-free rate assumed to be $r_{0,1}=2\%$ at the inception date,
         the probability of being in the up-state at the interim date is calculated as:
         \begin{equation*}
-            \mathbb{P}^{\rnmeasure}\left(A_1 = 110\right) = 
             p_{\mathscr{u}}^{0} =
             \frac{
                 1 + 2\% - 0.85
@@ -52,19 +51,18 @@
         The long-term risk-free discount rate from time 0 to time 2 is assumed to be $r_{0,2}=2.2\%$.
         To determine the expected short-term rate at the interim date, the forward rate is calculated:
         \begin{equation*}
-            r_{1,2} = \left(
+            r_{1,2} =
                 \frac{
                     \left(1 + 2.2\%\right)^{2}
                 }{
-                    \left(1 + 2\%\right)^{1}
+                    1 + 2\%
                 }
-            \right)^{1/(2-1)} - 1
+            - 1
             = 2.4\%
         \end{equation*}
         
         The risk-neutral probabilities of moving to the three different states at the maturity date are calculated as:
         \begin{align*}
-            \mathbb{P}^{\rnmeasure}\left(A_2 = 121\right) = 
             p_{\mathscr{u},\mathscr{u}}
             &=
             % p_{\mathscr{u}}
@@ -76,7 +74,6 @@
             % =
             \num{0.473291}
             \\
-            \mathbb{P}^{\rnmeasure}\left(A_2 = 93.5\right) = 
             p_{\mathscr{u},\mathscr{d}} +
             p_{\mathscr{d},\mathscr{u}}
             &=
@@ -96,7 +93,6 @@
             % =
             \num{0.429434}
             \\
-            \mathbb{P}^{\rnmeasure}\left(A_2 = 72.25\right) = 
             p_{\mathscr{d},\mathscr{d}}
             &=
             % p_{\mathscr{d}}
