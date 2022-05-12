@@ -8,8 +8,8 @@
         This section aims to illustrate
         how the funding costs and benefits of a multi-period swap contract
         can be described by a simple economical setup.
-        The examples will be based on the two results derived in the previous sections,
-        namely the shareholders' marginal valuation of both an unsecured swap as well as a secured hedging swap.
+        The example will be based on the result derived in the previous sections,
+        namely the shareholders' marginal valuation of an unsecured swap.
         As opposed to the single-period model analysed in \cref{sec:single-period-model},
         different fundamental values in this \namecref{sec:swap-examples} will have a probability of changing over time.
         The values in reference are specifically
@@ -117,10 +117,11 @@
         The short-term liabilities are, on the other hand, not large enough to trigger a default at the interim date
         regardless of the state outcome.
 
-        Before entering any projects the dealers loss rate given default is
-        $\phi=(L_{2}-(\mathscr{d}^{2}A_{0}-W))/L_{2}=\pct{0.114143}$,
-        and the credit spread is then given by:
-        $(\phi*p_{\mathscr{d},\mathscr{d}}R_{1})/(1-\phi p_{\mathscr{d},\mathscr{d}}) = \pct{0.0114975}$.
+        Before entering any projects, the dealers loss rate given default is
+        $\phi(\omega_{\mathscr{d},\mathscr{d}})=(L_{2}-(\mathscr{d}^{2}A_{0}-W))/L_{2}=\pct{0.114143}$.
+        The credit spread at the inception date is \pct{0}, as the dealer cannot default at time 1,
+        and the credit spread at the interim date is then given by the limiting spread:
+        $(\phi(\omega_{\mathscr{d},\mathscr{d}})*p_{\mathscr{d},\mathscr{d}}R_{1})/(1-\phi(\omega_{\mathscr{d},\mathscr{d}}) p_{\mathscr{d},\mathscr{d}}) = \pct{0.0114975}$.
 
         \begin{figure}[H]
             \centering
@@ -161,12 +162,10 @@
         The swap will have a relatively small notional payoff to the extend
         that it does not affect the default- and no-default states of the dealer.
 
-        The first example will apply the theory from \cref{sec:unsecured-swap-valuation}
+        The numerical example will apply the theory from \cref{sec:unsecured-swap-valuation}
         to find the shareholders' valuation of the project being entered.
-        In the second example, the dealer additionally hedges the swap's market risk 
-        by trading the opposite position in an exchange.
-        The original trade will be unsecured 
-        while the hedge will be traded under a collateralization agreement,
-        which allows for the theory discussed in \cref{sec:secured-swap-valuation} to be applied.
+        The purpose of the example is to examine how financing needs
+        in different time periods influence the shareholders' valuation,
+        and consequently how they affects the \FVA/.
 
 \end{document}
