@@ -33,8 +33,6 @@
     the price of the derivative without credit risk. 
     This price will be referred to as the risk-free price.
     The dealer is also going to hedge the counterparty's default risk which costs \CVA/.
-    Assume also that the dealer decides to hedge her own default risk
-    and that she is able to fully hedge it; therefore, generating the benefit \DVA/.
     Additionally, the dealer will be paying or receiving her funding rate on unsecured borrowing
     for the derivative's cash flows, which costs \FVA/.
     There might be additional costs, 
@@ -42,7 +40,7 @@
     
     In total, the cost of creating the derivative is:
         \begin{equation*}
-            \text{Cost} = \text{Risk Free Price} - \CVA/ + \DVA/ - \FVA/
+            \text{Cost} = \text{Risk Free Price} - \CVA/ - \FVA/
         \end{equation*}
     The trade's value to the dealer is given by the difference in the trade's price
     and the cost to the dealer of obtaining and holding the trade:
@@ -53,7 +51,7 @@
             -
             \text{Cost} 
             \\
-            &= \text{Market Price} - \text{Risk Free Price} + \CVA/ - \DVA/ + \FVA/
+            &= \text{Market Price} - \text{Risk Free Price} + \CVA/ + \FVA/
         \end{align*}
     The value of the trade is going to decide whether it will be economical 
     for the dealer to enter the trade. 
@@ -64,7 +62,7 @@
         \begin{align*}
             \text{Breakeven Price}
             =
-            \text{Risk Free Price} - \CVA/ + \DVA/ - \FVA/
+            \text{Risk Free Price} - \CVA/ - \FVA/
         \end{align*}
     The question is now how the market price and the \FVA/ of the firm are related.
     Remember that the market price of a trade is set by supply and demand forces.
