@@ -241,18 +241,43 @@
         any outgoing cash flow has to be funded, 
         as there are no offsetting cash flows from hedges.
 
-        If the dealer was to extend her portfolio by hedging the swap 
+        If the dealer was to extend her portfolio by hedging the swap
         with a fully collateralized position in the opposite trade,
         the funding implications would mainly be due to the margin requirements.
-        The cash flows stemming from the original swap would directly offset the cash flows from the hedged swap.
-        As opposed to the first swap,
-        the valuation of the hedged swap will not include any \DVA/,
-        as the counterparty of this contract will not be exposed to the dealer's credit risk.
-        This will cause a mismatch between the two swap prices,
-        and funding is required.
-        While the posted collateral would be funded by short-term debt issuance,
-        the received collateral would retire some existing short-term debt.
-        As defined previously in this paper,
-        retiring debt will lead to the shareholders paying a smaller spread,
-        such that their welfare can have both positive and negative outcomes.
+        An example of this situation was depicted in \cref{fig:funding-costs-asymmetrical-csa},
+        where differences in the collateral call frequency of the swap and its hedge
+        led to funding shortfalls and surpluses.
+        Including a collateralized hedge in the current example, would convey some of the same messages.
+        The interest payments from the swap would more or less 
+        offset the interest payments from the hedge, 
+        which would reduce the amount of funding costs or benefits from the market risk cash flows.
+        The extent of reduction would depend on the accuracy of the hedge;
+        a perfect hedge would have the exact opposite interest payments as the original,
+        but mismatches would provide some funding friction.
+        
+        Some funding cost would occur as the upfront price paid for the swap 
+        would be higher than the upfront price received on the hedge.
+        The hedge would be secured and probably be priced close to its risk-free value, 
+        while the swap counterparty would require compensation for taking on the credit risk.
+        Hence, the dealer would likely have to provide funding 
+        for the differences in upfront payments.
+        Of course, practically speaking, the dealer would actually have to provide funding
+        for the entire upfront payment on the original swap;
+        the upfront payment from the hedge would have to be immediately posted as collateral.
+        Whether to attribute this funding cost to the upfront payment or to the collateralization
+        is up to interpretation, but is only a matter of definition.
+
+        The asymmetry in the collateral agreements would also be an important contributor,
+        to funding costs or benefits.
+        Since the original swap is assumed completely unsecured, 
+        any collateral calls from the hedge counterparty would require funding.
+        Likewise, any collateral postings would yield funding benefits.
+        Again, trading unsecured derivatives provides the most extreme examples of funding costs.
+
+        In conclusion, extending the portfolio in this example with a hedge,
+        would confirm many of the conclusions already made throughout this paper.
+        The market risk would be reduced and so would the funding implications 
+        from the derivative's cash flows,
+        but an \FVA/ could still be necessary due to the differences in collateral agreements.
+
 \end{document}
