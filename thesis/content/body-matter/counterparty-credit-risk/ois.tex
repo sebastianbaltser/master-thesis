@@ -46,21 +46,39 @@
     A higher spread can be interpreted as a lower willingness to lend by major banks
     and therefore lower liquidity in the money market.
 
-    \subsection{\OIS/ as the risk-free rate}
+    \subsection{\OIS/ as the Risk-Free Rate}
     
     Before the financial crisis in 2007, banks have typically been discounting
     derivatives using interest rate curves based on the various interbank borrowing rates.
     Typically, the interest rate curves were based on 3-Month xIBOR.
     \textcite[Section 8.6]{Green2015XVA} 
     mentions two possible reasons for banks using these indices.
-    First, the xIBOR discount curves were considered and used as proxies for the risk-free rate;
-    Pre-crisis the underlying banks in xIBOR generally had high credit ratings
+    First, the xIBOR discount curves were considered, and used, as proxies for the risk-free rate
+    as, pre-crisis, the underlying banks in xIBOR generally had high credit ratings
     and were regarded as very safe counterparties.
     xIBOR rates were in fact very close to the yields of bonds issued by highly rated governments,
     and the xIBOR rates could be considered as being very close to risk-free 
-    while being associated with highly liquid market.
+    while being associated with a highly liquid market.
     Second, the xIBOR curves represented the banks' own funding rate for derivatives, since
     xIBOR referenced unsecured borrowing rates.
+
+    In the beginning of the financial crisis, the xIBORs rose significantly
+    which widened spreads such as LIBOR-\OIS/ or LIBOR against the T-bill.
+    The latter spread is shown in \cref{fig:ted-spread}. This clearly 
+    displays how the LIBOR against a very safe government bond blows up
+    during recessions in the economy. 
+    While not directly comparing LIBOR and \OIS/, 
+    the TED spread conveys the conclusion very well nonetheless;
+    the xIBOR contains other premiums than simply the risk-free rate.
+    \Cref{fig:ted-spread} shows the TED spread instead of the LIBOR-\OIS/,
+    simply because the data is readily available and since it reveals the same message.
+    As the LIBOR's most commonly used tenor was 3-Month, actually calculating the LIBOR-\OIS/
+    would require compounding the overnight rates to get the 3-Months \OIS/.
+    These calculations have no benefit for this paper, hence the TED spread is used instead.
+
+    \Cref{fig:ted-spread} supports the conclusion from the previous section
+    that spreads, such as LIBOR-\OIS/, isolate the credit premium.
+    Therefore, their widening implies that the perceived credit risk of the banks in LIBOR increased.
 
     \begin{figure}
         \centering
@@ -78,22 +96,17 @@
         \label{fig:ted-spread}
     \end{figure}
 
-    In the beginning of the financial crisis, the xIBORs rose significantly
-    which widened spreads such as LIBOR-\OIS/ or LIBOR against the T-bill.
-    The latter spread is shown in \cref{fig:ted-spread}. This clearly 
-    displays how the LIBOR against a very safe government bond blows up
-    during recessions in the economy. 
-    While not directly comparing LIBOR and \OIS/, 
-    the TED spread conveys the conclusion very well nonetheless;
-    the xIBOR contains other premiums than simply the risk-free rate.
+    The ballooning of these spreads
+    had significant influence on the banks' pricing and valuation of derivatives
+    as the previously mentioned arguments for xIBOR-discounting were disproven.
+    The market was to find another curve to use for the risk-free rate,
+    and, according to \textcite{Green2015XVA}, the choice have generally been the \OIS/.
 
-    When the aforementioned spreads widened, 
-    it had significant influence on the banks' pricing and valuation of derivatives.
-    The arguments for xIBOR discounting previously mentioned
-    were disproven as the spreads ballooned.
-    The market was to find another curve to use for the risk-free rate.
-    In this paper \OIS/ will be used as the risk-free rate;
-    the following paragraph presents arguments for that decision.
+    In this paper \OIS/ will be used as the risk-free rate.
+    As the precise values of the interest rates are not too important for this paper,
+    neither is the choice of risk-free rate.
+    Still, it will be easier conceptually to have decided on one,
+    so the following paragraph presents arguments for using the \OIS/.
 
     There are two sources of credit risk in an \OIS/.
     The first is the credit risk in the overnight borrowing of federal funds, which is very small. 
@@ -103,15 +116,15 @@
     which standard swaps like \OIS/ are due to legislation.
     Since credit risk is of inconsiderable size, it can be concluded 
     that the \OIS/ rate is a good proxy for the risk-free rate.
-    Hence, in this paper the \OIS/ rate will be referred to as the risk-free rate
+    Per these arguments, this paper will refer to the \OIS/ rate as the risk-free rate
     and vice versa, depending on the context.
     As a consequence of this, the \OIS/ rate will also be the rate earned on collateral postings.
 
     When the unsecured borrowing rates, such as LIBOR, exploded during the financial crisis, 
-    so did the funding costs. 
+    so did the cost of financing. 
     Suddenly, the unsecured funding costs went from negligible to significant,
     which prompted financial institutions to account for them, 
-    with so called \textit{funding value adjustments}. 
+    with the so called \textit{funding value adjustments}. 
     This type of valuation adjustment, among others, is the topic of the following section.
 
 \end{document}
