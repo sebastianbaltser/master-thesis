@@ -26,9 +26,9 @@
     \subsection{Netting}
         A netting set is a group of trades whose value can be \textit{netted off}, 
         when a counterparty defaults.
-        When netting off a collection of trades their values are aggregated,
-        offsetting liabilities with payables, such that, in the liquidation of a counterparty,
-        only one single amount is owed.
+        When netting off a collection of trades, the trades' values are aggregated,
+        offsetting payables with receivables, such that,
+        only one single amount is owed if a counterparty defaults.
         Netting sets are important to credit exposure, 
         as counterparty risk is settled at each set;
         therefore, netting is central to mitigate credit risk.
@@ -39,25 +39,25 @@
         referred to as netting set X and netting set Y.
         The dealer sells a derivative with netting set X and, 
         not wanting the exposure, buys the same derivative with netting set Y.
-        The market risk is eliminated, so the dealer is neutral from this point of view.
-        However, the credit risk exposure will include the sum of the credit risk exposures
-        for both netting set.
+        Therefore, the market risk is eliminated, so the dealer is neutral from this point of view.
+
+        However, the credit risk exposure metric for the dealer's entire portfolio will include 
+        the credit risk metric for both netting set X and Y considered separately.
         If instead the derivative is bought with netting set X,
         both the market risk and the credit risk will be offset.
         \end{example}
 
-        This should show that when evaluating a new trade,
-        netting sets can be taken into consideration to give a better view 
-        of the credit risk implications of obtaining the new trade.
+        Hence, the standalone credit risk of a trade might not give the full picture,
+        as the trade will be part of a netting set with offsetting cash flows.
+        Instead, the dealer can evaluate how much the credit risk measure
+        would change if the trade was obtained; this is the incremental credit risk measure.
         By evaluating the incremental credit risk measures from the trade,
         potential netting benefits can be accounted for. 
-        The credit risk of the stand alone trade could potentially 
-        be different from the credit risk of the trade in a netting set.
 
-        By strategically considering netting benefits the firm can reduce its credit risk. 
-        Additionally, the firm can further reduce its exposure by in advance
-        taking custody of some of its payables from the counterparty,
-        such that they are protected from other creditors if the counterparty defaults.
+        By strategically considering netting benefits the dealer can reduce her credit risk. 
+        Additionally, the dealer can further reduce her exposure by, in advance,
+        taking custody of some of her receivables from the counterparty.
+        Then, the receivables are protected from other creditors if the counterparty defaults.
 
     \subsection{Collateralization}
         Credit risk can be reduced significantly and even eliminated completely
