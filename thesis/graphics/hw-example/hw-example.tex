@@ -1,0 +1,174 @@
+% !TEX root = ./test-graphics.tex
+
+\colorlet{funding-color}{-red!75}
+\colorlet{rate-color}{red!75}
+\colorlet{shareholder-color}{-red!50!yellow!75}
+\colorlet{creditor-color}{red!50!yellow!75}
+
+\tikzmath{
+    \labeldistance = 0.25cm;
+    \pvheight=2cm;
+    \pricereduction=0.85;
+    \barwidth=0.5cm;
+    \bardistance=1.5cm;
+}
+
+\coordinate (center) at (0,0);
+
+\draw [thick, dotted] ([xshift=-3cm]center) -- ([xshift=3cm]center);
+
+\node at ([yshift=\pvheight + 4*\labeldistance]center.north) [
+    anchor=south,
+] {\textbf{Project}};
+
+\node (price) at (center) [
+    anchor=south,
+    draw,
+    fill=rate-color,
+    very thick,
+    minimum width=\barwidth,
+    minimum height=\pvheight*\pricereduction,
+] {};
+
+\node at ([yshift=\labeldistance]price.north) [
+    anchor=south
+]{$99.50$};
+\node at ([yshift=-\labeldistance]price.south) [
+    anchor=north,
+    align=center
+] {Price};
+
+%%%%%%%%%%%%%
+
+\node (pv) at ([xshift=-\bardistance]price.south west) [
+    anchor=south east,
+    draw,
+    fill=funding-color,
+    very thick,
+    minimum width=\barwidth,
+    minimum height=\pvheight,
+    align=center
+] {};
+
+\node at ([yshift=\labeldistance]pv.north) [
+    anchor=south
+]{$100$};
+\node at ([yshift=-\labeldistance]pv.south) [
+    anchor=north,
+    align=center
+] {Present\\value};
+
+%%%%%%%%%%%%%
+
+\node (npv) at ([xshift=\bardistance]price.south east) [
+    anchor=south west,
+    draw,
+    fill=funding-color,
+    very thick,
+    minimum width=\barwidth,
+    minimum height=\pvheight*(1-\pricereduction),
+] {};
+
+\node at ([yshift=\labeldistance]npv.north) [
+    anchor=south
+]{$0.50$};
+\node at ([yshift=-\labeldistance]npv.south) [
+    anchor=north,
+    align=center
+] {Net present\\value};
+
+
+%%%%%%%%
+\node at ([xshift=-\bardistance/2]price.west){$-$};
+\node at ([xshift= \bardistance/2]price.east){$=$};
+
+%%%%%%%%%%%%%
+\tikzmath{
+    \firmheight=3.5cm;
+    \creditorshare=0.5cm;
+}
+\node (firm) at ([xshift=7cm, yshift=-0.75cm]center.east) [
+    anchor=south west,
+    draw,
+    very thick,
+    minimum width=2cm,
+    minimum height=\firmheight
+] {};
+\filldraw[shareholder-color] 
+    ([yshift=-\creditorshare]firm.west) --
+    ([yshift=-\creditorshare]firm.east) --
+    (firm.north east) --
+    (firm.north west) --
+    cycle;
+\filldraw[creditor-color] 
+    ([yshift=\creditorshare]firm.west) --
+    ([yshift=\creditorshare]firm.east) --
+    (firm.south east) --
+    (firm.south west) --
+    cycle;
+
+\node (firm) at ([xshift=7cm, yshift=-0.75cm]center.east) [
+    anchor=south west,
+    draw,
+    very thick,
+    minimum width=2cm,
+    minimum height=\firmheight
+] {};
+
+\node at ([yshift=\labeldistance]firm.north) [
+    anchor=south
+] {\textbf{Firm}};
+
+\node at ([xshift=\labeldistance, yshift=\firmheight/4 + \creditorshare/2]firm.east) [
+    anchor=west,
+    color=shareholder-color
+] {Equity};
+
+\node at ([xshift=\labeldistance, yshift=-\firmheight/4 + \creditorshare/2]firm.east) [
+    anchor=west,
+    color=creditor-color
+] {Debt};
+
+%%%%%%%%%%%%%
+
+\node (new-npv) at ([xshift=-2cm]firm.west) [
+    anchor=south west,
+    draw,
+    very thick,
+    minimum width=\barwidth,
+    minimum height=\pvheight*(1-\pricereduction),
+] {};
+
+\filldraw[shareholder-color] 
+    (new-npv.west) --
+    (new-npv.east) --
+    (new-npv.north east) --
+    (new-npv.north west) --
+    cycle;
+\filldraw[creditor-color] 
+    (new-npv.west) --
+    (new-npv.east) --
+    (new-npv.south east) --
+    (new-npv.south west) --
+    cycle;
+
+\node (new-npv) at ([xshift=-2cm]firm.west) [
+    anchor=south west,
+    draw,
+    very thick,
+    minimum width=\barwidth,
+    minimum height=\pvheight*(1-\pricereduction),
+] {};
+
+\draw[->, thick]
+    ([xshift=0.1cm]npv.north east) --
+    ([xshift=-0.1cm]new-npv.west);
+
+\draw[->, thick]
+    ([yshift=-0.1cm]new-npv.south) |- 
+    ([xshift=0.5cm, yshift=-\firmheight/4 + \creditorshare/2]firm.west);
+
+
+\draw[->, thick]
+    ([yshift=0.1cm]new-npv.north) |- 
+    ([xshift=0.5cm, yshift=\firmheight/4 + \creditorshare/2]firm.west);
