@@ -1,11 +1,13 @@
-% !TEX root = ./sub-main.tex
+% !TEX root = sub-main.tex
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \section{The origin of Funding Value Adjustments}
-        Before the financial crisis of 2008, the spreads on CDS contracts referencing banks were very low. 
+    \section{The Origin of Funding Value Adjustments}
+        Before the financial crisis of 2008, the spreads on CDS contracts referencing banks were very low.
+        The differences between yields on highly secure government bonds, such as T-Bills,
+        and the interbank lending rates, e.g. LIBOR, were very low.
         As banks were considered almost risk-free, 
-        they could all fund themselves at the interbank lending rates implied by LIBOR, Euribor, etc.
+        they could naturally fund themselves at the rates that were considered risk-free.
         Banks were seemingly similar to each other in this respect, 
         and the notion of a financial product's fair value was very much driving the pricing of derivatives issued by banks,
         since mispricing would lead to arbitrage opportunities.
@@ -14,7 +16,7 @@
         The fact that banks contained more risk than perceived became clear in 2008
         with the failure of some large banks, 
         especially the bankruptcy of the investment bank Lehmann Brothers.
-        These defaults made it clear that banks were in fact not risk-free; 
+        These defaults made it clear that banks were in fact not credit risk-free; 
         firms financing banks needed to do so only when receiving an even larger credit spread,
         i.e. a lending rate exceeding the interest rate that was considered risk-free. 
         
@@ -25,7 +27,7 @@
         and each bank might face completely different funding schemes and costs than its competitors.
         Differing funding costs have massively challenged the concept of a derivative's fair value,
         since the price that different banks are willing to bid or offer might vary significantly. 
-        This has lead many institutions to systematically applying adjustments to their prices
+        This has led many institutions to systematically apply adjustments to their prices
         in order to accommodate their funding costs; 
         adjustments that are aptly named Funding Value Adjustments. 
         This practice is condemned by some theoreticians, 
