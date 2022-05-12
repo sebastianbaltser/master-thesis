@@ -1,0 +1,139 @@
+% !TEX root = ../sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Example of secured hedging swap}
+        Suppose that the dealer enters the same swap contract with the same counterparty as described above.
+        Additionally, she hedges the swap contract by entering the opposite position with a hedging dealer
+        where she pays the floating leg.
+        The dealer and the hedging dealer have in place a CSA agreement 
+        requiring full collateralization, i.e. with no thresholds or minimum transfer amounts.
+        Besides the variation margin,
+        the CSA requires an initial margin of 50\% of the swap's price.
+        The initial margin is posted both at the inception date and the interim date.
+        Corresponding to the dealer, the hedging dealer is assumed credit risk-free at the interim date.
+
+        Assume that the swap contract's price equals its credit risk adjusted value.
+        With the hedge transaction included,
+        the dealer's portfolio is free of market risk,
+        and all outgoing cash flows from the swap's interest payments
+        are perfectly offset by an incoming cash flow.
+        The dealer must however fund the margin requirements by obtaining new short-term debt,
+        and similarly, she uses the received margin postings to retire existing debt.
+        \\
+        The specific required margin postings are summarized in \cref{tbl:swap-margin-postings}.
+
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{l|rr}
+                $t$ & 0 & 1 \\
+                \hline
+                \rule{0pt}{1.3em}
+                $\mathbb{E}_{0}^{\rnmeasure}\left[M_t\right]$ & $\tilde{u}$ & $\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
+                \rule{0pt}{1.3em}
+                $\mathbb{E}_{0}^{\rnmeasure}\left[I_t\right]$ & $\frac{1}{2}\tilde{u}$ & $\frac{1}{2}\frac{1}{1+r_{1,2}}\mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]$ \\
+            \end{tabular}
+            \caption{
+                Expected collateral payments. 
+                Positive amounts will be collateral calls from the hedge dealer,
+                negative amounts from the dealer herself.
+            }
+            \label{tbl:swap-margin-postings}
+        \end{table}
+
+        As in the previous section, the dealer cannot default at time 1,
+        hence no credit spread is paid for the short-term loans at time 0.
+        Posting collateral increases the asset value,
+        and financing it increases the short-term liabilities.
+        When the dealer receives back the forward discounted collateral,
+        she then uses it to pay the debt with the exact amount at the interim date.
+        \\
+        The dealer will not have any contingent liabilities due to the swap payments at the maturity date.
+        The collateral received (posted) at the interim date will be paid (received) back at the maturity date.
+        As a result of that,
+        the liabilities at time 2 has both increased and decreased with the margin requirements at time 1.
+        If defaulting, the dealer's creditors will have a total payoff calculated as:
+        \begin{align}
+            \mathbb{E}_{0}^{\rnmeasure}\left[
+                (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\left(
+                    L_{2}
+                    -(M_1+I_1)R_{1}
+                    +(M_1+I_1)R_{1}
+                \right)
+            \right] 
+            &= (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\num{70}
+        \end{align}
+        The short-term debt is paid at the interim date with liquidated assets.
+        If there is a difference in price between the two swap contracts,
+        this will either increase or reduce the amount due,
+        depending on which swap is more expensive.
+        The total asset base at the default event will then have to account for covering this amount. 
+
+        To find the market neutral credit risk adjusted price of the project, $u$, 
+        as well as the loss rate given default, $\phi(\omega_{\mathscr{d},\mathscr{d}})$,
+        the following equation system must be solved.
+        \begin{equation}
+            \left\{\begin{array}{@{}l@{}}
+                \mathscr{d}^{2} A - W - (\tilde{u}-u)R_{0}R_{1}
+                =
+                (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\num{70}
+                \\
+                u =
+                \mathbb{E}_{0}^{\rnmeasure}\left[
+                    \delta_{1}(X_1-K_1)+(\delta_{2}(X_2-K_2(1-\phi)))
+                \right]
+            \end{array}\right.
+        \end{equation}
+        As in the example with the unsecured swap the first equation ensures
+        that the entire asset value amount is distributed to the creditors in a default.
+        The price of the secured swap, $\tilde{u}$, is perceived as the credit-risk free expected discounted cash-flows.
+        The second equation again sets the price as the discounted expected cash flows.
+        \\
+        By solving, a new loss rate of $\phi = \pct{0.11423357857841265}$ is obtained.
+        The new swap price is computed as $u=\num{0.15425039456453227}$,
+        which is slightly smaller than in the previous example,
+        since the counterparty now trades with a marginally more secured dealer.
+
+        With the long-term debt creditors' expected payoff at time 1 calculated as $\num{67.60088401}$,
+        the credit spread at time 1 is given by:
+        \begin{equation}
+            S_1 =
+            \frac{
+                \num{70}
+            }{
+                \num{67.59950202}
+            }
+            - R_{1}
+            \nonumber
+            = \pct{0.01150666521}
+        \end{equation}
+        The credit spread at time 0 is 0,
+        as the dealer cannot default at the interim date.
+
+        Finally, the shareholders' valuation of the project is analysed.
+        As the project is priced to be a zero net present value investment for the counterparty,
+        a potential change of wealth must again be between the dealer's creditors and shareholders.
+        The shareholders' change of wealth is computed the derived expression in \cref{eqn:shareholder-valuation-swap-hedged}.
+        This derivation includes the extension of the fully collateralized hedged position.
+        \\
+        With the above computed credit spreads, and $u=\num{0.15425039456453227}$
+        the shareholders' marginal valuation of entering the swap contract is calculated as:
+        \begin{equation}
+            G_{\text{swap,hedged}} = \num{-0.00994871}
+        \end{equation}
+        suggesting a negative net present value investment for the shareholders. 
+        The price that makes the shareholders indifferent of entering the project, $u^{\ast}$, is then defined by fixing $G_{\text{swap,hedged}}$ to 0.
+        This implies:
+        \begin{equation}
+            u^{\ast} = \num{0.1486201204475151}
+        \end{equation}
+        and an \FVA/ defined as:
+        \begin{equation}
+            \FVA/ = u^{\ast} - u = \num{-0.00563027}
+        \end{equation}
+        Hence the donation required of the counterparty is \num{-0.00563027},
+        meaning the dealer would pay less than the original swap price.
+        Seemingly, this would result in a negative net present value investment for the counterparty,
+        and whether they have incentives to enter the funding value adjusted project remains indeterminate.
+
+\end{document}
