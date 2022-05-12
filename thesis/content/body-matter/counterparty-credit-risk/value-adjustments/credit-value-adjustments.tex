@@ -40,10 +40,10 @@
         Also, refer to the BBB rated bank as the counterparty of the dealer.
         The side from which \CVA/ is considered is not unimportant;
         if the counterparty calculated the trade's \CVA/, it would account for the credit risk of the dealer.
-        To not get lost in the terms, say that the dealer calculates $\CVA/_{F}$ 
+        To not get lost in the terms, say that the dealer calculates $\CVA/_{D}$ 
         and that the counterparty calculates $\CVA/_{C}$.
 
-        While $\CVA/_{F}$ is a negative contributor to the derivative's value perceived by the dealer, 
+        While $\CVA/_{D}$ is a negative contributor to the derivative's value perceived by the dealer, 
         as it turns out, $\CVA/_{C}$ is a benefit.
         If the dealer has outstanding liabilities with her counterparty
         and she defaults, she will not be able to fully pay her obligations. 
@@ -55,12 +55,12 @@
         stemming from the dealer's own possibility of defaulting, 
         is referred to as the \DVA/.
 
-        Say that the dealer calculates $\DVA/_{F}$ and the counterparty calculates $\DVA/_{C}$.
-        Since both $\DVA/_{F}$ and $\CVA/_{C}$ are concerned with the default risk of the dealer,
-        and vice versa for $\DVA/_{C}$ and $\CVA/_{F}$, in theory, the following symmetric relations hold:
+        Say that the dealer calculates $\DVA/_{D}$ and the counterparty calculates $\DVA/_{C}$.
+        Since both $\DVA/_{D}$ and $\CVA/_{C}$ are concerned with the default risk of the dealer,
+        and vice versa for $\DVA/_{C}$ and $\CVA/_{D}$, in theory, the following symmetric relations hold:
             \begin{align*}
-                \CVA/_{F} &= \DVA/_{C} \\
-                \DVA/_{F} &= \CVA/_{C}
+                \CVA/_{D} &= \DVA/_{C} \\
+                \DVA/_{D} &= \CVA/_{C}
             \end{align*}
         These relations simply state the fact that
         the price of the counterparty credit risk experienced by the dealer,
