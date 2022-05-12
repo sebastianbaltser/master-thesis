@@ -263,6 +263,27 @@
         \end{equation}
 
         This valuation considers several scenarios, as different counterparties can default at different dates.
-        As a consequence, both the dealer and the counterparty has a possibility to lose an otherwise promised income.
-        In the next section the dealer hedges the unsecured swap with an interdealer swap that requires both initial margin and variation margin.
+        As a consequence, both the dealer and the counterparty have a possibility to lose an otherwise promised income.
+
+        When a dealer trades an unsecured swap with a counterparty,
+        it is likely that it combines the position with an appropriate hedge.
+        Practically, it is often the case that the dealer would use two hedges;
+        one hedge position will mitigate the counterparty credit risk, i.e. a CDS,
+        and the other hedge position will account for market risk exposure of the floating payments.
+
+        For the shareholders to value such position,
+        an extension to the marginal valuation in \cref{eqn:shareholders-value-multi-period-swap} must be applied.
+        The cash flows will in this expanded setup offset each other,
+        and the funding implications would stem from the collateralization.
+        As described earlier in this paper, collateralization agreements can take on many faces.
+        A perfect CSA agreement would require the dealer to mark-to-market at each time period,
+        whereas partially collateralized projects could also lead to funding issues.
+        Additionally, a minimum threshold and an independent amount are likely to be established,
+        which would potentially leave the dealer with more financial obligations.
+
+        \textcite{ADS2018} define the shareholders' valuation of entering a project including the same swap as above as well as a fully collateralized hedged position.
+        For the purpose of quantifying \FVA/ in a multi-period framework,
+        this paper sticks to the numerical computations of only an unsecured swap,
+        and then draw comparisons to the idea of the hedged position.
+        
 \end{document}
