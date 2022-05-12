@@ -3,19 +3,19 @@
 
 \begin{document}
     \subsection{Funding Value Adjustments}
-        Funding Value Adjustment (FVA) is a quantity meant for accounting for the funding costs 
+        A Funding Value Adjustment, \FVA/, is a quantity meant for accounting for the funding costs 
         experienced by a firm due to their acquisition of a financial instrument.
         Funding risks and costs arise wherever there is a cash flow in the firm. 
         Outgoing cash flows will need to be financed while incoming cash flows
         can be used to retire debt elsewhere in the firm, thus reducing the need for funding.
 
-        Again, funding costs, and the valuation adjustments that accounts for them,
+        Again, funding costs, and the valuation adjustment that accounts for them,
         are best introduced by an example.
 
         \begin{example}
         Assume a dealer wanting to purchase an asset with low risk and high liquidity, 
         e.g. to keep the security for the purpose of always having access to liquid assets.
-        Assume also, for simplicity, that the the risk-free rate, OIS, is zero.
+        Assume also, for simplicity, that the the risk-free rate, \OIS/, is zero.
         Suppose the dealer purchases 100\$ worth of face value in 1-Year Treasury bills,
         at an upfront price of 100\$. 
         The upfront price is funded by the dealer issuing unsecured debt, 
@@ -42,35 +42,40 @@
         and therefore the dealer would value the instrument higher. 
         \end{example}
         
-        From the example, it is clear that FVA conceptually can be thought of 
+        From the example, it is clear that \FVA/ conceptually can be thought of 
         as consisting of two elements, according to the following decomposition:
         \begin{equation}
             \FVA/ = \FCA/ + \FBA/
         \end{equation}
-        \FCA/, also elsewhere referred to as Funding Cost Adjustment (FCA), 
+        \FCA/, also elsewhere referred to as Funding Cost Adjustment, FCA, 
         is a negative contribution of funding costs to the price of the financial instrument.
         It captures the effect of outgoing cash flows, which will require funding and generate costs.
-        On the other hand, \FBA/, also known as Funding Benefit Adjustment (FBA), 
+        On the other hand, \FBA/, also known as Funding Benefit Adjustment, FBA, 
         captures the positive impact on the instrument price, from the incoming cash flows.
         Without going too much into details of their calculation, which will be covered later,
         \FCA/ is calculated based on the expected positive exposure, 
         while \FBA/ is calculated using the expected negative exposure. 
 
-        \textcite{KPMGFVA} suggests introducing another term in the decomposition, namely
-        $\FVA/_{\text{buffer}}$.
+        \FVA/ could be decomposed in multiple other ways, than shown here. 
+        To mention one, \textcite{KPMGFVA} suggests introducing another term in the decomposition, 
+        namely $\FVA/_{\text{buffer}}$.
         This term refers to an adjustment for the funding costs
         due to the maintenance of liquidity buffers. 
         These buffers are in place for dealers to have access to funding, in the event
         that funding markets fail to function when the dealer faces unexpected funding requirements.
-        This adjustment will be ignored throughout the rest of this paper, 
-        which is possible by simply not assuming any liquidity buffers. 
-        
-        Further investigation of Funding Value Adjustments will be focused on the two other components,
-        \FCA/ and \FBA/.
 
-        \subsection*{Margin requirements}
+        This also shows that there might be many sources of funding costs,
+        attributed to different mechanisms.
+        The simple decomposition of \FVA/ into a positive and a negative contribution
+        proves useful for this paper,
+        and further investigation of \FVA/s will be focused only on the two components,
+        \FCA/ and \FBA/.
+        The exact sources of funding costs that this paper will be focused on
+        will be introduced later.
+
+        \subsection*{Margin Requirements}
             Suppose an OTC derivative transaction between the firm and a counterparty requires the firm to post collateral.
-            The firm may necessarily be obliged to fund the margin requirements on top of the price of the derivative.
+            The firm may necessarily be obliged to fund the margin postings on top of the price of the derivative.
             To understand this setup,
             consider a single interest rate swap between a firm and a counterparty that have in place CSA agreement.
             If the value of the firm's leg is lower than the counterparty's,
@@ -85,9 +90,9 @@
             where in \cref{sec:example-secured-derivative} a numerical example is analysed.
             
             Assume that the firm chooses to fund the collateral by obtaining debt
-            that is borrowed at the firm's unsecured borrowing rate, which depends on the firm's credit rating.
+            that is borrowed at the firm's unsecured borrowing rate.
             When posting the funds as collateral, the firm earns the OIS rate.
-            The asymmetry between the cost of borrowing and posting collateral
+            The asymmetry between the cost of borrowing and the rate earned on collateral postings
             adds additional costs to the swap transaction; 
             these are funding costs and an \FVA/ is a price alteration made to account for these.
 
