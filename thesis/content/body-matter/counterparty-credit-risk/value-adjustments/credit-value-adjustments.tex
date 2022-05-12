@@ -2,84 +2,93 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsection{Credit Value Adjustments}
-        Credit Value Adjustment (CVA) is the price that a firm is willing to pay 
+    \subsection{Credit- and Debit Value Adjustments}
+        A Credit Value Adjustment, \CVA/, is the price that a dealer is willing to pay 
         to hedge the counterparty credit risk of a financial instrument.
         This concept is best introduced by an example. 
         
         \begin{example}
-        Suppose a credit risk-free firm that has obtained market risk 
-        which it wants to hedge by entering into an OTC derivative.
-        The derivative is offered by two different banks and the firm can buy from either.
-        One bank has a high credit rating, say AAA, and the other has a slightly lower credit rating, say BBB. 
-        The two dealers offer the same derivative, except from the fact that their credit ratings differs.
-        Thus, in one case the firm's counterparty is rated AAA and in the other case the counterparty is rated BBB;
-        so, if the banks offer the product at the same price, 
-        the firm is clearly going to prefer doing business with the bank rated AAA.
-        Since the BBB rated bank wants to be competitive and win the deal,
-        it is going to submit a lower ask on the derivative than its competitor.
-        If the BBB rated bank continues to lower the price, it will at some point arrive at a level
-        that makes the firm indifferent between entering into the trade 
-        offered by the AAA rated bank and the BBB rated bank.
-        At this price the BBB rated bank have sufficiently compensated the firm for taking on the additional credit risk;
-        the discount offered by the BBB rated bank, relative to the AAA rated bank, is exactly the value that the firm
-        attributes to the additional credit risk. 
-        If the BBB rated bank sets this price, the difference between the prices offered by the two banks,
-        i.e. the discount offered by the BBB rated bank to make the firm indifferent, is the \CVA/.
-        This motivates the definition of \CVA/ as the difference between the price of the instrument 
-        including counterparty credit risk and the price of the instrument excluding counterparty credit risk.
+            Suppose a credit risk-free dealer is exposed to some market risk 
+            which she wants to hedge by buying an OTC derivative.
+            The derivative is offered by two different banks and the dealer can buy from either.
+            One bank has a high credit rating, say AAA, and the other has a slightly lower credit rating, say BBB. 
+            The two banks offer the same derivative, except from the fact that their credit ratings differs.
+            Thus, in one case the dealer's counterparty is rated AAA and in the other case the counterparty is rated BBB;
+            so, if the banks offer the product at the same price, 
+            the dealer is clearly going to prefer doing business with the bank rated AAA.
+
+            Since the BBB rated bank wants to be competitive and win the deal,
+            it is going to submit a lower ask on the derivative than its competitor.
+            If the BBB rated bank continues to lower the price, 
+            at some point the dealer will be indifferent between buying 
+            from the AAA rated bank and the BBB rated bank.
+            At this price, the BBB rated bank has sufficiently compensated the dealer for taking on the additional credit risk;
+            the discount offered by the BBB rated bank, 
+            is exactly the value that the dealer attributes to the additional credit risk. 
+            If the AAA rated bank is considered credit risk-free, this discount will correspond to the \CVA/.
+
+            This motivates the definition of \CVA/ as the difference between the price of the instrument 
+            including counterparty credit risk and the price of the instrument excluding counterparty credit risk.
         \end{example}
 
-        From this example it is clear that the credit risk of the BBB rated bank contributes to the \CVA/
-        when the firm calculates it.
+        From this example, it is clear that the credit risk of the BBB rated bank contributes to the \CVA/
+        when the dealer calculates it.
         This principle can be extended further.
         In a transaction with two counterparties there might also be two sources of credit risk;
-        so, suppose now that the firm is not credit risk-free but has a relatively low credit rating.
-        Also, refer to the BBB rated bank as the counterparty of the firm.
-        The side from which \CVA/ is considered is not unimportant,
-        and if the counterparty calculated the trade's \CVA/, it would account for the credit risk of the firm.
-        To not get lost in the terms, say that the firm calculates $\CVA/_{F}$ 
+        so, suppose now that the dealer's institution is not credit risk-free 
+        but has a relatively low credit rating.
+        Also, refer to the BBB rated bank as the counterparty of the dealer.
+        The side from which \CVA/ is considered is not unimportant;
+        if the counterparty calculated the trade's \CVA/, it would account for the credit risk of the dealer.
+        To not get lost in the terms, say that the dealer calculates $\CVA/_{D}$ 
         and that the counterparty calculates $\CVA/_{C}$.
 
-        While $\CVA/_{F}$ is a negative contributor to the derivative's value perceived by the firm, 
+        While $\CVA/_{D}$ is a negative contributor to the derivative's value perceived by the dealer, 
         as it turns out, $\CVA/_{C}$ is a benefit.
-        If the firm has outstanding liabilities with its counterparty
-        and the firm defaults, it will not be able to fully pay its obligations. 
+        If the dealer has outstanding liabilities with her counterparty
+        and she defaults, she will not be able to fully pay her obligations. 
         Surely, this possibility of receiving a lower payment is what the counterparty accounts for 
         by calculating and applying $\CVA/_{C}$.
-        However, from the firm's point of view this is a possibility of having to pay a lower amount,
-        which is a benefit to the firm that should increase the amount the firm is willing to pay.
-        This increase in the perceived value of the derivative, 
-        stemming from the firm's own possibility of defaulting, 
-        is referred to as the \DVA/.
+        However, from the dealer's point of view, this is a possibility of having to pay a lower amount,
+        which is a benefit to her that should increase her valuation.
+        This increase in the perceived value of the derivative,
+        stemming from the dealer's own possibility of defaulting, 
+        is referred to as the Debit Value Adjustment, \DVA/.
 
-        Say that the firm calculates $\DVA/_{F}$ and the counterparty calculates $\DVA/_{C}$.
-        Since both $\DVA/_{F}$ and $\CVA/_{C}$ are concerned with the default risk of the firm,
-        and vice versa for $\DVA/_{C}$ and $\CVA/_{F}$, in theory, the following symmetric relations hold:
+        Say that the dealer calculates $\DVA/_{D}$ and the counterparty calculates $\DVA/_{C}$.
+        Since both $\DVA/_{D}$ and $\CVA/_{C}$ are concerned with the default risk of the dealer,
+        and vice versa for $\DVA/_{C}$ and $\CVA/_{D}$, in theory, the following symmetric relations hold:
             \begin{align*}
-                \CVA/_{F} &= \DVA/_{C} \\
-                \DVA/_{F} &= \CVA/_{C}
+                \CVA/_{D} &= \DVA/_{C} \\
+                \DVA/_{D} &= \CVA/_{C}
             \end{align*}
         These relations simply state the fact that
-        the price of the counterparty credit risk experienced by the firm,
-        is equal to the price of the counterparty credit risk as experienced by the counterparty itself, and vice versa.
-        Including both the \CVA/ and the \DVA/ is referred to as a bilateral adjustment,
+        the price of the counterparty's credit risk experienced by the dealer, $\CVA/_{D}$,
+        is equal to the price of the counterparty's credit risk 
+        experienced by the counterparty itself, $\DVA/_{C}$, and vice versa.
+        Including both the \CVA/ and the \DVA/ in a valuation is referred to as a bilateral adjustment,
         as opposed to a unilateral, where only the \CVA/ is included.
         According to the symmetry above,
-        both parties can agree on the necessary credit valuation adjustment in a bilateral setting,
-        since each party is also calculating the counterparty's \CVA/ and \DVA/, however with the labels switched.
+        both parties can agree on the necessary valuation adjustments in a bilateral setting,
+        since each party is also calculating the counterparty's \CVA/ and \DVA/.
         To this extent, the parties will reach symmetric valuations of the financial instrument. 
         This result is however merely theoretical; 
-        in practice each institution will apply different \CVA/ models
+        in practice each institution will presumably apply different \CVA/ models
         and be operating under different accounting rules, 
         which will inevitably lead to the parties reaching different adjustments. 
         
-        Eliminating \CVA/ and \DVA/ is possible by hedging the credit exposure due to the instrument,
-        which is possible with a collateralization scheme. 
+        Eliminating \CVA/ and \DVA/ is possible by hedging the instrument's credit exposure,
+        e.g. with a collateralization scheme. 
         Perfect collateralization would ensure no credit exposure,
         however even strong CSA agreements will have collateral calls happening less frequently
         than what would be necessary to obtain perfect collateralization.
         Still CSA agreements will reduce the credit exposure and hence \CVA/ and \DVA/.
+
+        A dealer adjusting for her own credit risk with \DVA/s
+        will surely not be offered risk-free rates when borrowing unsecured;
+        rather, she will be paying a credit spread in excess the risk-free rate.
+        Hence, she will face costs when borrowing for financing,
+        which motivates yet another valuation adjustment.
 
 \end{document}
         
