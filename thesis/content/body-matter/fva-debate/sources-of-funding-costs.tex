@@ -209,6 +209,24 @@
 
         These examples should display how a derivatives dealer might face funding costs,
         when the lack of perfect symmetry in collateral needs calls for unsecured funding.
+
+        This type of funding costs are very likely to be incurred by dealers that hedges 
+        trades with corporate counterparties by trading with other financial institutions.
+        Suppose a dealer has traded with a corporate client
+        under a CSA agreement without an independent amount.
+        If the dealer trades hedges with another financial institution
+        and clears through a CCP it will likely be required to post initial margin. 
+        If the variation margin from the CSA agreement 
+        perfectly offsets the variation margin from the CCP, 
+        there will be no offsetting cash flow for the initial margin,
+        and the dealer will incur funding costs from obtaining financing.
+        
+        Large financial institutions will be even more likely to face calls for initial margin
+        when financial regulators put in measures to limit risk taking.
+        This is, for example, the result of the reform \textcite{BCBC2020}
+        that imposes initial margin requirements on non-centrally cleared derivatives for 
+        firms that trades a large amount of uncleared products.
+
         It might be argued that the funding costs could be eliminated by trading derivatives,
         whose replication can be operated by repurchase agreements. 
         Seemingly, buying the hedging strategy at repo should eliminate the need for unsecured financing
