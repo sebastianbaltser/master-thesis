@@ -240,4 +240,18 @@
         has the most extreme funding implications;
         any outgoing cash flow has to be funded, 
         as there are no offsetting cash flows from hedges.
+
+        If the dealer was extend the project by entering a fully collateralized hedged position,
+        the funding implication would mainly be due to the margin requirements.
+        The cash flows stemming from the original swap would directly offset the cash flows from the hedged swap.
+        As opposed to the first swap,
+        the valuation of the hedged swap will not include any \DVA/,
+        as the counterparty of this contract will not be exposed to the dealer's credit risk.
+        This will cause a mismatch between the two swap prices,
+        and funding is required.
+        While the posted collateral would be funded by short-term debt issuance,
+        the received collateral would retire some existing short-term debt.
+        As defined previously in this paper,
+        retiring debt will lead to the shareholders paying a smaller spread,
+        such that their welfare can have both positive and negative outcomes.
 \end{document}
