@@ -59,84 +59,94 @@
         taking custody of some of her receivables from the counterparty.
         Then, the receivables are protected from other creditors if the counterparty defaults.
 
-    \subsection{Collateralization}
-        Credit risk can be reduced significantly and even eliminated completely
-        if the counterparty provides some form of security, which the firm has priority to.
-        Should the counterparty default, the firm can use the security to cover any
-        outstanding liabilities of the counterparty to the firm. 
-        The type of security used and the circumstances 
-        under which they are available to the other entity can vary significantly.
+    \subsection{Collateralization and Securing Positions}
+        Credit risk can be reduced significantly, and even eliminated completely,
+        if the counterparty provides some form of security, which the dealer has priority to.
+        Should the counterparty default, the dealer can use the security to cover any
+        outstanding receivables from the counterparty. 
+        Likewise, the dealer can provide security to a counterparty and 
+        therefore receive better prices.
+        The type of security used, and the circumstances 
+        under which they are available to the other entity, can vary significantly.
         This section will describe two common ways of providing security, 
         namely \textit{repo transactions} and \textit{CSA agreements}.
 
-        A repurchase agreement, or a repo, is a trade in which a firm sells securities to another firm, 
-        referred to as the lender, 
-        with the promise of buying back the securities at a fixed price on a fixed date.
-        The firm receives cash from the lender and the lender receives the securities,
-        which it uses as security for the money lent to the firm. 
-        If the firm defaults and fails to honour its obligation to buy back the security,
-        the lender can keep the security and possibly liquidate it to recover the cash lent. 
-        Repos can be used as a form of short-term borrowing for the seller
+        \subsubsection{Repurchase Agreements}
+        A repo, short for repurchase agreement, is a trade in which a dealer 
+        sells bonds to a counterparty,
+        with the promise of buying them back at a fixed price on a fixed date.
+        The counterparty will be referred to as the lender.
+        The dealer receives cash from the lender and the lender receives the bonds,
+        which it uses as security for the money lent to the dealer. 
+        If the dealer defaults and fails to honour her obligation to buy back the bond,
+        the lender can keep it and possibly liquidate it to recover the cash lent. 
+        Repos can be used as a form of short-term secured borrowing for the seller
         and an opportunity for the lender to invest funds for a customized period of time. 
-        Traders can use repos to apply leverage by buying long positions in securities 
+        Traders can use repos to apply leverage by buying long positions in bonds 
         which they then post as the collateral in the repo. 
 
+        Purchasing bonds through repos is beneficial to the dealer,
+        as she can fund her purchase at the secured borrowing rate,
+        which is going to be lower than the unsecured borrowing rate.
+
+        \subsubsection{CSA Agreements}
         Derivative transactions can be secured in a similar way 
         if the counterparties agree upon and adhere to a Credit Support Annex, CSA, agreement.
-        A CSA defines terms and conditions that allows the posting of collateral between counterparties, 
-        in order to secure a transaction made between them.
+        A CSA defines terms and conditions for collateral postings between counterparties, 
+        such that transaction between them are secured.
         Most CSA agreements require both entities in the transaction to post collateral 
         if they have negative exposure to their counterparty. 
         This is important for derivatives transactions that can have both 
         positive and negative mark-to-market values, 
         such that an entity can be both positively and negatively exposed to the counterparty
         during the lifetime of the derivative.
-        When collateral is posted, the counterparty can of course use it to cover losses incurred 
-        due to the default of the other party;
-        however, an important feature of CSA agreements is the ability of firms to
+        When collateral is posted through a CSA, it provides a couple of benefits for the receiver.
+        Most obvious, the receiver can use the collateral to cover losses incurred 
+        due to the default of the other party.
+        However, another important feature of CSA agreements is the ability of dealers to
         \textit{rehypothecate} collateral.
         To rehypothecate collateral refers to passing it on to other parties that
-        require collateral from the firm.
-        By doing this, the firm can reduce, or even eliminate, the need for providing its own funds
+        require collateral from the dealer.
+        By doing this, the dealer can reduce, or even eliminate, the need for providing her own funds
         for supporting other CSA agreements. 
-        This mechanism will prove to be very important in the context of funding value adjustments,
-        which will be introduced later in this paper.
+        This mechanism will prove to be very important in the context of funding value adjustments.
 
         Whether collateral should be posted, and how much should be posted, 
         depends on a number of parameters defined in the CSA agreement
         as well as external values due to the general market conditions.
-        The parameters deemed most important to this thesis will be described in the following:
+        The parameters deemed most important to this thesis will be described in the following.
         \begin{description}
             \item[Threshold:] 
             the level of positive or negative exposure above which collateral will be posted. 
-            A higher threshold for the counterparty will also yield a higher exposure to the counterparty,
-            however only to the extent of the threshold size. 
-            Hence, the threshold is the amount of exposure the firm is comfortable 
-            with having uncollateralized with a counterparty.
+            Allowing a higher threshold will also yield a higher exposure;
+            however, only to the extent of the threshold size. 
+            Hence, the threshold is the amount of exposure the dealer can accept being uncollateralized.
             Typically, CSA agreements between banks will have zero thresholds, 
-            such that derivative transaction is fully collateralized.
+            such that derivative transactions are fully collateralized.
             
             \item[Minimum transfer amount:] 
-            how much positive or negative exposure the two firms can have before collateral is posted;
+            how much positive or negative exposure the counterparties can have before collateral is posted;
             hence, it is the smallest amount of collateral that can be exchanged between counterparties.
             It is often used to avoid the operational overhead from posting collateral for negligible amounts,
             but, like the exposure threshold, it comes at the cost of increased exposure.
 
             This parameter is also a threshold and the difference between this
-            and the actual threshold-parameter might be subtle.
+            and the actual threshold-parameter might seem subtle.
             The threshold refers to the exposure directly due to the mark-to-market value,
             however the minimum transfer amount considers the exposure after taking into 
             account the mark-to-market, the current collateral posted, and the threshold.
 
             \item[Independent amount:]
-            an amount of collateral posted regardless of the mark-to-market 
-            of the derivative, with the purpose of accounting for potential under-collateralization.
+            an amount of collateral posted regardless of the derivative's mark-to-market value. 
+            Its purpose is to account for potential unexpected market moves
+            that could lead to under-collateralization.
             A party posting an independent amount decreases the exposure for the other party
             since it works as an initial buffer for credit risk mitigation.
-            This quantity can also be referred to as the initial margin, however, strictly speaking, 
+            This quantity can also be referred to as \textit{the initial margin}, 
+            however, strictly speaking, 
             that term tends to be used when clearing through a central counterparty,
             which will be described in the following section.
-            Conceptually, the two quantities are the same, and throughout this thesis
+            Conceptually, the two quantities are the same, and throughout this paper
             the two terms will be used interchangeably as the difference is subtle
             and irrelevant for the purposes of the analysis. 
 
@@ -150,10 +160,10 @@
             at the last valuation date.
         \end{description}
 
-        Besides the parameters mentioned, CSA agreements will have specifications of the type of collateral allowed,
-        i.e. which currencies can be posted or if government bonds can be used as collateral,
+        Besides the parameters mentioned, CSA agreements will have specifications about the type of collateral allowed,
+        e.g. which currencies can be posted or if government bonds can be used as collateral,
         as well as a procedure to follow if one of the parties is downgraded to a specified credit rating.
-        It should be emphasized that the parameters might not be identical for each party,
+        It should be emphasized that the parameters might not be identical for each party
         if one party has a different credit quality than the other.
         If the credit qualities differ a lot, the CSA agreement might even be one-directional,
         such that only one party posts collateral.
@@ -167,19 +177,19 @@
         If the counterparty instantly meets collateral calls and have no cure period,
         a perfect CSA agreement would eliminate the exposure to the counterparty
         and therefore the credit risk.
-        Of course, this is merely a theoretical construct, as all sorts of frictions introduces delays,
+        Of course, this is merely a theoretical construct, as all sorts of frictions introduce delays,
         which would break the assumptions.
         Nonetheless, the idea of a perfect CSA will be helpful to have as a reference,
         when introducing funding value adjustments.
 
         As a final remark on this topic,
-        it is important to note that this thesis will have a rather idealized perception of collateralization.
+        it is important to note that this paper will have a rather idealized perception of collateralization.
         It is assumed that each collateral payment perfectly offsets the mark-to-market value,
         which is not necessarily the case in the real world,
         where there might be disputes over the value of different instruments.
         In addition, it is assumed that calls for collateral will instantly be answered
         by either the required collateral or the counterparty's default. 
-        In reality, collateral will not arrive instantly and there will most likely be a period of time between
+        In reality, collateral will not arrive instantly, and a period of time will pass between
         the point where the counterparty does not post collateral to the point where it actually defaults.
         All of these frictions of the real world increase the credit risk to the counterparty
         and must be considered in practical applications. 
