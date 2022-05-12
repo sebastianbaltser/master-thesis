@@ -3,6 +3,7 @@
 
 \begin{document}
     \subsection{Valuing swaps with a fully collateralized hedged position}
+    \label{sec:secured-swap-valuation}    
         When a dealer trades an unsecured swap with a counterparty,
         it is likely that it combines the position with an appropriate hedge.
         Practically, it is often the case that the dealer would use two hedges;
@@ -61,7 +62,7 @@
                 \delta_2 \mathbbm{1}_{\{\tau_{F}(q)>2\}}
                 \mathbbm{1}_{\{\tau_{C}(q)>1\}}
                 \left(
-                    I_0 R_0 s_1(q)
+                    I_0 R_0 R_1
                     + I_1 R_1
                 \right) 
             \right]\right\rvert_{q=0}
@@ -146,11 +147,12 @@
                 \delta_1 \mathbbm{1}_{\{\tau_{F}>1\}}
                 I_0 S_0 
             \right] 
-            +
+            -
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_2 \mathbbm{1}_{\{\tau_{F}>2\}} \mathbbm{1}_{\{\tau_{C}>1\}}
                 I_1 S_1 
-            \right] 
+            \right]
+            \label{eqn:shareholder-valuation-swap-hedged}
         \end{align}
 
         % By expressing \cref{eqn:sharholders-value-hedged-swap-step-1} as a difference quotient, and by linearity of expectations, the following limit is obtained:
