@@ -176,32 +176,6 @@
 
         The wealth transfer from shareholders to legacy creditors due to the new project 
         suggests quantifying the \FVA/ of the project.
-        For completeness, this first example will calculate all three possible definitions of \FVA/,
-        as described in \cref{sec:defining-fva}, and compare them.
-
-        The first possible definition of \FVA/ as the promised excess funding cost can be determined by
-        \cref{eqn:fva-as-promised-excess-funding-cost}:
-            \begin{align}
-                \num{0.99} * \num{0.99} * \pct{0.031201} = \num{0.030580}
-            \end{align}
-        This definition suggests adjusting the project value by $\num{0.030580}$ to account for the funding costs.
-        As discussed earlier, this definition ignores the fact that shareholders are exempt from paying
-        interest rates in the default state; they have limited liability and, since they lose everything
-        in the event of default, the marginal value to them in default states is zero.
-        
-        Calculating instead the expected excess funding cost, i.e. $\Phi$:
-            \begin{equation}
-                \Phi 
-                = \pct{0.878787} * \num{0.99}  * \num{0.99} * \pct{0.031201} 
-                = \num{0.026874}
-            \end{equation}
-        This quantity is also the value lost by the shareholders and gained by the legacy creditors,
-        since the net profit of the project is zero, and the payoff is risk-free.
-        This can be thoroughly calculated by using the marginal shareholder value under debt funding in 
-        \cref{eqn:marginal-shareholder-value-debt-financing}
-        which will result in the equation $G_{\text{debt}} = -\Phi$. 
-        
-        Turning instead to the definition of \FVA/ as the adjustment needed for shareholders to breakeven.
         Using \cref{eqn:shareholders-breakeven-debt-financing}, the price needed for breakeven is:
             \begin{align}
                     u^{\ast}_{\text{debt}} 
@@ -230,8 +204,6 @@
             \end{equation}
         Any prices above the breakeven price, $u^{\ast}_{\text{debt}}$, 
         will make the project a negative net present value investment for the shareholders, while any prices below will make it positive. 
-        In this regard, the promised excess funding cost of $\num{0.030580}$ would be an overadjustment,
-        and, conversely, the expected excess funding cost, $\Phi$, of $\num{0.026874}$ would be an underadjustment.
         
         Consider \cref{fig:marginal-value-debt-financing} showing the marginal value 
         of debt financing for creditors and shareholders for different values of the upfront price.
