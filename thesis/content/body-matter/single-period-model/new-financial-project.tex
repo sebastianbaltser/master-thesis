@@ -1,0 +1,114 @@
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \subsection{Obtaining a New Financial Project}
+        When a firm enters a new project, the new payoffs and other cash flows
+        will alter the structure of the firm and
+        change how much value shareholders and creditors assign to their own claim.
+        This section will derive the mathematical details of the project,
+        and the following sections will dive into the implications of obtaining the project.
+
+        The firm has an opportunity to engage in a new project, e.g. buying or selling a security,
+        with a, possibly random, payoff denoted by $Y$.
+        The firm considers obtaining an amount $q$ of the project;
+        therefore, the potential cash flow to the firm at time 1 will be $qY$.
+        By entering into the project, the firm will have altered its default event,
+        since assets and liabilities at time 1 have changed.
+        The default event for the firm after it has obtained a quantity $q$ of the project
+        is denoted by $\mathcal{D}(q)$.
+        The precise definition of the default event varies, 
+        depending on how the firm chooses to finance the project.
+        The pre-project default event is essentially equal to $\mathcal{D}(0)$,
+        but, to keep the notation simple, the argument is dropped leaving just 
+        $\mathcal{D}\equiv\mathcal{D}(0)$.
+
+        The purpose of the following derivations is to describe the cash flows
+        to the firm of obtaining the project.
+        For this purpose, assume that $qY$ is the only default claim besides $L$. 
+        In that case, the definition of the firm's post-project default event is given by 
+        $\mathcal{D}(q) = \{A + qY < L\}$.
+        Similarly, $\mathcal{D}^{c}(q) = \{A + qY \geq L\}$ defines the event of no default.
+        The net asset value of the firm after defaulting, comprising the distress costs, is $\kappa A$ for some recovery rate, $\kappa$, where the distress costs equal $1-\kappa$.
+
+        The payoff of the project, $Y$, can take on both positive and negative values
+        depending on the state realized a time 1, 
+        but of course also depends on the specific type of project. 
+        A swap contract would be an example of a project where the payoff can take both signs,
+        while the payoff of a bought call option can only take non-negative values.
+        The treatment of the payoff in default events will depend on the sign of the payoff,
+        and therefore it will be useful to be able to separate the two cases;
+        positive payoff where the firm is owed cash,
+        and negative payoff where the firm owes cash.
+
+        The positive part of the payoff, $Y^{+}=\max\left(Y,0\right)$, is perceived as an asset of the firm, and is measured net of any potential losses due to credit risk of the counterparty.
+        In addition, the negative part of the payoff, $Y^{-} = \max \left(-Y,0\right)$, is a contingent liability, and is also interpreted as the contractual amount that the firm is obliged to pay at time 1, before taking the firm's risk of default into consideration.
+
+        If the contingent liability, $Y^{-}$, is not fully secured, a specification of how the associated counterparty recovers, in case of the firm defaulting, is needed.
+        According to \textcite{ADS2019}, in practice, a firm's swap-contingent liabilities 
+        are normally pari passu with its unsecured debt claims.
+        When liabilities rank pari passu, they experience the same loss rate in a default.
+        In other words, they receive a share of the remaining assets 
+        corresponding to their share of the total liabilities.
+        \\
+        Since it is common in practice, throughout this paper it is assumed that the firm's 
+        unsecured liabilities rank pari passu with each other;
+        therefore, the counterparty to the new project ranks pari passu with the creditors.
+
+        If the firm defaults, the share of the bankruptcy estate paid to the counterparty with 
+        the contingent liability $Y^{-}$ is:
+            \begin{equation*}
+                \rho = 
+                \frac{
+                    qY^{-}
+                }{
+                    L + qY^{-}
+                } 
+            \end{equation*}
+        Then, at time 1, the random cash flow to the firm is given by:
+        \begin{equation*}
+            \mathcal{C} 
+            = 
+            \mathbbm{1}_{\mathcal{D}^{c}(q)} qY
+            + \mathbbm{1}_{\mathcal{D}(q)} qY^{+}
+            - \mathbbm{1}_{\mathcal{D}(q)} \rho \kappa A
+        \end{equation*}
+        The first term expresses the firm's payoff from the project in case it does not default. 
+        The positive payoff to the firm, $Y^{+}$, is paid in full if the firm defaults,
+        which is represented by the second term.
+        If the firm defaults, it pays a share, $\rho$, of the remaining assets, $\kappa A$,
+        to the counterparty of the project.
+        This is represented by the third term.
+        For clarification, note that $Y > 0$ implies $\rho=0$, 
+        such that the firm does not pay anything if it does not owe anything.
+
+        Practically, it's possible for the contingent liability of the position
+        to have both a secured as well as an unsecured component.
+        For this motive, the payoff is divided in two, such that $Y=Y_1 + Y_2$, where $Y_1^{-}$ reflects the secured contingent liability, and $Y_2^{-}$ reflects the unsecured contingent liability.
+        The financial position is still assumed to pay a payoff, $Y$, at time 1 which is unrelated to the credit risk of the firm, and the unsecured contingent liability is still assumed to rank pari passu with all other unsecured creditor claims.\\
+        For the contingent liability, $qY_1^{-}$, to be secured, $A+qY_1 > 0$ is a necessary condition, and therefore assumed.
+
+        Then, the cash flow of the firm where the position 
+        can have both secured and unsecured parts is given by:
+        \begin{equation*}
+            \mathcal{C} =
+                q Y_{1}
+                + \mathbbm{1}_{\mathcal{D}^{c}(q)} qY_{2}
+                + \mathbbm{1}_{\mathcal{D}(q)} qY_{2}^{+}
+                - \mathbbm{1}_{\mathcal{D}(q)} \rho\kappa (A + qY_{1})
+        \end{equation*}
+        where $\rho = qY_{2}^{-}/(L + qY_{2}^{-})$ is the pro rata share of the contingent liability. 
+        Notice that the secured position is now paid at time 1 no matter if the firm defaults or not. 
+        Only the unsecured position depends on the outcome of the total asset value.
+
+        This section has defined the firm's default event when considering the possibility
+        of obtaining a quantity $q$ of a project with payoff $Y$.
+        The structure of the payoff has been elaborated on
+        and it has been assumed that the payoff can be both a liability and an asset to the firm
+        as well as having both secured and unsecured parts.
+        With these definitions in order, the analysis can now move on to consider the
+        funding implications of the firm entering into the project.
+        Specifically, the next section considers the impact on shareholders' valuation 
+        of obtaining the new project.
+        
+\end{document}
