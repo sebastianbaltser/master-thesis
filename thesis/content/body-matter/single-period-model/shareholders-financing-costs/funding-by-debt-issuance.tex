@@ -2,19 +2,18 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-    \subsubsection{Funding by debt issuance}
+    \subsubsection{Funding by Debt Issuance}
         \label{sec:marginal-valuation-debt-issuance}
         The firm can fund the upfront cost of the project by issuing new debt.
-        This debt will be subject to a rate higher than the risk-free rate, 
+        This debt will be subject to an interest rate higher than the risk-free rate, 
         however, in order to limit the complexity of the model, 
         it is assumed that a yield spread on debt issuance can only occur due to credit risk. 
         This is ensured by assuming that the market where the firm obtains its debt is fully efficient, 
         such that creditors break even by offering the market value of the firms' debt claims.
-        The debt obtained to finance the upfront cost, $U(q)$, is assumed to rank pari passu with existing debt, 
-        such that all creditors experience the same loss rate in case of a default.
+        The debt obtained to finance the upfront cost, $U(q)$, is assumed to rank pari passu with existing debt.
 
         The new creditors receive a credit spread denoted by $s(q)$,
-        which generally depend on the share of the payoff being secured and the share being unsecured.
+        which generally depends on the share of the payoff being secured and the share being unsecured.
         The face value of the newly issued debt is therefore $U(q)(R + s(q))$.
         The firm defaults if it is not able to pay both the legacy liabilities and the new debt,
         therefore the default event is:
@@ -59,31 +58,36 @@
                     \right] 
                 \label{eqn:new-creditors-breakeven}
             \end{align}
-        This equation ensures that the present value of the risk-neutral expected value of the payoff to the new creditors
-        equals the amount needed to fund the new project, $U(q)$. 
+        Hence, the present value of the expected payoff to the new creditors
+        must equal the amount needed to fund the new project, $U(q)$. 
         The expected payoff can be thought of as consisting of two legs;
         one leg that governs the payoff when the firm does not default, 
-        and another that governs the payoff when the firm does default. 
+        and another that governs the payoff when the firm does default.
+        \\
         The first term in this equation is the contribution to the expected value from the promised payoff,
         the face value, which is paid when the firm does not default. 
         The face value equals the borrowed amount, $U(q)$, 
         forward appreciated by the gross risk-free rate and the credit spread.
+        
         The second term is the contribution from the payoff when the firm defaults. 
-        The asset base consists of the pre-project assets, $A$, 
-        the secured payoff, and the unsecured payoff if it is in the firm's favour.
-        The secured payoff might be in the firm's favour, in which case the counterparty must pay it, 
-        or it might be a liability, in which case it is posted as collateral before the default
+        The asset base consists of the legacy assets, $A$, the secured payoff, $qY_{1}$, 
+        and the unsecured payoff if it is in the firm's favour, $qY_{2}^{+}$.
+        The secured payoff might be in the firm's favour, in which case the counterparty must pay it. 
+        Alternatively, it is a liability in which case it is posted as collateral before the default,
         and therefore not part of the estate and not available for the creditors.
-        If the unsecured payoff is a payable for the firm, the counterparty should pay it, like it should the secured payoff.
+        If the unsecured payoff is a receivable for the firm, 
+        the counterparty should pay it, like it should pay the secured payoff.
         If it is a liability, the counterparty ranks pari passu with the other claimants,
-        and therefore experiences the loss rate. 
+        and therefore experiences the loss rate.
+        \\
         The asset base is reduced by the distress costs, $1-\kappa$ so the estate available for claimants
         is a share, $\kappa$, of the assets. 
         This is the quantity found in the numerator of the fraction.
+        
         The denominator represents the total amount owed at time 1, 
         which is the sum of the pre-project liabilities, $L$, the face value of the new debt, 
         and the liabilities due to the unsecured payoff of the project.
-        The secured liabilities are already posted as collateral.
+        The secured liabilities, if any, are already posted as collateral.
         The amount available for paying claimants divided by the amount owed to claimants, is the loss rate.
 
         Since the credit spread depends on the decomposition of the payoff into a secured and unsecured part,
@@ -189,9 +193,10 @@
         the algebraic limit theorem ensures that the limit of the summation operation,
         can be expressed as the summation of the addends' limits.
         This also applies to two factors in a product.
-        In addition, the random variables $A$, $L$, and $Y$ are assumed to have finite expectations
-        which allows for interchanging limits and integrals, e.g. the expectation in the above equation.
-        Applying the limit of $q$ approaching $0$ from above:
+        Since $A$, $L$, and $Y$ have finite expectations,
+        limits and integrals, e.g. the expectation in the above equation, can be interchanged.
+
+        Applying the limit of $q$ approaching $0$:
             \begin{align}
                     S
                 &=
@@ -225,10 +230,10 @@
                     \right)
                 \nonumber
             \end{align}
-        The limit of $\mathcal{D}^{c}(q)$ is $\mathcal{D}^{c}$,
+        The limit of $\mathcal{D}(q)$ is $\mathcal{D}$,
         since the post-project default event with an infinitesimal investment in the project
         corresponds to the pre-project default event.
-        This stems from the fact that the upfront price of the $U(q)$
+        In addition, the upfront price of the project, $U(q)$,
         approaches zero as the quantity of the project approaches zero.
         Applying these results yields:
             \begin{align}
@@ -320,15 +325,21 @@
         as well as being independent to the quantity $q$. 
         These properties will make the limiting spread very useful in the following derivation
         of the marginal shareholder valuations.
+
+        Having derived the spread on new debt for financing an infinitesimal project,
+        the shareholders' valuation of obtaining this new project can be derived.
+        This derivation starts of by defining the payoff to the shareholders 
+        of obtaining a project of size $q$,
+        and then taking the derivative of that with respect to $q$.
         
-        The face value of the new debt is the upfront, which is the borrowed amount, 
-        including the interest rates paid, namely 
-        $U(q)(\grossrfrate + s(q))$. 
+        Again, the face value of the new debt is the upfront including the interest rates paid;
+        namely, $U(q)(\grossrfrate + s(q))$. 
         The shareholders receive the residual of the assets after debt claims have been paid
         unless the firm defaults, in which case the shareholders receive nothing. 
         The marginal increase in the value of the firms equity per unit investment is therefore:
-            \begin{align}
-                & G_{\text{debt}} = 
+            \begin{equation*}
+                G_{\text{debt}} 
+                = 
                 \left.
                 \frac{
                     \partial 
@@ -343,9 +354,11 @@
                     \right)^{+}
                 \right] 
                 \right\rvert_{q=0} 
-                \nonumber
-            \intertext{Expressing this derivative as a difference quotient, using $U(0)=0$:}
-                &=
+            \end{equation*}
+        Expressing this derivative as a difference quotient, using $U(0)=0$:
+            \begin{equation*}
+                G_{\text{debt}} 
+                =
                 \lim_{q\rightarrow0} 
                 \discountfactor
                 \frac{
@@ -363,17 +376,17 @@
                 }{
                     q
                 } 
-                \nonumber
-            \intertext{
-                The argument in the first max-function can be recognized as the function 
-                governing the firm's default event after entering the project. 
-                Therefore it is positive exactly when the firm does not default and negative otherwise. 
-                Applying the max-function, yields zero when the firm defaults
-                and the shareholders' payoff when the firm does not default.
-                The same idea applies for the argument in the second max-function,
-                but this argument instead governs the firm default \textit{before} entering the project.
-                Both max-functions can therefore be replaced by using indicators for the default events:
-            }
+            \end{equation*}
+        The argument in the first max-function can be recognized as the function 
+        governing the firm's default event after entering the project. 
+        Therefore it is positive exactly when the firm does not default and negative otherwise. 
+        Applying the max-function, yields zero when the firm defaults
+        and the shareholders' payoff when the firm does not default.
+        The same idea applies for the argument in the second max-function,
+        but this argument instead governs the default of the firm \textit{before} entering the project.
+        Both max-functions can therefore be replaced by using indicators for the default events:
+            \begin{align}                
+                G_{\text{debt}}
                 &=
                 \lim_{q\rightarrow0} 
                 \discountfactor
@@ -454,7 +467,7 @@
                 The limit of the post-project no-default event, $\mathcal{D}^{c}(q)$, 
                 is the pre-project no-default event $\mathcal{D}^{c}$.
                 The reformulation again uses the algebraic limit theorem,
-                which applies since the limits of the factors exists:
+                which applies since the limits of the factors exist:
             }
                 &=
                 \discountfactor
@@ -501,9 +514,10 @@
         which is different from $0$ as required. 
         \\
         Turning to the numerator, $\mathbbm{1}_{\mathcal{D}^{c}(q)} - \mathbbm{1}_{\mathcal{D}^{c}}$.
-        The pre-project no-default event is constant in $q$, and its derivative is zero. 
+        The pre-project no-default event, $\mathbbm{1}_{\mathcal{D}^{c}}$ is constant in $q$, 
+        and its derivative is zero. 
         For an infinitesimal investment the post-project no-default indicator, 
-        $\mathbbm{1}_{\mathcal{D}^{c}(q)}$, can only change its value if $A = L$. 
+        $\mathbbm{1}_{\mathcal{D}^{c}(q)}$, can only change its value at the point $A = L$. 
         However, the assumption $\mathbb{P}\left(A = L\right) = 0$ ensures that this does not occur;
         the derivative of the post-project no-default event
         is therefore surely zero in an interval around $q=0$.
@@ -538,6 +552,7 @@
                         Y - u (\grossrfrate + S)
                     \right)
                 \right]
+                \nonumber
             \intertext{
                 Using linearity of expectations and rearranging terms:
             }
@@ -584,7 +599,7 @@
                 - \mathbb{E}\left[W\right] \mathbb{E}\left[Z\right] \nonumber
             \end{align}
         According to this result, the aforementioned expectation can be rewritten as follows:
-            \begin{align}
+            \begin{align*}
                 \mathbb{E}^{\mathbb{Q}}\left[
                     \mathbbm{1}_{\mathcal{D}^{c}}Y
                 \right]
@@ -593,15 +608,15 @@
                 \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
                 + 
                 \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}^{c}}, Y\right) 
-                \nonumber\\
+                \\
                 &=
                 \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
                 \mathbb{E}^{\mathbb{Q}}\left[Y\right] 
                 - 
                 \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
-            \end{align}
+            \end{align*}
         Where the last equality uses $\mathbbm{1}_{\mathcal{D}^{c}} = 1 - \mathbbm{1}_{\mathcal{D}}$ 
-        combined with a property of the covariance operator.
+        combined with the standard properties of the covariance operator.
         Substituting into \cref{eqn:G-debt-step-4} finally yields the marginal value to shareholders of debt financing:
             \begin{align}
                 G_{\text{debt}} &=
@@ -620,7 +635,7 @@
                 \right] \discountfactor u S
                 \nonumber \\
                 &= 
-                p^{\mathbb{Q}} \pi 
+                p^{\mathbb{Q}} \mu 
                 - \discountfactor 
                 \text{Cov}^{\mathbb{Q}}\left(
                     \mathbbm{1}_{\mathcal{D}}, 
@@ -631,17 +646,20 @@
             \end{align}
         Where $p^{\mathbb{Q}} = 1 - \mathbb{P}^{\mathbb{Q}}\left(\mathcal{D}\right)$ 
         is the risk-neutral probability of the firm not defaulting. 
-        $\pi = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[Y\right] - u$ 
+        $\mu = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[Y\right] - u$ 
         is the difference between the present value of the expected payoff and the upfront price, 
-        i.e. $\pi$ is the promised marginal profit on the new project. 
+        i.e. $\mu$ is the promised marginal profit on the new project. 
         $\Phi = p^{\mathbb{Q}} \discountfactor u S$
         is the present value of the marginal excess return on the upfront price, 
         discounted by the probability of the firm not defaulting.
         $\Phi$ can be interpreted as the present value to the shareholders of their share of the financing costs, $uS$,
         which they pay iff the firm does not default. 
         If the firm's default event is positively correlated with the payoff of the project,
-        the shareholders will miss out on an even higher firm value when the firm defaults.
+        a greater part of the projects price will be due to payoffs that are realized when the firm defaults.
         The opposite is the case when the default event is negatively correlated with the payoff.
+        Since the shareholders get nothing in a default, 
+        the value of their claim decreases even more, 
+        when they are financing payoffs that they will never receive.
         This effect is captured by the term 
         $\text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right)$.
 
