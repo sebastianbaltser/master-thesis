@@ -1,19 +1,19 @@
-% !TEX root = ./sub-main.tex
-\documentclass[../main.tex]{subfiles}
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsubsection{Funding by equity issuance}
+    \subsubsection{Funding by Equity Issuance}
         In addition to obtaining debt, new projects can be financed by issuing additional shares
         that will provide a source of equity capital.
-        Share issuances dilutes the firm's stocks, which can reduce the value of the existing shareholders' stocks,
-        which will be the cause of the conflict of interest with this type of funding.
+        Share issuances dilute the firm's stocks, which can reduce the value of the existing shareholders' stocks.
+        This dilution will be the cause of the conflict of interest with this type of funding.
         It is assumed that the market for newly issued equity is sufficiently competitive,
         such that new shareholders break even when purchasing the newly issued shares;
         in other words, buying the firm's newly issued stock is a zero net present value investment.
 
-        With equity financing, the legacy shareholders still receives the difference between assets and debt claims,
+        With equity financing, the legacy shareholders still receive the difference between assets and debt claims,
         however they now have to split the bounty with the new shareholders, 
-        who, at time 0, takes an amount of shares worth $U(q)$. 
+        whom, at time 0, take an amount of shares worth $U(q)$. 
         The new shareholders do not influence whether the firm defaults, so the default event is:
             \begin{equation*}
                 \mathcal{D}(q)
@@ -152,7 +152,7 @@
                 &= 
                     p^{\mathbb{Q}}
                     \left(
-                        \pi
+                        \mu
                         +
                         u
                     \right)
@@ -167,7 +167,7 @@
                     \label{eqn:G-equity-step-1} \\
                 &= 
                     p^{\mathbb{Q}}
-                    \pi
+                    \mu
                     -
                     \discountfactor
                     \text{Cov}^{\mathbb{Q}}\left(
@@ -183,23 +183,23 @@
                     u 
                 \label{eqn:marginal-shareholder-value-equity-financing}
             \end{align}
-        The two first terms are recognized from the previous section in 
+        The first two terms are recognized from the previous section in 
         \cref{eqn:marginal-shareholder-value-debt-financing}
         and their interpretation are unchanged. 
-        The third term reflects the fact that, in the event of default, with probability $1-p^{\mathbb{Q}}$, 
-        legacy shareholders must give up the entire valuation of the incremental cash flows
-        that arises from the investment when the firm defaults.
+
         While \cref{eqn:marginal-shareholder-value-equity-financing} is clearly the easiest to compare to 
         \cref{eqn:marginal-shareholder-value-debt-financing},
-        \cref{eqn:G-equity-step-1} is easier to interpret, so the rest of this section will focus on the latter.
+        \cref{eqn:G-equity-step-1} is easier to interpret, so that will be the focus.
         The first term represents the added value to the legacy shareholders of 
-        obtaining a profit at time 1, $\pi$, from the project,
-        as well as receiving a cash injection from the new shareholders amounting to $u$.
+        the firm's asset value increasing with the profit, $\mu$,
+        and the cash injection from the new shareholders amounting to $u$.
         These two cash flows are only valuable to the shareholders if the firm can actually maintain solvency,
         so they are discounted by the survival probability, $p^{\mathbb{Q}}$.
-        The interpretation of the second term has been covered previously.
-        The third term $-u$ is due to the share dilution from the stock issuance.
+        In addition, the legacy shareholders do not actually receive 
+        the payment from the new shareholders, due to the stock dilution.
+        This is represented by the third term $-u$.
         The new shareholders receive a share of equity worth $u$, 
         and this is clearly a loss to the legacy shareholders.
+        The interpretation of the second term has been covered previously.
 
 \end{document}
