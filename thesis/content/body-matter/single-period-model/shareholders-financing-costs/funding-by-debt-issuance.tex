@@ -336,7 +336,8 @@
         unless the firm defaults, in which case the shareholders receive nothing. 
         The marginal increase in the value of the firms equity per unit investment is therefore:
             \begin{align}
-                & G_{\text{debt}} = 
+                G_{\text{debt}} 
+                = 
                 \left.
                 \frac{
                     \partial 
@@ -352,8 +353,11 @@
                 \right] 
                 \right\rvert_{q=0} 
                 \nonumber
-            \intertext{Expressing this derivative as a difference quotient, using $U(0)=0$:}
-                &=
+            \end{align}
+        Expressing this derivative as a difference quotient, using $U(0)=0$:
+            \begin{align}
+                G_{\text{debt}} 
+                =
                 \lim_{q\rightarrow0} 
                 \discountfactor
                 \frac{
@@ -372,16 +376,19 @@
                     q
                 } 
                 \nonumber
-            \intertext{
+            \end{align}
+        The argument in the first max-function can be recognized as the function 
                 The argument in the first max-function can be recognized as the function 
-                governing the firm's default event after entering the project. 
-                Therefore it is positive exactly when the firm does not default and negative otherwise. 
-                Applying the max-function, yields zero when the firm defaults
-                and the shareholders' payoff when the firm does not default.
-                The same idea applies for the argument in the second max-function,
-                but this argument instead governs the firm default \textit{before} entering the project.
-                Both max-functions can therefore be replaced by using indicators for the default events:
-            }
+        The argument in the first max-function can be recognized as the function 
+        governing the firm's default event after entering the project. 
+        Therefore it is positive exactly when the firm does not default and negative otherwise. 
+        Applying the max-function, yields zero when the firm defaults
+        and the shareholders' payoff when the firm does not default.
+        The same idea applies for the argument in the second max-function,
+        but this argument instead governs the firm default \textit{before} entering the project.
+        Both max-functions can therefore be replaced by using indicators for the default events:
+            \begin{align}                
+                G_{\text{debt}}
                 &=
                 \lim_{q\rightarrow0} 
                 \discountfactor
