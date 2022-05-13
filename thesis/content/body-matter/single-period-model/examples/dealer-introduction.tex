@@ -122,8 +122,9 @@
     Denote the face value by $F$. 
     The present value of the debt claim is the discounted face value, $\discountfactor F$,
     adjusted for the credit risk. 
-    The \CVA/, as usual, corresponds to the discounted expected value of
-    the positive exposure, $F$, multiplied by the loss rate given default, $\phi$.
+    As usual, the \CVA/ corresponds to the discounted expected positive exposure
+    multiplied by the loss rate given default, 
+    i.e. $\CVA/ = \discountfactor\mathbb{E}^{\rnmeasure}\left[F \phi \right] $.
     Hence the credit spread of existing debt is given by:
         \begin{equation*}
             \frac{
