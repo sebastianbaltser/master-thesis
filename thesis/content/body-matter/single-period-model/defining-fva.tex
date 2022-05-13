@@ -1,76 +1,90 @@
 % !TEX root = sub-main.tex
-\documentclass[../main.tex]{subfiles}
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
     \subsection{Defining FVA}
     \label{sec:defining-fva}
         Still remaining at this point is to properly define \FVA/, at least in a technical manner.
         According to \textcite{ADS2019} there are multiple ways of calculating \FVA/ used in practice and theory,
-        and a couple of viable definitions will be explained in this section.
+        and three viable definitions will be explained in this section.
+        The third, and last, definition will be the definition that is used throughout
+        the remainder of this paper.
 
-        \subsubsection*{FVA as the promised excess funding cost}
+        \subsubsection*{FVA as the Promised Excess Funding Cost}
             Since the firm obtains funds for the project at a spread in excess of the risk-free rate, 
             the shareholders pay an additional rate when the firm does not default. 
             This is a form of funding cost and argues in favour of defining the \FVA/ as
             the present value of the costs paid by the shareholders in excess of the risk-free rate.
             This is the definition used by \textcite{HullWhiteFVA} who define \FVA/ as 
             \textit{
-                the present value of the extra return required by lenders to compensate them 
-                for costs associated with possible defaults by the dealer on the funding.
+                "the present value of the extra return required by lenders to compensate them 
+                for costs associated with possible defaults by the dealer on the funding."
             }
-            Using the notation introduced in this paper, the adjustment would then be defined as:
+            Using the notation introduced in this paper, the adjustment will then be defined as:
                 \begin{align}
                     \FVA/ 
                     &= 
                         \discountfactor \left(
-                            U(q) (1 + \rfrate + s(q))
-                            - U(q) (1 + \rfrate)
+                            u (\grossrfrate + S)
+                            - u \grossrfrate
                         \right) 
                         \nonumber \\
                     &= 
-                        \discountfactor U(q) s(q)
+                        \discountfactor u S
                     \label{eqn:fva-as-promised-excess-funding-cost}
                 \end{align}
             If the CDS-bond spread is zero, this definition of \FVA/ is equal to the \DVA/.
             This fact is used by \textcite{HullWhiteFVA} as an argument against \FVA/s,
             since the \DVA/ should already be accounted for and therefore including the adjustment
-            for funding costs would be double counting.
-            The problem with this definition is that it does not take into account 
-            that the shareholders are not paying the credit spread when the firm defaults.
+            for funding costs will be double counting.
+            However, the shareholders do not pay the credit spread when the firm defaults,
+            which this definition does not take into account.
             It will be more meaningful to account for the default risk, 
             which is done by the next possible definition of \FVA/.
 
-        \subsubsection*{FVA as the expected excess funding cost}
-            The FVA could also be defined by the quantity $\Phi$ in \cref{eqn:marginal-shareholder-value-debt-financing}, 
-            i.e. the marginal valuation of the new project to the firm's legacy creditors. 
-            This value is also equal to the wealth transfer from the shareholders to the legacy creditors
+        \subsubsection*{FVA as the Expected Excess Funding Cost}
+            The FVA can also be defined by the quantity $\Phi$ in \cref{eqn:marginal-shareholder-value-debt-financing}.
+            The definition is repeated here for completeness:
+                \begin{equation}
+                    \FVA/
+                    =
+                        \Phi
+                    =
+                        p^{\rnmeasure}
+                        \discountfactor
+                        u
+                        S
+                    \label{eqn:fva-as-expected-excess-funding-cost}
+                \end{equation}
+            This value is equal to the wealth transfer from the shareholders to the legacy creditors
             of obtaining the new project.
             Compared to the previous definition of FVA, 
             $\Phi$ captures the expected funding cost as opposed to the excess funding cost.
-            Thus the the two quantities differ by a factor corresponding to the no default probability.
+            Thus, the two quantities differ by a factor corresponding to the no default probability.
 
             This approach seems more sensible than the previous, 
             since it focuses more on the shareholders' actual costs of obtaining the project.
-            Still, this adjustment might not be the breakeven adjustment
-            for the firm to enter the project from the viewpoint of shareholder value maximization.
+            Still, this adjustment might not be sufficient
+            for the firm to be able to enter the project while preserving the shareholder's wealth.
             As value adjustments are generally made as compensation for some quantity,
             in such a way that the product being adjusted ends up as a zero net present value investment,
             it would be coherent to also define \FVA/ as such.
             
-        \subsubsection*{FVA as the adjustment to shareholders' breakeven}
-            This suggests defining FVA as the difference between the project's theoretical value
-            and the price that makes the shareholders' indifferent to engaging in the project.
-            Phrased differently, the FVA is the donation needed from the project counterparty in order
-            to convince the shareholders to enter the project.
+        \subsubsection*{FVA as the Adjustment for Shareholders' Breakeven}
+            This suggests defining \FVA/ as the difference between the project's price, $u$,
+            and the price that makes the shareholders indifferent to engaging in the project.
+            Phrased differently, the \FVA/ is the donation needed from the project counterparty 
+            in order to preserve the shareholders' wealth.
 
-            Deriving the shareholder's breakeven price
-            is a matter of setting equal to zero the marginal value of entering project 
+            Deriving the shareholder' breakeven price
+            is a matter of setting the marginal value of entering the project equal to zero
             and solving for the marginal investment cost. 
             With three different funding types considered, this will result in three different breakeven prices,
             as well as three different definitions of \FVA/.
             These will be derived in the following paragraphs.
             
-            \textit{Debt financing:} \\
+            \noindent
+            \textit{Debt financing:}\par
             Under debt financing, the breakeven price is determined by setting
             \cref{eqn:marginal-shareholder-value-debt-financing} equal to zero
             and solving for the marginal investment cost:
@@ -102,6 +116,7 @@
                         }
                         - \discountfactor u S 
                         \nonumber\\
+                    \Leftrightarrow \qquad
                     u^{\ast}_{\text{debt}}
                     &\equiv
                         \frac{
@@ -127,8 +142,10 @@
             inflated by the probability of not defaulting. 
             The shareholders' breakeven value can then be seen as the discounted expected value of the cash flow
             adjusted for the inflated covariance.
-            The discounting rate used is however not the risk-free rate, but rather the funding rate, $\grossrfrate+S$.
-            Having derived the shareholders' breakeven value, the definition of the \FVA/ under debt financing
+            The discounting rate used is however not the risk-free rate, 
+            but rather the funding rate, $\grossrfrate+S$, 
+            to account for the funding costs of the new debt.
+            Having derived the shareholders' breakeven value, \FVA/ under debt financing
             can be defined as the adjustment to the actual price needed to arrive at breakeven:
                 \begin{equation}
                     \FVA/_{\text{debt}} 
@@ -136,8 +153,9 @@
                     \label{eqn:fva-debt-financing}
                 \end{equation}
 
-            \textit{Equity financing:} \\
-            Likewise the breakeven price under equity financing can be found by solving for $u$
+            \noindent
+            \textit{Equity financing:} \par
+            Likewise, the breakeven price under equity financing can be found by solving for $u$
             when \cref{eqn:marginal-shareholder-value-equity-financing} equals zero:
                 \begin{align}
                     0 &= G_{\text{equity}} 
@@ -159,6 +177,7 @@
                         \right)
                         u 
                         \nonumber \\
+                    \Leftrightarrow \qquad
                     u_{\text{equity}}^{\ast}
                     &\equiv
                         \discountfactor
@@ -183,7 +202,7 @@
                         \right)
                     \label{eqn:shareholders-breakeven-equity-financing}
                 \end{align}
-            Again, the shareholders' breakeven value can then be seen as the discounted expected value of the cash flow
+            Again, the shareholders' breakeven value can be seen as the discounted expected value of the cash flow
             adjusted for the inflated covariance.
             However, the discount factor applied is different from the risk rate plus the credit spread as seen before.
             The discount factor in this case $\discountfactor p^{\mathbb{Q}}$ corresponds to 
@@ -195,7 +214,8 @@
                     \label{eqn:fva-equity-financing}
                 \end{equation}
 
-            \textit{Cash funding:} \\
+            \noindent
+            \textit{Cash funding:} \par
             The breakeven price under cash funding is derived using
             \cref{eqn:marginal-shareholder-value-cash-financing}:
                 \begin{align}
@@ -211,6 +231,7 @@
                         \discountfactor
                         \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
                         \nonumber \\
+                    \Leftrightarrow \qquad
                     u_{\text{cash}}^{\ast}
                     &\equiv
                         \discountfactor
@@ -228,7 +249,7 @@
             Once more, the breakeven value is the expected value of the cash flow
             adjusted for the inflated covariance, both discounted. 
             Under cash funding the discount rate is the funding cost of using excess cash,
-            i.e. the opportunity cost of tying up capital which equals the risk-free rate.
+            i.e. the opportunity cost of tying up capital, which equals the risk-free rate.
             The \FVA/ under cash funding is:
                 \begin{equation}
                     \FVA/_{\text{cash}} 
@@ -236,18 +257,24 @@
                     \label{eqn:fva-cash-financing}
                 \end{equation}
 
-            If the firm has as objective to maximize shareholder value, 
-            it will not trade unless the upfront payment to the counterparty is at most the breakeven value,
-            or, conversely, unless the upfront payment to the firm from the counterparty is at least the breakeven value.
+        These three adjustments to the breakeven price 
+        will constitute the definition of \FVA/ used throughout this paper.
+        If the firm has as objective to maximize shareholder value, 
+        it will not trade unless the upfront payment to the counterparty is at most the breakeven value,
+        or, conversely, unless the upfront payment to the firm from the counterparty is at least the breakeven value.
+
+        \subsubsection*{Receiving a Donation From the Counterparty}
 
         Referring to the \FVA/ as \textit{the donation} needed from the counterparty to the dealer
         might be off-putting at first;
-        derivative dealers and hedge funds are seldom perceived as being charitable organizations.
+        derivative dealers, and financial institutions in general, 
+        are seldom perceived as being charitable organizations.
         \textit{Donation} is used rather figuratively in this context;
         it is meant to describe the counterparty agreeing 
         to sell (buy) at a lower (higher) price than the theoretical,
         but not for any specific reason.
-        Though these reasons are not crucial for this thesis,
+        \\
+        Though these reasons are not crucial for this paper,
         it will be helpful to have an idea about the situations that can motivate organizations
         to make a donation by price adjustments.
         To do so, it is worthwhile to recall \cref{sec:price-versus-value},
@@ -255,14 +282,16 @@
         Any derivative has a theoretical price 
         at which it would trade under ideal market conditions,
         but in reality, derivatives trade at a price set by an imperfect market.
+        \\
         In this market, dealers have different incentives and frictions
         that might lead to prices deviating from the theoretical price.
-        These incentives are plentiful; they could for example be regulatory, 
+        These incentives are plentiful; they could, for instance, be regulatory, 
         like stocking up liquidity buffers with high quality assets,
         as was mentioned in the example when introducing \FVA/.
         Another possible motivation that is worth mentioning, considering the topics of this paper,
         arises when the counterparty itself has a relatively high funding cost.
 
+        \begin{example}
         Suppose that the counterparty is selling an unsecured derivative to the dealer, 
         for some upfront price. 
         For simplicity, the only cash flow considered is the upfront price.
@@ -275,17 +304,19 @@
         than the dealer adjusts her valuation downwards. 
         If the two funding rates are sufficiently different, 
         the counterparty will be able to offer a price to the dealer
-        that is low enough to make the dealers' shareholders indifferent to buying the derivative.
+        that is low enough to make the dealer's shareholders indifferent to buying the derivative.
+
         This price reduction is \textit{the donation}.
         It is simply driven by the fact that different organizations 
         have different valuations or incentives such that they can agree on transactions
         even though the prices deviate from the theoretical.
+        \end{example}
 
         As mentioned, there are many of such incentives, 
         that could motivate organizations to making donations by reducing prices. 
         An organization's particular motive for raising or reducing prices
         is not of interest in this paper and will be left unspecified.
-        The examples above are merely a justification for using the term \textit{donation},
+        The cases mentioned above are merely a justification for using the term \textit{donation},
         in the definition of \FVA/.
 
 \end{document}
