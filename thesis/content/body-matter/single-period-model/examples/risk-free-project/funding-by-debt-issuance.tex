@@ -43,7 +43,7 @@
         The new debt should be able to cover the investment cost of the new project;
         hence, the present value of the new debt must equal, $u$.
         Therefore, the face value must be chosen to solve the following equation:
-            \begin{align}
+            \begin{align*}
                 u &= \pi(\tilde{D}) \\
                 \Leftrightarrow  \qquad
                 \num{0.99} 
@@ -53,11 +53,11 @@
                         1 - \phi
                     \right] 
                     \tilde{D}_{1}
-            \end{align}
+            \end{align*}
         While seemingly simple, this equation proves rather difficult to solve analytically for $\tilde{D}_{1}$.
         Substituting the loss rate, it is clear that the face value is quite entangled in the equation;
         both in the default event and in the fraction:
-            \begin{align}
+            \begin{align*}
                 \num{0.99}
                 &= 
                 \mathbb{E}^{\rnmeasure}\left[
@@ -71,7 +71,7 @@
                     \mathbbm{1}_{\{A + 1.00 < \num{80} + \tilde{D}_{1}\}} 
                 \right] 
                 \tilde{D}_{1} 
-            \end{align}
+            \end{align*}
         However, by studying this expanded equation, it is clear that the right hand side 
         is increasing in $\tilde{D}_{1}$, as that holds true for all the terms that constitutes it.
         Hence, the equation $u - \pi(\tilde{D})$ is very much suited for any simple numerical optimization procedure
@@ -80,10 +80,10 @@
         the evaluation of the expectation is by no means problematic.
         Since it is effective and simple, the equation will be solved by numerical procedures, 
         which yields the following solution:
-            \begin{align}
+            \begin{align*}
                 \Leftrightarrow  \qquad
                 \tilde{D}_{1} &= \num{1.030889}
-            \end{align}
+            \end{align*}
         Entering into the project and issuing new debt with face value $\num{1.030889}$ 
         alters the payoffs associated with the firm in the following way:
         \begin{table}[H]
