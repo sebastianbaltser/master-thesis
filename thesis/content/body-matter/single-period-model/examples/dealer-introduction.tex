@@ -55,9 +55,19 @@
 
     The credit spread before entering into any projects is 
     $\num{80}/\num{76.80} - \grossrfrate = \pct{0.031566}$.
-    Using \cref{eqn:creditor-loss-rate}, the loss rate of the creditors in the default event is
-    $\phi(\omega_{5}) = (\num{80}-\num{60})/\num{80} = \pct{0.25}$
-    while in all other states the loss rate is zero, as the firm does not default.
+    Using \cref{eqn:creditor-loss-rate}, the loss rate of the creditors in the default event is:
+        \begin{equation*}
+            \phi(\omega_{5}) 
+            = 
+                \frac{
+                    \num{80}-\num{60}
+                }{
+                    \num{80}
+                } 
+            = 
+                \pct{0.25}
+        \end{equation*}
+    In all other states the loss rate is zero, as the firm does not default.
     Recall that the limiting spread is the spread on the firm's debt 
     after obtaining an infinitesimal amount of a project. 
     The loss rate can be substituted into \cref{eqn:limiting-spread} 
