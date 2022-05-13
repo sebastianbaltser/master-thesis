@@ -1,15 +1,15 @@
-% !TEX root = ./sub-main.tex
-\documentclass[../main.tex]{subfiles}
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsubsection{Funding by existing cash}
+    \subsubsection{Funding by Existing Cash}
         Instead of relying on external resources to fund the project,
-        the firm might be in an excess of cash that can be used for financing,
-        thus eliminating the need for external funding.
-        If the firm uses cash from its balance sheet, the equity increases
-        by the present value of the risk-neutral expectation to the project payoff,
-        offset by the upfront cost and the opportunity cost of tying up capital in the project;
-        capital that could otherwise have been invested in bonds earning the risk-free rate.
+        the firm might be in an excess of cash that can be used for financing.
+        If the firm finances the new project with cash from its balance sheet, 
+        the equity increases by the present value of the expected payoff,
+        offset by the upfront cost, and the cost of tying up capital in the project.
+        The latter is an opportunity cost, since it locks capital
+        that could otherwise have been invested in bonds earning the risk-free rate.
         The firm therefore has to pay its liabilities with an asset base that is
         reduced by the upfront price appreciated by the risk-free rate.
         Hence, the default event is:
@@ -17,7 +17,7 @@
                 \mathcal{D}(q)
                 = 
                 \{
-                    A + qY < L + U(q)R
+                    A - U(q)R + qY < L
                 \}
             \end{equation*}
         and the marginal increase in the equity valuation per unit investment is:
@@ -39,7 +39,7 @@
             \end{equation*}
         This derivative is, again, very similar to the derivatives already examined,
         so, for brevity, the calculations in this section will be omitted.
-        The derivative can be reformulated to the following:
+        The marginal shareholder valuation of funding a project with existing cash can be reformulated as the following:
             \begin{align}
                 G_{\text{cash}} &=
                     \discountfactor
@@ -64,7 +64,7 @@
                 &= 
                     p^{\mathbb{Q}}
                     \left(
-                        \pi + u
+                        \mu + u
                     \right)
                     +
                     \discountfactor
@@ -75,7 +75,7 @@
                     \nonumber \\
                 &=
                     p^{\mathbb{Q}}
-                    \pi
+                    \mu
                     -
                     \discountfactor
                     \text{Cov}^{\mathbb{Q}}\left(\mathbbm{1}_{\mathcal{D}}, Y\right) 
@@ -84,12 +84,13 @@
         The derived equation only contains terms involving expectations of future cash flows,
         namely the payoff from the project.
         This reflects the fact that at time 0 there is no immediate value lost or gained
-        by the shareholders, since, as the project is fairly priced, there is no difference
+        for the shareholders, since, as the project is fairly priced, there is no difference
         in owning cash worth $u$ or a project worth $u$.
 
         Having derived the impact on equity valuation for these different funding types,
-        a natural question to ask is which type of funding is preferred from shareholders perspective.
+        a natural question to ask is which type of funding is preferred 
+        from the shareholders perspective.
         This result can be obtained by comparing the three derived equations,
-        and it is referred to by \textcite{ADS2016} as Proposition A1: A Pecking Order of Financing Preferences.
-        The following section will derive and prove this proposition.
+        which will be the objective of the next section.
+
 \end{document}
