@@ -7,18 +7,15 @@
     The project is risk-free in the sense that the payoff is known with certainty at time 0, so:
         \begin{table}[H]
             \centering
-            \begin{tabular}{l|rrrrr}
-                $i$ & 1 & 2 & 3 & 4 & 5 \\
+            \begin{tabular}{l|rrrrr||r}
+                $i$ & 1 & 2 & 3 & 4 & 5 & Present value\\
                 \hline
-                $Y(\omega_{i})$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{1}$
+                $Y(\omega_{i})$ & 
+                    $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & $\num{1}$ & \num{0.99}
             \end{tabular}
             \caption{}
             \label{tbl:single-period-simple-derivative-payoff}
         \end{table}
-    which implies a present value of 
-    $\pi(Y) = \discountfactor \mathbb{E}^{\rnmeasure}\left[Y\right] = \num{0.99}$, 
-    corresponding to the price of 1 zero coupon bond, 
-    as the project is merely an investment in the risk-free asset.
     Obtaining the payoff requires an upfront cost equal to the fair value of the project.
     With a slightly redefined notation, since the project is not infinitesimal,
     the marginal investment cost of the project will be denoted by $u$.
