@@ -70,10 +70,11 @@
             \begin{equation*}
                 \rho = qY^{-}/(L + qY^{-})
             \end{equation*}
-        Let $\mathcal{C}$ be the firm's cash flows at time 1 related to the portion of a total of $N$ unsecured contracts with different claimants. These cash flows are given by:
+        Assume that the firm has a portfolio of $M$ unsecured contracts, each with payoff $Y_{i}$.
+        Then the the firm's cash flow at time 1 is:
         \begin{equation}
             \mathcal{C} = 
-            \sum_{i=1}^{N} \left(
+            \sum_{i=1}^{M} \left(
                 \mathbbm{1}_{\mathcal{D}^{c}(q)} qY_{i}
                 + \mathbbm{1}_{\mathcal{D}(q)} qY_{i}^{+}
                 - \mathbbm{1}_{\mathcal{D}(q)} \rho_{i} \kappa A
@@ -89,7 +90,7 @@
         $\mathcal{C}$ now reflects the cash flows of the firm where each swap position can have both secured and unsecured positions, and these cash flows are given by:
         \begin{equation}
             \mathcal{C} =
-            \sum_{i=1}^{N} \left(
+            \sum_{i=1}^{M} \left(
                 q Y_{i,1}
                 + \mathbbm{1}_{\mathcal{D}^{c}(q)} qY_{i,2}
                 + \mathbbm{1}_{\mathcal{D}(q)} qY_{i,2}^{+}
