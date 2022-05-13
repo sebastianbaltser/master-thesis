@@ -74,7 +74,7 @@
                 - \mathbbm{1}_{\mathcal{D}(q)} \rho_{i} \kappa A
             \right)
         \end{equation}
-        where $Y = \sum_{i} Y_{i}$ is the payoff of the portfolio, which the firm has undertaken, and $\rho_{i} = qY_{i}^{-}/(L + qY^{-})$ is the pro rata share of contingent liability $i$. The first term in the summation expresses the firm's payoff from the different projects in case of no default. The second term adds the positive parts of the different investments made by the firm in case of default, since these are assets to the firm. The third part subtracts each contingent liabilities which the firm is obliged to pay in case of default. Each contingent liability receives their own pro rata share of the recovered total asset value.
+        where $\rho_{i} = qY_{i}^{-}/(L + q\sum_{j} Y_{j}^{-})$ is the pro rata share of contingent liability $i$. The first term in the summation expresses the firm's payoff from the different projects in case of no default. The second term adds the positive parts of the different investments made by the firm in case of default, since these are assets to the firm. The third part subtracts each contingent liabilities which the firm is obliged to pay in case of default. Each contingent liability receives their own pro rata share of the recovered total asset value.
 
         Practically, it's possible for a firm to also have unsecured position in its portfolio.
         The analysis is therefore extended to consider swap positions that include both secured as well as unsecured components.
@@ -91,7 +91,7 @@
                 - \mathbbm{1}_{\mathcal{D}(q)} \kappa (A + qY_{i,1}) \rho_{i}
             \right)
         \end{equation}
-        where $\rho_{i} = qY_{i,2}^{-}/(L + qY_{2}^{-})$ is the pro rata share of contingent liability $i$. Notice that the secured positions are now paid at time 1 no matter if the firm defaults or not. Only the unsecured positions depend on the outcome of the total asset value.
+        where $\rho_{i} = qY_{i,2}^{-}/(L + q\sum_{j} Y_{j,2}^{-})$ is the pro rata share of contingent liability $i$. Notice that the secured positions are now paid at time 1 no matter if the firm defaults or not. Only the unsecured positions depend on the outcome of the total asset value.
 
         This section has defined the firm's default event when considering the possibility
         of obtaining a quantity $q$ of a project with payoff $Y$.
