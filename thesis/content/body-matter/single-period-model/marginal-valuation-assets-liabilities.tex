@@ -56,8 +56,15 @@
         In addition, the negative part of the payoff, $Y^{-} = \max \left(-Y,0\right)$, is a contingent liability, and is also interpreted as the contractual amount that the firm is obliged to pay at time 1, before taking the firm's risk of default into consideration.
 
         If the contingent liability, $Y^{-}$, is not fully secured, a specification of how the associated counterparty recovers, in case of the firm defaulting, is needed.
-        For simplicity, and also as described by \textcite{ADS2019}, it's assumed that the portion of unsecured contingent liabilities acquired by the firm ranks pari passu with each other, such that the various claimants' default recoveries are pro rata with their claim amounts.
-        In practice, these liabilities more often rank pari passu with the firm's senior creditors as well.
+        According to \textcite{ADS2019}, in practice, a firm's swap-contingent liabilities 
+        are normally pari passu with its unsecured debt claims.
+        When liabilities rank pari passu, they experience the same loss rate in a default.
+        In other words, they receive a share of the remaining assets 
+        corresponding to their share of the total liabilities.
+        Since it is common in practice, throughout this paper it is assumed that the firm's 
+        unsecured liabilities ranks pari passu with each other;
+        therefore, the counterparty to the new project ranks pari passu with the creditors.
+        
         Let $\mathcal{C}$ be the firm's cash flows at time 1 related to the portion of a total of $N$ unsecured contracts with different claimants. The value to the firm of these cash flows is then given by:
         \begin{equation} % Do we need a proof for this equation?
             \pi(\mathcal{C}) = \discountfactor \mathbb{E}^{\mathbb{Q}}\left[
