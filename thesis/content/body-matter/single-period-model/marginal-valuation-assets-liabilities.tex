@@ -94,17 +94,19 @@
         For this motive, the payoff is divided in two, such that $Y=Y_1 + Y_2$, where $Y_1^{-}$ reflects the secured contingent liability, and $Y_2^{-}$ reflects the unsecured contingent liability.
         The financial position is still assumed to pay a payoff, $Y$, at time 1 which is unrelated to the credit risk of the firm, and the unsecured contingent liability is still assumed to rank pari passu with all other unsecured creditor claims.\\
         For the contingent liability, $qY_1^{-}$, to be secured, $A+qY_1 > 0$ is a necessary condition, and therefore assumed.
-        $\mathcal{C}$ now reflects the cash flows of the firm where each swap position can have both secured and unsecured positions, and these cash flows are given by:
+
+        Then the cash flows of the firm where the swap position 
+        can have both secured and unsecured parts is given by:
         \begin{equation}
             \mathcal{C} =
-            \sum_{i=1}^{M} \left(
-                q Y_{i,1}
-                + \mathbbm{1}_{\mathcal{D}^{c}(q)} qY_{i,2}
-                + \mathbbm{1}_{\mathcal{D}(q)} qY_{i,2}^{+}
-                - \mathbbm{1}_{\mathcal{D}(q)} \kappa (A + qY_{i,1}) \rho_{i}
-            \right)
+                q Y_{1}
+                + \mathbbm{1}_{\mathcal{D}^{c}(q)} qY_{2}
+                + \mathbbm{1}_{\mathcal{D}(q)} qY_{2}^{+}
+                - \mathbbm{1}_{\mathcal{D}(q)} \kappa (A + qY_{1}) \rho
         \end{equation}
-        where $\rho_{i} = qY_{i,2}^{-}/(L + q\sum_{j} Y_{j,2}^{-})$ is the pro rata share of contingent liability $i$. Notice that the secured positions are now paid at time 1 no matter if the firm defaults or not. Only the unsecured positions depend on the outcome of the total asset value.
+        where $\rho = qY_{2}^{-}/(L + qY_{2}^{-})$ is the pro rata share of the contingent liability. 
+        Notice that the secured positions are now paid at time 1 no matter if the firm defaults or not. 
+        Only the unsecured positions depend on the outcome of the total asset value.
 
         This section has defined the firm's default event when considering the possibility
         of obtaining a quantity $q$ of a project with payoff $Y$.
