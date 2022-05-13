@@ -2,10 +2,10 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsection{A dealer in a single-period economy}
+    \subsection{A Dealer in a Single-Period Economy}
 
     A derivatives dealer is operating in a single-period economy
-    defined by $N=5$ states and the following associated Arrow-Debreu prices:
+    defined by $N=5$ states and the associated Arrow-Debreu prices given in \cref{tbl:example-firm-structure}.
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rrrrr}
@@ -16,21 +16,21 @@
             \caption{}
             \label{tbl:example-firm-structure}
         \end{table}
-    implying a discount factor of $\discountfactor = \num{0.99}$ and a risk-free interest rate of $\rfrate = \pct{0.010101}$.
+    This implies a discount factor of $\discountfactor = \num{0.99}$ and a risk-free interest rate of $\rfrate = \pct{0.010101}$.
     The dealer invests in risky assets 
     which are funded by equity and debt deposits and return payoff specified shortly.
     In the event of default, the dealer's firm faces no distress cost, i.e. $\kappa = 1$, 
     such that the bankruptcy estate is distributed entirely to the creditors.
-    The firm has been funded by debt such that the face value of debt is $\num{80}$, 
-    which gives rise to the following payoff structure:
+    The firm has been funded by debt such that the face value of debt is its total liabilities $L=\num{80}$, 
+    which gives rise to the payoff structure defined in \cref{tbl:example-pre-project-capital-structure}.
     \begin{table}[H]
         \centering
-        \begin{tabular}{l|rrrrr}
-            $i$ & 1 & 2 & 3 & 4 & 5 \\
+        \begin{tabular}{l|rrrrr||r}
+            $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
             \hline
-            $A(\omega_{i})$ & \num{120} & \num{110} & \num{100} & \num{95} & \num{60} \\
-            $D(\omega_{i})$ & \num{80} & \num{80} & \num{80} & \num{80} & \num{60} \\
-            $E(\omega_{i})$ & \num{40} & \num{30} & \num{20} & \num{15} & \num{0}
+            $A(\omega_{i})$ & \num{120} & \num{110} & \num{100} & \num{95} & \num{60} & \num{96.4} \\
+            $D(\omega_{i})$ & \num{80} & \num{80} & \num{80} & \num{80} & \num{60} & \num{76.80}\\
+            $E(\omega_{i})$ & \num{40} & \num{30} & \num{20} & \num{15} & \num{0} & \num{19.6}
         \end{tabular}
         \caption{}
         \label{tbl:example-pre-project-capital-structure}
@@ -56,14 +56,23 @@
     The credit spread before entering into any projects is 
     $\num{80}/\num{76.80} - \grossrfrate = \pct{0.031566}$.
     Using \cref{eqn:creditor-loss-rate}, the loss rate of the creditors in the default event is:
-    $\phi(\omega_{5}) = (\num{80}-\num{60})/\num{80} = \pct{0.25}$
-    while in all other states the loss rate is zero, as the firm does not default.
+        \begin{equation*}
+            \phi(\omega_{5}) 
+            = 
+                \frac{
+                    \num{80}-\num{60}
+                }{
+                    \num{80}
+                } 
+            = 
+                \pct{0.25}
+        \end{equation*}
+    In all other states the loss rate is zero, as the firm does not default.
     Recall that the limiting spread is the spread on the firm's debt 
     after obtaining an infinitesimal amount of a project. 
-    This is identical to the pre-project spread on debt, 
-    but for completeness the loss rate can be substituted into \cref{eqn:limiting-spread} 
-    and limiting spread can be calculated:
-        \begin{equation}
+    The loss rate can be substituted into \cref{eqn:limiting-spread} 
+    and the limiting spread can be calculated:
+        \begin{equation*}
             S
             =
             \frac{
@@ -76,7 +85,7 @@
             } 
             =
             \pct{0.031566}
-        \end{equation}
+        \end{equation*}
 
     The derivations in previous sections, 
     which described limiting spreads and marginal shareholder valuations, 
@@ -98,13 +107,14 @@
     the actual marginal shareholder valuations can be obtained with numerical methods,
     such that the results of the equations can be verified and compared to the correct results.
 
-    \subparagraph{Digression on the limiting spread}
+    \subsubsection*{Digression on The Limiting Spread}
+
     As was calculated above, the limiting spread is equal to the credit spread of the existing debt.
     This is no coincidence, and this digression will explain why it is so,
     and what the implications are.
     As it turns out, 
     the framework presented here provides a helpful interpretation of the limiting spread.
-    Recall the definition of the limiting spread, repeated here for convenience:
+    Recall the definition of the limiting spread:
         \begin{equation*}
             S
             =
@@ -118,13 +128,14 @@
             }
         \end{equation*}
     For a constant face value,
-    the credit spread can be calculated by dividing the face value of the debt
+    the actual credit spread can be calculated by dividing the face value of the debt
     with the present value of the debt claim and subtracting the gross risk free rate.
     Denote the face value by $F$. 
     The present value of the debt claim is the discounted face value, $\discountfactor F$,
     adjusted for the credit risk. 
-    The credit value adjustment, as usual, corresponds to the discounted expected value of
-    the positive exposure, $F$, multiplied by the loss rate given default, $\phi(\omega_{5})$.
+    As usual, the \CVA/ corresponds to the discounted expected positive exposure
+    multiplied by the loss rate given default, 
+    i.e. $\CVA/ = \discountfactor\mathbb{E}^{\rnmeasure}\left[F \phi \right] $.
     Hence the credit spread of existing debt is given by:
         \begin{equation*}
             \frac{
@@ -168,18 +179,23 @@
         the definitions of the marginal shareholder valuations are based on
         the assumption that the post-project credit spread 
         will equal the pre-project credit spread.
-        However, these definitions are derived using infinitesimal projects. 
+        However, these definitions are derived using infinitesimal projects.
+        \\
         In practical applications,
-        it would therefore be more appropriate to refer to the limiting spread as an approximation 
+        it would be more appropriate to refer to the limiting spread as an approximation 
         of the credit spread after obtaining a larger-than-infinitesimal project.
+        
         The mathematics have been accounted for, 
         but the approximation does seem to be financial legitimate as well.
-        First of all, the post-project credit spread is based on the risk of the entire firm,
-        which most likely encompasses many projects.
+        First, the post-project credit spread is based on the risk of the entire firm,
+        which likely encompasses many projects.
         Each new project is therefore going to be of relatively small size compared
         to the entire firm, and it will only have a small effect on the overall riskiness.
         Second, this effect is enhanced if the firm mostly invests in projects that match
         its overall riskiness in the first place.
+        These two points work, 
+        since the credit spread does not change if the riskiness does not change. 
+
         Third and last, as was mentioned earlier, according to \textcite{Castagna2012FVA},
         the cost of capital will only gradually update, 
         such that obtaining a new project only have a very marginal effect on the credit spread.
