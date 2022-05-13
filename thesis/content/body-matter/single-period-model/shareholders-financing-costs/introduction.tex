@@ -1,24 +1,28 @@
-% !TEX root = ./sub-main.tex
-\documentclass[../main.tex]{subfiles}
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
-    This section will develop the theoretical framework for quantifying the impact of financing costs on the stakeholders of the firm.
-    The theoretical results derived are mainly from \textcite{ADS2019} and will be followed by practical examples where they are applied.
+    When the firm invests in the new project it has implications for its stakeholders,
+    specifically its shareholders and creditors.
+    The upfront price requires some type of financing, 
+    which the firm will have to decide on.
+    Obtaining this financing will have an influence on the value of the shareholders' claims;
+    this section will derive the theoretical equations defining
+    the impact of financing costs on the firm's shareholders.
+    The theoretical results derived are mainly from \textcite{ADS2019} 
+    and will be followed by practical examples where they are applied.
 
-    % TODO: The following section does not currently touch upon the section in ADS2019:
-    %       "The Marginal Valuation of Corporate Assets, Liabilities, and Other Claims"
-    %       though it probably should.
-
-    The analysis will still regard the firm considering an investment in a project.
     For generality, the firm considers investing in $q$ units of the project; 
-    the payoff is therefore $qY$ while the upfront cost is a function of $q$ and denoted $U(q)$. 
+    the payoff is therefore $qY$ while the upfront cost is a function of $q$, denoted by $U(q)$. 
     The marginal investment cost per unit invested is given as 
     $u = \lim_{q\rightarrow 0} U(q) / q$.
-    Throughout it is assumed that the asset value, $A$, equals the face value of debt, $L$, 
+    Throughout, it is assumed that the asset value, $A$, equals the face value of debt, $L$, 
     with probability zero, i.e. $\mathbb{P}\left(A = L\right) = 0$.
-    This assumption is necessary to avoid singularities when calculating derivatives
+    This assumption is necessary to avoid singularities when calculating derivatives,
     and it will be used in a proof later.
+    In addition, it is assumed that the random variables
+    $A$, $L$, and $Y$, have finite expectations.
 
     The following subsections will derive the marginal shareholder value from entering into the project
-    under three different funding assumptions, specifically debt, equity and cash funding.
+    under three different funding assumptions; specifically, debt-, equity-, and cash funding.
 \end{document}
