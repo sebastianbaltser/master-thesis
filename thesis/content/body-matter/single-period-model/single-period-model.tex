@@ -4,10 +4,12 @@
 \begin{document}
     \section{Theorizing Funding Costs}
     \label{sec:single-period-model}
-        In order to develop the necessary understanding of funding costs and their implications to a firm's stakeholders, this section will explore them using the single-period framework.
+        In order to develop the necessary understanding of funding costs 
+        and their implications to a dealer's stakeholders, 
+        this section will explore them using the single-period framework.
         The framework is a drastic simplification of reality but still it can provide useful results concerning funding value adjustments.
 
-    \subsection{The single-period model}
+    \subsection{The Single-Period Model}
         The single-period framework is modelling what will happen in an economy as it transitions from the present, time 0, to one time period ahead, time 1.
         At time 1 the economy can materialize in one of $N$ possible states, $\omega_{1}, \dots, \omega_{N}$, and each state occur with a strictly positive probability.
         A state is defined by the price of an Arrow-Debreu security paying one unit of numeraire if the state is achieved and zero otherwise.
@@ -17,30 +19,33 @@
 
         To characterize the market valuation of financial derivatives represented on a firm's balance sheet, the finite set, $\mathcal{L}$, of payoffs at time 1 is assigned a fair value at time 0 by some "fair market value"-function $V\, \colon \mathcal{L} \rightarrow \mathbb{R}$.
         Two required assumptions are imposed on the market valuation assignment: 
-        (i) $V(\cdot)$ is linear, meaning that the value of a portfolio holding different cash flows is the sum of the values of the elements of the portfolio, and 
-        (ii) $V(\cdot)$ is increasing in payoffs, meaning that if payoff $X$ is greater than or equal to payoff $Y$ in all $N$ states, and if $X>Y$ in some states, then $V(X)>V(Y)$.
+        (i) $V(\cdot)$ is linear, such that the value of a portfolio of cash flows is the sum of the values of the elements of the portfolio, and 
+        (ii) $V(\cdot)$ is increasing in payoffs, such that if payoff $X$ is greater than or equal to payoff $Y$ in all states, and if $X>Y$ in some states, then $V(X)>V(Y)$.
         These assumptions imply that $V$ is strictly positive, such that any $X>0$ yields $V(X) > 0$.
         
         The price of a payoff $d=\left(d_{1}, \dots, d_{N}\right)'$ is given as:
             \begin{equation}
                 \pi(d) = d'\psi = \sum_{i=1}^{N} d_{i}\psi_{i}
             \end{equation}
-        Especially a zero coupon bond surely paying one unit of numeraire in every state has the price:
+        Especially, a zero coupon bond paying one unit of numeraire in every state has the price:
             \begin{equation}
                 d_{0} = \sum_{i=1}^{N} \psi_{i}
             \end{equation}
         from which the risk-free rate can be defined as:
             \begin{equation}
-                r_{f} = \frac{1}{d_{0}} - 1
+                \rfrate = \frac{1}{d_{0}} - 1
             \end{equation}
-        The gross risk-free rate will be denoted by $\grossrfrate \equiv 1 + r_{f}$.
+        The gross risk-free rate will be denoted by $\grossrfrate \equiv 1 + \rfrate$.
         The product between the gross risk-free rate and the state price vector produces the risk-neutral probability distribution, $\mathbb{Q}$, i.e. $q_{i} = \grossrfrate\psi_{i}$.
 
-        In an OTC market, the market valuations of a derivative $i$ need not coincide with the price, $U_{i}(q)$, at which dealers are trading this derivative.
+        In an OTC market, the market valuations of a derivative need not coincide with the price at which dealers are trading this derivative.
         At almost the same point in time, the same asset can be traded at several different prices reflecting distinct bids and asks of different dealers.
         The associated deviation in prices is partly explained by search costs, differences in dealer-client relationships, and differences in the dealers' capital structure.
 
-    \subsection{Firm Capital Structure}
+        Having defined how valuation is achieved in the single-period model,
+        the following section will introduce a firm operating in such an economy.
+
+    \subsection{Firm capital structure}
         This section will describe the mathematical structure of a firm in a single-period model.
         This precedes describing how the firm's structure changes after it has obtained a new investment,
         
@@ -50,6 +55,7 @@
         namely, equity funding through distribution of the firm's own stocks or issuance of debt.
         The value of the firm's assets at time $1$ is given by the random variable $A$.
         At time 1 the firm's creditors are promised to receive some cash flow denoted by $L$.
+
         This cash flow might be fixed, i.e. a face value, 
         or random, i.e. depending on the realized state.
         In the event that the value of the firm, $A$, is not sufficient to pay the face value in its entirety, 

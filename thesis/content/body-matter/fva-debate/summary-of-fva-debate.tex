@@ -1,32 +1,27 @@
-% !TEX root = ./sub-main.tex
+% !TEX root = sub-main.tex
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
     \section{Summary of the FVA Debate}
-        Since the financial crisis, when banks were revealed to be more risky than previously thought,
-        theoreticians and practitioners have been debating the use of \FVA/
+        Since the financial crisis, when banks started applying them,
+        theoreticians and practitioners have been debating the use of \FVA/s
         when determining the prices of financial assets.
-        As mentioned earlier, the existence of funding costs have led some entities 
-        to apply adjustments to their prices when trading financial assets, 
-        in order to account for the funding costs they experience.
         The focal point of the discussion is specifically 
         whether it is appropriate to apply \FVA/s to the prices of financial assets.
-        \textcite{HullWhiteFVA} argue that \FVA/s should generally not be made,
-        but provide a summary of the debate that serves as a good starting point for further discussion of the topic.
-        The structure of the summary is reused in the following sections
-        where the arguments of different parties are presented,
+        This section will provide a summary of the debate, 
+        by presenting arguments from what could be considered the three main parties;
         namely traders, accountants, and theoreticians.
 
-        \subsection{FVA according to traders}
+        \subsection{\FVA/ According to Traders}
             The traders in the derivatives desk selling or buying derivatives 
-            will incur the average funding rate of the bank, as charged by the funding desk.
+            will incur the average funding rate of the bank, as charged by their funding desk.
             For derivatives that require funding the funding desk will charge funding costs from the traders.
             If the traders do not take into account the funding cost when pricing the derivatives,
             a loss will be shown for trades that require funding.
             To see this, consider the following example.
 
             \begin{example}
-            Assume a trader buying a simple option at some upfront price.
+            Assume a trader buys a simple option at some upfront price.
             The option has a theoretical price or value that might have been calculated by assuming
             that financing could be obtained at risk-free rates. 
             Should the trader buy the option at this theoretical price, 
@@ -56,32 +51,32 @@
             The company might be making decisions in a way that optimizes shareholder value,
             and therefore aligns its interests with them.
             Shareholders experience the same issue as traders of being charged funding costs on investments 
-            and will therefore be just as eager to evaluating investments in light of their funding costs.
+            and will therefore be just as eager to evaluate investments in light of their funding costs.
             This simple setup of creditors versus shareholders, 
             will later provide a medium through which the impact of funding costs can be explored.
 
-        \subsection{FVA according to accountants}
+        \subsection{\FVA/ According to Accountants}
             As financial statement auditors, accountants are concerned with providing objective valuations of derivatives,
-            such that the valuation of the firm itself can be fair and accurate.
+            such that the valuation of the firm itself is fair and accurate.
             Therefore, accountants seek to value derivatives at their exit price, i.e. the price that clears the market,
             which is dependent on how other market participants price the transaction.
             To determine the value of derivatives, accountants use the notion of \textit{fair value}.
             \textcite{IFRS13} defines the fair value of an asset as: 
-            \textit{the price that would be received from the sale of an asset or paid to transfer a liability
-            in an orderly transaction between market participants at the measurement date}.
+            \textit{"the price that would be received from the sale of an asset or paid to transfer a liability
+            in an orderly transaction between market participants at the measurement date"}.
             In addition, the fair value is clearly described by \textcite{IFRS13} as being market based and not entity based.
+
             This description of fair value is used by \textcite{HullWhiteFVA} as an argument to
             rule out using the funding cost when evaluating prices.
-            Since the funding rate, and therefore the funding cost, is entity specific,
+            They claim that, since the funding rate, and therefore the funding cost, is entity specific,
             the fair value should be independent of these.
             While this might be true in isolation, 
-            the current market practice is to incorporate funding value adjustments in derivatives valuations.
-            According to \textcite{KPMGFVA}, the current market practice is for dealers, especially OTC derivatives dealers,
-            to include \FVA/ in their valuations.  
+            according to \textcite{KPMGFVA}, the current market practice is for dealers, 
+            especially OTC derivatives dealers, to include \FVA/ in their valuations.  
             When evaluating the fair value, the dealers should consider the pricing practices 
             that would be used by market participants if the derivative was being sold;
             if the market practice is to apply adjustments for funding costs,
-            \FVA/s might very well be included in the fair value.
+            \FVA/s may very well be included in the fair value.
             The dealer should however consider the funding costs that market participants would consider,
             which is not necessarily equal to the dealer's own funding costs.
 
@@ -95,7 +90,7 @@
             With that said, it is generally very difficult to determine the generic level of bank funding spread
             representing the funding rate for the hypothetical counterparty in a hypothetical transaction.
             \textcite[Proposition 4]{KPMGFVA} states that for this reason 
-            some banks have in fact been applying their own funding spreads in order to determine FVA under IFRS. 
+            some banks have in fact been applying their own funding spreads in order to determine \FVA/ under IFRS. 
             Banks do this not for the sake of using their own funding spreads
             but for it to act as a proxy for the market funding cost.
             If the bank can be assumed to have comparable funding costs to other market participants,
@@ -103,10 +98,11 @@
 
             In conclusion, accountants should accept adjusting fair value for funding costs,
             as long as it is market practice to make these adjustment,
-            and banks use the funding costs of other market participants, or proxies of those, as reference.
+            and as long as banks use the funding costs of other market participants, 
+            or proxies of those, as reference.
 
-        \subsection{FVA according to theoreticians}
-            Again, in the context of derivative valuations, 
+        \subsection{FVA According to Theoreticians}
+            Again in the context of derivative valuations, 
             the arguments of theoreticians, like Hull and White themselves, 
             are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
             The price of a derivative can be obtained by replicating the cash flows of the derivative 
@@ -116,12 +112,11 @@
             which is why theoreticians oppose using a different discount rate
             claiming that there is no theoretical basis for making an \FVA/.
             The assumptions in this theoretical setup is however 
-            that the derivative exists in an very specific economic environment. 
-            In this economy the replication of the derivative
-            can be funded by borrowing and lending endlessly at the risk-free rate,
-            which is to say that a default-risk-free bond exists which firms can buy and sell freely.
+            that the derivative exists in a very specific economic environment. 
+            In this economy, the replication of the derivative
+            can be funded by borrowing and lending endlessly at the risk-free rate.
             As described in previous sections,
-            this seems at odds with how the actual real markets behaves and how much funding costs.
+            this seems at odds with how the actual real markets behave and how much financing costs.
             Different entities will obtain funding at different costs above the risk-free rate due to size,
             default risk and multiple other market frictions,
             and interest rate spreads between collateralized and unsecured funding is significant.
@@ -132,35 +127,36 @@
             Using an \FVA/ in derivatives pricing corresponds to replacing the risk-free rate by the higher funding cost
             when discounting cash flows.
             Hence, the value of the project will seemingly depend on the riskiness of the firm that undertakes the project.
-            \textcite{HullWhite2012FVA} use the following example to shed some light on this argument:
+            \textcite{HullWhite2012FVA} use the following example to shed some light on this argument.
 
             \begin{example}
-            Suppose a firm with an average excess funding rate of $200\basispoint$. 
-            The firm considers buying a nearly risk-free bond with a promised excess yield of $30\basispoint$,
+            Consider a dealer with an average excess funding rate of $200\basispoint$. 
+            The dealer assesses the opportunity to buy a nearly risk-free bond with a promised excess yield of $30\basispoint$,
             such that the theoretical price of the bond is the expected cash flow 
             discounted by the risk-free rate plus $30\basispoint$.
             However, for unspecified reasons, the bond is trading at a discount compared to the theoretical price.
-            Specifically, at the price offered it promises an excess yield of $80\basispoint$.
+            At the price offered it promises an excess yield of $80\basispoint$.
             
             To put some numbers to this example,
-            consider a firm financed by equity and debt, 
-            with a riskiness such that its weighted average cost of capital is $200\basispoint$.
-            The firm considers a new project with a present value of $100$.
+            consider a dealer in a firm,
+            financed by equity and debt, 
+            with a riskiness such that the firm's weighted average cost of capital is $200\basispoint$.
+            The dealer considers a new project with a present value of $100$.
             However, the project is actually trading at a price of $99.50$,
             and therefore has an excess yield of approximately $80\basispoint$.
             This situation is depicted in \cref{fig:hw-example}
 
             Based on the information provided, \textcite{HullWhite2012FVA} argue that the bond should be acquired,
             since it trades at a discount and therefore has a positive net present value.
-            The firm only needs to get financing either from equity- or debt issuance,
+            The dealer only needs to get financing either from equity- or debt issuance,
             and the provider of capital can receive a share of the net present value of the project.
             Since the riskiness of the project only corresponds to a yield of $30\basispoint$,
-            the firm should be able to obtain financing at a lower rate 
+            the dealer should be able to obtain financing at a lower rate 
             than the actual return of $80\basispoint$.
-            Furthermore, as the firm's average excess funding cost is higher than the excess yield of the bond, 
-            the average riskiness of the firm's existing projects is higher than the riskiness of the new bond.
-            Acquiring the bond would therefore reduce the firm's riskiness,
-            which should reduce the credit spread on new debt and therefore also reduce the funding costs of the firm.
+            Furthermore, as the dealer's average excess funding rate is higher than the excess yield of the bond, 
+            the average riskiness of the dealer's existing projects is higher than the riskiness of the new bond.
+            Acquiring the bond would therefore reduce the dealer's riskiness,
+            which should reduce the credit spread on new debt and therefore also reduce her subsequent funding rate.
             \end{example}
 
             \begin{figure}
@@ -171,7 +167,7 @@
                 \end{tikzpicture}        
                 }   
                 \caption{
-                    Depiction of Hull \& White's example where a debt and equity financed firm
+                    Depiction of Hull \& White's example where a dealer in a debt and equity financed firm
                     considers investing in a project with a positive net present value.
                 }
                 \label{fig:hw-example}
@@ -179,46 +175,47 @@
             
             From a theoretical perspective the conclusion of \textcite{HullWhite2012FVA} does seem plausible. 
             Obtaining the bond is a positive net present value investment, 
-            so surely the firm should be able to find some distribution of the value to the stakeholders, 
+            so surely the dealer should be able to find some distribution of the value to the relevant stakeholders, 
             such that obtaining the bond is a positive net present value investment for all entities.
             The bond counterparty is essentially providing a donation, 
             and some providers of funding should be willing to finance the bond for a share of the donation.
-            However, the problem with this example and the conclusion becomes apparent,
+            However, the problem with this conclusion becomes apparent,
             when considering how the example would play out in reality. 
             The bond might very well have such a low risk that an excess yield of $30\basispoint$ is justified, 
-            but, according to \textcite[Section 3]{Castagna2012FVA}, 
+            but, according to \textcite{Castagna2012FVA}, 
             the financing cost of a firm will usually only gradually update to reflect change in riskiness.
-            In reality the firm will also be quite restrained 
+            In reality the dealer will also be quite restrained 
             in the way it can distribute the value obtained from the bond.
-            The firm can experience a free rider problem, 
+            The dealer can experience a free rider problem, 
             where the profits from the bond might not be earned by the ones financing it,
             since the bond's payoffs will be a part of the asset poll of the firm,
-            which different stakeholders have claims on.
+            which different stakeholders have different claims on.
 
             Further investigation into the mechanisms of this apparent firm friction,
             will be postponed to later sections where a framework has been developed,
             and a more concrete discussion can be ensured.  
             For the time being, the argument will be ended with the result that, 
             while the theoretical conclusion is simply that a project trading at a discount should be obtained,
-            the practical conclusion is less clearcut.
+            the practical conclusion is less clear-cut.
             Even when the project counterparty is making a donation through the discount,
             the firm might not be able to properly distribute the donation to entities,
-            in a way that makes the project feasible.
+            in a way that makes the project attractive.
 
             \textcite{HullWhite2012FVA} extend the previous argument by referencing 
             an apparent inconsistency in financial institutions' application of \FVA/s.
             It is common for dealers to invest in government bonds, such as Treasury Bills,
             and generally other low-yielding assets.
-            Credit risky institutions such as derivative dealers are clearly going to have
-            a higher average funding cost than the yield of a T-Bill backed by the U.S. Government,
-            so it would seem that the dealers are not applying \FVA/s to these assets.
+            However, credit risky institutions, such as derivatives dealers, are clearly going to have
+            a higher average funding cost than the yield of a T-Bill backed by the U.S. Government.
+            Therefore, it would seem that the dealers are not applying \FVA/s to these assets.
+            \\
             The implication of the argument is that there is an inconsistency in dealer practice,
             as the low-yielding instruments would be unprofitable if an \FVA/ was made.
-            It is argued that dealers must then be recognizing that it is 
+            Hence, dealers must be recognizing that it is 
             the risk of the project that decides if a trade should be made; 
             not the dealers' funding rate.
 
-            It is true that a simple comparison of a dealers' \textit{average} funding rate
+            It is true that a simple comparison of a dealer's \textit{average} funding rate
             to the yield of a T-Bill would result in the bond being deemed a losing trade.
             The problem with this argument is that dealers are not going to finance T-Bills
             using unsecured borrowing and paying their unsecured borrowing rate.
@@ -227,20 +224,29 @@
             the purchase of these instruments can be financed with secured funding.
             Consequently, the funding rate of buying these instruments is much lower 
             than the dealers' average funding rate,
-            which partly explains why dealers willingly buy them.
-            In previous sections it was even explained that
+            which explains why dealers willingly buy them.
+            In previous sections, it was even explained that
             the lack of a repo market for derivatives is exactly the reason 
             why derivatives require unsecured funding in the first place.
             On the contrary, the existence of a repo market for bonds is exactly the reason
             why dealers can buy bonds without suffering a loss.
 
-            In fact, \textcite[Section~9.4.1]{Green2015XVA}
+            In fact, \textcite{Green2015XVA}
             uses the Semi-Replication model by \textcite{BurgardKjaer2013Funding},
-            to show that the existence of a derivatives' repo market
+            to show that the existence of a derivatives repo market
             would eliminate the need for an \FVA/ on derivatives. 
             However, it is unlikely that a repo market for derivatives will be developed.
-            Bonds are standardised and have high liquidity which makes them easy to repo,
+            Bonds are standardised and have high liquidity which make them easy to repo,
             but that is not the case for derivatives.
+
+        In conclusion, the summary of the debate can be distilled into two parts.
+        Theoreticians are against \FVA/s, 
+        with the argument that they break the assumptions of traditional valuation frameworks.
+        Finance theory states that the risk of a project 
+        should determine the discount rate for the cash flows, 
+        and that the funding rates are irrelevant.
+        Traders, however, are subject to the funding rates of their funding desk;
+        if they do not account for funding costs, they will lose on trades that requires financing.
 
 \end{document}
         

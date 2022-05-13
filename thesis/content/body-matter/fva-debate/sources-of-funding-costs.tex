@@ -2,7 +2,7 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \section{Sources of funding costs}
+    \section{Sources of Funding Costs}
         In the context of an OTC derivatives dealer, 
         \textcite{Ruiz2013FVA} mentions some of the most likely sources of funding costs as
         either asymmetry in collateral agreements or the payment liabilities due to the contract itself.
@@ -247,26 +247,26 @@
         the cash flows will not always align, which creates cash surpluses and deficits;
         and therefore funding costs or benefits.
         
-    \subsection{Funding costs from derivatives cash flows}
-        The fact that the dealer does not have access to risk-free funding
-        can imply further contributions to the funding costs, besides that from collateral financing.
-        First, note that cash flows arising from a derivative must also be funded at a non-risk-free rate
-        and that these cash flows can be used for netting other cash flows in the dealer's portfolio.
-        The second point implies that with the existence of a perfect replication,
+    \subsection{Funding Costs from Derivatives' Cash Flows}
+        Collateral postings is just one possible outgoing cash flow that a dealer might need to fund.
+        Another is the contractually agreed on cash flows in a derivative,
+        which must also be funded at the dealer's borrowing rate.
+        However, as was the case with collateralization,
+        a derivative's cash flows can be used for offsetting 
+        other cash flows in the dealer's portfolio.
+        This implies that with the existence of a perfect replication,
         the cash flows from a derivative can be completely offset by the hedging strategy,
         such that no additional funding is required and no funding costs are generated.
 
-        In reality, replications of OTC derivatives are most often imperfect,
-        such that there is no one-to-one correspondence in cash flows between the derivative and the hedge.
+        A perfect replication is a useful benchmark;
+        however, in reality, replications of OTC derivatives are most often imperfect.
+        Therefore, there is likely not a one-to-one correspondence 
+        in cash flows between the derivative and the hedge.
         Of course, the dealer might not even try to hedge a derivative directly,
         but rather let a netting set of cash flows offset each other. 
         The principle is the same whether the derivative cash flows are offset by an imperfect hedge
         or another different derivative;
         both are again sources of funding cost, which can be illustrated by the following examples.
-
-        The treatment of derivative cash flows from a funding cost perspective 
-        depends on the type of cash flow and the reason why it occurs,
-        as not all entail funding costs for the same reason.
 
         \begin{example}
         Consider a firm buying a simple option, without the intention to hedge its market risk.
@@ -282,8 +282,8 @@
         while selling the option instead will decrease the funding needs and create a funding benefit.
         This is not to say that a CSA agreement will eliminate funding costs completely. 
         Hedging cash flows might also generate funding needs or surpluses, 
-        e.g. if a dealer must apply leverage to properly hedge a positions 
-        and pay the higher rates of leverage due to financing spreads.
+        e.g. if a dealer must apply leverage to properly hedge a position 
+        and subsequently pays the higher rates of leverage due to financing spreads.
         \end{example}
 
         Another source of funding costs materializes in the next example when the dealer applies an imperfect hedge.
@@ -293,11 +293,36 @@
         but for the replication the dealer is only able to obtain a 10 year swap with quarterly payments.
         As a result, the dealer will have a cash flow from the hedge every three months
         that does not correspond to the cash flow from the OTC derivative. 
-        Both of these are examples of funding costs essentially stemming from the lack of perfect hedging.
+        Both of these scenarios are examples of funding costs essentially stemming from the lack of perfect hedging.
         \end{example}
 
-        Having established some possible sources of funding costs, 
-        the discussion can move on to the debate about whether accounting for these is appropriate for derivatives pricing.
+    \subsection{Funding Costs from Other Sources}
+        It is worth mentioning that there are multiple other mechanisms 
+        that can lead to funding costs.
+        One, that has already been mentioned, is the maintenance of liquidity buffers,
+        which requires capital to be locked up in liquid assets
+        to protect against liquidity drying out.
+        Most others fall into the category of over-collateralization,
+        which refers to providing collateral 
+        worth more than enough to cover losses in case of default.
+        For example, 
+        Central Counterparties typically require more types of margin than mentioned here,
+        all with the purpose of protecting against the default of its clearing members.
+        CSA agreements might also contain provisions for volatility buffers
+        that work as over-collateralization 
+        for the event that counterparties experience a drop in credit ratings.
+        All of these are treated in detail by \textcite[Chapter 10]{Green2015XVA}.
+
+        It is beyond the scope of this paper to cover all possible frictions 
+        that might provide funding costs, 
+        as that is not necessary to establish why derivatives in general have funding costs.
+        The two previous sections have treated, in very broad terms, 
+        the two primary sources of funding costs, 
+        and other mechanisms can more or less fit into these.
+
+        Having described the general frictions in derivatives trading that leads to funding costs,
+        the discussion can move on to the debate about 
+        whether accounting for them is appropriate for derivatives pricing.
 
 \end{document}
         
