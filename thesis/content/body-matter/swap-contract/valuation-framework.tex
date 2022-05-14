@@ -2,19 +2,18 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsection{Marginal valuation framework}
-        The multi-period framework extends the assumptions made in \cref{sec:single-period-model} to include multiple time periods.
+    \subsection{The Multi-Period Model}
+        The multi-period model extends the assumptions made in \cref{sec:single-period-model} to include multiple time periods.
 
         An additional date $2$ is introduced as the new time of maturity.
         At the interim time 1 the market economy is defined by a collection of random variables,
         and at maturity, all the uncertainty is settled. 
         The single-period gross risk-free returns at time 0 and time 1 are $R_0$ and $R_1$ respectively, where $R_1$ is random at time 0.
-        This means that the risk-free rate is not required to be constant,
-        and the market value of cash flows is defined as,
+        Hence, the risk-free rate is not required to be constant,
+        and the market value of cash flows is defined as:
         \begin{equation}
             \pi(\mathcal{C}_{t}) =
-            \sum_{t=1}^{2}
-            \delta_t \mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_{t}\right]
+            \mathbb{E}_{0}^{\rnmeasure}\left[\delta_t\mathcal{C}_{t}\right]
         \end{equation}
         where $\delta_1 = \frac{1}{R_0}$,
         and $\delta_2 = \frac{1}{R_{0}R_{1}}$.
@@ -31,21 +30,21 @@
         \\
         As always, the firm defaults the first time it fails to meet its financial obligations.
         At time 1 the firm liquidates a portion of its assets to cover the short-term liabilities.
-        The time 2 value of this portion is denoted as $W = L_1 R_1$.
+        The time 2 value of this portion is denoted by $W = L_1 R_1$.
         Also, at time 1 the firm pays out a dividend, $\theta_1 \geq 0$, to its shareholders,
-        %Not sure about \theta being the right notation for the dividend
         which is considered a random variable.
         The default time of the firm is denoted by $\tau_{F}$,
         where $\tau_{F} = \infty$ if the firm survives at time 2.
-        In case of no default, the firm is liquidated, and the remaining cash is distributed to the shareholders after the creditors are paid back.
+        When the firm does not default, its assets are liquidated, 
+        and the remaining cash is distributed to the shareholders after the creditors are paid back.
         \\
         Finally, it is assumed that all liabilities rank pari passu,
-        and the recovery rates at time 1 and time 2 are denoted by $\kappa_1$ and $\kappa_2$ respectively,
-        i.e. the portion of the total asset value after distress costs that the creditors receive in case of default.
+        and the assets' recovery rates given default at time 1 and time 2 
+        are denoted by $\kappa_1$ and $\kappa_2$ respectively.
 
-        To describe the total value of the firm's equity, it is essential to realise that, as always, the shareholders receive a payoff of 0, if the firm defaults.
-        Looking at the potential payoff of the shareholders in case of no default, the total value is defined as following:
-        \begin{equation}
+        As usual, the shareholders receive a payoff of 0 if the firm defaults and
+        the total value of equity is defined as:
+        \begin{equation*}
             \pi(E)=
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_1\mathbbm{1}_{\{\tau_{F}>1\}} \theta_1
@@ -54,19 +53,19 @@
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_{2}\mathbbm{1}_{\{\tau_{F}>2\}} (A-W-L_{2})
             \right]
-            \label{eqn:shareholder-value-multi-period}
-        \end{equation}
-        The first term in \cref{eqn:shareholder-value-multi-period} defines the discounted expected value of the dividend payout at time 1 in case of no default before time 2.
+        \end{equation*}
+        The first term defines the discounted expected value of the dividend payout at time 1 if the firm does not default.
         If the dividend is non-zero, it benefits the shareholders,
         in the sense that it guarantees the shareholders to receive some payoff before a possible default event at time 2.
         The second term defines the discounted expected residual of the liquidated assets at time 2.
-        If the firm does not have enough assets to cover the long-term liabilities, the creditors receive the remaining assets, and the firm defaults.
+        If the firm does not have enough assets to cover the long-term liabilities, the creditors receive the remaining asset amount,
+        and the firm defaults.
         This leaves a payoff of 0 for the shareholders.
 
         On the contrary, the creditors receive a payoff in every scenario.
         The size of the payoff is fully dependent on if the firm defaults or not.
-        The total value of the creditor's payoff is defined as following:
-        \begin{align}
+        The total value of the creditor's payoff is defined as:
+        \begin{align*}
             \pi(D)&=
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 \delta_1
@@ -88,19 +87,18 @@
                 \mathbbm{1}_{\{\tau_{F}=2\}}\kappa_{2}(A-W)
                 \right)
             \right]
-            \label{eqn:creditor-value-multi-period}
-        \end{align}
-        In \cref{eqn:creditor-value-multi-period} the first and the second term basically defines the same thing but in the two different time periods.
+        \end{align*}
+        Both terms basically defines the same thing but in the two different time periods.
         The first term in each expectation is the expiring liability payoff at the respective point in time given no default.
-        The second term in each expectation is the total asset value in case of default.
+        The second term in each expectation is the total asset value if the firm defaults.
         Note that for $\tau_{F}>1$ the firm survives at time 1.
-        This means that at time 2 for both the shareholders and the creditors, the liquidated value at time 1, $W$,
+        Hence, at time 2 for both the shareholders and the creditors, the liquidated value at time 1, $W$,
         that was used to cover the short-term liabilities, is subtracted from the asset value.
 
-        To ensure that the present value of the risk-neutral expected value of the new creditors' payoff equals the amount needed to fund the swap contract, $U(q)$,
+        To ensure that the present value of new creditors' claim equals the amount needed to fund a project, $U(q)$,
         the idea is fundamentally the same as in the single-period model.
         To unravel an explicit expression of the credit spread in a two-period model,
-        \cref{eqn:new-creditors-breakeven}, which shows the shareholders' breakeven value of the project, is now extended.
+        \cref{eqn:new-creditors-breakeven}, which shows the shareholders' breakeven value of a new obtained project, is now extended.
         \\
         The default time of the firm depends on the size of the new project.
         To capture this, the default time, after the firm has obtained the project, 
@@ -110,7 +108,8 @@
         The firm receives a payoff from its secured position, $Y_{1,t}$, 
         as well as its unsecured position, $Y_{2,t}$, at both time periods.
         Furthermore, the liabilities are, as mentioned, separated into short-term and long-term.
-        Denote the value of the new debt in each period by $D_{0}$, $D_{1}$, and $D_{2}$.
+        \\
+        Denote the no-default value of the new debt in each period by $D_{0}$, $D_{1}$, and $D_{2}$.
         These quantities represent the value if the firm does not default in the corresponding period,
         i.e. $D_{2}$ is the face value of the debt and $D_{1}$ 
         is the time 1 value if the firm does not default in time 1.
@@ -119,7 +118,7 @@
         is the share of liabilities remaining in the bankruptcy estate after distress costs.
         In period two, the amount paid for short term liabilities must be accounted for,
         and the recovery rate is given by:
-        \begin{align}
+        \begin{align*}
             \Pi_{2}(q) 
             = 
             \mathbbm{1}_{\{\tau_{F}(q)=2\}}
@@ -134,11 +133,11 @@
                 +
                 q Y_{2,2}^{-} 
             }
-        \end{align}
+        \end{align*}
         In period one, the payoff of everything, but the short term liabilities, are uncertain,
         so the recovery rate depends on the expected payoffs
         conditional on the information set at time 1:
-        \begin{align}
+        \begin{align*}
             \Pi_{1}(q) 
             = 
             \mathbbm{1}_{\{\tau_{F}(q)=1\}}
@@ -156,15 +155,16 @@
                     \frac{q Y_{2,1}^{-}}{R_{1}}
                 }
             \right] 
-        \end{align}
+        \end{align*}
         Since the liabilities have two different terms, 
         it will be useful to also define two different credit spreads;
         one for the excess yield from period 0 to period 1,
         and another for the excess yield from period 1 to period 2.
         The former will be denoted $s_{0}(q)$ and the latter $s_{1}(q)$.
+        \\
         The credit spreads must solve the following forward discounting relations
         between the debt values:
-        \begin{align}
+        \begin{align*}
             D_{1} 
             &= 
             D_{0}(R_{0} + s_{0}(q)) 
@@ -173,12 +173,12 @@
             &= 
             D_{1}(R_{1} + s_{1}(q))
             \nonumber 
-        \end{align}
-        including the boundary condition, ensuring that the time zero value of the new debt 
+        \end{align*}
+        including a boundary condition ensuring that the time zero value of the new debt 
         equals the funding needs of the firm, i.e. $D_{0} = U(q)$.
-        The value in each period is also related to the following period 
+        The debt's value in each period is also related to the following period 
         by the backward discounting relations:
-        \begin{align}
+        \begin{align*}
             D_{1} 
             &= 
             \frac{1}{R_{1}} 
@@ -197,25 +197,25 @@
                 +
                 \mathbb{E}_{0}^{\rnmeasure}\left[\Pi_{1}(q)D_{1}\right] 
             \right)
-        \label{eqn:new-creditors-breakeven-two-period-model}
-        \end{align}
+        \end{align*}
         Recall \cref{eqn:new-creditors-breakeven}, 
         which ensured breakeven for the new creditors in the single period model;
         the two equations just derived are of the exact same form, leave the recovery rates. 
         With the same motivation as in \cref{sec:single-period-model} and with analogous procedure,
         the limiting spreads for each period can be derived.
+        \\
         In period 0 the limiting spread to period 1 is:
-        \begin{equation}
+        \begin{equation*}
             S_0 =
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]R_0
             }{
                 1 - \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right] 
             }
-        \end{equation}
+        \end{equation*}
         where $\phi_{2}$ is the creditors' loss rate in period 2,
         given by the complement of the recovery rate for an infinitesimal project.
-        \begin{align}
+        \begin{align*}
             \phi_1 
             &=
             1 - \lim_{q\rightarrow0} \Pi_{1}(q) 
@@ -231,20 +231,20 @@
             }{
                 L_{1} + \mathbb{E}_{1}^{\rnmeasure}\left[L_{2}\right]/R_1
             }
-        \end{align}
+        \end{align*}
         
         Likewise, if the firm survives at time 1, 
         the limiting spread from the interim period to period 2 is:
-        \begin{equation}
+        \begin{equation*}
             S_1 =
             \frac{
                 \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right]R_1
             }{
                 1 - \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right] 
             }
-        \end{equation}
+        \end{equation*}
         where $\phi_{2}$ is the creditors' loss rate in period 2, given by:
-        \begin{align}
+        \begin{align*}
             \phi_2 
             &=
             1 - \lim_{q\rightarrow0} \Pi_{2}(q) 
@@ -256,18 +256,19 @@
             }{
                 L_{2}
             }
-        \end{align}
+        \end{align*}
         It should be noted that the framework presented here can be easily extended 
         with additional periods, 
         by defining the corresponding forward- and backward discounting relations
         and solving the equations as already shown.
-        For the purposes of this thesis, not much is gained, besides complexity, 
+        For the purposes of this paper, not much is gained, besides complexity, 
         if the model were to be extended to more than two periods.
         Hence, no effort will be funnelled in this direction,
-        and the analysis can move on to quantifying the implications of funding costs
+        and the analysis can move on to quantify the implications of funding costs
         in the framework presented.
 
-        A swap contract is an OTC derivative.
+        The remainder of this paper will be focused on applying the multi-period model 
+        to a swap contract.
         In this two-period setup, before considering counterparty credit risk, a swap promises a floating payment, $X_t$, in exchange for a fixed payment, $K_t$, for $t = 1,2$, where the fixed payments are not necessarily constant.
         Hence, for the payer swap, the cash flows stemming from the swap contract are defined as $\mathcal{C}_t = X_t - K_t$.
         Focussing on the payer swap, the positive cash flows will indicate an asset to the firm, whereas the negative cash flows will be a contingent liability.
