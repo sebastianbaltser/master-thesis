@@ -161,9 +161,10 @@
             \end{equation*}
             This concludes that the bond premium that the firm receives at time 0 is equal to $\num{0.96}$, 
             which is then the amount used for retiring debt. 
-            On top of this, the amount is recognized as the difference between the riskless project value and the \DVA/:
+            On top of this, the amount can be recognized 
+            as the price of the riskless bond adjusted for the firm's credit risk:
             \begin{equation*}
-                V = V_{rf} - \DVA/_F = \num{0.99} - \num{0.03} = \num{0.96}
+                V = \discountfactor * 1 - \DVA/_F = \num{0.99} - \num{0.03} = \num{0.96}
             \end{equation*}
             which validates \cref{eqn:option-value-credit-risk}. 
 
