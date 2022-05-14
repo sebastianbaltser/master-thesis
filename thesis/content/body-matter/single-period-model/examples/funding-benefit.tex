@@ -292,17 +292,17 @@
             The wealth of the creditors is solely dependent on the payoff structure of the project;
             their wealth increases when the asset value increases and vice versa.
 
-        \subsubsection{No funding buyback}
+        \subsection{No Funding Buyback}
             Now suppose, instead of buying back debt or equity, 
-            the firm spends the cash proceeds from the derivative premium in riskless assets. 
-            If the derivative traded with the counterparty has a known payoff at time 1, this procedure is virtually the same as if the firm borrows money to buy the riskless asset 
+            the firm spends the cash proceeds from the upfront price in riskless assets. 
+            If the derivative traded with the counterparty has a known payoff at time 1, this procedure is virtually the same as if the firm borrows money to buy the risk-free asset 
             as described in \cref{sec:example-risk-free-project-debt-issuance}. 
             To deviate from the exact same conclusions, the derivative is now assumed to have a payoff structure at time 1 
             as described in \cref{tbl:risky-option-payoff}. 
-            The derivative will still be fairly priced, i.e. the price is the discounted expected payoff for the counterparty. 
-            The credit risk still needs to be accounted for in the price. 
+            The derivative will still be fairly priced, i.e. the price is the discounted expected payoff for the counterparty, 
+            such that the credit risk of the firm is accounted for in the price. 
             At time 1 the firm will pay the counterparty accordingly, hence the derivative payable, $Y_C$, 
-            is still a contingent liability to the firm and ranks pari passu with the already existing debt.
+            is a contingent liability to the firm and ranks pari passu with the already existing debt.
             \\
             This section analyses whether this capital structure setup causes reasons for funding benefits.
             Intuitively, this could seem appropriate as the firm receives cash proceeds from the upfront price that can be invested beneficially.
@@ -318,11 +318,12 @@
                 \label{tbl:risky-option-payoff}
             \end{table}
 
-            After receiving the derivative premium in the form of cash, the firm immediately invests in the risk-free asset. 
-            This implies that the firm's total asset value increases with an amount equal to the discounted derivative premium. 
-            The capital structure, after this transaction, is described in \cref{tbl:example-no-funding-buyback}, 
-            where the derivative theoretical fair value price and loss rate are found
-            by solving the following equation system for $\pi(Y_C)$ and $\phi$:
+            After receiving the upfront price in the form of cash, the firm immediately invests in the risk-free asset. 
+            This implies that the firm's total asset value increases 
+            with an amount equal to the forward discounted upfront price. 
+            The capital structure, after this transaction, is described in \cref{tbl:example-no-funding-buyback}.
+            The derivative's credit risk adjusted price and loss rate given default are found
+            by solving the following system of equations for $\pi(Y_C)$ and $\phi(\omega_{5})$:
             \begin{align}
                 \pi(Y_C) &= \discountfactor\mathbb{E}^{\rnmeasure}\left[Y_{C}\right]
                 \label{eqn:no-funding-buyback-derivative-fair-value}
@@ -330,8 +331,22 @@
                 A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
                 \label{eqn:no-funding-buyback-default-state}
             \end{align}
-            with \cref{eqn:no-funding-buyback-default-state} making sure that the creditors and derivative payable
-            takes the total asset value amount in case of default, i.e. state $\omega_5$.
+            with \cref{eqn:no-funding-buyback-default-state} ensuring that the 
+            sum of the payoffs to the creditors and the counterparty
+            equals the asset value in case of default, i.e. state $\omega_5$.
+            The realized asset value at maturity here includes the value of the derivative adding to the total asset base.
+
+            The loss rate given default obtained from solving the above problem is 
+            $\phi(\omega_{5}) = \pct{0.230361}$, 
+            and the new credit spread is then 
+            $\num{80}/\num{76.988534} - \grossrfrate = \pct{0.0290148}$.
+            Compare the new credit spread with the pre-project credit spread of \pct{0.031566};
+            by obtaining the new project, the credit spread has decreased quite significantly.
+            The reduction can be explained by the project's payoff structure,
+            as the states where the firm's asset value is the highest are
+            also the states where the project's payoff is the highest and vice versa. 
+            Therefore, by selling the project, the firm has reduced its riskiness
+            as well as the loss rate and credit spread of the creditors.
 
             \begin{table}[H]
                 \centering
@@ -347,75 +362,60 @@
                 \label{tbl:example-no-funding-buyback}
             \end{table}
 
-            The loss rate obtained from solving the above problem is $\phi = \pct{0.230361}$, 
-            and the new credit spread is then 
-            $\num{80}/\num{76.988534} - \grossrfrate = \pct{0.0290148}$.
-            Compare the new credit spread with the pre-project limiting spread of \pct{0.031566};
-            by obtaining the new project, the credit spread has decreased quite significantly.
-            The reduction can be explained by the project's payoff structure,
-            as the states where the firm's asset value is the highest are
-            also the states where the project's payoff is the highest and vice versa. 
-            Therefore, by selling the project, the firm has reduced its riskiness
-            as well as the loss rate and credit spread of the creditors.
-
             The market value of the derivative including adjustments for credit risk would deem a fair price of the project,
             as it would be a zero net present value investment for the counterparty.
             With such pricing, however, a transfer of wealth will occur between the shareholders and the creditors.
-            The firm's incentives of not decreasing the shareholders' wealth
-            makes an argument for a valuation adjustment of the derivative.
-            Selling a derivative and using the sales proceeds for buying the risk-free asset,
+
+            Selling a derivative and using the sale proceeds for buying the risk-free asset,
             is equivalent, but with opposite signs,
             to buying a derivative and funding the upfront price with existing cash.
             In the latter case, the existing cash could have earned the risk-free rate
-            and it has an opportunity cost,
-            but in the former case the sales proceeds actually earn the risk-free rate.
+            and it has an opportunity cost;
+            in the former case, the sale proceeds actually earn the risk-free rate.
             This is taken care of by \cref{eqn:marginal-shareholder-value-cash-financing},
             which defines the marginal change in the shareholders' wealth using existing cash financing.
             \\
             The marginal change in the equity valuation with $u=\num{-2.3173567}$ is therefore:
-            \begin{equation}
+            \begin{equation*}
                 G_{\text{cash}} = p^{\rnmeasure}\pi
                 -\discountfactor \text{Cov}^{\rnmeasure}\left(\mathbbm{1}_{\mathcal{D}},Y\right) = \num{-0.188534}
-            \end{equation}
+            \end{equation*}
 
             The change in wealth for the shareholders can be verified by the difference between the new present value of the equity and the old present value of the equity:
-            \begin{equation}
-                \Delta \pi(E) = \num{19.411469} - \num{19.6} = \num{-0.188531}
-            \end{equation}
+            \begin{equation*}
+                \num{19.411469} - \num{19.6} = \num{-0.188531}
+            \end{equation*}
             The change in wealth for the creditors is similarly verified by:
-            \begin{equation}
-                \Delta \pi(D) = \num{76.988534} - \num{76.8} = \num{0.188534}
-            \end{equation}
-            The increment happens as the risk-free asset, which the firm invested in with the derivative premium, 
+            \begin{equation*}
+                \num{76.988534} - \num{76.8} = \num{0.188534}
+            \end{equation*}
+            
+            The increment happens as the risk-free asset, which the firm invested in with the upfront price, 
             makes the asset value increase, and a larger total amount is recovered in case of default. 
-            In the cases of no default, the creditors are not affected by the new project.
-            \\
+            If the firm does not default, the creditors are not affected by the new project.
             Hence, this is a negative net present value for the shareholders 
-            and a positive net present value for the creditors. 
+            and a positive net present value for the creditors.
+            \\
             Due to the risk in the derivative, the shareholders do have a chance to gain from the project, 
-            where in state $\omega_4$, the derivative payable is less than the return on the riskless asset.
+            where in state $\omega_4$, the derivative payable is less than the return on the risk-free asset.
 
             On the basis of the wealth transfer there seems to be some funding implications.
             The \FVA/ is, as always, the adjustment to the project's apparent value to the firm that makes the shareholders indifferent to taking on the project.
-            As the firm is funding the risk-free project with the premium proceeds, no funding benefits actually occur, and the \FVA/ is constituted entirely by the funding costs from paying the derivative payable, i.e. the \FCA/.
-            \\
-            The valuation adjustment suggests a higher derivative premium than the market value.
-            Specifically, the theoretical premium to be paid by the counterparty would be $u_{\text{cash}}^{\ast}$.
-            However, whether the counterparty is willing to pay the adjusted price still remains indeterminate.
-            \\
-            Using \cref{eqn:shareholdes-breakeven-cash-financing}, which describes the shareholders' price of breakeven with cash financing, the adjusted price becomes:
-            \begin{equation}
+            As the firm is funding the risk-free project with the premium proceeds, no funding benefits actually occur, and the \FVA/ is constituted entirely by the funding costs from paying the derivative payable.
+
+            Using \cref{eqn:shareholdes-breakeven-cash-financing}, which describes the shareholders' price of breakeven with cash financing:
+            \begin{equation*}
                 u_{\text{cash}}^{\ast} = \discountfactor \left(
                     \mathbb{E}^{\rnmeasure}\left[Y\right] -
                     \frac{\text{Cov}^{\rnmeasure}\left(\mathbbm{1}_{\mathcal{D}},Y\right)}
                     {p^{\rnmeasure}}
                 \right)
                 = \num{2.5318966}
-            \end{equation}
+            \end{equation*}
             yielding a valuation adjustment of:
-            \begin{equation}
+            \begin{equation*}
                 \FVA/ = u_{\text{cash}}^{\ast} - u = \num{2.5318966} - \num{2.3173567} = \num{0.2145446}
-            \end{equation}
+            \end{equation*}
 
             Alternatively, this value can be computed by solving the related equation system for \FCA/ as described above, where the value to the firm is the funding  cost adjusted market value:
             \begin{align}
@@ -424,7 +424,7 @@
                 \\
                 A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
                 \\
-                \Delta \pi(E) &= 0
+                G_{\text{cash}} &= 0
                 \label{eqn:no-wealth-transfer-no-funding-buyback}
             \end{align}
 
@@ -434,4 +434,21 @@
             The new problem solved yields a loss rate of $\phi = \pct{0.22768554}$,
             which is slightly lower,
             and the donation needed from the counterparty to make the project a zero net present value for the shareholders is $\FVA/ = \num{0.2145446}$.
+
+            As this example have shown, selling a derivative is not a sure-fire way
+            to gain funding benefits.
+            The investment that the firm makes with the upfront price has a huge impact 
+            on the shareholders' valuation, in accordance with the pecking order theory
+            in \cref{eqn:pecking-order-of-financing-preferences}.
+            Investing in the risk-free asset is the least favourable investment the firm can make.
+            The payoff structure of this specific derivative is clearly also a great driver,
+            in the direction of the shareholders' welfare loss. 
+            \\
+            Using a structural model analogy;
+            since the shareholders' claim can be modelled as a European call option,
+            they would like for the riskiness of the underlying to increase
+            due to the positiveness of the option Vega.
+            Since the derivative in question reduces the riskiness of the firm's total assets,
+            so does the value of the shareholders' claim.
+
 \end{document}
