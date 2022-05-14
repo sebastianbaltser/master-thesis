@@ -3,41 +3,41 @@
 
 \begin{document}
     \subsection{Obtaining a Swap Contract}
-        Suppose the dealer enters a swap contract with the credit risk-free counterparty.
-        She pays a constant fixed leg $K=\num{1}$ to the counterparty at each time period.
+        Suppose the firm enters a swap contract with the credit risk-free counterparty.
+        The firm pays a constant fixed leg $K=\num{1}$ to the counterparty at each time period.
         Correspondingly, at each time period,
-        the dealer receives a random floating leg, $X_t$, from the counterparty.
+        the firm receives a random floating leg, $X_t$, from the counterparty.
 
         Since the counterparty is credit-risk free,
-        the dealer can always expect to receive the full contractual amount of the floating leg.
+        the firm can always expect to receive the full contractual amount of the floating leg.
         Therefore, there is no \CVA/ and
         the difference between the risk-free value and the credit risk adjusted price is the \DVA/.
 
         The floating legs are considered random.
         Their distribution will not be specified,
         but the expected cash flows are known
-        by both the dealer and the counterparty.
-        If the dealer's swap leg has a higher value than the counterparty's,
-        she will have to pay an upfront price to the counterparty,
+        by both the firm and the counterparty.
+        If the firm's swap leg has a higher value than the counterparty's,
+        it will have to pay an upfront price to the counterparty,
         and vice versa.
 
         The time 0 expected payments of the swap are summarized in \cref{tbl:swap-legs}.
-        Notice, that at the interim date the dealer expects a positive cash flow of
+        Notice, that at the interim date the firm expects a positive cash flow of
         $\mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_1\right] = \mathbb{E}_{0}^{\rnmeasure}\left[X_1 - K\right] = \num{0.2}$,
         which will be used for retiring existing debt.
         The expected cash flow at time 2 does not change over time.
 
-        At the maturity date the dealer liquidates all of her assets,
-        which she uses to pay the remaining outstanding amounts.
+        At the maturity date the firm liquidates all of its assets,
+        which it uses to pay the remaining outstanding amounts.
         Additionally, the existing creditors' liabilities are assumed to rank pari passu with the counterparty's contingent liabilities.
         \\
         Since the expected discounted market value of the floating payments is largest,
-        the dealer may be obliged to pay the counterparty an upfront price.
+        the firm may be obliged to pay the counterparty an upfront price.
         As per the Modigliani-Miller proposition, 
         a zero net present value investment leaves the aggregate wealth unchanged.
-        For this to be applicable, the price of the swap must also account for the dealer's own default risk,
+        For this to be applicable, the price of the swap must also account for the firm's own default risk,
         i.e. include the aforementioned \DVA/.
-        Otherwise, it cannot be a zero net present value investment for both the dealer and the counterparty.
+        Otherwise, it cannot be a zero net present value investment for both the firm and the counterparty.
 
         \begin{table}[H]
             \centering
@@ -56,7 +56,7 @@
         \end{table}
 
         When defaulting at time 2, i.e. in state $\omega_{\mathscr{d},\mathscr{d}}$,
-        the dealer's total liabilities are calculated as:
+        the firm's total liabilities are calculated as:
         \begin{align*}
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\left(
@@ -71,7 +71,7 @@
             (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\num{69.8452}
         \end{align*}
         And by definition, this amount is equal to the total remaining asset value.
-        Remember that at time 2 the dealer has already paid the liabilities due at the interim date.
+        Remember that at time 2 the firm has already paid the liabilities due at the interim date.
         To find the price of the project
         as well as the loss rate given default after obtaining the project,
         the following system of equations must be solved for $u$ and $\phi(\omega_{\mathscr{d},\mathscr{d}})$:
@@ -150,7 +150,7 @@
             =
             \pct{0.0112246}
         \end{align}
-        Since the dealer cannot default at time 1,
+        Since the firm cannot default at time 1,
         the upfront price can be funded with short-term debt at the risk-free interest rate.
         If the firm were to pay a spread on the short-term debt starting at time 0,
         this would be subtracted from the liquidated asset value. 
@@ -172,11 +172,11 @@
         the project is a zero net present value investment for the counterparty.
         If a wealth transfer has happened, it is bound to be between the shareholders and the long-term creditors.
 
-        The swap provides an overall funding benefit for the dealer,
+        The swap provides an overall funding benefit for the firm,
         and increases the value of the shareholders' claim.
-        Since the dealer cannot default at the interim date,
+        Since the firm cannot default at the interim date,
         there are no funding costs from obtaining short-term debt at time 0.
-        At time 1, the dealer expects a swap payment from the counterparty,
+        At time 1, the firm expects a swap payment from the counterparty,
         and this cash flow is passed on to the creditors, reducing the long-term debt.
         Hence, the shareholders do not have to pay interest on this retired debt,
         and their payoff increases.
@@ -218,7 +218,7 @@
         the firm can obtain funding in the first period at a very low credit spread of \pct{0}.
         However, the intermediate incoming cash flow can retire debt
         that would otherwise have appreciated 
-        by the dealer's credit spread at time 1 of \pct{0.011298}.
+        by the firm's credit spread at time 1 of \pct{0.011298}.
         Therefore, the time 1 cash flow provides a funding benefit,
         but the time 0 cash flow has no funding cost.
         Of course, the setup considered here is incredible simplistic,
@@ -241,7 +241,7 @@
         any outgoing cash flow has to be funded, 
         as there are no offsetting cash flows from hedges.
 
-        If the dealer was to extend her portfolio by hedging the swap
+        If the firm was to extend its portfolio by hedging the swap
         with a fully collateralized position in the opposite trade,
         the funding implications would mainly be due to the margin requirements.
         An example of this situation was depicted in \cref{fig:funding-costs-asymmetrical-csa},
@@ -259,9 +259,9 @@
         would be higher than the upfront price received on the hedge.
         The hedge would be secured and probably be priced close to its risk-free value, 
         while the swap counterparty would require compensation for taking on the credit risk.
-        Hence, the dealer would likely have to provide funding 
+        Hence, the firm would likely have to provide funding 
         for the differences in upfront payments.
-        Of course, practically speaking, the dealer would actually have to provide funding
+        Of course, practically speaking, the firm would actually have to provide funding
         for the entire upfront payment on the original swap;
         the upfront payment from the hedge would have to be immediately posted as collateral.
         Whether to attribute this funding cost to the upfront payment or to the collateralization
