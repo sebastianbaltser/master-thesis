@@ -1,66 +1,48 @@
 % !TEX root = sub-main.tex
-\documentclass[../main.tex]{subfiles}
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsection{Funding Benefits}
+    \subsection{Selling Corporate Bonds With Funding Benefits}
     \label{sec:example-funding-benefit}
         In the previous section, 
-        the outgoing cash flows, due to the upfront cost of the derivative,
+        the outgoing cash flows, due to the upfront cost of the project,
         demanded funding from the firm, which led to funding costs. 
-        The firm would ultimately have to do a funding value adjustment,
-        to account for the funding expenses that obtaining the derivative would lead to.
+        The firm would ultimately have to do an \FVA/,
+        to account for the funding expenses that obtaining the project would lead to.
         On the contrary, when an instrument has cash flows going into the firm,
         it might have funding implications that are beneficial to the firm.
-        If the firm is buying a derivative,
-        funding value adjustments can both adjust the perceived value downwards due to funding costs,
-        but just as well adjust the perceived value upwards due to funding benefits.
-        Recall, from the introduction of \FVA/, the decomposition of \FVA/ into two elements,
-        repeated here for convenience:
-        \begin{equation}
+        Recall, from the introduction of \FVA/, the decomposition of \FVA/ into two elements:
+        \begin{equation*}
             \FVA/ = \FCA/ + \FBA/
-        \end{equation}
-        In this section, the firm is assumed to enter a one-year derivative contract 
-        with a counterparty that has a positive default probability, i.e. credit risk.
-        Suppose the firm sells the simple derivative in \cref{tbl:single-period-simple-derivative-payoff} to the counterparty which implies a payoff at time 1 of $-Y$.
-        The derivative is unsecured, and will now be treated as a new liability to the firm, 
+        \end{equation*}
+        In this section, the firm is assumed to sell a single-period corporate bond
+        with a face value of $\num{1}$.
+        The bond is unsecured, and will now be treated as a new liability to the firm, 
         which ranks pari passu with the already existing debt.
 
-        Since the counterparty buys the derivative from the credit-risky firm, 
+        Since the counterparty buys the bond from the credit-risky firm, 
         the counterparty must account for this exposure. 
-        If the firm defaults before or at the derivative's expiry, the firm will not be able to meet the obligations, 
-        and the potential profit from the unsecured derivative contract will not be fully paid out. 
+        If the firm defaults it will not be able to meet its obligations, 
+        and the face value will not be fully paid out. 
+        \\
         For the counterparty's incentives to be re-established, 
-        the price of the derivative needs a valuation adjustment, i.e. $\CVA/_C$. 
+        the price of the bond needs a valuation adjustment, i.e. $\CVA/_C$. 
         By symmetry, $\CVA/_C = \DVA/_F$, 
         where $\DVA/_F$ is the debit value adjustment made by the firm 
-        in order to account for its own risk of default.\\
-        For simplicity, it is assumed that the derivative contract 
-        can only be of negative value to the firm, 
-        such that its expected positive exposure is zero, from the firm's point of view.
-        For this reason, no adjustment for the credit risk of the counterparty is performed and 
-        $\CVA/_F = \DVA/_C = 0$.
-        The theoretical market price of the derivative should therefore be given by:
+        in order to account for its own risk of default.
+        Since the firm can only have positive exposure, $\CVA/_{F}$ equals $0$,
+        and the theoretical market price of the bond should therefore be given by:
         \begin{equation}\label{eqn:option-value-credit-risk}
-            P = P_{rf} - \CVA/_C = P_{rf} - \DVA/_F
+            P = \discountfactor*1 - \CVA/_C = \discountfactor*1 - \DVA/_F
         \end{equation}
-        where $P_{rf}$ is the price of the derivative without any risk considered.
-
-        Now consider the funding issue. On the transaction date of the derivative, 
-        the firm receives premium from the counterparty that must be invested, 
-        which will deem beneficial in the funding frame of mind. 
-        This section will study three possibilities of funding benefits, 
-        as suggested by \textcite{Hillion2016}.
-        (i): the cash is assumed to be used to retire the existing debt 
+        
+        Now consider the funding issue. On the transaction date of the bond, 
+        the firm receives a premium from the counterparty that can be invested 
+        providing a funding benefit. 
+        This section will study two possible investments.
+        One where the upfront price is used for retiring existing debt 
         that trades at a credit spread over the risk-free rate. 
-        As mentioned, the derivative contract is considered a liability to the firm
-        that ranks pari passu with other debt, 
-        and the issue to determine is whether the firm is willing to lower the derivative premium 
-        compensating for the funding benefits. 
-        (ii): the cash from the derivative premium is assumed to buy back equity. 
-        The case examines the impact of the derivative value as well as the firm's balance sheet. 
-        (iii): the cash is assumed to be invested in riskless securities. 
-        This is also called the asymmetric funding case where shortfalls of cash are funded by new debt, 
-        and the surpluses of cash are invested at the risk-free rate.
+        Another where the upfront price is used for buying back equity. 
 
         \subsubsection{Debt retiring}
             Suppose when the firm receives the derivative premium at time 0, 
