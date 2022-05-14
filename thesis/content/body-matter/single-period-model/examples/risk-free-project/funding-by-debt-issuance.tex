@@ -2,18 +2,20 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsubsection{Funding by debt issuance}\label{sec:example-risk-free-project-debt-issuance}
-        In this section the firm finances the new project by issuing new debt.
+    \subsubsection{Free Riders From Firm Frictions}
+    \label{sec:example-risk-free-project-debt-issuance}
+        In this section, the firm finances the new project by issuing new debt.
         In order to fund the upfront of the project, $u$, 
         the firm must issue debt to new creditors such that the price of the debt, 
-        denoted by $\pi(\tilde{D})$, equals the price of the project.
+        equals the price of the project.
+        \\
         As assumed previously, the new debt ranks pari passu with the legacy debt, 
         such that all creditors experience the same loss rate in states where the firm defaults.
         Denote the face value of the new debt claim by $\tilde{D}_{1}$, 
-        i.e. the value of the debt at time 1. 
+        i.e. the value of the debt at time 1 if the firm does not default. 
         A claim with face value $\tilde{D}_{1}$ which ranks pari passu to another claim 
         with face value $L$ has the random loss rate given by \cref{eqn:creditor-loss-rate}:
-            \begin{align}
+            \begin{align*}
                 \phi
                 &=
                     \frac{
@@ -30,36 +32,33 @@
                         \num{80} + \tilde{D}_{1}
                     }
                     \mathbbm{1}_{\{A + \num{1} < \num{80} + \tilde{D}_{1}\}} 
-            \end{align}
-        If the asset value is larger than the total face value to be repaid,
-        the firm does not default and the loss rate is zero.
-        If the firm defaults, the loss rate is equal to the share of the total face value missing from the asset value.
+            \end{align*}
         The random payoff of the new pari passu debt is denoted by $\tilde{D}$ and given as:
-            \begin{align}
+            \begin{align*}
                 \tilde{D}
                     = (1 - \phi)\tilde{D}_{1}
-            \end{align}
-
-        Due to the credit risk of the firm, the new creditors will require a credit spread on the debt 
-        in addition to the risk-free return.
-        This additional interest has implications for the firm's perceived value of the project, 
-        which raises the problem for debate about whether the price should be reduced 
-        to accommodate the firm's assessment of the value.
-
-        In order for the firm to attract new creditors they must offer a large enough interest rate on the debt, 
+            \end{align*}
+        In order for the firm to attract new creditors,
+        they must offer a large enough face value on the debt, 
         such that buying the debt is a zero net present value investment.
         The new debt should be able to cover the investment cost of the new project;
-        hence, the present value of the new debt must equal, $u$.
-        Therefore the face value must be chosen to solve the following equation:
-            \begin{align}
+        hence, the present value of the new debt must equal $u$.
+        Therefore, the face value must be chosen to solve the following equation:
+            \begin{align*}
                 u &= \pi(\tilde{D}) \\
                 \Leftrightarrow  \qquad
-                \num{0.99} &= \mathbb{E}^{\rnmeasure}\left[1 - \phi\right] \tilde{D}_{1}
-            \end{align}
-        While seemingly simple, this equation proves very difficult to solve analytically for $\tilde{D}_{1}$.
-        Substituting the loss rate, it is clear that the face value is quite entangled in the equation;
+                \num{0.99} 
+                &= 
+                    \discountfactor
+                    \mathbb{E}^{\rnmeasure}\left[
+                        1 - \phi
+                    \right] 
+                    \tilde{D}_{1}
+            \end{align*}
+        While seemingly simple, this equation proves rather difficult to solve analytically for $\tilde{D}_{1}$.
+        By substituting the loss rate, it is clear that the face value is quite entangled in the equation;
         both in the default event and in the fraction:
-            \begin{align}
+            \begin{align*}
                 \num{0.99}
                 &= 
                 \mathbb{E}^{\rnmeasure}\left[
@@ -73,19 +72,19 @@
                     \mathbbm{1}_{\{A + 1.00 < \num{80} + \tilde{D}_{1}\}} 
                 \right] 
                 \tilde{D}_{1} 
-            \end{align}
+            \end{align*}
         However, by studying this expanded equation, it is clear that the right hand side 
-        is increasing in $\tilde{D}_{1}$, as that holds true for all the terms that constitutes it.
-        Hence, the equation $u - \pi(\tilde{D})$ is very much suited for any simple numerical optimization procedure
+        is increasing in $\tilde{D}_{1}$, as that holds true for all the terms that constitute it.
+        Hence, the equation $u = \pi(\tilde{D})$ is very much suited for any simple numerical optimization procedure
         for root finding, as long as the evaluation of the function itself is not too computationally heavy.
         In a single-period framework, especially one with as few states as the current,
         the evaluation of the expectation is by no means problematic.
         Since it is effective and simple, the equation will be solved by numerical procedures, 
         which yields the following solution:
-            \begin{align}
+            \begin{align*}
                 \Leftrightarrow  \qquad
                 \tilde{D}_{1} &= \num{1.030889}
-            \end{align}
+            \end{align*}
         Entering into the project and issuing new debt with face value $\num{1.030889}$ 
         alters the payoffs associated with the firm in the following way:
         \begin{table}[H]
@@ -94,13 +93,13 @@
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                 \hline
                 $A(\omega_{i})$ 
-                    & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
+                    & \num{121} & \num{111} & \num{101} & \num{96} & \num{61} & \num{97.39} \\
                 $D(\omega_{i})$ 
-                    & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{60.223947}$ & $\num{76.826874}$ \\
+                    & \num{80} & \num{80} & \num{80} & \num{80} & \num{60.223947} & \num{76.826874} \\
                 $E(\omega_{i})$ 
-                    & $\num{39.969111}$ & $\num{29.969111}$ & $\num{19.969111}$ & $\num{14.969111}$ & $\num{0}$ & $\num{19.573126}$ \\
+                    & \num{39.969111} & \num{29.969111} & \num{19.969111} & \num{14.969111} & \num{0} & \num{19.573126} \\
                 $\tilde{D}(\omega_{i})$ 
-                    & $\num{1.030889}$ & $\num{1.030889}$ & $\num{1.030889}$ & $\num{1.030889}$ & $\num{0.776053}$ & $\num{0.99}$ \\
+                    & \num{1.030889} & \num{1.030889} & \num{1.030889} & \num{1.030889} & \num{0.776053} & \num{0.99} \\
             \end{tabular}
             \caption{}
         \end{table}
@@ -108,7 +107,7 @@
         The new project has therefore resulted in an expected default loss to creditors of 
         $\mathbb{E}^{\rnmeasure}\left[\phi\right] = \pct{0.029964}$,
         and a new credit spread on debt of:
-        \begin{equation}
+        \begin{equation*}
             \frac{
                 1.030889
             }{    
@@ -126,13 +125,14 @@
             R
             =
             \pct{0.031201}
-        \end{equation}
+        \end{equation*}
         The example will continue with this credit spread, instead of the limiting spread,
         to calculate the correct funding costs.
+        \\
         Recall that the limiting spread, i.e. the estimation of the post-project credit spread, 
         was calculated as $S = \pct{0.031566}$.
-        Since the limiting spread was an overestimation of the actual credit spread,
-        the funding costs would have been overestimated as well.
+        Since the limiting spread is an overestimation of the actual credit spread,
+        the funding costs will be overestimated as well.
         The overestimation is due to the project's risk compared to the firm's assets;
         since the project is risk-free, it reduces the overall riskiness of the firm
         as well as the loss rate and the credit spread.
@@ -142,9 +142,9 @@
 
         Investing in the project increases the present value of the firm's assets by $\num{97.39} - \num{96.40} = \num{0.99}$, 
         which, not surprisingly, is the value of the the project.
-        More interesting is the impact to the shareholder's claim that decreases by an amount $\num{19.573126} - \num{19.6} = \num{-0.026874}$; 
+        More interesting is the impact on the shareholders' claim that decreases by an amount $\num{19.573126} - \num{19.6} = \num{-0.026874}$; 
         therefore, investing in the project is of negative value to the shareholders.
-        When the firm defaults, the shareholders still receive nothing, 
+        If the firm defaults, the shareholders still receive nothing, 
         but in all other states where the firm does not default, 
         the shareholders pay the present value of the interest owed to the new creditors 
         due to the credit risk in the firm.
@@ -155,10 +155,10 @@
         the investment is a positive net present value investment for the legacy creditors.
         When the firm does not default, the creditors still receive their promised payoff 
         corresponding to the face value of their debt.
-        The new project has increased the asset base of the firm, and if the firm defaults, 
+        The new project has increased the asset base of the firm; if the firm defaults, 
         the legacy creditors will share part of the payoff from the option with the new creditors.
-        Hence, the legacy creditors are receiving a larger amount in the case of default compared to the pre-project amount, and their claim increases in value.
-        Their increment in wealth also suggests that the conditions has improved in terms of their exposure to the firm's credit risk.
+        Hence, the legacy creditors are receiving a larger amount at the default compared to the pre-project amount, and their claim increases in value.
+        Their increment in wealth also suggests that the conditions have improved in terms of their exposure to the firm's credit risk.
         This is also justified, as the loss rate has decreased from the pre-project value of \pct{0.25}.
         Correspondingly, the new credit spread is lower than the pre-project credit spread.
 
@@ -169,6 +169,7 @@
         The asset base also increases by the value of the project, 
         but decreases by the value of the debt claim used to finance it; 
         both are priced the same and therefore offset each other.
+        \\
         In this example, the wealth lost by the shareholders is entirely transferred to the legacy creditors,
         since the project is a zero net present value both to the new creditors 
         and to the counterparty offering the project.
@@ -178,34 +179,8 @@
 
         The wealth transfer from shareholders to legacy creditors due to the new project 
         suggests quantifying the \FVA/ of the project.
-        For completeness, this first example will calculate all three possible definitions of \FVA/,
-        as described in \cref{sec:defining-fva}, and compare them.
-
-        The first possible definition of \FVA/ as the promised excess funding cost can be determined by
-        \cref{eqn:fva-as-promised-excess-funding-cost}:
-            \begin{align}
-                \num{0.99} * \num{0.99} * \pct{0.031201} = \num{0.030580}
-            \end{align}
-        This definition suggests adjusting the project value by $\num{0.030580}$ to account for the funding costs.
-        As discussed earlier, this definition ignores the fact that shareholders are exempt from paying
-        interest rates in the default state; they have limited liability and, since they lose everything
-        in the event of default, the marginal value to them in default states is zero.
-        
-        Calculating instead the expected excess funding cost, i.e. $\Phi$:
-            \begin{equation}
-                \Phi 
-                = \pct{0.878787} * \num{0.99}  * \num{0.99} * \pct{0.031201} 
-                = \num{0.026874}
-            \end{equation}
-        This quantity is also the value lost by the shareholders and gained by the legacy creditors,
-        since the net profit of the project is zero, and the payoff is risk-free.
-        This can be thoroughly calculated by using the marginal shareholder value under debt funding in 
-        \cref{eqn:marginal-shareholder-value-debt-financing}
-        which will result in the equation $G_{\text{debt}} = -\Phi$. 
-        
-        Turning instead to the definition of \FVA/ as the adjustment needed for shareholders to breakeven.
         Using \cref{eqn:shareholders-breakeven-debt-financing}, the price needed for breakeven is:
-            \begin{align}
+            \begin{align*}
                     u^{\ast}_{\text{debt}} 
                 &=
                     \frac{
@@ -221,19 +196,17 @@
                 \nonumber \\
                 &=
                     \num{0.960370}
-            \end{align}
+            \end{align*}
         And, according to \cref{eqn:fva-debt-financing}, the \FVA/ is therefore:
-            \begin{equation}
+            \begin{equation*}
                     \FVA/ 
                 =
                     \num{0.99} - \num{0.960370}
                 =
                     \num{0.029630}
-            \end{equation}
+            \end{equation*}
         Any prices above the breakeven price, $u^{\ast}_{\text{debt}}$, 
         will make the project a negative net present value investment for the shareholders, while any prices below will make it positive. 
-        In this regard, the promised excess funding cost of $\num{0.030580}$ would be an overadjustment,
-        and, conversely, the expected excess funding cost, $\Phi$, of $\num{0.026874}$ would be an underadjustment.
         
         Consider \cref{fig:marginal-value-debt-financing} showing the marginal value 
         of debt financing for creditors and shareholders for different values of the upfront price.
@@ -246,25 +219,34 @@
         in other words, the counterparty has made a donation to the firm. 
         The marginal valuation of the project to the shareholders is then $\num{-0.008734}$,
         and to the creditors $\num{0.028734}$.
-        The donation from the counterparty has increased the shareholders' 
-        \textit{and} the creditors' marginal valuation relative to the price of $\num{0.99}$.
+        The donation from the counterparty has made an increase to the shareholders' 
+        \textit{and} to the creditors' marginal valuation relative to the price of $\num{0.99}$.
         Still, for a firm maximizing shareholder value, the issue is the same as before;
         the project is a negative net present value investment for the shareholders,
         and therefore it will not be accepted.
-        From a theoretical point of view, one might soon realize that this problem is solvable.
+        \\
         Clearly, the donation from the counterparty can be distributed between the 
         stakeholders in a non-wealth destructive way. 
         For example, if the legacy creditors were willing to lower the face value of their claim
-        to $\num{79.98}$ that would leave a wealth gain for the creditors and shareholders
+        to $\num{79.98}$, that would leave a wealth gain for the creditors and shareholders
         of $\num{0.011313}$ and $\num{0.008687}$ respectively.
         This leaves all stakeholders economically happy, 
-        except of course from the counterparty who has other incentives.
+        except of course from the counterparty who may have other incentives.
+
+        Recall \cref{fig:hw-example} describing the argument of \textcite{HullWhite2012FVA}.
+        By their conviction, if a bond with a discount rate of risk-free rate plus $30\basispoint$ 
+        traded at an excess yield of $80\basispoint$, it should be traded. 
+        This example shows exactly why that does not work in reality.
+        At $u=\num{0.97}$, the risk-free project in this example trades at 
+        an excess yield of approximately $100\basispoint$.
+        Even then, the firm will not be able to get its shareholders on-board.
 
         From the perspective of a social planner this problem seems to be a no-brainer. 
         However, the operation relies solely on the willingness of creditors to 
         reduce their face value, lower their seniority, or otherwise worsen the terms of their claim.
-        In reality it is very unlikely for the firm to be able to renegotiate 
+        In reality, it is very unlikely for the firm to be able to renegotiate 
         the terms of their debt issuance, with multiple creditors all with different incentives.
+        \\
         The issue here is a free rider problem. 
         The shareholders pay the funding costs of the new debt in the no-default states,
         but they do not reap the benefits.
@@ -283,13 +265,21 @@
             \label{fig:marginal-value-debt-financing}
         \end{figure}
 
-        Another observation from the chart is that the donation from the counterparty 
+        Another observation from the graph in \cref{fig:marginal-value-debt-financing} is that the donation from the counterparty 
         is distributed between creditors and shareholders.
         As evident from the slope, the shareholders receive a larger share than the creditors.
+        \\
         The creditors benefit from the donation since a lower price will
         decrease the face value of the new creditors, and therefore decrease the loss rate
         of the legacy creditors in the default state.
         The decrease of the new creditors' face value reduces the funding costs,
-        which benefits the shareholders in the no-default state and increases their wealth.  
+        which benefits the shareholders in the no-default state and increases their wealth.
 
+        This example has shown an apparent friction in the way firms obtain projects.
+        Even when the project is heavily discounted the firm is unable to obtain it
+        and still preserve its shareholders' wealth.
+        It has also shown the problem with the argument of \textcite{HullWhite2012FVA},
+        since the firm is not able to distribute the positive net present value
+        to the ones financing it.
+        
 \end{document}
