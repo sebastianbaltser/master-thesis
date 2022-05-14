@@ -125,7 +125,7 @@
         The credit spread in each period is the debt's no-default value one period ahead
         divided by its current value less the risk-free rate.
         Hence the post-project actual credit spreads for time 0 and time 1 are respectively:
-        \begin{align}
+        \begin{align*}
             \frac{
                 \num{67.61791744}
             }{
@@ -145,7 +145,7 @@
             R_{1}
             =
             \pct{0.0112246}
-        \end{align}
+        \end{align*}
         Since the firm cannot default at time 1,
         the upfront price can be funded with short-term debt at the risk-free interest rate.
         If the firm were to pay a spread on the short-term debt starting at time 0,
@@ -154,13 +154,13 @@
         By using the marginal market valuation of the swap contract
         defined in \cref{eqn:swap-value-multi-period},
         the \DVA/ can then be computed as:
-        \begin{align}
+        \begin{align*}
             \DVA/ &= u - V_{rf}
             \nonumber
             \\
             &= u - \mathbb{E}_{0}^{\rnmeasure}\left[\sum_{t=1}^{2}\delta_t \mathcal{C}_t\right]
             = \num{0.0104476}
-        \end{align}
+        \end{align*}
 
         Turning to the shareholder valuation of the project.
         Cash flows from the swap contract may have an impact on the shareholders' valuation of the project.
@@ -182,9 +182,9 @@
         $u=\num{0.158655}$,
         and the assumption that the counterparty is credit risk-free,
         the total impact on the shareholders' benefit is calculated using \cref{eqn:shareholders-value-multi-period-swap}:
-        \begin{equation}
+        \begin{equation*}
             G_{\text{swap}} = \num{-0.00906097}
-        \end{equation}
+        \end{equation*}
         This value suggests a wealth transfer of $\num{-0.00906097}$
         between the shareholders and the creditors of the long-term debt,
         such that the project is a negative net present value investment for the creditors.
@@ -193,14 +193,14 @@
         is found by fixing $G_{\text{swap}}$ to 0,
         and solving for $u^{\ast}$.
         The difference between the credit risk adjusted price and $u^{\ast}$ is then the \FVA/:
-        \begin{equation}
+        \begin{equation*}
             G_{\text{swap}} = 0
-        \end{equation}
+        \end{equation*}
         yielding a funding adjusted price of $u^{\ast} = \num{0.148727}$.
         The donation from the counterparty required is then:
-        \begin{equation}
+        \begin{equation*}
             \FVA/ = u^{\ast} - u = \num{-0.00992852}
-        \end{equation}
+        \end{equation*}
 
         This example has shown a situation where some of the derivatives cash flows have
         been a source of funding benefits,
