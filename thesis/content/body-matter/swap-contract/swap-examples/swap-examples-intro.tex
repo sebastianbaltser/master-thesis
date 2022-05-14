@@ -33,26 +33,26 @@
         \\
         The asset value structure is illustrated in 
         \cref{fig:example-asset-value-multi-period-dealer}.
-        In each period the asset values either increase with a factor $\mathscr{u} = 1.1$
-        or decrease with a factor $\mathscr{d} = 0.85$.
+        In each period the asset values either increase with a factor $\mathscr{u} = \num{1.1}$
+        or decrease with a factor $\mathscr{d} = \num{0.85}$.
         The asset values are determined under the risk-neutral measure,
         such that at each point in time the value is equal to the expected discounted value of the next period.
-        By that definition, and by a short-term risk-free rate assumed to be $r_{0,1}=2\%$ at the inception date,
+        By that definition, and by a short-term risk-free rate assumed to be $r_{0,1}=\pct{0.02}$ at the inception date,
         the risk-neutral probability of being in the up-state at the interim date is calculated as:
         \begin{equation*}
             p_{\mathscr{u}}^{0} =
             \frac{
-                1 + 2\% - 0.85
+                \num{1} + \pct{0.02} - \num{0.85}
             }{
-                1.1 - 0.85
+                \num{1.1} - \num{0.85}
             }
             = \num{0.68}
         \end{equation*}
         And consequently, $p_{\mathscr{d}}^{0} = 1 - p_{\mathscr{u}}^{0} = \num{0.32}$.
         Moving to the up-state from time 1 has a probability of
-        $p^1_\mathscr{u}=(R_1-0.85)/(1.1-0.85) = \num{0.696016}$.
+        $p^1_\mathscr{u}=(R_1-\num{0.85})/(\num{1.1}-\num{0.85}) = \num{0.696016}$.
 
-        The long-term risk-free discount rate from time 0 to time 2 is assumed to be $r_{0,2}=2.2\%$.
+        The long-term risk-free discount rate from time 0 to time 2 is assumed to be $r_{0,2}=\pct{0.022}$.
         To determine the expected short-term rate at the interim date, the forward rate is calculated:
         \begin{equation*}
             r_{1,2} =
