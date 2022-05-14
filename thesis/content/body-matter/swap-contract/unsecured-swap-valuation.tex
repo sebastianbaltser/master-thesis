@@ -2,19 +2,18 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsection{Valuing unsecured swaps}
+    \subsection{Shareholders' Financing Costs of Swaps}
     \label{sec:unsecured-swap-valuation}
-        In this section the client swap is assumed to be fully unsecured.
-        In other words, no collateral is exchanged between the dealer and the swap client, 
-        neither at the transaction date nor the interim date.
+        This section will derive the marginal shareholder valuation of the firm
+        buying or selling an interest rate swap using debt funding.    
+
         For simplicity and for the purpose of marginal valuation,
         if a swap party defaults at the interim date, the coupon payments will have been paid immediately prior.
         This assumption allows the contingent liabilities from the swap to be paid along with the rest of the liabilities at the given time of default.
         And, as all liabilities rank pari passu, the computational part becomes more interpretive.
 
-        The swap counterparty's time of default is denoted by $\tau_{C}$.
-        At this point in time, the dealer recovers a fraction of the contractual amount denoted by $\beta_{t}$, where $\beta_{t} = 1$ if $\tau_{C}>t$.
-        \\
+        The default time of the swap counterparty is denoted by $\tau_{C}$.
+        At this point in time, the firm recovers a fraction of the contractual amount denoted by $\beta_{t}$, where $\beta_{t} = 1$ if $\tau_{C}>t$.
 
         Regardless of the method of funding, the apparent marginal market value of the swap is defined by:
         \begin{align}
@@ -41,25 +40,24 @@
             \label{eqn:swap-value-multi-period}
         \end{align}
         where $Y_{1} = \mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]/R_{2}$ and $Y_{2} = \mathcal{C}_{2}$.
-
         The swap value takes into account the credit risks of both the firm and the counterparty.
-        Therefore, two adjustments are performed on the the credit risk-free value, $V_0$.
-        From the dealer's point of view,
-        the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} describing the lost amount of the outstanding liability related to the swap in case of the dealer's default.
-        Additionally, the \CVA/ is the third term describing the recovered outstanding positive cash flow in case of the counterparty's default.
+        Therefore, two adjustments are performed on the the credit risk-free value, $V_rf$.
+        From the firm's point of view,
+        the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} describing the lost amount of the outstanding liability related to the swap in case the firm defaults.
+        Additionally, the \CVA/ is the third term describing the recovered outstanding positive cash flow in case the counterparty defaults.
         As a result of that, the total swap value for the swap counterparty is $-V$.
 
-        In the multi-period framework, it is assumed that the dealer always use debt funding for financing financial instruments.
+        In this section it is assumed that the firm always use debt funding for financing financial instruments.
         Many established companies have a high credit score,
         hence they have no issues obtaining debt and become leveraged.
         It is not unusual for large firms to have multiple creditors.
         This common use of taking on loans constitutes the decision of the above assumption.
-        By financing the upfront with new short-term debt, the marginal valuation of the dealer's shareholders of entering the swap contract is now analysed.
-        The net positive cash flows stemming from the swap are perceived as funding benefits as they will be used to retire some of the dealer's short-term debt.
+        By financing the upfront with new short-term debt, the marginal valuation of the firm's shareholders of entering the swap contract is now analysed.
+        The net positive cash flows stemming from the swap are perceived as funding benefits as they will be used to retire some of the firm's short-term debt.
         
-        As defined in \cref{sec:marginal-valuation-debt-issuance} about marginal shareholder valuation using debt funding,
-        the face value of the new debt is the upfront including a spread, such that the loan is a zero net present value investment for the new creditors.
-        Similar to the single-period model, the firm is interested in not decreasing its shareholders' value.
+        To finance the upfront price, the firm issues new debt.
+        The face value of the new debt is the upfront price including a spread, 
+        such that the loan is a zero net present value investment for the new creditors.
         With the face value of the new debt now defined as $D_{2}(q) = U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q))$,
         the marginal increase in the value of the firm's equity per unit investment is:
         \begin{align}
@@ -96,18 +94,19 @@
         The first term describes the residual of the total asset value at time 2 if the firm does not default in either of the time periods, and the counterparty does not default at time 1.
         The residual of the total asset value is the asset value including the swap cash flow less the value of the debt paid at time 1 and the debt to pay at time 2.
         \\
-        At the interim date the firm is obliged to either pay of receive the contractual coupon payment.
-        If the cash flow is negative for the firm, a new debt is assumed to finance the payment,
-        and if the cash flow is positive for the firm, a portion of the firm's existing debt is assumed to be retired.
-        The second term expresses the spread of having debt from time 1 until time of maturity scaled by the amount that is either retiring or funding debt at the interim date.
-        Evidently, if the cash flow at time 1 is positive, the term has a positive impact of the shareholders' value,
-        and if the cash flow at time 1 is negative, the term has a negative impact of the shareholders' value.
+        At the interim date, the firm is obliged to either pay of receive the contractual coupon payment.
+        If the cash flow is negative for the firm, it issues new debt to finance the payment;
+        if the cash flow is positive for the firm, a portion of the firm's existing debt is retired.
+        \\
+        The second term expresses the cost (benefit) of having (retiring) debt from time 1 to time 2.
+        Evidently, if the cash flow at time 1 is positive, the term is a funding benefit;
+        if the cash flow at time 1 is negative, the term is a funding cost.
         Furthermore, the second term includes the random dividend that the shareholders receive at the interim date.
         \\
         The third term reflects the cases of the counterparty defaulting.
-        The contractual outstanding amount, i.e. the potential positive cash flow at time 2, will not be fully paid to the firm.
-        The fraction of the amount recovered is indicated by $\beta_{t}$.
-        \\
+        If the counterparty defaults, the contractual outstanding amount, 
+        i.e. the potential positive cash flow at time 2, will not be fully paid to the firm.
+        
         By expressing this derivative as a difference quotient, using $U(0)=0$,
         and by the linearity of the expectation operator,
         the following limit is obtained:
@@ -174,17 +173,22 @@
         which allows for interchanging the limit and the expectation.
         \\
         In the single-period model, the probability of the assets being exactly equal to the liabilities is 0.
-        The same argument is assumed in the multi-period model for both the dealer and the counterparty.
-        Then, similarly, 
+        The same argument is assumed in the multi-period model for both the firm and the counterparty.
+        Then, the derivative of the difference between 
+        the post-project default event for an infinitesimal investment
+        and the pre-project default event is well defined.
+        Hence, similarly, 
         L'H\^{o}pital's % cspell: disable-line
         rule can be applied to show that the fourth term equals 0.
         
         Expanding the limiting face value, $D_{2}$, yields:
-        \begin{equation}
+        \begin{equation*}
             D_2 = u(R_0 + S_0)(R_1 + S_1) = u R_0 R_1 + u R_0 S_1 + u R_1 S_0 + u S_0 S_1
-        \end{equation}
-        Focussing on the addend $u S_0 S_1$, remember that the value of each credit spread depends on the loss rate from the respective time period.
-        From the expressions of the credit spreads, it is noticed that the expectation of the loss rates from the different time periods are multiplied.
+        \end{equation*}
+        Focussing on the addend $u S_0 S_1$, recall that the value of each credit spread depends on the loss rate from the respective time period.
+        By substituting the expressions for the credit spread, it can be seen that the term
+        $\mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]\mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right]$
+        appears in $S_0 S_1$.
         Using the linearity of expectations and the tower property, the following derivation can then be used:
         \begin{equation*}
             \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]
@@ -207,10 +211,8 @@
             \right]
             = 0
         \end{equation*}
-        and, since the loss rate must be zero in at least one of the two periods,
-        \begin{equation}
-            \mathbb{E}_{0}^{\rnmeasure}\left[\delta_2\mathbbm{1}_{\{\tau_{F}>2} \mathbbm{1}_{\{\tau_{C}>1\}}u S_0 S_1\right] = 0
-        \end{equation}
+        where the last equality uses the fact that the loss rate must be zero in at least one of the two periods.
+        This implies $u S_0 S_1 = 0$, which can be substituted into \cref{eqn:G-debt-multi-step-1}.
         
         By dividing $q$ into the expectation of the first limit in \cref{eqn:G-debt-multi-step-1}
         it can be recognized that $U(q)/q$ is the marginal investment cost, $u$.
@@ -250,39 +252,47 @@
             \label{eqn:shareholders-value-multi-period-swap}
         \end{align}
         where the third and the fourth terms together constitute the second interpretation of \FVA/ according to \cref{sec:defining-fva}.
-        % This result differs a tiny bit from the one ADS presents. The term: $u S_0 R_1$ is somehow within another indicator function, and I don't know how.
         They correspond to the quantity $\Phi$, which is the marginal valuation of the swap contract to the firm's legacy creditors.
         \\
-        Since the cash flow at time 2 becomes 0 if the counterparty defaults at the interim date,
+        Since the cash flow at time 2 is 0 if the counterparty defaults at the interim date,
         and the marginal investment cost is constant regardless of the default times of either counterparties,
         the indicator of $\{\tau_{C}>1\}$ has been removed from the first term.
 
-        To find the value of the swap contract that makes the shareholders indifferent to entering the project, $u^{\ast}$,
+        To find the value of the swap contract that makes the shareholders indifferent to entering the project,
         the following equation must be solved for $u$:
-        \begin{equation}
+        \begin{equation*}
             0 = G_{\text{debt}}
-        \end{equation}
-
+        \end{equation*}
+        
         This valuation considers several scenarios, as different counterparties can default at different dates.
-        As a consequence, both the dealer and the counterparty have a possibility to lose an otherwise promised income.
+        As a consequence, both the firm and the counterparty have a possibility of losing an otherwise promised income.
 
-        When a dealer trades an unsecured swap with a counterparty,
+        This concludes the derivation of the marginal shareholder valuation of a swap contract.
+        These results will be applied in the following section where a quantitative example,
+        will be presented.
+        Just as the marginal shareholder valuations in the single-period model
+        could be extended to include collateralization and hedges, so can this equation.
+        This will not be pursued in this paper 
+        but the section will finish with a few remarks on the topic.
+
+        When a firm trades an unsecured swap with a counterparty,
         it is likely that it combines the position with an appropriate hedge.
-        Practically, it is often the case that the dealer would use two hedges;
-        one hedge position will mitigate the counterparty credit risk, i.e. a CDS,
-        and the other hedge position will account for market risk exposure of the floating payments.
+        Practically, it is often the case that the firm would use two hedges;
+        one hedge position to mitigate the counterparty credit risk, e.g. a CDS,
+        and the other hedge position to account for market risk exposure of the floating payments.
 
-        For the shareholders to value such position,
-        an extension to the marginal valuation in \cref{eqn:shareholders-value-multi-period-swap} must be applied.
-        The cash flows will in this expanded setup offset each other,
-        and the funding implications would stem from the collateralization.
+        For the shareholders to value such a portfolio,
+        an extension to the marginal valuation in 
+        \cref{eqn:shareholders-value-multi-period-swap} would have to be applied.
+        The cash flows would in this expanded setup, to some extent, offset each other,
+        and most of the funding implications would stem from the collateralization.
         As described earlier in this paper, collateralization agreements can take on many faces.
-        A strict CSA agreement could require the dealer to mark-to-market at each time period,
+        A strict CSA agreement could require the firm to mark-to-market at each time period,
         whereas partially collateralized projects could also lead to funding issues.
-        Additionally, a minimum threshold and an independent amount are likely to be established,
-        which would potentially leave the dealer with more financial obligations.
+        Additionally, an independent amount are likely to be established,
+        which would potentially leave the firm with more financial obligations.
 
-        \textcite{ADS2018} define the shareholders' valuation of entering a project including the same swap as above as well as a fully collateralized hedged position.
+        \textcite{ADS2018} define the shareholders' valuation of entering a project including the same swap as above as well as a fully collateralized hedge position.
         For the purpose of quantifying \FVA/ in a multi-period framework,
         this paper sticks to the numerical computations of only an unsecured swap,
         and then draw comparisons to the idea of the hedged position.
