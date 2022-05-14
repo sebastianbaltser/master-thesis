@@ -1,10 +1,10 @@
 % !TEX root = sub-main.tex
-\documentclass[../main.tex]{subfiles}
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
     \subsection{Funding Secured Derivatives}
     \label{sec:example-secured-derivative}
-        Consider again the risk-free contract that had a promised payoff of $1$ in every state.
+        Consider again the risk-free contract that had a promised payoff of $\num{1}$ in every state.
         In this section, the firm sells the contract to a counterparty.
         Assume now that the firm and the counterparty have in place a CSA agreement
         that requires collateralization with no threshold or minimum transfer amount.
@@ -22,8 +22,6 @@
         and therefore requires financing.
         In this section it is assumed that the firm finances the independent amount by issuing new debt,
         and the issue raised by this setup is how the valuation of the derivative is affected.
-        
-        % Hillion creates a portfolio where the option is bought by the counterparty and also sold to a hedger dealer. This will cause a wealth transfer that consist of both \MVA/ and \FCA/.
 
         As previously, financing with debt issuance is obtained 
         such that the new creditors make a zero net present value investment.
@@ -37,25 +35,25 @@
         therefore, the counterparty cannot suffer losses on the contract.
         Assume then that the price of the derivative is given as the credit risk-free
         value, which is the discounted promised payoff:
-            \begin{equation}
+            \begin{equation*}
                 u = \num{-0.99}
-            \end{equation}
+            \end{equation*}
         Since the new debt is unsecured, 
         the firm must pay a credit spread to cover its own credit risk. 
         The deal is still a zero net present value investment for the new creditors.
         Hence, the present value of the new creditors claim, $\tilde{D}$, 
-        must equal the borrowed amount, $-u \frac{1}{2}$,
+        must equal the borrowed amount, $- \frac{1}{2}u$,
         and the face value of the new debt must therefore solve:
-            \begin{equation}
+            \begin{equation*}
                 -
-                u 
                 \frac{1}{2} 
+                u
                 = 
                 \num{0.495}
                 =
                 \discountfactor
                 \mathbb{E}^{\rnmeasure}[\tilde{D}]
-            \end{equation}
+            \end{equation*}
         Solving this numerically yields a face value of \num{0.515534}.
         The payoff structure at time 1 of the firm and its stakeholders
         is summarized in \cref{tbl:example-collateralized-derivative}.
@@ -79,9 +77,9 @@
             \caption{}
             \label{tbl:example-collateralized-derivative}
         \end{table}
-        The loss rate given default and the new credit spread is respectively computed as:
-            \begin{gather}
-                \phi 
+        The loss rate given default and the new credit spread are respectively computed as:
+            \begin{gather*}
+                \phi(\omega_{5})
                 = 
                     1 
                     - 
@@ -110,7 +108,7 @@
                     \grossrfrate 
                 = 
                     \pct{0.031382} 
-            \end{gather}
+            \end{gather*}
         These have both clearly decreased compared to the pre-project values, 
         which suggests that the legacy creditors' position has improved.
 
@@ -124,12 +122,13 @@
         since that rests with the counterparty earning the risk-free rate.
         Instead, they bear the funding costs of obtaining unsecured funds 
         for financing the independent amount;
-        hence, the value of the shareholders claim has decreased.
-        The exact change of wealths for the legacy creditors as well as the shareholders are given by:
-            \begin{align}
-                \Delta \pi(D) &= \num{76.813515} - \num{76.80} = \num{0.013515}\\
-                \Delta \pi(E) &= \num{19.586485} - \num{19.60} = \num{-0.013515}
-            \end{align}
+        hence, the value of the shareholders' claim has decreased.
+        The exact change of wealth for the legacy creditors as well as the shareholders 
+        are given respectively by:
+            \begin{align*}
+                \num{76.813515} - \num{76.80} &= \num{0.013515}\\
+                \num{19.586485} - \num{19.60} &= \num{-0.013515}
+            \end{align*}
         The shareholders pay the funding costs of the project,
         and their welfare loss is transferred to the legacy creditors
         who enjoy the increase in asset value.
@@ -187,16 +186,16 @@
         if there was no collateralization. 
         If the independent amount is determined as $I=-\alpha u$ for some positive share $\alpha$, 
         then, comparing with $\Phi$ from \cref*{eqn:marginal-shareholder-value-debt-financing}:
-        \begin{equation}
+        \begin{equation*}
             \mathbb{E}^{\mathbb{Q}}\left[
                 \mathbbm{1}_{\mathcal{D}^{c}}
             \right] \discountfactor (-\alpha u) S
             >
             \Phi
-        \end{equation}
+        \end{equation*}
         if $u<0$.
         This leads to the, perhaps unsurprising, conclusion
-        that shareholders are worse of when required to invest the upfront price at the risk-free rate
+        that shareholders are worse off when required to invest the upfront price at the risk-free rate
         and obtaining unsecured funding
         than if they could retire debt with the upfront price.
 
@@ -204,7 +203,7 @@
         \cref{eqn:marginal-shareholder-value-debt-financing-collateral} verifies the results
         by substituting in the survival probability, the independent amount, 
         and the actual credit spread after obtaining the project:
-            \begin{equation}
+            \begin{equation*}
                 G_{\text{secured}}
                 =
                 - 
@@ -217,12 +216,12 @@
                 \pct{0.031382}
                 =
                 -\num{0.013515}
-            \end{equation}
+            \end{equation*}
         In addition, the equation can help estimate the breakeven price.
         Substituting $I=-\frac{1}{2} u$ into 
         \cref{eqn:marginal-shareholder-value-debt-financing-collateral}, 
         setting equal to zero, and solving for $u$ yields:
-            \begin{align}
+            \begin{align*}
                 0
                 &=
                     \mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}\right] 
@@ -254,7 +253,7 @@
                             p^{\mathbb{Q}}  
                         } 
                     \right)
-            \end{align}
+            \end{align*}
         Substituting the quantities from the example:
             \begin{equation*}
                 u^{\ast}_{\text{secured}}
@@ -268,7 +267,7 @@
         at the credit risk-free price.
         The shareholders bear the funding costs of financing the independent amount,
         and so they transfer wealth to the legacy creditors, 
-        who reaps the benefits of entering the project.
+        who reap the benefits of entering the project.
         
         Even if the counterparty donated the amount lost by shareholders, \num{0.013515},
         the project would still be a losing trade for the shareholders.
