@@ -38,12 +38,12 @@
                 }{
                     \discountfactor
                     \mathbb{E}^{\rnmeasure}\left[
-                        ((A+u) - L)^{+}
+                        ((A+uR) - L)^{+}
                     \right]
                 }
         \end{equation*}
         The expected value of the equity is 
-        $\mathbb{E}^{\rnmeasure}\left[((A+u) - L)^{+}\right] = \num{20.676768}$,
+        $\mathbb{E}^{\rnmeasure}\left[((A+uR) - L)^{+}\right] = \num{20.676768}$,
         and with a project price of $u = 0.99$, the new shareholders are entitled to a share of
         $\alpha = \pct{0.048363}$ of the total equity.
         The new shareholders then receive their share of the equity in each state, 
@@ -53,12 +53,12 @@
                 E 
                 &= 
                 (1 - \alpha)
-                (A - L)^{+} 
+                ((A+uR) - L)^{+} 
                 \\
                 \tilde{E}
                 &=
                 \alpha
-                (A - L)^{+}
+                ((A+uR) - L)^{+}
             \end{align*}
         The resulting payoffs of the example are shown in \cref{tbl:equity-funding-payoff},
         where the realized asset values include the expected payoff of the project.
