@@ -302,13 +302,13 @@
         \subsubsection{No funding buyback}
             Now suppose, instead of buying back debt or equity, 
             the firm spends the cash proceeds from the upfront price in riskless assets. 
-            If the derivative traded with the counterparty has a known payoff at time 1, this procedure is virtually the same as if the firm borrows money to buy the riskless asset 
+            If the bond traded with the counterparty has a known payoff at time 1, this procedure is virtually the same as if the firm borrows money to buy the riskless asset 
             as described in \cref{sec:example-risk-free-project-debt-issuance}. 
-            To deviate from the exact same conclusions, the derivative is now assumed to have a payoff structure at time 1 
+            To deviate from the exact same conclusions, the bond is now assumed to have a payoff structure at time 1 
             as described in \cref{tbl:risky-option-payoff}. 
-            The derivative will still be fairly priced, i.e. the price is the discounted expected payoff for the counterparty. 
+            The bond will still be fairly priced, i.e. the price is the discounted expected payoff for the counterparty. 
             The credit risk still needs to be accounted for in the price. 
-            At time 1 the firm will pay the counterparty accordingly, hence the derivative payable, $Y_C$, 
+            At time 1 the firm will pay the counterparty accordingly, hence the bond payable, $Y_C$, 
             is still a contingent liability to the firm and ranks pari passu with the already existing debt.
             \\
             This section analyses whether this capital structure setup causes reasons for funding benefits.
@@ -328,7 +328,7 @@
             After receiving the upfront price in the form of cash, the firm immediately invests in the risk-free asset. 
             This implies that the firm's total asset value increases with an amount equal to the discounted upfront price. 
             The capital structure, after this transaction, is described in \cref{tbl:example-no-funding-buyback}, 
-            where the derivative theoretical fair value price and loss rate are found
+            where the bond theoretical fair value price and loss rate are found
             by solving the following equation system for $\pi(Y_C)$ and $\phi$:
             \begin{align}
                 \pi(Y_C) &= \discountfactor\mathbb{E}^{\rnmeasure}\left[Y_{C}\right]
@@ -337,7 +337,7 @@
                 A(\omega_5) &= D(\omega_5) + Y_C(\omega_5)
                 \label{eqn:no-funding-buyback-default-state}
             \end{align}
-            with \cref{eqn:no-funding-buyback-default-state} making sure that the creditors and derivative payable
+            with \cref{eqn:no-funding-buyback-default-state} making sure that the creditors and bond payable
             takes the total asset value amount in case of default, i.e. state $\omega_5$.
 
             \begin{table}[H]
@@ -365,14 +365,14 @@
             Therefore, by selling the project, the firm has reduced its riskiness
             as well as the loss rate and credit spread of the creditors.
 
-            The market value of the derivative including adjustments for credit risk would deem a fair price of the project,
+            The market value of the bond including adjustments for credit risk would deem a fair price of the project,
             as it would be a zero net present value investment for the counterparty.
             With such pricing, however, a transfer of wealth will occur between the shareholders and the creditors.
             The firm's incentives of not decreasing the shareholders' wealth
-            makes an argument for a valuation adjustment of the derivative.
-            Selling a derivative and using the sales proceeds for buying the risk-free asset,
+            makes an argument for a valuation adjustment of the bond.
+            Selling a bond and using the sales proceeds for buying the risk-free asset,
             is equivalent, but with opposite signs,
-            to buying a derivative and funding the upfront price with existing cash.
+            to buying a bond and funding the upfront price with existing cash.
             In the latter case, the existing cash could have earned the risk-free rate
             and it has an opportunity cost,
             but in the former case the sales proceeds actually earn the risk-free rate.
@@ -399,12 +399,12 @@
             \\
             Hence, this is a negative net present value for the shareholders 
             and a positive net present value for the creditors. 
-            Due to the risk in the derivative, the shareholders do have a chance to gain from the project, 
-            where in state $\omega_4$, the derivative payable is less than the return on the riskless asset.
+            Due to the risk in the bond, the shareholders do have a chance to gain from the project, 
+            where in state $\omega_4$, the bond payable is less than the return on the riskless asset.
 
             On the basis of the wealth transfer there seems to be some funding implications.
             The \FVA/ is, as always, the adjustment to the project's apparent value to the firm that makes the shareholders indifferent to taking on the project.
-            As the firm is funding the risk-free project with the premium proceeds, no funding benefits actually occur, and the \FVA/ is constituted entirely by the funding costs from paying the derivative payable, i.e. the \FCA/.
+            As the firm is funding the risk-free project with the premium proceeds, no funding benefits actually occur, and the \FVA/ is constituted entirely by the funding costs from paying the bond payable, i.e. the \FCA/.
             \\
             The valuation adjustment suggests a higher upfront price than the market value.
             Specifically, the theoretical premium to be paid by the counterparty would be $u_{\text{cash}}^{\ast}$.
@@ -435,7 +435,7 @@
                 \label{eqn:no-wealth-transfer-no-funding-buyback}
             \end{align}
 
-            The adjusted derivative value to the firm, \cref{eqn:no-funding-buyback-derivative-adjusted-value},
+            The adjusted bond value to the firm, \cref{eqn:no-funding-buyback-derivative-adjusted-value},
             will replace the fair market value pricing assumption, \cref{eqn:no-funding-buyback-derivative-fair-value}, in the new setup.
             Furthermore, the condition of no wealth transfer from the shareholders, \cref{eqn:no-wealth-transfer-no-funding-buyback}, is added to the equation system.
             The new problem solved yields a loss rate of $\phi = \pct{0.22768554}$,
