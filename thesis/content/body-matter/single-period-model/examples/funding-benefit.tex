@@ -63,7 +63,7 @@
         and the surpluses of cash are invested at the risk-free rate.
 
         \subsubsection{Debt retiring}
-            Suppose that when the firm receives the derivative premium at time 0, 
+            Suppose that when the firm receives the bond premium at time 0, 
             they immediately invest their surplus of cash by retiring some of their already existing debt. 
             The value to the firm will arguably be lower when including this funding benefit, 
             and, reducing the price with this benefit, the value to the firm could be written as:
@@ -87,7 +87,7 @@
             Having hinted the possible concerns in the current setup, 
             the example can continue and the issues can be quantified.
 
-            Notice that when the cash raised by selling the OTC derivative contract 
+            Notice that when the cash raised by selling the OTC bond contract 
             is used to purchase debt at a fair market value, a new liability is replacing a part of the existing liability. 
             Remembering the pari passu assumption, this debt-for-debt swap leaves the total liability unchanged.
 
@@ -97,28 +97,28 @@
             after partly retiring the debt, otherwise the creditors would not tender. 
             Second, the counterparty charges for the firm's credit risk 
             to the extend that it's a zero net present value for the counterparty. 
-            The cash flow following the derivative contract can be viewed as newly issued debt
+            The cash flow following the bond contract can be viewed as newly issued debt
             with a fair credit spread offered to the creditors.
             Third, the remaining creditors stay unaffected of the transaction, 
             as the loss rate and credit spread is left intact. 
-            Since the derivative contract is a zero net present value for the firm, 
+            Since the bond contract is a zero net present value for the firm, 
             the counterparty, and the creditors, there is no wealth to transfer anywhere,
             and the contract must also have zero net present value to the shareholders. 
-            Hence, the derivative fair value must be given by \cref{eqn:option-value-credit-risk} 
+            Hence, the bond fair value must be given by \cref{eqn:option-value-credit-risk} 
             as any other value would influence the wealth of the parties involved.
 
             Returning to the previous example of a risky firm with a capital structure
             as described in \cref{tbl:example-firm-structure}, 
-            the firm now enters a derivative contract by selling a project to a counterparty
+            the firm now enters a bond contract by selling a project to a counterparty
             with a credit value adjusted present value of \num{0.96}. 
-            The derivative premium is priced with no discount 
+            The bond premium is priced with no discount 
             and is immediately spent on retiring debt from its already existing creditors. 
-            The derivative payable is now a liability to the firm, ranking pari passu with the existing debt, 
-            which before the derivative contract had a face value of 80. 
+            The bond payable is now a liability to the firm, ranking pari passu with the existing debt, 
+            which before the bond contract had a face value of 80. 
             For simplicity, it is assumed, as in \cref{sec:risk-free-project},
-            that the derivative payable is known with certainty, hence it's a risk-free project. 
+            that the bond payable is known with certainty, hence it's a risk-free project. 
             The firm's balance sheet isn't affected by the transaction. 
-            The change happens on the liability side, where the debt is partly swapped with a derivative payable.\\
+            The change happens on the liability side, where the debt is partly swapped with a bond payable.\\
             The values of the different parties are shown in \cref{tbl:example-debt-retiring}. 
             The loss rate remains unchanged and is the same for the debt and the counterparty: $\phi=1-\num{60}/\num{80}=\pct{0.25}$. 
             Similarly, the credit spread remains the same as the pre-project value: $S=\num{79}/\num{75.84}-r_{f}-1=\pct{0.031566}$.
@@ -154,13 +154,13 @@
 
             The transaction is a zero net present value investment for the shareholders. 
             As can be seen in \cref{tbl:example-debt-retiring}, 
-            the shareholders receive a payoff at time 1 equal to the pre-derivative value.
+            the shareholders receive a payoff at time 1 equal to the pre-bond value.
 
-            The counterparty's payoff coming from the derivative, $Y_C$, has a market value of:
+            The counterparty's payoff coming from the bond, $Y_C$, has a market value of:
             \begin{equation}
                 \pi(Y_{C}) = \mathbb{E}^{\rnmeasure}\left[Y_{C}\right] = \num{0.96}
             \end{equation}
-            This concludes that the derivative premium that the firm receives at time 0 is equal to $\num{0.96}$, 
+            This concludes that the bond premium that the firm receives at time 0 is equal to $\num{0.96}$, 
             which is then the amount used for retiring debt. 
             On top of this, the amount is recognized as the difference between the riskless project value and the \DVA/:
             \begin{equation}
@@ -180,13 +180,13 @@
             this is not a coincidence as the CDS spread determining \DVA/
             is identical to the funding rate determining \FVA/.
             Adjusting the \DVA/-adjusted price with the first definition of \FVA/ would be double counting,
-            and would lead to the firm undervaluing the derivative.
+            and would lead to the firm undervaluing the bond.
             
             Consider also the last, and chosen, definition of \FVA/,
             where it was defined as the adjustment needed to the shareholders' breakeven.
-            As already mentioned, the marginal shareholder value of the derivative is zero,
+            As already mentioned, the marginal shareholder value of the bond is zero,
             meaning that the price is already adjusted to the shareholders' breakeven.
-            The fact is that the derivative in this example needs no \FVA/,
+            The fact is that the bond in this example needs no \FVA/,
             as the \DVA/ accounts for all funding benefits.
             Differences between \DVA/ and an adjustment for funding benefits can only occur 
             either because of a mismatch between the CDS spread and the funding spread
