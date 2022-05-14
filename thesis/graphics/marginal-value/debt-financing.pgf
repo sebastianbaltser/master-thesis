@@ -444,7 +444,7 @@
 \definecolor{textcolor}{rgb}{0.333333,0.333333,0.333333}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.587500in,y=0.163766in,,top]{\color{textcolor}\rmfamily\fontsize{12.000000}{14.400000}\selectfont Option Price}%
+\pgftext[x=3.587500in,y=0.163766in,,top]{\color{textcolor}\rmfamily\fontsize{12.000000}{14.400000}\selectfont Project Price}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.875000in}{0.440000in}}{\pgfqpoint{5.425000in}{3.080000in}}%
@@ -972,7 +972,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.587500in,y=3.603333in,,base]{\color{textcolor}\rmfamily\fontsize{14.400000}{17.280000}\selectfont Marginal shareholder and creditor value for different option prices}%
+\pgftext[x=3.587500in,y=3.603333in,,base]{\color{textcolor}\rmfamily\fontsize{14.400000}{17.280000}\selectfont Marginal shareholder and creditor value for different project prices}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%

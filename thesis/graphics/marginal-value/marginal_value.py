@@ -73,9 +73,9 @@ def debt_financing_plot():
         for value in [shareholder_value, creditor_value]:
             ax.annotate(f"${value:.4f}$", (price, value), **annotate_kwargs)
 
-    ax.set_xlabel("Option Price")
+    ax.set_xlabel("Project Price")
     ax.set_ylabel("Marginal Value")
-    ax.set_title("Marginal shareholder and creditor value for different option prices")
+    ax.set_title("Marginal shareholder and creditor value for different project prices")
     ax.legend()
 
     return fig
@@ -121,9 +121,9 @@ def equity_financing_plot():
         for value in [shareholder_value, creditor_value]:
             ax.annotate(f"${value:.4f}$", (price, value), **annotate_kwargs)
 
-    ax.set_xlabel("Option Price")
+    ax.set_xlabel("Project Price")
     ax.set_ylabel("Marginal Value")
-    ax.set_title("Marginal shareholder and creditor value for different option prices")
+    ax.set_title("Marginal shareholder and creditor value for different project prices")
     ax.legend()
 
     return fig
@@ -157,9 +157,9 @@ def cash_financing_plot():
     ax.set_xlim([option_price_range[0], option_price_range[-1]])
     ax.set_ylim([-0.15, 0.15])
     ax.plot([option_price_range[0], option_price_range[-1]], [0, 0], "--", color="black", linewidth=0.5)
-    ax.set_xlabel("Option Price")
+    ax.set_xlabel("Project Price")
     ax.set_ylabel("Marginal Value")
-    ax.set_title("Marginal shareholder and creditor value for different option prices")
+    ax.set_title("Marginal shareholder and creditor value for different project prices")
     ax.legend()
 
     return fig
