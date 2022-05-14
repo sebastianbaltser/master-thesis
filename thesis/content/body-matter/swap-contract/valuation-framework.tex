@@ -163,7 +163,7 @@
         The former will be denoted $s_{0}(q)$ and the latter $s_{1}(q)$.
         The credit spreads must solve the following forward discounting relations
         between the debt values:
-        \begin{align}
+        \begin{align*}
             D_{1} 
             &= 
             D_{0}(R_{0} + s_{0}(q)) 
@@ -172,12 +172,12 @@
             &= 
             D_{1}(R_{1} + s_{1}(q))
             \nonumber 
-        \end{align}
+        \end{align*}
         including a boundary condition ensuring that the time zero value of the new debt 
         equals the funding needs of the firm, i.e. $D_{0} = U(q)$.
         The debt's value in each period is also related to the following period 
         by the backward discounting relations:
-        \begin{align}
+        \begin{align*}
             D_{1} 
             &= 
             \frac{1}{R_{1}} 
@@ -196,25 +196,24 @@
                 +
                 \mathbb{E}_{0}^{\rnmeasure}\left[\Pi_{1}(q)D_{1}\right] 
             \right)
-        \label{eqn:new-creditors-breakeven-two-period-model}
-        \end{align}
+        \end{align*}
         Recall \cref{eqn:new-creditors-breakeven}, 
         which ensured breakeven for the new creditors in the single period model;
         the two equations just derived are of the exact same form, leave the recovery rates. 
         With the same motivation as in \cref{sec:single-period-model} and with analogous procedure,
         the limiting spreads for each period can be derived.
         In period 0 the limiting spread to period 1 is:
-        \begin{equation}
+        \begin{equation*}
             S_0 =
             \frac{
                 \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right]R_0
             }{
                 1 - \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right] 
             }
-        \end{equation}
+        \end{equation*}
         where $\phi_{2}$ is the creditors' loss rate in period 2,
         given by the complement of the recovery rate for an infinitesimal project.
-        \begin{align}
+        \begin{align*}
             \phi_1 
             &=
             1 - \lim_{q\rightarrow0} \Pi_{1}(q) 
@@ -230,20 +229,20 @@
             }{
                 L_{1} + \mathbb{E}_{1}^{\rnmeasure}\left[L_{2}\right]/R_1
             }
-        \end{align}
+        \end{align*}
         
         Likewise, if the firm survives at time 1, 
         the limiting spread from the interim period to period 2 is:
-        \begin{equation}
+        \begin{equation*}
             S_1 =
             \frac{
                 \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right]R_1
             }{
                 1 - \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right] 
             }
-        \end{equation}
+        \end{equation*}
         where $\phi_{2}$ is the creditors' loss rate in period 2, given by:
-        \begin{align}
+        \begin{align*}
             \phi_2 
             &=
             1 - \lim_{q\rightarrow0} \Pi_{2}(q) 
@@ -255,7 +254,7 @@
             }{
                 L_{2}
             }
-        \end{align}
+        \end{align*}
         It should be noted that the framework presented here can be easily extended 
         with additional periods, 
         by defining the corresponding forward- and backward discounting relations
