@@ -6,7 +6,7 @@
     },
     contract/.style n args = {4}{
         draw,
-        fill={rgb:red,#2;green,#4},
+        fill={rgb:red,#2;green,#4;black,0.2},
         minimum width=1cm,
         minimum height=1cm,
         append after command={
@@ -15,9 +15,9 @@
                     \outLength=#2;
                     \inLength=#4;
                 }
-                \draw[cash-flow, color={rgb:red,1}]
+                \draw[cash-flow, color={rgb:red,1;black,0.1}]
                     (\tikzlastnode.#1) -- +(#1:\outLength);
-                \draw[cash-flow, color={rgb:green,1}]
+                \draw[cash-flow, color={rgb:green,1;blue,0.4}]
                     (\tikzlastnode.#3) -- +(#3:\inLength);    
             }
         }
