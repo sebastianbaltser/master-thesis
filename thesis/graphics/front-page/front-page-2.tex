@@ -6,15 +6,14 @@
     },
     contract/.style n args = {4}{
         draw,
-        circle,
         fill={rgb:red,#2;green,#4},
         minimum width=1cm,
         minimum height=1cm,
         append after command={
             \pgfextra{
                 \tikzmath{
-                    \outLength=#2/10;
-                    \inLength=#4/10;
+                    \outLength=#2;
+                    \inLength=#4;
                 }
                 \draw[cash-flow, color={rgb:red,1}]
                     (\tikzlastnode.#1) -- +(#1:\outLength);
@@ -25,9 +24,14 @@
     }
 };
 
-\node[contract={west}{20}{south}{25}] at (0, 0) {};
-\node[contract={north}{10}{south}{30}] at (2, -1) {};
-\node[contract={west}{10}{east}{50}] at (-5, -5) {};
-\node[contract={east}{40}{south}{20}] at (-5, 1) {};
-\node[contract={east}{30}{south}{5}] at (1, -7) {};
-\node[contract={north}{80}{south}{0}] at (-8, -8) {};
+\node[contract={north}{7}{east}{10}] at (0, 0) {};
+\node[contract={south}{2}{east}{3}] at (1, 3) {};
+\node[contract={south}{1}{east}{1}] at (1, 6) {};
+\node[contract={west}{1}{east}{1}] at (3, 2) {};
+\node[contract={west}{6}{north}{3}] at (9, 1) {};
+\node[contract={east}{8}{west}{0}] at (5, 4) {};
+\node[contract={east}{1}{west}{3}] at (4, 7) {};
+\node[contract={west}{2}{south}{4}] at (6, 6) {};
+\node[contract={west}{3}{south}{6}] at (10, 7) {};
+\node[contract={west}{1}{south}{3}] at (8, 5) {};
+\node[contract={west}{1}{south}{1}] at (3, 5) {};
