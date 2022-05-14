@@ -140,14 +140,14 @@ def cash_financing_plot():
     base_firm = Firm(Asset(States(states, [120, 110, 100, 95, 60])), debt_face_value=80)
     option = Asset(States(states, [1, 1, 1, 1, 1]))
 
-    theoretical_option_price = economy.risk_neutral_expectation(option.values)
-    option_price_range = np.arange(0.95, 1.01, 0.01)
+    theoretical_option_price = economy.risk_neutral_expectation(option.values) * economy.discount_factor
+    option_price_range = np.arange(0.97, 1.00, 0.01)
 
     firms = [get_new_firm_from_cash_financed_option(economy, base_firm, option, option_price)
              for option_price in option_price_range]
     firm_option_price_pairs = zip(firms, option_price_range)
     g_equity = [marginal_shareholder_value_of_cash_financing(economy, firm, option, option_price)
-                for firm, option_price in tqdm.tqdm(firm_option_price_pairs, desc="Debt Funding", total=len(firms))]
+                for firm, option_price in tqdm.tqdm(firm_option_price_pairs, desc="Cash Funding", total=len(firms))]
 
     h_equity = [theoretical_option_price - option_price - g for g, option_price in zip(g_equity, option_price_range)]
 
@@ -155,8 +155,20 @@ def cash_financing_plot():
     ax.plot(option_price_range, g_equity, label="Shareholders")
     ax.plot(option_price_range, h_equity, label="Creditors")
     ax.set_xlim([option_price_range[0], option_price_range[-1]])
-    ax.set_ylim([-0.15, 0.15])
+    ylim = [-0.03, 0.03]
+    ax.set_ylim(ylim)
     ax.plot([option_price_range[0], option_price_range[-1]], [0, 0], "--", color="black", linewidth=0.5)
+
+
+    marks = [(0.99, 0, 0)]
+    for price, shareholder_value, creditor_value in marks:
+        ax.plot([price, price], [ylim[0]*0.9, ylim[1]*0.9], "--", color="black", linewidth=0.5)
+        ax.scatter([price, price], [shareholder_value, creditor_value], marker="o", color="black", s=15, zorder=20)
+        # ax.text(price, shareholder_value, f"{shareholder_value:.2f}", ha="right", va="bottom")
+        annotate_kwargs = dict(xytext=(4, 4), textcoords="offset points", fontsize=8)
+        for value in [shareholder_value, creditor_value]:
+            ax.annotate(f"${value:.4f}$", (price, value), **annotate_kwargs)
+
     ax.set_xlabel("Project Price")
     ax.set_ylabel("Marginal Value")
     ax.set_title("Marginal shareholder and creditor value for different project prices")

@@ -2,70 +2,69 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsubsection{Funding by share issuance}
+    \subsubsection{Increasing Funding Costs With Equity Issuance}
     \label{sec:example-equity-issuance}
-        Assume that the premium paid by the firm to the counterparty is funded with new equity instead of with debt from a new creditor. 
-        In this section the impact on the firm's capital structure of issuing new shares is discussed.
-        This includes a study of the effects on the shareholders' and creditors' wealth. 
+        This section will consider how funding with equity issuance
+        compares to results of the previous section, where the project was financed with debt issuance.
         Funding by share issuance will create a dilution, and the value of the already existing shares, owned by the legacy shareholders, will be reduced. 
-        The counterparty of the new project is still credit risk-free, 
-        and the payoff at time 1, $Y$, is known with certainty. 
         To compare debt and equity funding, 
         the project under consideration will be the same as in the previous section.
 
         The random payoff of the new shareholders will be denoted by $\tilde{E}$.
         The new shareholders will subscribe to the newly issued shares 
         only to the extent that the investment has a net present value of zero.
-        To be able to finance the project, the value of the new equity,
+        To be able to finance the project, the value of the new equity
         should therefore equal the upfront price of the project:
-        \begin{equation}\label{eqn:derivative-zero-npv}
+        \begin{equation*}
             u = \pi(\tilde{E})
-        \end{equation}
-        The new equity will increase the total asset value of the firm,
+        \end{equation*}
+        The new equity will lead to an increase in the total asset value of the firm,
         reducing the loss rate of the creditors in the default state.
         Therefore, the creditors should see an increase in the value of their claim.\\
         The increase in wealth for the creditors is, however, at the expense of the legacy shareholders,
-        since, as under debt financing, the shareholders bear the funding costs.
+        since, like under debt financing, the shareholders bear the funding costs.
         As shareholders have an even higher required rate of return compared to creditors,
         the wealth transfer from the shareholders in this section should also be higher.
 
-        While the payoff of the creditors, with a face value of $L = \num{80}$, 
-        only change in the default state, 
-        the payoff of the legacy shareholders is computed slightly differently than in the case of debt issuance. 
-        It's now essential to know the share of the equity, $\alpha$, 
-        which the new shareholders are entitled to.
-        The new shareholders are entitled to a share equal to the size of their investment,
-        relative to the discounted expected value of the total payoff to shareholders:
-        \begin{equation}
+        The payoff of the legacy shareholders is computed slightly differently than in the case of debt issuance. 
+        It is now essential to know the share of the equity the new shareholders are entitled to.
+        This share will be denoted by $\alpha$.
+        The new shareholders' share equals the size of their investment,
+        relative to the present value of total equity after the capital inflow:
+        \begin{equation*}
             \alpha = 
                 \frac{
                     u
                 }{
                     \discountfactor
                     \mathbb{E}^{\rnmeasure}\left[
-                        (A - L)^{+}
+                        ((A+uR) - L)^{+}
                     \right]
                 }
-        \end{equation}
+        \end{equation*}
         The expected value of the equity is 
-        $\mathbb{E}^{\rnmeasure}\left[(A - L)^{+}\right] = \num{20.676768}$,
-        and with a project price of $u = 0.99$, the new shareholders are entitled to a share
-        $\alpha = \pct{0.048363}$ of the equity.
+        $\mathbb{E}^{\rnmeasure}\left[((A+uR) - L)^{+}\right] = \num{20.676768}$,
+        and with a project price of $u = 0.99$, the new shareholders are entitled to a share of
+        $\alpha = \pct{0.048363}$ of the total equity.
         The new shareholders then receive their share of the equity in each state, 
-        and the payoff to the legacy shareholders is the residual share of the equity.
+        and the payoff to the legacy shareholders is the residual share of the total equity.
         The random variables denoting the shareholders' payoffs are therefore given by:
-            \begin{align}
+            \begin{align*}
                 E 
                 &= 
                 (1 - \alpha)
-                (A - L)^{+} 
+                ((A+uR) - L)^{+} 
                 \\
                 \tilde{E}
                 &=
                 \alpha
-                (A - L)^{+}
-            \end{align}
-        The resulting payoffs of the example are shown in \cref{tbl:equity-funding-payoff}.
+                ((A+uR) - L)^{+}
+            \end{align*}
+        
+        After the transaction, the firm's balance sheet has increased with an amount equal to the premium of the derivative. 
+        The firm has a new asset on the asset side, the derivative receivable worth $\num{0.989994}$, which funded by $\num{0.989994}$ worth of new equity.
+        The resulting payoffs of the example are shown in \cref{tbl:equity-funding-payoff},
+        where the realized asset values include the expected payoff of the project.
         \begin{table}[H]
             \centering\begin{tabular}{l|rrrrr||r}
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
@@ -79,62 +78,48 @@
             \label{tbl:equity-funding-payoff}
         \end{table}
 
-        After the transaction, the firm's balance sheet has increased with an amount equal to the premium of the derivative. 
-        The firm has a new asset on the asset side, the derivative receivable worth $\num{0.989994}$, and that is funded by $\num{0.989994}$ worth of new equity.
-
         As anticipated,
         the project is a negative net present value investment for the legacy shareholders. 
         The decrease in the value of their claim is calculated using
         \cref{eqn:marginal-shareholder-value-equity-financing}:
-        \begin{equation}
-                \Delta \pi(E) 
-            =  
+        \begin{equation*}
                 G_{\text{equity}}
             =
                 - (\num{1} - \pct{0.878787}) * \num{0.989994}
             = 
                 -\num{0.120001}
-        \end{equation}
-        This amount is also what is referred to as the transfer of wealth, $\Delta W$, when no excess yield or donation is received on the derivative. 
-        And as mentioned above, the marginal value of the project to the shareholders is even lower when the project is financed by share issuance,
-        compared to the same quantity when the firm uses debt funding.
-        This is justified by the pecking order of financing choices established by
-        \cref{eqn:pecking-order-of-financing-preferences}, 
-        which holds since the default probability of the firm is non-zero.
+        \end{equation*}
+        This amount corresponds to the transfer of wealth 
+        from the legacy shareholders to the creditors,
+        since the project is a zero net present value investment.
+        Evidently, in accordance with the pecking order theory in 
+        \cref{eqn:pecking-order-of-financing-preferences},
+        the value lost by the legacy shareholders 
+        is even higher for equity issuance than for debt issuance.
 
-        The project is a positive net present value investment for the creditors. 
-        Their increase in wealth is computed as:
-        \begin{equation}\label{eqn:wealth-transfer-equality}
-            \Delta \pi(D) = -\Delta \pi(E) = \num{76.92} - \num{76.80} = \num{0.120001}
-        \end{equation}
-        The value of the debt increases, since the creditors get the entire derivative's receivables in the default state. Following this, the loss rate as well as the credit spread decreases significantly compared to the pre-project metrics. The new loss rate is $\phi = (\num{80}-\num{61})/\num{80} = \pct{0.2375}$, and the new credit spread is $S = \num{80}/\num{76.92} - \grossrfrate = \pct{0.029941}$.
-        \\
-        A possible donation by the counterparty would also have to be significantly higher than in the case of debt funding for the legacy shareholders' equity value to be left unaffected by the investment. 
-
-        The marginal impact on the firm's balance sheet of entering the project is given by:
-        \begin{equation}
-            \pi(A) + \pi(Y) = (\pi(E) + \Delta \pi(E) + \pi(\tilde{E})) + (\pi(D) + \Delta \pi(D))
-        \end{equation}
-        where $\pi(\tilde{E})$ is the market value of the newly issued equity. 
-        \Cref{eqn:wealth-transfer-equality} implies that:
-        \begin{equation}
-            \pi(A) + \pi(Y) = (\pi(E) + \pi(\tilde{E})) + \pi(D)
-        \end{equation}
-        As mentioned in \cref{eqn:derivative-zero-npv}, the firm assumes to raise an amount of new equity equal to the premium of the derivative. 
-        This means that the Modigliani-Miller invariance proposition holds, and also shows, that regardless of the strategy of funding a financial project, the funding costs has no impact on the valuation of the derivative nor the asset base of the firm itself.
+        With the wealth transfer from the shareholders,
+        the project is a positive net present value investment for the creditors;
+        their wealth increase by:
+        \begin{equation*}\label{eqn:wealth-transfer-equality}
+            -G_{\text{equity}} = \num{76.92} - \num{76.80} = \num{0.120001}
+        \end{equation*}
+        The value of the debt increases, 
+        since the creditors get the entire derivative's receivables in the default state. 
+        Following this, the loss rate as well as the credit spread decreases significantly 
+        compared to the pre-project metrics. 
+        The new loss rate in the default state is 
+        $\phi(\omega_{5}) = (\num{80}-\num{61})/\num{80} = \pct{0.2375}$, 
+        and the new credit spread is $\num{80}/\num{76.92} - \grossrfrate = \pct{0.029941}$.
 
         When trading decisions are made, the firm's preferences are assumed to be determined by the shareholders.
-        However, it is clear that the legacy shareholders' position deteriorates, 
-        as they bear the funding costs from financing the project. \\
-        To get the shareholders on board would require a donation by the counterparty, 
+        It is clear that the legacy shareholders' position deteriorates, 
+        as they bear the funding costs from financing the project.
+        So, to get the shareholders on board would require a donation by the counterparty, 
         via a reduction in the upfront price of the project.
-        The availability of cash in the firm's deposits would solve the issue faced by the shareholders:
-        Suppose the firm uses their own cash to purchase the derivative from the counterparty at a market fair value.
-        This is a zero net present value investment for the firm, where, in addition, no wealth is transferred from the shareholders, and neither does the creditors become better off. 
 
         The breakeven price necessary to account for funding costs under equity funding is calculated using
         \cref{eqn:shareholders-breakeven-equity-financing}:
-            \begin{equation}
+            \begin{equation*}
                     u^{\ast}_{\text{equity}} 
                 =
                     \frac{1}{1 + \pct{0.010101}} 
@@ -148,13 +133,13 @@
                     \right)
                 =
                     \num{0.869999}
-            \end{equation}
+            \end{equation*}
         meaning 
-        \begin{equation}
+        \begin{equation*}
             \FVA/ = u^{\ast}_{\text{equity}} - u =
             \num{0.989994}-\num{0.869999} =
             \num{0.12}
-        \end{equation}
+        \end{equation*}
         Notice that this amount is the same as the wealth transfer.
         This is because the donation from the counterparty does not affect the total asset value of the firm.
         Hence, the loss rate of the creditors remains unchanged from before the donation, and therefore so does the creditors' present value.
@@ -173,15 +158,32 @@
 
         This is confirmed by \cref{fig:marginal-value-equity-financing} showing
         the marginal value for creditors and shareholders for different upfront prices.
-        The creditors marginal value is constant in the donation from the counterparty,
+        The creditors' marginal value is constant in the donation from the counterparty,
         but they benefit from a fixed wealth increase since the project increases the asset value.
         Therefore, under equity financing, 
         the legacy shareholders receive the entire counterparty donation.
         As the donation from the counterparty increases,
-        the new shareholders will finance a still cheaper project 
+        the new shareholders will finance a still cheaper project, 
         and, since it is still assumed to be a zero net present value investment for them, 
         their share of the firm's remaining capital is reduced.
         On the contrary, the legacy shareholders' share increases,
         and so does the value of their claim.
+
+        Compared to debt funding, 
+        issuing new equity is significantly worse for the legacy shareholders.
+        The new shareholders have a much higher required rate of return than the new creditors,
+        and as the legacy shareholders bear the funding cost, it is more expensive for them.
+        A firm maximizing its shareholders' wealth should therefore rather fund with debt issuance.
+
+        However, donations from the counterparty are more effective
+        when the project is funded by equity issuance.
+        When funded by debt, a share of the donation from the counterparty goes to the creditors;
+        therefore, that share are not earned by the shareholders.
+        As already covered, this is evident from \cref{fig:marginal-value-debt-financing}
+        by the slope on the line showing the creditors' marginal value.
+        Under equity financing the entire donation goes to the legacy shareholders;
+        hence, the steepness of the line showing the shareholders' valuation in 
+        \cref{fig:marginal-value-equity-financing} is greater than the corresponding line in 
+        \cref{fig:marginal-value-debt-financing}.
 
 \end{document}
