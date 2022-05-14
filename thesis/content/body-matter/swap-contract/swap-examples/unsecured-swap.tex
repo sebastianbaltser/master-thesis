@@ -27,18 +27,6 @@
         which will be used for retiring existing debt.
         The expected cash flow at time 2 does not change over time.
 
-        At the maturity date the firm liquidates all of its assets,
-        which it uses to pay the remaining outstanding amounts.
-        Additionally, the existing creditors' liabilities are assumed to rank pari passu with the counterparty's contingent liabilities.
-        \\
-        Since the expected discounted market value of the floating payments is largest,
-        the firm may be obliged to pay the counterparty an upfront price.
-        As per the Modigliani-Miller proposition, 
-        a zero net present value investment leaves the aggregate wealth unchanged.
-        For this to be applicable, the price of the swap must also account for the firm's own default risk,
-        i.e. include the aforementioned \DVA/.
-        Otherwise, it cannot be a zero net present value investment for both the firm and the counterparty.
-
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rr||r}
@@ -54,6 +42,18 @@
             \caption{}
             \label{tbl:swap-legs}
         \end{table}
+
+        At the maturity date the firm liquidates all of its assets,
+        which it uses to pay the remaining outstanding amounts.
+        Additionally, the existing creditors' liabilities are assumed to rank pari passu with the counterparty's contingent liabilities.
+        \\
+        Since the expected discounted market value of the floating payments is largest,
+        the firm may be obliged to pay the counterparty an upfront price.
+        As per the Modigliani-Miller proposition, 
+        a zero net present value investment leaves the aggregate wealth unchanged.
+        For this to be applicable, the price of the swap must also account for the firm's own default risk,
+        i.e. include the aforementioned \DVA/.
+        Otherwise, it cannot be a zero net present value investment for both the firm and the counterparty.
 
         When defaulting at time 2, i.e. in state $\omega_{\mathscr{d},\mathscr{d}}$,
         the firm's total liabilities are calculated as:
