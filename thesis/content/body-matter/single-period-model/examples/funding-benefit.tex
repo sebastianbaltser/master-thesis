@@ -179,24 +179,23 @@
             In this example there is no offsetting trades, 
             which is why there is no need for an \FVA/, as the \DVA/ have already accounted for everything.
 
-        \subsubsection{Equity buyback}
-            Assume that the firm enters a project 
-            by selling the same derivative contract with a known payoff at time 1 of 1. 
-            The derivative premium received at time 0 is now used for buying back equity from the shareholders. 
-            The example from above is used again to address the impacts of this issue.
+        \subsubsection{Buying Back Equity}
+            In this section the firm still sells its corporate bond with a face value of \num{1}.
+            Now, the upfront price is used for buying back equity from the shareholders. 
 
-            Instead of swapping some existing debt for a derivative payable, 
-            the derivative value now adds to the aggregate liabilities of the firm, 
+            In the previous section, selling the bond and retiring debt with the upfront,
+            simply corresponded to exchanging some existing debt for some other debt. 
+            When buying back equity, the bond value adds to the aggregate liabilities of the firm, 
             and ranks pari passu with the existing creditors.
             This section studies the beneficial impacts on the firm's shareholders of doing this transaction.
-            In the state of default, the firm has already at time 0 allocated some cash to the shareholders, 
-            leaving a smaller amount to the creditors compared to the pre-derivative capital structure, 
-            as the loss rate increases.
+            At time 0, the firm allocates some cash to the shareholders;
+            therefore, if the firm defaults, the shareholders have already received some payoff.
+            This leaves a smaller amount to the creditors compared to their pre-project payoff.
 
             The firm's balance sheet is left unchanged, meaning that the sum of the market values of debt, equity, 
-            and derivative payable is the same after the transaction. 
+            and bond payable is the same after the transaction. 
             The values of the different parties are shown in \cref{tbl:example-equity-buyback}. 
-            The loss rate increases from the pre-derivative value and is computed as:
+            The loss rate increases from the pre-project value and is computed as:
             $\phi = 1 - \num{60}/\num{81} = \pct{0.25925926}$.
             Similarly, the credit spread increases to
             $\num{80}/\num{76.711111} - \grossrfrate = \pct{0.032772686}$.
@@ -214,63 +213,75 @@
                 \label{tbl:example-equity-buyback}
             \end{table}
 
-            It is assumed that the firm receives the credit risk adjusted market price,
-            i.e. $u=\num{-0.95888889}$, as the derivative premium at time 0, which is immediately spend on equity buyback.
+            The project is again assumed to be a zero net present value investment for the counterparty.
+            In other words,
+            the firm receives an upfront of the credit risk adjusted market value,
+            i.e. $u=\num{-0.95888889}$, as the bond premium at time 0, which is immediately spend on equity buyback.
 
             Buying back equity leaves two payoffs for the shareholders:
-            (i) the immediate payoff corresponding to the derivative premium, and
+            (i) the immediate payoff corresponding to the bond premium, and
             (ii) the present value of the expected payoff at time 1.
+            \\
             To establish whether entering into this project is attractive for the shareholders,
             the expression for the marginal valuation of equity funding, \cref{eqn:marginal-shareholder-value-equity-financing}, is used.
-            The payoff for the firm is here the negative derivative payoff, i.e. $Y$.
-            The survival probability is in this constructed framework given by $p^{\rnmeasure} = \sum_{i=1}^{4} \psi_{i} * \grossrfrate = \pct{0.878788}$, and the covariance between the indicator of default states and $Y$ is 0 as the promised payoff is known with certainty.
+            The payoff for the firm is here the negative bond payoff, i.e. $Y$.
+            The survival probability is $p^{\rnmeasure} = \pct{0.878788}$, 
+            and the covariance between the indicator of default states and $Y$ is 0 
+            as the promised payoff is known with certainty.
             The change of wealth for the shareholders is then calculated as:
-            \begin{equation}
+            \begin{equation*}
                 G_{\text{equity}} = \num{0.088888889}
-            \end{equation}
+            \end{equation*}
             
-            As the price of the derivative is assumed to be the credit risk adjusted market value,
-            the derivative is a zero net present value for the counterparty.
+            Again, as the price of the bond is assumed to be the credit risk adjusted market value,
+            the bond is a zero net present value for the counterparty.
             The positive marginal valuation for the shareholders then implies a wealth transfer from the creditors to the shareholders.
-            Hence, the derivative contract is a positive net present value investment for the shareholders, 
+            Hence, the bond contract is a positive net present value investment for the shareholders, 
             where the change of wealth is verified by the change in the present value of the expected payoff:
-            \begin{equation}
-                \Delta \pi(E) = (\num{18.73} + \num{0.95888889}) - \num{19.6} = \num{0.088888889}
-            \end{equation}
+            \begin{equation*}
+                (\num{18.73} + \num{0.95888889}) - \num{19.6} = \num{0.088888889}
+            \end{equation*}
             On the other hand, the transaction is a negative net present value investment for the creditors:
-            \begin{equation}
-                \Delta \pi(D) = \num{76.711111} - \num{76.8} = \num{-0.088888889}
-            \end{equation}
+            \begin{equation*}
+                \num{76.711111} - \num{76.8} = \num{-0.088888889}
+            \end{equation*}
+            Notice that, even though the price received on the bond is lower than in the previous section,
+            the shareholders see an increase in their wealth.
+            In the last section, the price was \num{0.96} and the shareholders broke even.
+            In this example, the upfront payment is lower, 
+            but the shareholders' marginal valuation is positive.
+            This confirms the pecking order theory for $u<0$;
+            shareholders prefer equity buybacks over debt retiring.
 
-            If the firm is only interested in maintaining its shareholders wealth,
-            it will be willing to accept an even lower price than the credit risk adjusted market price.
-            The lowest price the firm will accept, is the breakeven price,
+            The positive marginal valuation of the shareholders does suggest,
+            that they are willing to accept an even lower price than \num{0.95888889}.
+            The lowest price the shareholders will accept, is the breakeven price,
             which, under equity financing, can be computed from 
             \cref{eqn:shareholders-breakeven-equity-financing}:
-            \begin{equation}
+            \begin{equation*}
                 u_{\text{equity}}^{\ast} =
                 - \discountfactor
                 \pct{0.878788}
                 = \num{-0.87}
-            \end{equation}
+            \end{equation*}
             which suggest an \FVA/ given by:
-            \begin{equation}
+            \begin{equation*}
                 \FVA/ =
                 u_{\text{equity}}^{\ast} - u =
                 \num{-0.87} - \left(\num{-0.95888889}\right) =
                 \num{0.088888889}
-            \end{equation}
+            \end{equation*}
             The positive valuation adjustment suggests an overall funding benefit.
             
-            Similar to the case of buying the derivative by issuing new shares analysed in \cref{sec:example-equity-issuance},
+            Similar to the case of buying the bond by issuing new shares analysed in \cref{sec:example-equity-issuance},
             the \FVA/ amount is equal to the wealth transfer.
             Evidently, the price cut from the firm is translated directly to a wealth loss
             for the shareholders while the creditors wealth is maintained. 
             The donation from the firm to the counterparty does not affect the total asset value;
-            therefore, the loss rate on the debt and the derivative payable remains unchanged,
+            therefore, the loss rate on the debt and the bond payable remains unchanged,
             and so does the present value of the creditors' and counterparty's payoffs.
             \\
-            The creditors still lose wealth worth $\Delta \pi(D)$ from the firm obtaining the project.
+            The creditors still lose wealth worth \num{0.088888889} from the firm obtaining the project.
             The shareholders are however willing to receive a lower price of the project than $\num{0.95888889}$.
             For all prices down to $\num{0.87}$,
             the shareholders will still consider the transaction a non-negative net present value investment.
@@ -279,7 +290,7 @@
             the price of the project is irrelevant to the creditors,
             as price adjustments are transferred directly to shareholders.
             The wealth of the creditors is solely dependent on the payoff structure of the project;
-            Their wealth increases when the asset value increases and vice versa.
+            their wealth increases when the asset value increases and vice versa.
 
         \subsubsection{No funding buyback}
             Now suppose, instead of buying back debt or equity, 
