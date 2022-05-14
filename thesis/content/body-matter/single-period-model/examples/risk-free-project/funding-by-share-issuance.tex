@@ -29,8 +29,8 @@
         The payoff of the legacy shareholders is computed slightly differently than in the case of debt issuance. 
         It is now essential to know the share of the equity the new shareholders are entitled to.
         This share will be denoted by $\alpha$.
-        The new shareholders share equals the size of their investment,
-        relative to the post-project present value of equity:
+        The new shareholders' share equals the size of their investment,
+        relative to the present value of total equity after the capital inflow:
         \begin{equation*}
             \alpha = 
                 \frac{
@@ -38,7 +38,7 @@
                 }{
                     \discountfactor
                     \mathbb{E}^{\rnmeasure}\left[
-                        (A - L)^{+}
+                        ((A+u) - L)^{+}
                     \right]
                 }
         \end{equation*}
