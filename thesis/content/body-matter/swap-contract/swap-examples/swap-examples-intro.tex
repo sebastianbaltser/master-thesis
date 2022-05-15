@@ -109,7 +109,7 @@
             % =
             \num{0.097275}
         \end{align*}
-
+        \indent
         At the interim date, the firm's creditors have a known claim of $L_{1} = \num{10}$,
         meaning $W=\num{10}*R_1=\num{10.240039}$.
         Meanwhile, the long-term liabilities, which are also known with certainty, are $L_{2} = \num{70}$.
@@ -124,7 +124,7 @@
         $\phi(\omega_{\mathscr{d},\mathscr{d}})=(L_{2}-(\mathscr{d}^{2}A_{0}-W))/L_{2}=\pct{0.114143}$.
         The credit spread at the inception date is \pct{0}, as the firm cannot default at time 1,
         and the credit spread at the interim date is
-        \begin{equation}
+        \begin{equation*}
             \frac{
                 70
             }{
@@ -132,8 +132,8 @@
             }
             - (1+r_{1,2})
             = \pct{0.0114975}
-        \end{equation}
-
+        \end{equation*}
+        %
         \begin{figure}[t]
             \centering
             \begin{tikzpicture}[>=stealth,sloped]
@@ -165,8 +165,9 @@
             \end{tikzpicture}
             \caption{The asset value of the firm in each time period.}
             \label{fig:example-asset-value-multi-period-dealer}
-        \end{figure}
-
+        \end{figure}%
+        %
+        \indent
         Having defined the setup of the firm's capital structure,
         a swap contract is now introduced between the firm and a counterparty.
         For simplicity, the counterparty is assumed to have no credit risk.
