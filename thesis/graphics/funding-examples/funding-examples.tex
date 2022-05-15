@@ -81,10 +81,14 @@
 \node (equity) [equity={\equityUp}] at (debt.north) {};
 \coordinate (cursor) at ([xshift=\stateSeperator]debt.south east);
 
+\node (label) at ([yshift=1em]asset.north east) {\scriptsize$\strut$Up};
+
 \node (asset) [asset={(\debtDown)}] at (cursor) {};
 \node (debt) [debt={\debtDown}] at (asset.south east) {};
 \node [lost-debt={(\debtUp-\debtDown)}] at (debt.north) {};
 \coordinate (block-south-east) at (debt.south east);
+
+\node at (asset.north east |- label) {\scriptsize$\strut$Down};
 
 \node[firm=Pre-project,
     fit=(block-south-west) (block-south-east) (block-north-west)] (firm-base) {};
@@ -143,7 +147,7 @@
     ;
     \draw [thick, dotted]
         (origin) --
-        ++(0, 2.5cm)
+        ++(0, 2.6cm)
     ;
     \draw [dotted] 
         ([yshift=\assetUp*\valueMultiplier]origin) -- 
