@@ -196,6 +196,17 @@
             Now, the upfront price is used for buying back equity from the shareholders.
             This setup is illustrated in \cref{fig:equity-buyback-setup}.
 
+            \begin{figure}[t]
+                \centering
+                \resizebox{\textwidth}{!}{%
+                    \begin{tikzpicture}
+                        \import{\graphicsfolder/numerical-examples/}{equity-buyback.tex}
+                    \end{tikzpicture}
+                }
+                \caption{Illustration of equity buyback setup}
+                \label{fig:equity-buyback-setup}
+            \end{figure}
+           
             In the previous section, selling the bond and retiring debt with the upfront,
             simply corresponded to exchanging some existing debt for some other debt. 
             When buying back equity, the bond value adds to the aggregate liabilities of the firm, 
@@ -266,16 +277,6 @@
             but the shareholders' marginal valuation is positive.
             This confirms the pecking order theory for $u<0$;
             shareholders prefer equity buybacks over debt retiring.
-            \begin{figure}[t]
-                \centering
-                \resizebox{\textwidth}{!}{%
-                    \begin{tikzpicture}
-                        \import{\graphicsfolder/numerical-examples/}{equity-buyback.tex}
-                    \end{tikzpicture}
-                }
-                \caption{Illustration of equity buyback setup}
-                \label{fig:equity-buyback-setup}
-            \end{figure}
 
             The positive marginal valuation of the shareholders does suggest,
             that they are willing to accept an even lower price than \num{0.95888889}.
