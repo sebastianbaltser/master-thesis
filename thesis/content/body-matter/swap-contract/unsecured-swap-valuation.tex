@@ -41,7 +41,7 @@
         \end{align}
         where $Y_{1} = \mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]/R_{2}$, $Y_{2} = \mathcal{C}_{2}$, and $V_{rf}$ is the credit risk free value.
         The swap value takes into account the credit risks of both the firm and the counterparty.
-        Therefore, two adjustments are performed on the the credit risk-free value, $V_rf$.
+        Therefore, two adjustments are performed on the credit risk-free value, $V_rf$.
         From the firm's point of view,
         the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} describing the lost amount of the outstanding liability related to the swap in case the firm defaults.
         Additionally, the \CVA/ is the third term describing the recovered outstanding positive cash flow in case the counterparty defaults.
@@ -60,7 +60,7 @@
         such that the loan is a zero net present value investment for the new creditors.
         With the face value of the new debt now defined as $D_{2}(q) = U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q))$,
         the marginal increase in the value of the firm's equity per unit investment is:
-        \begin{align*}
+        \begin{align}
             G_{\text{swap}} &=
             \left.\frac{\partial}{\partial q}
             \mathbb{E}_{0}^{\rnmeasure}\left[
@@ -90,7 +90,8 @@
                     \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C}(q)=t\}}q\left(1-\beta_t\right)Y_{t}^{+}
                 \right)
             \right]\right\rvert_{q=0}
-        \end{align*}
+            \label{eqn:G-debt-multi-step-1}
+        \end{align}
         The first term describes the residual of the total asset value at time 2 if the firm does not default in either of the time periods, and the counterparty does not default at time 1.
         The residual of the total asset value is the asset value including the swap cash flow less the value of the debt paid at time 1 and the debt to pay at time 2.
         \\
@@ -107,10 +108,12 @@
         If the counterparty defaults, the contractual outstanding amount, 
         i.e. the potential positive cash flow at time 2, will not be fully paid to the firm.
         
-        By expressing this derivative as a difference quotient, using $U(0)=0$,
+        By expressing the derivative in \cref{eqn:G-debt-multi-step-1} 
+        as a difference quotient, using $U(0)=0$,
         and by the linearity of the expectation operator,
         the following limit is obtained:
         \begin{align}
+            G_{\text{swap}} 
             &=
             \lim_{q \rightarrow 0}
             \frac{
@@ -167,7 +170,7 @@
             }{
                 q
             }
-            \label{eqn:G-debt-multi-step-1}
+            \label{eqn:G-debt-multi-step-2}
         \end{align}
         It is assumed that $A$, $W$, $L_{2}$, $\mathcal{C}_1$, $\mathcal{C}_2$, and $\theta_1$ all have finite expectations,
         which allows for interchanging the limit and the expectation.
@@ -212,9 +215,9 @@
             = 0
         \end{equation*}
         where the last equality uses the fact that the loss rate must be zero in at least one of the two periods.
-        This implies $u S_0 S_1 = 0$, which can be substituted into \cref{eqn:G-debt-multi-step-1}.
+        This implies $u S_0 S_1 = 0$, which can be substituted into \cref{eqn:G-debt-multi-step-2}.
         
-        By dividing $q$ into the expectation of the first limit in \cref{eqn:G-debt-multi-step-1}
+        By dividing $q$ into the expectation of the first limit in \cref{eqn:G-debt-multi-step-2}
         it can be recognized that $U(q)/q$ is the marginal investment cost, $u$.
         Rearranging and taking the limits yields:
         \begin{align}
@@ -259,11 +262,14 @@
         the indicator of $\{\tau_{C}>1\}$ has been removed from the first term.
 
         To find the value of the swap contract that makes the shareholders indifferent to entering the project,
-        the following equation must be solved for $u$:
+        the marginal shareholder valuation in 
+        \cref{eqn:shareholders-value-multi-period-swap}
+        can be set equal to zero and solved for $u$:
         \begin{equation*}
-            0 = G_{\text{debt}}
+            G_{\text{debt}} = 0
         \end{equation*}
-        
+        %
+        \indent
         This valuation considers several scenarios, as different counterparties can default at different dates.
         As a consequence, both the firm and the counterparty have a possibility of losing an otherwise promised income.
 
@@ -292,9 +298,11 @@
         Additionally, an independent amount are likely to be established,
         which would potentially leave the firm with more financial obligations.
 
-        \textcite{ADS2018} define the shareholders' valuation of entering a project including the same swap as above as well as a fully collateralized hedge position.
+        \textcite{ADS2018} derives the shareholders' valuation of entering a project 
+        including the same swap as above as well as a fully collateralized hedge position.
         For the purpose of quantifying \FVA/ in a multi-period framework,
         this paper sticks to the numerical computations of only an unsecured swap,
         and then draw comparisons to the idea of the hedged position.
+        This is the purpose of the following section.
         
 \end{document}

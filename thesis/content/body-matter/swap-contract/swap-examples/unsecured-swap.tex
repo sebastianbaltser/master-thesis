@@ -68,7 +68,7 @@
             &=
             (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\left(\num{70} - \num{0.2}R_{1} + \num{0.05}\right)\\
             &=
-            (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\num{69.8452}
+            (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))*\num{69.8452}
         \end{align*}
         And by definition, this amount is equal to the total remaining asset value.
         Remember that at time 2 the firm has already paid the liabilities due at the interim date.
@@ -98,11 +98,11 @@
                 \displaystyle
                 \num{72.25} - \num{10.24}
                 =
-                (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\num{69.8452}
+                (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))*\num{69.8452}
                 \\
                 \displaystyle
                 u =
-                \delta_1 \num{0.2}
+                \delta_1 * \num{0.2}
                 +
                 \delta_2
                 \left(
@@ -151,7 +151,7 @@
         If the firm were to pay a spread on the short-term debt starting at time 0,
         this would be subtracted from the liquidated asset value. 
 
-        By using the equation for the shareholder's marginal market valuation of the swap contract
+        By using the equation for the shareholders' marginal market valuation of the swap contract
         defined in \cref{eqn:swap-value-multi-period},
         the \DVA/ can then be computed as:
         \begin{align*}
@@ -164,7 +164,7 @@
 
         Turning to the shareholder valuation of the project.
         Cash flows from the swap contract may have an impact on the shareholders' valuation of the project.
-        Since the swap's price is its risk-neutral value adjusted for credit risk,
+        Since the price of the swap is its risk-neutral value adjusted for credit risk,
         the project is a zero net present value investment for the counterparty.
         If a wealth transfer has happened, it is bound to be between the shareholders and the long-term creditors.
 
@@ -193,7 +193,7 @@
             \FVA/ = u^{\ast}_{\text{swap}} - u = \num{-0.00992852}
         \end{equation*}
 
-        This example has shown a situation where some of the derivatives cash flows have
+        This example has shown a situation where some of the derivative cash flows have
         been a source of funding benefits,
         but where the overall effect were still a loss to the shareholders.
         The primary effect is clearly from the upfront price,
@@ -202,7 +202,7 @@
 
         The payment time of a cash flow has an influence on its funding implications.
         As the upfront price should be paid at time 0, 
-        the firm can obtain funding in the first period at a very low credit spread of \pct{0}.
+        the firm can obtain funding in the first period at a credit spread of \pct{0}.
         However, the intermediate incoming cash flow can retire debt
         that would otherwise have appreciated 
         by the firm's credit spread at time 1 of \pct{0.011298}.
@@ -212,6 +212,8 @@
         which exaggerates the actual effects.
         In reality, creditors would clearly not offer a credit spread of zero on, say,
         1 month tenors because they feel certain that the firm can only default in 2 months.
+        Rather, the firm has some default intensity, which fluctuates over time,
+        but not by jumping up from zero when a debt's maturity gets closer.
 
         The general lesson is useful anyway.
         If institutions have high credit spreads in certain periods,
@@ -263,10 +265,10 @@
         Likewise, any collateral postings would yield funding benefits.
         Again, trading unsecured derivatives provides the most extreme examples of funding costs.
 
-        In conclusion, extending the portfolio in this example with a hedge,
+        Extending the portfolio in this example with a hedge,
         would confirm many of the conclusions already made throughout this paper.
         The market risk would be reduced and so would the funding implications 
-        from the derivative's cash flows,
+        from the derivative cash flows,
         but an \FVA/ could still be necessary due to the differences in collateral agreements.
 
 \end{document}

@@ -5,7 +5,7 @@
     \subsection{The Multi-Period Model}
         The multi-period model extends the assumptions made in \cref{sec:single-period-model} to include multiple time periods.
 
-        An additional date $2$ is introduced as the new time of maturity.
+        An additional time $2$ is introduced as the new time of maturity.
         At the interim time 1 the market economy is defined by a collection of random variables,
         and at maturity, all the uncertainty is settled. 
         The single-period gross risk-free returns at time 0 and time 1 are $R_0$ and $R_1$ respectively, where $R_1$ is random at time 0.
@@ -64,7 +64,7 @@
 
         On the contrary, the creditors receive a payoff in every scenario.
         The size of the payoff is fully dependent on if the firm defaults or not.
-        The total value of the creditor's payoff is defined as:
+        The total value of the creditors' payoff is defined as:
         \begin{align*}
             \pi(D)&=
             \mathbb{E}_{0}^{\rnmeasure}\left[
@@ -213,8 +213,8 @@
                 1 - \mathbb{E}_{0}^{\rnmeasure}\left[\phi_1\right] 
             }
         \end{equation*}
-        where $\phi_{2}$ is the creditors' loss rate in period 2,
-        given by the complement of the recovery rate for an infinitesimal project.
+        where $\phi_{1}$ is the creditors' loss rate in period 1,
+        given by the complement of the recovery rate for an infinitesimal project:
         \begin{align*}
             \phi_1 
             &=
@@ -257,7 +257,7 @@
                 L_{2}
             }
         \end{align*}
-        It should be noted that the framework presented here can be easily extended 
+        It should be noted that the framework presented here can be extended 
         with additional periods, 
         by defining the corresponding forward- and backward discounting relations
         and solving the equations as already shown.
