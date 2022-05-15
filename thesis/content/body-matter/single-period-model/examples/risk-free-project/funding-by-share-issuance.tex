@@ -38,12 +38,12 @@
                 }{
                     \discountfactor
                     \mathbb{E}^{\rnmeasure}\left[
-                        ((A+uR) - L)^{+}
+                        (A + Y - L)^{+}
                     \right]
                 }
         \end{equation*}
         The expected value of the equity is 
-        $\mathbb{E}^{\rnmeasure}\left[((A+uR) - L)^{+}\right] = \num{20.676768}$,
+        $\mathbb{E}^{\rnmeasure}\left[(A + Y - L)^{+}\right] = \num{20.676768}$,
         and with a project price of $u = 0.99$, the new shareholders are entitled to a share of
         $\alpha = \pct{0.048363}$ of the total equity.
         The new shareholders then receive their share of the equity in each state, 
@@ -53,12 +53,12 @@
                 E 
                 &= 
                 (1 - \alpha)
-                ((A+uR) - L)^{+} 
+                (A + Y - L)^{+} 
                 \\
                 \tilde{E}
                 &=
                 \alpha
-                ((A+uR) - L)^{+}
+                (A + Y - L)^{+}
             \end{align*}
         
         After the transaction, the firm's balance sheet has increased with an amount equal to the premium of the derivative. 
@@ -69,7 +69,8 @@
             \centering\begin{tabular}{l|rrrrr||r}
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                 \hline
-                $A(\omega_{i})$ & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
+                \rule{0pt}{1.1em}
+                $\tilde{A}(\omega_{i})$ & $\num{121}$ & $\num{111}$ & $\num{101}$ & $\num{96}$ & $\num{61}$ & $\num{97.39}$ \\
                 $D(\omega_{i})$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{80}$ & $\num{61}$ & $\num{76.92}$ \\
                 $E(\omega_{i})$ & $\num{39.017098}$ & $\num{29.500733}$ & $\num{19.984367}$ & $\num{15.226185}$ & $\num{0}$ & $\num{19.48}$ \\
                 $\tilde{E}(\omega_{i})$ & $\num{1.982902}$ & $\num{1.499267}$ & $\num{1.015633}$ & $\num{0.773815}$ & $\num{0}$ & $\num{0.989994}$ \\

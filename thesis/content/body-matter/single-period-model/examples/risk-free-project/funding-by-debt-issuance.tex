@@ -19,7 +19,7 @@
                 \phi
                 &=
                     \frac{
-                        \tilde{D}_{1} + L - A
+                        \tilde{D}_{1} + L - A + Y
                     }{
                         \tilde{D}_{1} + L
                     }
@@ -27,11 +27,11 @@
                 \nonumber \\
                 &=
                     \frac{
-                        \num{80} + \tilde{D}_{1} - \tilde{A}
+                        \num{80} + \tilde{D}_{1} - A + Y
                     }{
                         \num{80} + \tilde{D}_{1}
                     }
-                    \mathbbm{1}_{\{\tilde{A} < \num{80} + \tilde{D}_{1}\}} 
+                    \mathbbm{1}_{\{A + Y < \num{80} + \tilde{D}_{1}\}} 
             \end{align*}
         The random payoff of the new pari passu debt is denoted by $\tilde{D}$ and given as:
             \begin{align*}
@@ -65,11 +65,11 @@
                     1 
                     - 
                     \frac{
-                        \num{80} + \tilde{D}_{1} - \tilde{A}
+                        \num{80} + \tilde{D}_{1} - A + Y
                     }{
                         \num{80} + \tilde{D}_{1}
                     }
-                    \mathbbm{1}_{\{\tilde{A} < \num{80} + \tilde{D}_{1}\}} 
+                    \mathbbm{1}_{\{A + Y < \num{80} + \tilde{D}_{1}\}} 
                 \right] 
                 \tilde{D}_{1} 
             \end{align*}
@@ -92,6 +92,7 @@
             \begin{tabular}{l|rrrrr||r}
                 $i$ & 1 & 2 & 3 & 4 & 5 & Present value \\
                 \hline
+                \rule{0pt}{1.1em}
                 $\tilde{A}(\omega_{i})$ 
                     & \num{121} & \num{111} & \num{101} & \num{96} & \num{61} & \num{97.39} \\
                 $D(\omega_{i})$ 
