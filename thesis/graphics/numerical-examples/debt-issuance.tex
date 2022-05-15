@@ -1,0 +1,29 @@
+% !TEX root = ./test-graphics.tex
+
+\input{styles.tex}
+
+\node (firm) [firm={Counterparty}{New Creditors}] at (0, 0) {Firm};
+
+\draw[arrow, ->] 
+    ([yshift=\bottomarrowyoffset]counterparty.east) -- 
+    ([yshift=\bottomarrowyoffset]firm.west)
+    node[contract] {\contract}
+;
+
+\draw[arrow, ->] 
+    ([yshift=\toparrowyoffset]firm.west) --
+    ([yshift=\toparrowyoffset]counterparty.east)
+    node[arrow label] {$u$}    
+;
+
+\draw[arrow, ->] 
+    ([yshift=\toparrowyoffset]funding.west) --
+    ([yshift=\toparrowyoffset]firm.east)
+    node[arrow label] {$u$}    
+;
+
+\draw[arrow, ->] 
+    ([yshift=\bottomarrowyoffset]firm.east) --
+    ([yshift=\bottomarrowyoffset]funding.west)
+    node[arrow label] {$\tilde{D}$}    
+;
