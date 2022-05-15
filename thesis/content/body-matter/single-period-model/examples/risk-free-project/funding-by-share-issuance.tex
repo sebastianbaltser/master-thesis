@@ -9,6 +9,8 @@
         Funding by share issuance will create a dilution, and the value of the already existing shares, owned by the legacy shareholders, will be reduced. 
         To compare debt and equity funding, 
         the project under consideration will be the same as in the previous section.
+        \\
+        A simple illustration of the new setup is depicted in \cref{fig:equity-issuance-setup}.
 
         The random payoff of the new shareholders will be denoted by $\tilde{E}$.
         The new shareholders will subscribe to the newly issued shares 
@@ -25,6 +27,16 @@
         since, like under debt financing, the shareholders bear the funding costs.
         As shareholders have an even higher required rate of return compared to creditors,
         the wealth transfer from the shareholders in this section should also be higher.
+        \begin{figure}[t]
+            \centering
+            \resizebox{\textwidth}{!}{%
+                \begin{tikzpicture}
+                    \import{\graphicsfolder/numerical-examples/}{equity-issuance.tex}
+                \end{tikzpicture}
+            }
+            \caption{Illustration of funding by equity issuance setup}
+            \label{fig:equity-issuance-setup}
+        \end{figure}
 
         The payoff of the legacy shareholders is computed slightly differently than in the case of debt issuance. 
         It is now essential to know the share of the equity the new shareholders are entitled to.
