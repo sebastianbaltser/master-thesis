@@ -3,8 +3,7 @@
 
 \begin{document}
     \section{Quantifying Funding Costs}
-    \subsection{A Dealer in a Multi-Period Economy}
-    \label{sec:swap-examples}
+
         This section aims to illustrate
         how the funding costs and benefits of a multi-period swap contract
         can be described by a simple economical setup.
@@ -16,6 +15,9 @@
         the risk-free rate,
         the swap market value,
         and of course the swap floating rate.
+
+    \subsection{A Firm in a Multi-Period Economy}
+    \label{sec:swap-examples}
         
         Maintaining the purpose of analysing funding implications,
         the possible states are now represented by a binomial tree.
@@ -26,42 +28,42 @@
         depending on the asset value going up or down in the first time period respectively.
         \\
         In the state $\omega_{\mathscr{d},\mathscr{d}}$, the liabilities exceed the asset value,
-        and the dealer defaults.
+        and the firm defaults.
         In this case the shareholders receive a payoff of 0.
         \\
         The asset value structure is illustrated in 
         \cref{fig:example-asset-value-multi-period-dealer}.
-        Each period the asset values are assumed to either increase with a factor $\mathscr{u} = 1.1$
-        or decrease with a factor $\mathscr{d} = 0.85$.
+        In each period the asset values either increase with a factor $\mathscr{u} = \num{1.1}$
+        or decrease with a factor $\mathscr{d} = \num{0.85}$.
         The asset values are determined under the risk-neutral measure,
         such that at each point in time the value is equal to the expected discounted value of the next period.
-        By that definition, and by a short-term risk-free rate assumed to be $r_{0,1}=2\%$ at the inception date,
-        the probability of being in the up-state at the interim date is calculated as:
+        By that definition, and by a short-term risk-free rate assumed to be $r_{0,1}=\pct{0.02}$ at the inception date,
+        the risk-neutral probability of being in the up-state at the interim date is calculated as:
         \begin{equation*}
             p_{\mathscr{u}}^{0} =
             \frac{
-                1 + 2\% - 0.85
+                \num{1} + \pct{0.02} - \num{0.85}
             }{
-                1.1 - 0.85
+                \num{1.1} - \num{0.85}
             }
             = \num{0.68}
         \end{equation*}
         And consequently, $p_{\mathscr{d}}^{0} = 1 - p_{\mathscr{u}}^{0} = \num{0.32}$.
-        Moving to the up-state from time 1 has a probability of
-        $p^1_\mathscr{u}=(R_1-0.85)/(1.1-0.85) = \num{0.696016}$.
 
-        The long-term risk-free discount rate from time 0 to time 2 is assumed to be $r_{0,2}=2.2\%$.
+        The long-term risk-free discount rate from time 0 to time 2 is assumed to be $r_{0,2}=\pct{0.022}$.
         To determine the expected short-term rate at the interim date, the forward rate is calculated:
         \begin{equation*}
             r_{1,2} =
                 \frac{
-                    \left(1 + 2.2\%\right)^{2}
+                    \left(\num{1} + r_{0,2}\right)^{2}
                 }{
-                    1 + 2\%
+                    \num{1} + r_{1,2}
                 }
-            - 1
-            = 2.4\%
+            - \num{1}
+            = \pct{0.024}
         \end{equation*}
+        Moving to the up-state from time 1 then has a probability of
+        $p^1_\mathscr{u}=(R_1-\num{0.85})/(\num{1.1}-\num{0.85}) = \num{0.696016}$.
         
         The risk-neutral probabilities of moving to the three different states at the maturity date are calculated as:
         \begin{align*}
@@ -107,23 +109,31 @@
             \num{0.097275}
         \end{align*}
 
-        At the interim date, the dealer's creditors have a known claim of $L_{1} = 10$,
-        meaning $W=10(R_1)=\num{10.240039}$.
-        Meanwhile, the long-term liabilities, which are also known with certainty, are $L_{2} = 70$.
+        At the interim date, the firm's creditors have a known claim of $L_{1} = \num{10}$,
+        meaning $W=\num{10}*R_1=\num{10.240039}$.
+        Meanwhile, the long-term liabilities, which are also known with certainty, are $L_{2} = \num{70}$.
         For simplicity, the dividend paid to the shareholders at the interim date is assumed to be $\theta_1 = 0$, and there are no distress costs.
-        As mentioned above, the asset value does not cover the total liabilities at state $\omega_{\mathscr{d},\mathscr{d}}$ as $72.25 < L_{2} + W$,
-        hence the dealer defaults.
+        As mentioned above, the asset value does not cover the total liabilities at state $\omega_{\mathscr{d},\mathscr{d}}$ as $\num{72.25} < L_{2} + W$,
+        hence the firm defaults.
         \\
         The short-term liabilities are, on the other hand, not large enough to trigger a default at the interim date
         regardless of the state outcome.
 
-        Before entering any projects, the dealers loss rate given default is
+        Before entering any projects, the firm's loss rate given default is
         $\phi(\omega_{\mathscr{d},\mathscr{d}})=(L_{2}-(\mathscr{d}^{2}A_{0}-W))/L_{2}=\pct{0.114143}$.
-        The credit spread at the inception date is \pct{0}, as the dealer cannot default at time 1,
-        and the credit spread at the interim date is then given by the limiting spread:
-        $(\phi(\omega_{\mathscr{d},\mathscr{d}})*p_{\mathscr{d},\mathscr{d}}R_{1})/(1-\phi(\omega_{\mathscr{d},\mathscr{d}}) p_{\mathscr{d},\mathscr{d}}) = \pct{0.0114975}$.
+        The credit spread at the inception date is \pct{0}, as the firm cannot default at time 1,
+        and the credit spread at the interim date is
+        \begin{equation}
+            \frac{
+                70
+            }{
+                \frac{70(1-p_{\mathscr{d},\mathscr{d}})+70(1-\phi)p_{\mathscr{d},\mathscr{d}}}{1+r_{1,2}}
+            }
+            - (1+r_{1,2})
+            = \pct{0.0114975}
+        \end{equation}
 
-        \begin{figure}[H]
+        \begin{figure}[t]
             \centering
             \begin{tikzpicture}[>=stealth,sloped]
                 \matrix (tree) [
@@ -152,20 +162,20 @@
                 \draw[->] (tree-4-2) -- (tree-5-3) node [midway,below] {\tiny
                 $p_{\mathscr{d},\mathscr{d}}=\num{0.097275}$};
             \end{tikzpicture}
-            \caption{The asset value of the dealer in each time period.}
+            \caption{The asset value of the firm in each time period.}
             \label{fig:example-asset-value-multi-period-dealer}
         \end{figure}
 
-        Having defined the setup of the dealer's capital structure,
-        a swap contract is now introduced between the dealer and a counterparty.
-        For simplicity, the counterparty is assumed to have no credit-risk.
-        The swap will have a relatively small notional payoff to the extend
-        that it does not affect the default- and no-default states of the dealer.
+        Having defined the setup of the firm's capital structure,
+        a swap contract is now introduced between the firm and a counterparty.
+        For simplicity, the counterparty is assumed to have no credit risk.
+        The swap will have a relatively small notional payoff to the extent
+        that it does not affect the default- and no-default states of the firm.
 
         The numerical example will apply the theory from \cref{sec:unsecured-swap-valuation}
         to find the shareholders' valuation of the project being entered.
         The purpose of the example is to examine how financing needs
         in different time periods influence the shareholders' valuation,
-        and consequently how they affects the \FVA/.
+        and consequently how they affect the \FVA/.
 
 \end{document}
