@@ -1,62 +1,44 @@
 % !TEX root = ./test-graphics.tex
 
-\colorlet{in-color}{black!30!green}
-\colorlet{out-color}{black!30!red}
-
-\node[
-    circle, 
-    draw,
-    minimum size=7cm,
-    fill=lightgray,
-] (circle) at (0, 0) {}; 
-
-\tikzmath{
-    \nArrows=5;
-    \arrowDistance=20;
-    \startAngle=90 - \arrowDistance*(\nArrows)/2;
-}
-
 \tikzset{
-    base-line/.style = {
-        line width=1mm,
+    base-style/.style = {
+        opacity=0.80
     },
-    base-arrow/.style = {
-        base-line,
-        -{Stealth[length=5mm]},
+    cash-flow/.style = {
+        base-style,
+        line width=0.25cm,
     },
-    in-arrow/.style = {
-        base-arrow,
-        in-color,
-    },
-    out-arrow/.style = {
-        base-arrow,
-        out-color,
-    },
-    offset-line/.style = {
-        base-line,
-        in-color,
-        opacity=0.9,
-        path fading=south,
-        postaction={
-            draw,
-            out-color,
-            path fading=north
-        },
+    contract/.style n args = {4}{
+        base-style,
+        rounded corners=.5mm,
+        fill={rgb:red,#2;green,#4;black,0.2},
+        minimum width=1cm,
+        minimum height=1cm,
+        append after command={
+            \pgfextra{
+                \tikzmath{
+                    \outLength=#2;
+                    \inLength=#4;
+                }
+                \draw[cash-flow, color={rgb:red,1;black,0.1}]
+                    (\tikzlastnode.#1) -- +(#1:\outLength);
+                \draw[cash-flow, color={rgb:green,1;blue,0.4}]
+                    (\tikzlastnode.#3) -- +(#3:\inLength);    
+            }
+        }
     }
-}
+};
 
-\foreach \arrow in {0,...,\nArrows}{
-    \tikzmath{\currentAngle=\startAngle+\arrow*\arrowDistance;}
-    \coordinate (in-arrow-\arrow) at (circle.\currentAngle);
-    \coordinate (out-arrow-\arrow) at (circle.\currentAngle-180);
-    
-    \draw[offset-line] 
-        (in-arrow-\arrow) ++(\currentAngle:1cm) --
-        (in-arrow-\arrow) -- 
-        (out-arrow-\arrow) --
-        (out-arrow-\arrow) ++ (\currentAngle-180: 1cm)
-        ;
-
-    \draw[in-arrow] (in-arrow-\arrow) ++(\currentAngle: 2cm) -- (in-arrow-\arrow);
-    \draw[out-arrow] (out-arrow-\arrow) -- ++(\currentAngle-180: 2cm);
-}
+\begin{scope}[shift={(-5,-4)}]
+\node[contract={north}{7}{east}{10}] at (0, 0) {};
+\node[contract={south}{2}{east}{3}] at (1, 3) {};
+\node[contract={south}{1.625}{east}{1.1875}] at (1, 6) {};
+\node[contract={west}{1}{east}{2}] at (3, 2) {};
+\node[contract={west}{7}{north}{3}] at (9, 1) {};
+\node[contract={east}{8}{west}{0}] at (5, 4) {};
+\node[contract={east}{1.1875}{west}{3}] at (4, 7) {};
+\node[contract={west}{2.1875}{south}{4}] at (6, 6) {};
+\node[contract={west}{3.1875}{south}{6}] at (10, 7) {};
+\node[contract={west}{1}{south}{3}] at (8, 5) {};
+\node[contract={west}{1}{south}{1}] at (3, 5) {};
+\end{scope}
