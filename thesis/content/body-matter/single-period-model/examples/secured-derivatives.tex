@@ -13,7 +13,9 @@
 
         In addition to the variation margin, 
         the CSA agreement requires an independent amount to be posted,
-        corresponding to \qty[round-precision=0]{50}{\percent} of the purchase price at time 0.
+        corresponding to \qty[round-precision=0]{50}{\percent} of the purchase price at time 0.\
+        \\
+        This setup is illustrated in \cref{fig:mva-setup}.
 
         The independent amount will be a source of funding costs.
         Since the upfront price offsets the call for variation margin,
@@ -30,6 +32,16 @@
         and by the debt obtained for the independent amount.
         At time 1 the asset value increases by these amounts forward discounted,
         since the quantities earn the risk-free rate when posted as collateral.
+        \begin{figure}[t]
+            \centering
+            \resizebox{\textwidth}{!}{%
+                \begin{tikzpicture}
+                    \import{\graphicsfolder/numerical-examples/}{secured-derivative.tex}
+                \end{tikzpicture}
+            }
+            \caption{Illustration of secured derivative setup}
+            \label{fig:mva-setup}
+        \end{figure}
 
         The collateralization is more than enough to secure the payoff of the derivative;
         therefore, the counterparty cannot suffer losses on the contract.
