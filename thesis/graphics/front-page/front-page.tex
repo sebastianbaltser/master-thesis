@@ -1,0 +1,44 @@
+% !TEX root = ./test-graphics.tex
+
+\tikzset{
+    base-style/.style = {
+        opacity=0.80
+    },
+    cash-flow/.style = {
+        base-style,
+        line width=0.25cm,
+    },
+    contract/.style n args = {4}{
+        base-style,
+        rounded corners=.5mm,
+        fill={rgb:red,#2;green,#4;black,0.2},
+        minimum width=1cm,
+        minimum height=1cm,
+        append after command={
+            \pgfextra{
+                \tikzmath{
+                    \outLength=#2;
+                    \inLength=#4;
+                }
+                \draw[cash-flow, color={rgb:red,1;black,0.1}]
+                    (\tikzlastnode.#1) -- +(#1:\outLength);
+                \draw[cash-flow, color={rgb:green,1;blue,0.4}]
+                    (\tikzlastnode.#3) -- +(#3:\inLength);    
+            }
+        }
+    }
+};
+
+\begin{scope}[shift={(-5,-4)}]
+\node[contract={north}{7}{east}{10}] at (0, 0) {};
+\node[contract={south}{2}{east}{3}] at (1, 3) {};
+\node[contract={south}{1.625}{east}{1.1875}] at (1, 6) {};
+\node[contract={west}{1}{east}{2}] at (3, 2) {};
+\node[contract={west}{7}{north}{3}] at (9, 1) {};
+\node[contract={east}{8}{west}{0}] at (5, 4) {};
+\node[contract={east}{1.1875}{west}{3}] at (4, 7) {};
+\node[contract={west}{2.1875}{south}{4}] at (6, 6) {};
+\node[contract={west}{3.1875}{south}{6}] at (10, 7) {};
+\node[contract={west}{1}{south}{3}] at (8, 5) {};
+\node[contract={west}{1}{south}{1}] at (3, 5) {};
+\end{scope}

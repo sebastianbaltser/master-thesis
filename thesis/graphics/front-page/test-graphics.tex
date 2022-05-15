@@ -1,0 +1,18 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{import}
+\import{../../content/tex-matter}{preamble.tex}
+
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shadings}
+\usetikzlibrary{fadings}
+
+\begin{document}
+    \begin{center}
+    \scalebox{0.9}{%
+        \begin{tikzpicture}[remember picture,overlay,shift={(current page.center)}]
+            \input{front-page.tex}
+        \end{tikzpicture}
+    }
+    \end{center}
+\end{document}
