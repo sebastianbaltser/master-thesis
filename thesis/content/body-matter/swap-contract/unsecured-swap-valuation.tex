@@ -60,7 +60,7 @@
         such that the loan is a zero net present value investment for the new creditors.
         With the face value of the new debt now defined as $D_{2}(q) = U(q)(R_{0} + s_{0}(q))(R_{1} + s_{1}(q))$,
         the marginal increase in the value of the firm's equity per unit investment is:
-        \begin{align*}
+        \begin{align}
             G_{\text{swap}} &=
             \left.\frac{\partial}{\partial q}
             \mathbb{E}_{0}^{\rnmeasure}\left[
@@ -90,7 +90,8 @@
                     \sum_{t=1}^{2} \delta_{t} \mathbbm{1}_{\{\tau_{C}(q)=t\}}q\left(1-\beta_t\right)Y_{t}^{+}
                 \right)
             \right]\right\rvert_{q=0}
-        \end{align*}
+            \label{eqn:G-debt-multi-step-1}
+        \end{align}
         The first term describes the residual of the total asset value at time 2 if the firm does not default in either of the time periods, and the counterparty does not default at time 1.
         The residual of the total asset value is the asset value including the swap cash flow less the value of the debt paid at time 1 and the debt to pay at time 2.
         \\
@@ -107,10 +108,12 @@
         If the counterparty defaults, the contractual outstanding amount, 
         i.e. the potential positive cash flow at time 2, will not be fully paid to the firm.
         
-        By expressing this derivative as a difference quotient, using $U(0)=0$,
+        By expressing the derivative in \cref{eqn:G-debt-multi-step-1} 
+        as a difference quotient, using $U(0)=0$,
         and by the linearity of the expectation operator,
         the following limit is obtained:
         \begin{align}
+            G_{\text{swap}} 
             &=
             \lim_{q \rightarrow 0}
             \frac{
@@ -167,7 +170,7 @@
             }{
                 q
             }
-            \label{eqn:G-debt-multi-step-1}
+            \label{eqn:G-debt-multi-step-2}
         \end{align}
         It is assumed that $A$, $W$, $L_{2}$, $\mathcal{C}_1$, $\mathcal{C}_2$, and $\theta_1$ all have finite expectations,
         which allows for interchanging the limit and the expectation.
@@ -212,9 +215,9 @@
             = 0
         \end{equation*}
         where the last equality uses the fact that the loss rate must be zero in at least one of the two periods.
-        This implies $u S_0 S_1 = 0$, which can be substituted into \cref{eqn:G-debt-multi-step-1}.
+        This implies $u S_0 S_1 = 0$, which can be substituted into \cref{eqn:G-debt-multi-step-2}.
         
-        By dividing $q$ into the expectation of the first limit in \cref{eqn:G-debt-multi-step-1}
+        By dividing $q$ into the expectation of the first limit in \cref{eqn:G-debt-multi-step-2}
         it can be recognized that $U(q)/q$ is the marginal investment cost, $u$.
         Rearranging and taking the limits yields:
         \begin{align}
