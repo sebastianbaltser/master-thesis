@@ -11,6 +11,8 @@
         \\
         As assumed previously, the new debt ranks pari passu with the legacy debt, 
         such that all creditors experience the same loss rate in states where the firm defaults.
+        The setup is illustrated in \cref{fig:debt-issuance-setup}.
+        \\
         Denote the face value of the new debt claim by $\tilde{D}_{1}$, 
         i.e. the value of the debt at time 1 if the firm does not default. 
         A claim with face value $\tilde{D}_{1}$ which ranks pari passu to another claim 
@@ -86,7 +88,17 @@
                 \tilde{D}_{1} &= \num{1.030889}
             \end{align*}
         Entering into the project and issuing new debt with face value $\num{1.030889}$ 
-        alters the payoffs associated with the firm in the following way:
+        alters the payoffs associated with the firm described in \cref{tbl:debt-issuance-payoffs}.
+        \begin{figure}[t]
+            \centering
+            \resizebox{\textwidth}{!}{%
+                \begin{tikzpicture}
+                    \import{\graphicsfolder/numerical-examples/}{debt-issuance.tex}
+                \end{tikzpicture}
+            }
+            \caption{Illustration of funding by debt issuance setup}
+            \label{fig:debt-issuance-setup}
+        \end{figure}
         \begin{table}[H]
             \centering
             \begin{tabular}{l|rrrrr||r}
@@ -103,6 +115,7 @@
                     & \num{1.030889} & \num{1.030889} & \num{1.030889} & \num{1.030889} & \num{0.776053} & \num{0.99} \\
             \end{tabular}
             \caption{}
+            \label{tbl:debt-issuance-payoffs}
         \end{table}
 
         The new project has therefore resulted in an expected default loss to creditors of 
