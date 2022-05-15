@@ -1,10 +1,15 @@
 % !TEX root = ./test-graphics.tex
 
 \tikzset{
+    base-style/.style = {
+        opacity=0.80
+    },
     cash-flow/.style = {
+        base-style,
         line width=0.25cm,
     },
     contract/.style n args = {4}{
+        base-style,
         draw,
         fill={rgb:red,#2;green,#4;black,0.2},
         minimum width=1cm,
