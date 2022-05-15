@@ -2,12 +2,13 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
+	\newgeometry{top=2.5cm,bottom=2.5cm}
 	\begin{titlepage}
 		\centering
 		\vspace{5cm}
 		{\fontsize{48pt}{1pt}\selectfont What The Funding? \par}
 		\vspace{0.5cm}
-		{\Large A Theoretical Study of Stakeholder Impacts from \\ 
+		{\Large A Theoretical Study of Stakeholder Impacts From \\ 
 				Funding Costs and Funding Value Adjustments \par}
 		\rule{\textwidth}{1px}\par
 		{\scshape\large 
@@ -18,15 +19,16 @@
 		
 
 		\scalebox{0.95}{%
-			\begin{tikzpicture}[remember picture,overlay,shift={(current page.center)}]
+			\begin{tikzpicture}[remember picture,overlay,shift={([yshift=0.5cm]current page.center)}]
 				\input{\graphicsfolder/front-page/front-page.tex}
 			\end{tikzpicture}        
 		}
 		\vfill
 		
-		{\Large \today \par}		
-		{A paper presented in the partial fulfilment
-		of the requirements for the degree of \\}
+		{\Large May 16, 2022 \par}		
+		\rule{\textwidth}{1px}\par
+		{A Paper Presented in the Partial Fulfilment
+		 of the Requirements for the Degree of \\}
 		{\Large Master of Science in Business Administration \\
 				and Mathematical Business Economics \par}
 		at \par 
@@ -37,4 +39,5 @@
 		
 		\thispagestyle{empty}
 	\end{titlepage}
+	\restoregeometry
 \end{document}
