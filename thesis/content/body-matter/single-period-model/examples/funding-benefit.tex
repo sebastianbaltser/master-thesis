@@ -45,11 +45,10 @@
         Another where the upfront price is used for buying back equity. 
 
         \subsubsection{Retiring Legacy Debt}
-            Suppose that when the firm receives the bond premium at time 0, 
-            they immediately invest their surplus of cash by retiring some of their already existing debt.
-            
-            This section will display how the described procedure will lead to the \DVA/
-            accounting for all funding benefits thus eliminating the need for an \FVA/.
+            In the following example, the firm uses the upfront price,
+            for retiring existing debt from its legacy creditors.
+            As it turns out, this will lead to the \DVA/
+            accounting for all funding benefits, thus eliminating the need for an \FVA/.
             Before seeing this from calculations, it can be argued conceptually
             and the reasons for it can be highlighted.
             \\
@@ -69,6 +68,18 @@
             a new liability, the bond, is replacing a part of the existing liability, the legacy debt. 
             Remembering the pari passu assumption, this debt-for-debt substitution 
             leaves the total liability unchanged.
+            \\
+            An outline of the setup is shown in \cref{fig:debt-retiring-setup}.
+            \begin{figure}[t]
+                \centering
+                \resizebox{\textwidth}{!}{%
+                    \begin{tikzpicture}
+                        \import{\graphicsfolder/numerical-examples/}{debt-retiring.tex}
+                    \end{tikzpicture}
+                }
+                \caption{Illustration of the bond premium being used to retire existing debt.}
+                \label{fig:debt-retiring-setup}
+            \end{figure}
 
             The implications of debt buyback are the following.
             First, the net present value for the creditors who tender is zero. 
@@ -182,8 +193,20 @@
 
         \subsubsection{Buying Back Equity}
             In this section the firm still sells its corporate bond with a face value of \num{1}.
-            Now, the upfront price is used for buying back equity from the shareholders. 
+            Now, the upfront price is used for buying back equity from the shareholders.
+            This setup is illustrated in \cref{fig:equity-buyback-setup}.
 
+            \begin{figure}[t]
+                \centering
+                \resizebox{\textwidth}{!}{%
+                    \begin{tikzpicture}
+                        \import{\graphicsfolder/numerical-examples/}{equity-buyback.tex}
+                    \end{tikzpicture}
+                }
+                \caption{Illustration of the bond premium being used to buy back equity from shareholders.}
+                \label{fig:equity-buyback-setup}
+            \end{figure}
+           
             In the previous section, selling the bond and retiring debt with the upfront,
             simply corresponded to exchanging some existing debt for some other debt. 
             When buying back equity, the bond value adds to the aggregate liabilities of the firm, 
@@ -308,7 +331,17 @@
             \\
             This section analyses whether this capital structure setup causes reasons for funding benefits.
             Intuitively, this could seem appropriate as the firm receives cash proceeds from the upfront price that can be invested beneficially.
-            
+            The setup is depicted in \cref{fig:no-funding-buyback-setup}.
+            \begin{figure}[t]
+                \centering
+                \resizebox{\textwidth}{!}{%
+                    \begin{tikzpicture}
+                        \import{\graphicsfolder/numerical-examples/}{no-funding-buyback.tex}
+                    \end{tikzpicture}
+                }
+                \caption{Illustration of derivative premium being used to invest in riskless assets.}
+                \label{fig:no-funding-buyback-setup}
+            \end{figure}
             \begin{table}[H]
                 \centering
                 \begin{tabular}{l|rrrrr}

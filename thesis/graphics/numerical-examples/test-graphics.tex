@@ -1,0 +1,45 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{import}
+\import{../../content/tex-matter}{preamble.tex}
+
+\begin{document}
+    \subsection*{Numerical Examples}
+    \begin{center}
+    \scalebox{0.9}{%
+        \begin{tikzpicture}
+            \import{.}{debt-issuance.tex}
+        \end{tikzpicture}
+    }
+    \\[1cm]
+    \scalebox{0.9}{%
+        \begin{tikzpicture}
+            \import{.}{equity-issuance.tex}
+        \end{tikzpicture}
+    }
+    \\[1cm]
+    \scalebox{0.9}{%
+        \begin{tikzpicture}
+            \import{.}{debt-retiring.tex}
+        \end{tikzpicture}
+    }
+    \\[1cm]
+    \scalebox{0.9}{%
+        \begin{tikzpicture}
+            \import{.}{equity-buyback.tex}
+        \end{tikzpicture}
+    }
+    \\[1cm]
+    \scalebox{0.9}{%
+        \begin{tikzpicture}
+            \import{.}{no-funding-buyback.tex}
+        \end{tikzpicture}
+    }
+    \\[1cm]
+    \scalebox{0.9}{%
+        \begin{tikzpicture}
+            \import{.}{secured-derivative.tex}
+        \end{tikzpicture}
+    }
+    \end{center}
+\end{document}

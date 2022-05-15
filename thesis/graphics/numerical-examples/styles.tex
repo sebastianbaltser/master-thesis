@@ -1,0 +1,55 @@
+% !TEX root = ./test-graphics.tex
+
+\tikzset{
+    base/.style={
+        draw,
+        very thick,
+        align=center,
+        minimum width=3cm,
+        minimum height=1.5cm,
+    },
+    counterparty/.style={
+        base,
+    },
+    funding/.style={
+        base,
+    },
+    firm/.style n args = {2}{
+        base,
+        fill=white!80!gray,
+        rounded corners=.50cm,
+        append after command={
+            \pgfextra{
+                \draw
+                    (\tikzlastnode)
+                    +(-6.5, 0) node (counterparty) [counterparty] {#1}
+                    +(6.5, 0) node (funding) [funding] {#2};
+            }
+        }
+    },
+    arrow/.style = {
+        shorten <= 5pt,
+        shorten >= 5pt,
+        thick,
+    },
+    arrow label/.style= {
+        near start,
+        fill=white,
+        inner sep=2pt,
+    },
+    contract/.style = {
+        near start, 
+        fill=white, 
+        inner sep=0pt,
+    }
+};
+
+\tikzmath{
+    \arrowyoffset = 7;
+    \arrowcenteryoffset = 7;
+    \toparrowyoffset = 7 pt;
+    \bottomarrowyoffset = -7 pt;
+}
+
+\newcommand{\contract}{\includegraphics[width=0.60cm]{contract}}
+\newcommand{\collateral}{\includegraphics[width=0.65cm]{collateral}}
