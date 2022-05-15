@@ -2,42 +2,30 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-    \subsection{Example of unsecured swap}
-        Suppose the dealer enters a swap contract with the credit risk-free counterparty.
-        She pays a constant fixed leg $K=\num{1}$ to the counterparty at each time period.
+    \subsection{Obtaining a Swap Contract}
+        Suppose the firm enters a swap contract with a credit risk-free counterparty.
+        The firm pays a constant fixed leg $K=\num{1}$ to the counterparty at each time period.
         Correspondingly, at each time period,
-        the dealer receives a random floating leg, $X_t$, from the counterparty.
+        the firm receives a random floating leg, $X_t$, from the counterparty.
 
         Since the counterparty is credit-risk free,
-        the dealer can always expect to receive the full contractual amount of the floating leg.
+        the firm can always expect to receive the full contractual amount of the floating leg.
         Therefore, there is no \CVA/ and
         the difference between the risk-free value and the credit risk adjusted price is the \DVA/.
 
         The floating legs are considered random.
-        Their distribution will not be specified,
+        Their probability distribution will not be specified,
         but the expected cash flows are known
-        by both the dealer and the counterparty.
-        If the dealer's swap leg has a higher value than the counterparty's,
-        she will have to pay an upfront price to the counterparty,
+        by both the firm and the counterparty.
+        If the firm's swap leg has a higher value than the counterparty's,
+        it will have to pay an upfront price to the counterparty,
         and vice versa.
 
         The time 0 expected payments of the swap are summarized in \cref{tbl:swap-legs}.
-        Notice, that at the interim date the dealer expects a positive cash flow of
+        Notice that at the interim date the firm expects a positive cash flow of
         $\mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_1\right] = \mathbb{E}_{0}^{\rnmeasure}\left[X_1 - K\right] = \num{0.2}$,
         which will be used for retiring existing debt.
         The expected cash flow at time 2 does not change over time.
-
-        At the maturity date the dealer liquidates all of her assets,
-        which she uses to pay the remaining outstanding amounts.
-        Additionally, the existing creditors' liabilities are assumed to rank pari passu with the counterparty's contingent liabilities.
-        \\
-        Since the expected discounted market value of the floating payments is largest,
-        the dealer may be obliged to pay the counterparty an upfront price.
-        As per the Modigliani-Miller proposition, 
-        a zero net present value investment leaves the aggregate wealth unchanged.
-        For this to be applicable, the price of the swap must also account for the dealer's own default risk,
-        i.e. include the aforementioned \DVA/.
-        Otherwise, it cannot be a zero net present value investment for both the dealer and the counterparty.
 
         \begin{table}[H]
             \centering
@@ -55,8 +43,20 @@
             \label{tbl:swap-legs}
         \end{table}
 
-        When defaulting at time 2, i.e. in state $\omega_{\mathscr{d},\mathscr{d}}$,
-        the dealer's total liabilities are calculated as:
+        At the maturity date the firm liquidates all of its assets,
+        which it uses to pay the remaining outstanding amounts.
+        Additionally, the existing creditors' liabilities are assumed to rank pari passu with the counterparty's contingent liabilities.
+        \\
+        Since the expected discounted market value of the floating payments is largest,
+        the firm may be obliged to pay the counterparty an upfront price.
+        As per the Modigliani-Miller proposition, 
+        a zero net present value investment leaves the aggregate wealth unchanged.
+        For this to be applicable, the price of the swap must also account for the firm's own default risk,
+        i.e. include the aforementioned \DVA/.
+        Otherwise, it cannot be a zero net present value investment for both the firm and the counterparty.
+
+        If the firm defaults at time 2, i.e. if the state $\omega_{\mathscr{d},\mathscr{d}}$ is realized,
+        the present value of the total payoff to its creditors is calculated as:
         \begin{align*}
             \mathbb{E}_{0}^{\rnmeasure}\left[
                 (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\left(
@@ -71,7 +71,7 @@
             (1-\phi(\omega_{\mathscr{d},\mathscr{d}}))\num{69.8452}
         \end{align*}
         And by definition, this amount is equal to the total remaining asset value.
-        Remember that at time 2 the dealer has already paid the liabilities due at the interim date.
+        Remember that at time 2 the firm has already paid the liabilities due at the interim date.
         To find the price of the project
         as well as the loss rate given default after obtaining the project,
         the following system of equations must be solved for $u$ and $\phi(\omega_{\mathscr{d},\mathscr{d}})$:
@@ -111,9 +111,9 @@
             \end{array}\right.
             \nonumber
         \end{align}
-        The first equation in \cref{eqn:swap-example-equation-system} assures that the creditors receive the entire asset base if the firm defaults.
+        The first equation in \cref{eqn:swap-example-equation-system} ensures that the creditors receive the entire asset base if the firm defaults.
         The second equation sets the price of the swap as the discounted expected payoff.
-        Solving this equation system yields a swap price of $u=\num{0.158655}$,
+        Solving this system of equations yields a swap price of $u=\num{0.158655}$,
         and a loss rate in the default state of 
         $\phi(\omega_{\mathscr{d},\mathscr{d}})=\pct{0.112180}$.
         Using the loss rate, the value of the legacy creditors' long term claim can be calculated.
@@ -124,10 +124,8 @@
 
         The credit spread in each period is the debt's no-default value one period ahead
         divided by its current value less the risk-free rate.
-        Hence the post-project actual credit spreads for time 0 and time 1 is:
-        \begin{align}
-            S_{0} 
-            &=
+        Hence the post-project actual credit spreads for time 0 and time 1 are respectively:
+        \begin{align*}
             \frac{
                 \num{67.61791744}
             }{
@@ -138,8 +136,6 @@
             =
             \pct{0}
             \\
-            S_{1} 
-            &= 
             \frac{
                 \num{70}
             }{
@@ -149,22 +145,22 @@
             R_{1}
             =
             \pct{0.0112246}
-        \end{align}
-        Since the dealer cannot default at time 1,
+        \end{align*}
+        Since the firm cannot default at time 1,
         the upfront price can be funded with short-term debt at the risk-free interest rate.
         If the firm were to pay a spread on the short-term debt starting at time 0,
         this would be subtracted from the liquidated asset value. 
 
-        By using the marginal market valuation of the swap contract
+        By using the equation for the shareholder's marginal market valuation of the swap contract
         defined in \cref{eqn:swap-value-multi-period},
         the \DVA/ can then be computed as:
-        \begin{align}
+        \begin{align*}
             \DVA/ &= u - V_{rf}
             \nonumber
             \\
             &= u - \mathbb{E}_{0}^{\rnmeasure}\left[\sum_{t=1}^{2}\delta_t \mathcal{C}_t\right]
             = \num{0.0104476}
-        \end{align}
+        \end{align*}
 
         Turning to the shareholder valuation of the project.
         Cash flows from the swap contract may have an impact on the shareholders' valuation of the project.
@@ -172,39 +168,30 @@
         the project is a zero net present value investment for the counterparty.
         If a wealth transfer has happened, it is bound to be between the shareholders and the long-term creditors.
 
-        The swap provides an overall funding benefit for the dealer,
-        and increases the value of the shareholders' claim.
-        Since the dealer cannot default at the interim date,
-        there are no funding costs from obtaining short-term debt at time 0.
-        At time 1, the dealer expects a swap payment from the counterparty,
-        and this cash flow is passed on to the creditors, reducing the long-term debt.
-        Hence, the shareholders do not have to pay interest on this retired debt,
-        and their payoff increases.
-
-        With $\mathbb{E}_{t}^{\rnmeasure}\left[\mathcal{C}_1\right]=\num{0.2}$,
-        $\mathbb{E}_{t}^{\rnmeasure}\left[\mathcal{C}_2\right]=\num{-0.05}$,
+        With $\mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_1\right]=\num{0.2}$,
+        $\mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_2\right]=\num{-0.05}$,
         $u=\num{0.158655}$,
         and the assumption that the counterparty is credit risk-free,
         the total impact on the shareholders' benefit is calculated using \cref{eqn:shareholders-value-multi-period-swap}:
-        \begin{equation}
+        \begin{equation*}
             G_{\text{swap}} = \num{-0.00906097}
-        \end{equation}
+        \end{equation*}
         This value suggests a wealth transfer of $\num{-0.00906097}$
         between the shareholders and the creditors of the long-term debt,
-        such that the project is a negative net present value investment for the creditors.
+        such that the project is a negative net present value investment for the shareholders.
 
         The price that would make this project a zero net present value investment for the shareholders,
         is found by fixing $G_{\text{swap}}$ to 0,
-        and solving for $u^{\ast}$.
-        The difference between the credit risk adjusted price and $u^{\ast}$ is then the \FVA/:
-        \begin{equation}
+        and solving for $u^{\ast}_{\text{swap}}$.
+        The difference between the credit risk adjusted price and $u^{\ast}_{\text{swap}}$ is then the \FVA/:
+        \begin{equation*}
             G_{\text{swap}} = 0
-        \end{equation}
-        yielding a funding adjusted price of $u^{\ast} = \num{0.148727}$.
+        \end{equation*}
+        yielding a funding adjusted price of $u^{\ast}_{\text{swap}} = \num{0.148727}$.
         The donation from the counterparty required is then:
-        \begin{equation}
-            \FVA/ = u^{\ast} - u = \num{-0.00992852}
-        \end{equation}
+        \begin{equation*}
+            \FVA/ = u^{\ast}_{\text{swap}} - u = \num{-0.00992852}
+        \end{equation*}
 
         This example has shown a situation where some of the derivatives cash flows have
         been a source of funding benefits,
@@ -218,7 +205,7 @@
         the firm can obtain funding in the first period at a very low credit spread of \pct{0}.
         However, the intermediate incoming cash flow can retire debt
         that would otherwise have appreciated 
-        by the dealer's credit spread at time 1 of \pct{0.011298}.
+        by the firm's credit spread at time 1 of \pct{0.011298}.
         Therefore, the time 1 cash flow provides a funding benefit,
         but the time 0 cash flow has no funding cost.
         Of course, the setup considered here is incredible simplistic,
@@ -226,7 +213,7 @@
         In reality, creditors would clearly not offer a credit spread of zero on, say,
         1 month tenors because they feel certain that the firm can only default in 2 months.
 
-        Still, the general lesson is useful anyway.
+        The general lesson is useful anyway.
         If institutions have high credit spreads in certain periods,
         it will be more costly for them to obtain projects 
         that have outgoing cash flows in these periods.
@@ -241,12 +228,13 @@
         any outgoing cash flow has to be funded, 
         as there are no offsetting cash flows from hedges.
 
-        If the dealer was to extend her portfolio by hedging the swap
+        If the firm was to extend its portfolio by hedging the swap
         with a fully collateralized position in the opposite trade,
         the funding implications would mainly be due to the margin requirements.
         An example of this situation was depicted in \cref{fig:funding-costs-asymmetrical-csa},
         where differences in the collateral call frequency of the swap and its hedge
         led to funding shortfalls and surpluses.
+        \\
         Including a collateralized hedge in the current example, would convey some of the same messages.
         The interest payments from the swap would more or less 
         offset the interest payments from the hedge, 
@@ -254,16 +242,17 @@
         The extent of reduction would depend on the accuracy of the hedge;
         a perfect hedge would have the exact opposite interest payments as the original,
         but mismatches would provide some funding friction.
-        
-        Some funding cost would occur as the upfront price paid for the swap 
+        \\
+        Some funding costs would occur as the upfront price paid for the swap 
         would be higher than the upfront price received on the hedge.
         The hedge would be secured and probably be priced close to its risk-free value, 
         while the swap counterparty would require compensation for taking on the credit risk.
-        Hence, the dealer would likely have to provide funding 
+        Hence, the firm would likely have to provide funding 
         for the differences in upfront payments.
-        Of course, practically speaking, the dealer would actually have to provide funding
+        Of course, practically speaking, the firm would actually have to provide funding
         for the entire upfront payment on the original swap;
         the upfront payment from the hedge would have to be immediately posted as collateral.
+        \\
         Whether to attribute this funding cost to the upfront payment or to the collateralization
         is up to interpretation, but is only a matter of definition.
 
