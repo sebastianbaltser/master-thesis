@@ -2,6 +2,7 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
+	\newgeometry{top=2.5cm,bottom=2.5cm}
 	\begin{titlepage}
 		\centering
 		\vspace{5cm}
@@ -18,7 +19,7 @@
 		
 
 		\scalebox{0.95}{%
-			\begin{tikzpicture}[remember picture,overlay,shift={(current page.center)}]
+			\begin{tikzpicture}[remember picture,overlay,shift={([yshift=0.5cm]current page.center)}]
 				\input{\graphicsfolder/front-page/front-page.tex}
 			\end{tikzpicture}        
 		}
@@ -38,4 +39,5 @@
 		
 		\thispagestyle{empty}
 	\end{titlepage}
+	\restoregeometry
 \end{document}
