@@ -16,7 +16,7 @@
         the swap market value,
         and of course the swap floating rate.
 
-    \subsection{A Dealer in a Multi-Period Economy}
+    \subsection{A Firm in a Multi-Period Economy}
     \label{sec:swap-examples}
         
         Maintaining the purpose of analysing funding implications,
@@ -28,7 +28,7 @@
         depending on the asset value going up or down in the first time period respectively.
         \\
         In the state $\omega_{\mathscr{d},\mathscr{d}}$, the liabilities exceed the asset value,
-        and the dealer defaults.
+        and the firm defaults.
         In this case the shareholders receive a payoff of 0.
         \\
         The asset value structure is illustrated in 
@@ -109,19 +109,19 @@
             \num{0.097275}
         \end{align*}
 
-        At the interim date, the dealer's creditors have a known claim of $L_{1} = \num{10}$,
+        At the interim date, the firm's creditors have a known claim of $L_{1} = \num{10}$,
         meaning $W=\num{10}*R_1=\num{10.240039}$.
         Meanwhile, the long-term liabilities, which are also known with certainty, are $L_{2} = \num{70}$.
         For simplicity, the dividend paid to the shareholders at the interim date is assumed to be $\theta_1 = 0$, and there are no distress costs.
         As mentioned above, the asset value does not cover the total liabilities at state $\omega_{\mathscr{d},\mathscr{d}}$ as $\num{72.25} < L_{2} + W$,
-        hence the dealer defaults.
+        hence the firm defaults.
         \\
         The short-term liabilities are, on the other hand, not large enough to trigger a default at the interim date
         regardless of the state outcome.
 
-        Before entering any projects, the dealers loss rate given default is
+        Before entering any projects, the firm's loss rate given default is
         $\phi(\omega_{\mathscr{d},\mathscr{d}})=(L_{2}-(\mathscr{d}^{2}A_{0}-W))/L_{2}=\pct{0.114143}$.
-        The credit spread at the inception date is \pct{0}, as the dealer cannot default at time 1,
+        The credit spread at the inception date is \pct{0}, as the firm cannot default at time 1,
         and the credit spread at the interim date is
         \begin{equation}
             \frac{
@@ -162,15 +162,15 @@
                 \draw[->] (tree-4-2) -- (tree-5-3) node [midway,below] {\tiny
                 $p_{\mathscr{d},\mathscr{d}}=\num{0.097275}$};
             \end{tikzpicture}
-            \caption{The asset value of the dealer in each time period.}
+            \caption{The asset value of the firm in each time period.}
             \label{fig:example-asset-value-multi-period-dealer}
         \end{figure}
 
-        Having defined the setup of the dealer's capital structure,
-        a swap contract is now introduced between the dealer and a counterparty.
+        Having defined the setup of the firm's capital structure,
+        a swap contract is now introduced between the firm and a counterparty.
         For simplicity, the counterparty is assumed to have no credit-risk.
         The swap will have a relatively small notional payoff to the extent
-        that it does not affect the default- and no-default states of the dealer.
+        that it does not affect the default- and no-default states of the firm.
 
         The numerical example will apply the theory from \cref{sec:unsecured-swap-valuation}
         to find the shareholders' valuation of the project being entered.
