@@ -26,6 +26,7 @@
 			"overadjustment",
 			"Pari",
 			"Passu",
+			"rata",
 			"rehypothecate",
 			"rehypothecated",
 			"rehypothecation",
@@ -33,7 +34,7 @@
 			"tibor",
 			"uncollateralized",
 			"underadjustment",
-			"xibor",
+			"xibor"
 		],
 		"cSpell.flagWords": [
 			"cashflow",
