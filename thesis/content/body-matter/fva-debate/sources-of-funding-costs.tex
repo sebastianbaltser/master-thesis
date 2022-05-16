@@ -12,7 +12,7 @@
 
     \subsection{Funding Costs From Asymmetrical Collateral Agreements}
     \label{sec:funding-asymmetric-collateral}
-        Imbalance between the collateral schemes of an OTC derivative and its market risk hedge
+        Imbalance between the collateralisation schemes of an OTC derivative and its market risk hedge
         is an origin of funding costs and the concern of this section.
         The conclusion will be that if a perfect market risk hedge exists, funding costs can be viewed 
         as a component of the cost of trading derivatives that are not subject to a perfect CSA agreement.
@@ -34,11 +34,13 @@
         The particular type of derivative is not too important, 
         but picture a derivative that can leave the dealer both negatively and positively exposed to the counterparty, 
         e.g. an interest rate swap.
+        \\
         In order to avoid the market risk of the investment, 
         the dealer hedges the trade by performing the opposite, 
         perhaps synthetic, trade on an exchange,
         In this example, it is assumed that the upfront price of the derivative 
         matches exactly the upfront price of the market risk hedge.
+        \\
         The exchange requires full collateralisation;
         when the dealer has positive exposure to the counterparty, 
         she has negative exposure to the exchange and must post collateral. 
@@ -47,6 +49,7 @@
         therefore, any collateral posted earns the \OIS/ rate at the receiver.
         The exchange could possibly charge a spread and pay less than the \OIS/ rate,
         but for simplicity assume that this is not the case.
+        \\
         Assume also that the dealer's institution has no excess cash on its balance sheet, 
         such that any collateral that needs to be posted to the exchange 
         must be borrowed from the dealer's funding institution,
@@ -101,6 +104,7 @@
         the collateral posted by the counterparty can be passed on to the exchange.
         To a certain extent, this reduces the dealer's need for borrowing unsecured funds from the funding desk
         and ultimately reduces her funding costs.
+        \\
         However, funding costs are possibly still present as
         the collateral agreement with the counterparty is likely weaker than the one with the exchange. 
         This is depicted in \cref{fig:funding-costs-secured-derivative} 
@@ -144,7 +148,7 @@
         To hedge the market risk, the dealer enters into the opposite trade on an exchange.
         The market risk is perfectly hedged, 
         and the value of the two contracts are therefore identical but with the sign flipped.
-        The value of the hedge is indicated by the \textcolor{wtf-orange}{orange line}.
+        The value of the dealer's part of the hedge is indicated by the \textcolor{wtf-orange}{orange line}.
         For simplicity, both swaps can take only one of five values; $+\$$, $+\$\$$, $0$, $-\$$, and $-\$\$$.
 
         Both swaps are secured by CSA agreements allowing rehypothecation 
@@ -176,7 +180,7 @@
 
         In period 5 the situation is the opposite.
         The exchange posts collateral to the dealer, 
-        but, even though the counterparty trade is marked-to-market lower than in period 4,
+        but, even though the counterparty's trade is marked-to-market lower than in period 4,
         the counterparty cannot submit a collateral call. 
         The dealer is therefore in excess of funding,
         which she can pass on to her funding desk.
@@ -185,7 +189,7 @@
         The collateral shortfalls would otherwise have had to be covered by borrowing funds 
         from the funding institution and the dealer is thereby saving the unsecured borrowing rate of $\OIS/ + \text{S}$.
         The asymmetry in period 5 is therefore a funding benefit to the dealer
-        since the excess collateral have reduced her institution's financing needs elsewhere.
+        since the excess collateral has reduced her institution's financing needs elsewhere.
         While this example is concerned with difference in frequency of collateral calls,
         examples with difference in exposure thresholds or higher minimum transfer amounts 
         would convey the same message.
@@ -203,7 +207,7 @@
             \caption{
                 Illustration of funding costs from an interest rate swap with asymmetrical collateral agreements.
                 The exchange is obliged to submit collateral calls or post collateral every period,
-                while the counterparty must only do that every second period.
+                while the counterparty must only do so every second period.
             }
             \label{fig:funding-costs-asymmetrical-csa}
         \end{figure}
@@ -215,8 +219,8 @@
         trades with corporate counterparties by trading with other financial institutions.
         Suppose a dealer has traded with a corporate client
         under a CSA agreement without an independent amount.
-        If the dealer trades hedges with another financial institution
-        and clears through a CCP it will likely be required to post initial margin. 
+        If the dealer trades hedges with another financial institution and clears through a CCP, 
+        she will likely be required to post initial margin. 
         If the variation margin from the CSA agreement 
         perfectly offsets the variation margin from the CCP, 
         there will be no offsetting cash flow for the initial margin,
@@ -225,8 +229,8 @@
         Large financial institutions will be even more likely to face calls for initial margin
         when financial regulators put in measures to limit risk taking.
         This is, for example, the result of the reform \textcite{BCBC2020}
-        that imposes initial margin requirements on non-centrally cleared derivatives for 
-        firms that trade a large amount of uncleared products.
+        that imposes initial margin requirements on non-centrally cleared derivatives, 
+        for institutions that trade a large amount of uncleared products.
 
         It might be argued that the funding costs could be eliminated by trading derivatives,
         whose replication can be operated by repos. 
@@ -237,7 +241,7 @@
 
         \begin{example}
         Consider a dealer buying a European call option, with the intention to hedge the market risk.
-        To create the hedging strategy the dealer must short an amount of the underlying asset corresponding to the option Delta of the call option.
+        To create the hedging strategy, the dealer must short an amount of the underlying asset corresponding to the option Delta of the call option.
         If the underlying asset can be sold at repo the dealer will receive the repo rate.
         However, to pay the premium for the call option the dealer must borrow unsecured funds from her funding institution,
         paying again the funding spread. 
@@ -256,7 +260,7 @@
         Another is the contractually agreed on cash flows in a derivative,
         which must also be funded at the dealer's borrowing rate.
         However, as was the case with collateralisation,
-        a derivative cash flows can be used for offsetting 
+        derivative cash flows can be used for offsetting 
         other cash flows in the dealer's portfolio.
         This implies that with the existence of a perfect replication,
         the cash flows from a derivative can be completely offset by the hedging strategy,
@@ -273,12 +277,12 @@
         both are again sources of funding cost, which can be illustrated by the following examples.
 
         \begin{example}
-        Consider a firm buying a simple option, without the intention to hedge its market risk.
+        Consider a dealer buying a simple option, without the intention to hedge its market risk.
         Buying the option requires paying an upfront price to the counterparty,
         which would seemingly require financing;
         however, this is only a source of funding costs 
-        if the firm and the counterparty do not have a CSA agreement in place.
-        If both the firm and the counterparty are financial institutions, 
+        if the dealer and the counterparty do not have a CSA agreement in place.
+        If both the dealer and the counterparty are financial institutions, 
         they will most likely maintain a CSA agreement
         such that any upfront price paid will immediately be met by a collateral posting in the opposite direction.
         Hence, the funding need for the upfront price will be satisfied and the funding costs eliminated.
@@ -297,8 +301,11 @@
         but for the replication the dealer is only able to obtain a 10 year swap with quarterly payments.
         As a result, the dealer will have a cash flow from the hedge every three months
         that does not correspond to the cash flow from the OTC derivative. 
-        Both of these scenarios are examples of funding costs essentially stemming from the lack of perfect hedging.
         \end{example}
+    
+        Both of these scenarios are examples of funding costs essentially stemming from the lack of perfect hedging.
+        In conclusion, funding costs also occur when derivatives are not perfectly replicated
+        since the outgoing cash flows will have to be financed.
 
     \subsection{Funding Costs From Other Sources}
         It is worth mentioning that there are multiple other mechanisms 
@@ -310,8 +317,8 @@
         which refers to providing collateral 
         worth more than enough to cover losses in case of default.
         For example, 
-        Central Counterparties typically require more types of margin than mentioned here,
-        all with the purpose of protecting against the default of its clearing members.
+        CCPs typically require more types of margin than mentioned here,
+        all with the purpose of protecting against the default of their clearing members.
         CSA agreements might also contain provisions for volatility buffers
         that work as over-collateralisation 
         for the event that counterparties experience a drop in credit ratings.
