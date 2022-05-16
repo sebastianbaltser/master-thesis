@@ -14,7 +14,7 @@
             Since the firm obtains funds for the project at a spread in excess of the risk-free rate, 
             the shareholders pay an additional rate when the firm does not default. 
             This is a form of funding cost and argues in favour of defining the \FVA/ as
-            the present value of the costs paid by the shareholders in excess of the risk-free rate.
+            the present value of the costs paid in excess of the risk-free rate.
             This is the definition used by \textcite{HullWhiteFVA} who define \FVA/ as 
             \textit{%
                 "the present value of the extra return required by lenders to compensate them 
@@ -33,6 +33,7 @@
                         \discountfactor u S
                     \label{eqn:fva-as-promised-excess-funding-cost}
                 \end{align}
+            \indent
             If the CDS-bond spread is zero, this definition of \FVA/ is equal to the \DVA/.
             This fact is used by \textcite{HullWhiteFVA} as an argument against \FVA/s,
             since the \DVA/ should already be accounted for and therefore including the adjustment
@@ -43,8 +44,8 @@
             which is done by the next possible definition of \FVA/.
 
         \subsubsection*{FVA as the Expected Excess Funding Cost}
-            The FVA can also be defined by the quantity $\Phi$ in \cref{eqn:marginal-shareholder-value-debt-financing}.
-            The definition is repeated here for completeness:
+            The FVA can also be defined by the quantity $\Phi$ in 
+            \cref{eqn:marginal-shareholder-value-debt-financing}:
                 \begin{equation}
                     \FVA/
                     =
@@ -76,7 +77,7 @@
             Phrased differently, the \FVA/ is the donation needed from the project counterparty 
             in order to preserve the shareholders' wealth.
 
-            Deriving the shareholder' breakeven price
+            Deriving the shareholders' breakeven price
             is a matter of setting the marginal value of entering the project equal to zero
             and solving for the marginal investment cost. 
             With three different funding types considered, this will result in three different breakeven prices,
@@ -204,7 +205,7 @@
                 \end{align}
             Again, the shareholders' breakeven value can be seen as the discounted expected value of the cash flow
             adjusted for the inflated covariance.
-            However, the discount factor applied is different from the risk rate plus the credit spread as seen before.
+            However, the discount factor applied is different from the risk-free rate plus the credit spread as seen before.
             The discount factor in this case $\discountfactor p^{\mathbb{Q}}$ corresponds to 
             the price of an Arrow-Debreu security paying one unit of numeraire if the firm defaults and zero if not.
             The \FVA/ under equity funding is then:
@@ -256,7 +257,7 @@
                         = u^{\ast}_{\text{cash}} - u
                     \label{eqn:fva-cash-financing}
                 \end{equation}
-
+        \indent
         These three adjustments to the breakeven price 
         will constitute the definition of \FVA/ used throughout this paper.
         If the firm has as objective to maximise shareholder value, 

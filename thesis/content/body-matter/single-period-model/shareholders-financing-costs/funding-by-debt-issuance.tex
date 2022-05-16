@@ -12,9 +12,8 @@
         such that creditors break even by offering the market value of the firms' debt claims.
         The debt obtained to finance the upfront cost, $U(q)$, is assumed to rank pari passu with existing debt.
 
-        The new creditors receive a credit spread denoted by $s(q)$,
-        which generally depends on the share of the payoff being secured and the share being unsecured.
-        The face value of the newly issued debt is therefore $U(q)(R + s(q))$.
+        The new creditors receive a credit spread denoted by $s(q)$;
+        therefore, the face value of the newly issued debt is $U(q)(R + s(q))$.
         The firm defaults if it is not able to pay both the legacy liabilities and the new debt,
         therefore the default event is:
             \begin{equation*}
@@ -25,7 +24,8 @@
                 \}
             \end{equation*}
         Since creditors, by assumption, break even on the new debt issued to finance the cost $U(q)$,
-        the credit spread, $s(q)$, must solve the following:
+        the credit spread must ensure that the present value of the debt claim equals the upfront cost.
+        In other words, the credit spread, $s(q)$, must solve the following:
             \begin{align}
                     U(q) 
                 &=
@@ -67,7 +67,7 @@
         The first term in this equation is the contribution to the expected value from the promised payoff,
         the face value, which is paid when the firm does not default. 
         The face value equals the borrowed amount, $U(q)$, 
-        forward appreciated by the gross risk-free rate and the credit spread.
+        appreciated by the gross risk-free rate and the credit spread.
         
         The second term is the contribution from the payoff when the firm defaults. 
         The asset base consists of the legacy assets, $A$, the secured payoff, $qY_{1}$, 
@@ -94,7 +94,7 @@
         it is easier to consider the limiting spread, $\lim_{q\rightarrow0}s(q)$. 
         This quantity is derived in the following paragraphs.
         Dividing first both sides of \cref{eqn:new-creditors-breakeven} by the face value $U(q)(\grossrfrate+s(q))$ 
-        and using the linearity of the expected value operator:
+        and using the linearity of the expectation operator:
             \begin{align}
                     \frac{1}{\grossrfrate + s(q)} 
                 &=
@@ -189,13 +189,14 @@
         Let $S$ denote the limiting spread which is defined as the credit spread on debt 
         charged for obtaining an infinitesimal quantity of the project, i.e.
         $S \equiv \lim_{q\rightarrow 0} s(q)$.
+        \\
         If the limits of two addends in a sum are finite, 
-        the algebraic limit theorem ensures that the limit of the summation operation,
+        the algebraic limit theorem ensures that the limit of the summation operation
         can be expressed as the summation of the addends' limits.
         This also applies to two factors in a product.
         Since $A$, $L$, and $Y$ have finite expectations,
         limits and integrals, e.g. the expectation in the above equation, can be interchanged.
-
+        \\
         Applying the limit of $q$ approaching $0$:
             \begin{align}
                     S
@@ -265,13 +266,13 @@
                     \left(
                         \mathbb{E}^{\rnmeasure}\left[
                             1
-                            +
+                            -
                             \mathbbm{1}_{\mathcal{D}}
                                 \frac{
+                                    L
+                                    -
                                     \kappa 
                                     A
-                                    -
-                                    L
                                 }{
                                     L 
                                 }
@@ -322,7 +323,7 @@
                 \label{eqn:limiting-spread}
             \end{align}
         As anticipated, the limiting spread is invariant to the decomposition of the payoff into $Y_{1}$ and $Y_{2}$,
-        as well as being independent to the quantity $q$. 
+        as well as being independent of the quantity $q$. 
         These properties will make the limiting spread very useful in the following derivation
         of the marginal shareholder valuations.
 
@@ -333,7 +334,7 @@
         and then taking the derivative of that with respect to $q$.
         
         Again, the face value of the new debt is the upfront including the interest rates paid;
-        namely, $U(q)(\grossrfrate + s(q))$. 
+        specifically, $U(q)(\grossrfrate + s(q))$. 
         The shareholders receive the residual of the assets after debt claims have been paid
         unless the firm defaults, in which case the shareholders receive nothing. 
         The marginal increase in the value of the firms equity per unit investment is therefore:
@@ -433,7 +434,7 @@
                 } 
                 \label{eqn:G-debt-step-1}
             \end{align}
-        Using the algebraic limit theorem and deriving the limit of the first addend:
+        Using the algebraic limit theorem and deriving the limit of the first addend in the numerator:
             \begin{align}
                 &\quad
                 \lim_{q\rightarrow 0}
@@ -479,7 +480,8 @@
                 \right] 
                 \label{eqn:G-debt-step-2}
             \end{align}
-        Turning to the limit of the second term in \cref{eqn:G-debt-step-1}.
+        \indent
+        Turning to the limit of the second term in the numerator of \cref{eqn:G-debt-step-1}.
         Using again the assumption that $A$, $L$, and $Y$ have finite expectations,
         the following expression is obtained:
             \begin{equation*}
@@ -516,11 +518,12 @@
         Turning to the numerator, $\mathbbm{1}_{\mathcal{D}^{c}(q)} - \mathbbm{1}_{\mathcal{D}^{c}}$.
         The pre-project no-default event, $\mathbbm{1}_{\mathcal{D}^{c}}$ is constant in $q$, 
         and its derivative is zero. 
-        For an infinitesimal investment the post-project no-default indicator, 
+        For an infinitesimal investment, the post-project no-default indicator, 
         $\mathbbm{1}_{\mathcal{D}^{c}(q)}$, can only change its value at the point $A = L$. 
         However, the assumption $\mathbb{P}\left(A = L\right) = 0$ ensures that this does not occur;
         the derivative of the post-project no-default event
         is therefore surely zero in an interval around $q=0$.
+        \\
         Hence, it can be concluded that:
         \begin{equation}
             \lim_{q\rightarrow0} 
@@ -541,6 +544,7 @@
             = 0
             \label{eqn:G-debt-step-3}
         \end{equation}
+        \indent
         Applying the results of \cref{eqn:G-debt-step-2} and \cref{eqn:G-debt-step-3}
         to \cref{eqn:G-debt-step-1} yields:
             \begin{align}
@@ -582,6 +586,7 @@
                 \right] \discountfactor u S
                 \label{eqn:G-debt-step-4}
             \end{align}
+        \indent
         The expected value of two dependent terms in the first term, 
         $\mathbb{E}^{\mathbb{Q}}\left[\mathbbm{1}_{\mathcal{D}^{c}}Y\right]$,
         can be reformulated by applying the definition of the covariance operator.
@@ -617,6 +622,7 @@
             \end{align*}
         Where the last equality uses $\mathbbm{1}_{\mathcal{D}^{c}} = 1 - \mathbbm{1}_{\mathcal{D}}$ 
         combined with the standard properties of the covariance operator.
+        \\
         Substituting into \cref{eqn:G-debt-step-4} finally yields the marginal value to shareholders of debt financing:
             \begin{align}
                 G_{\text{debt}} &=
