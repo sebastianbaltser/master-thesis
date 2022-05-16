@@ -7,24 +7,24 @@
         theoreticians and practitioners have been debating the use of \FVA/s
         when determining the prices of financial assets.
         The focal point of the discussion is specifically 
-        whether it is appropriate to apply \FVA/s to the prices of financial assets.
+        whether it is appropriate to apply \FVA/s in the valuation of financial assets.
         This section will provide a summary of the debate, 
         by presenting arguments from what could be considered the three main parties;
-        namely traders, accountants, and theoreticians.
+        namely dealers, accountants, and theoreticians.
 
-        \subsection{\FVA/ According to Traders}
-            The traders in the derivatives desk selling or buying derivatives 
+        \subsection{\FVA/ According to Dealers}
+            The dealers in the derivatives desk selling or buying derivatives 
             will incur the average funding rate of the bank, as charged by their funding desk.
-            For derivatives that require financing the funding desk will charge the traders.
-            If the traders do not take into account the funding cost when pricing the derivatives,
+            For derivatives that require financing the funding desk will charge the dealers.
+            If the dealers do not take into account the funding cost when pricing the derivatives,
             a loss will be shown for trades that require funding.
             To see this, consider the following example.
 
             \begin{example}
-            Assume a trader buys a simple option at some upfront price.
+            Assume a dealer buys a simple option at some upfront price.
             The option has a theoretical price or value that might have been calculated by assuming
             that financing could be obtained at risk-free rates. 
-            Should the trader buy the option at this theoretical price, 
+            Should the dealer buy the option at this theoretical price, 
             she will be making a negative net present value investment, 
             since the trade will generate funding costs. 
             If she is trading outside of a CSA agreement, there will be no collateral posted
@@ -40,17 +40,17 @@
             \end{example}
 
             In conclusion, the funding desk will charge the actual funding rate; not the risk-free rate.
-            Rather than accepting the theoretical price, the trader should assess the funding cost of the trade 
+            Rather than accepting the theoretical price, the dealer should assess the funding cost of the trade 
             and buy the option at the theoretical price adjusted by the funding cost,
             in order to break even on the value of the trade.
-            In other words, the trader should make an \FVA/, 
-            since the funding rate is a very real cost, which the trader will be subject to.
+            In other words, the dealer should make an \FVA/, 
+            since the funding rate is a very real cost, which the dealer will be subject to.
             
-            "The traders" in this argument might as well be other stakeholders that make decisions about new investments.
-            In a less complex setup "the funding desk" could simply be the creditors and "the traders" the company itself.
+            "The dealers" in this argument might as well be other stakeholders that make decisions about new investments.
+            In a less complex setup "the funding desk" could simply be the creditors and "the dealers" the company itself.
             The company might be making decisions in a way that optimises shareholder value,
             and therefore aligns its interests with them.
-            Shareholders experience the same issue as traders of being charged funding costs on investments 
+            Shareholders experience the same issue as dealers of being charged funding costs on investments 
             and will therefore be just as eager to evaluate investments in light of their funding costs.
             This simple setup of creditors versus shareholders, 
             will later provide a medium through which the impact of funding costs can be explored.
@@ -64,11 +64,11 @@
             \textcite{IFRS13} defines the fair value of an asset as: 
             \textit{"the price that would be received from the sale of an asset or paid to transfer a liability
             in an orderly transaction between market participants at the measurement date"}.
-            In addition, the fair value is clearly described by \textcite{IFRS13} as being market based and not entity based.
+            In addition, the fair value is clearly described as being market based and not entity based.
 
             This description of fair value is used by \textcite{HullWhiteFVA} as an argument to
-            rule out using the funding cost when evaluating prices.
-            They claim that, since the funding rate, and therefore the funding cost, is entity specific,
+            rule out using the funding costs when evaluating prices.
+            They claim that, since the funding rate, and therefore the funding costs, is entity specific,
             the fair value should be independent of these.
             While this might be true in isolation, 
             according to \textcite{KPMGFVA}, the current market practice is for dealers, 
@@ -89,9 +89,9 @@
             to which the bank can sell its derivative.
             With that said, it is generally very difficult to determine the generic level of bank funding spread
             representing the funding rate for the hypothetical counterparty in a hypothetical transaction.
-            \textcite[Proposition 4]{KPMGFVA} states that for this reason 
+            \textcite[Proposition 4]{KPMGFVA} states that, for this reason,
             some banks have in fact been applying their own funding spreads in order to determine \FVA/ under IFRS. 
-            Banks do this not for the sake of using their own funding spreads
+            Banks do this not for the sake of using their own funding spreads,
             but for it to act as a proxy for the market funding cost.
             If the bank can be assumed to have comparable funding costs to other market participants,
             KPMG believes that this practice is supportable.
@@ -106,10 +106,11 @@
             the arguments of theoreticians, like Hull and White themselves, 
             are rooted in the assumptions of the valuation frameworks commonly used in derivatives pricing.
             The price of a derivative can be obtained by replicating the cash flows of the derivative 
-            with a self-financing trading strategy, since, in the absence of arbitrage, 
-            the value of the trading strategy and the derivative in question must be equal.
-            The risk-neutral valuation principle requires discounting at the risk-free rate,
-            which is why theoreticians oppose using a different discount rate
+            with a self-financing trading strategy. 
+            In the absence of arbitrage, 
+            the value of the replicating portfolio and the derivative in question must be equal.
+            The risk-neutral valuation principles require discounting at the risk-free rate,
+            which is why theoreticians oppose using a different discount rate,
             claiming that there is no theoretical basis for making an \FVA/.
             The assumptions in this theoretical setup is however 
             that the derivative exists in a very specific economic environment. 
@@ -237,7 +238,7 @@
             In fact, \textcite{Green2015XVA}
             uses the Semi-Replication model by \textcite{BurgardKjaer2013Funding},
             to show that the existence of a derivatives repo market
-            would eliminate the need for an \FVA/ on derivatives. 
+            would eliminate the need for \FVA/s on derivatives. 
             However, it is unlikely that a repo market for derivatives will be developed.
             Bonds are standardised and have high liquidity which make them easy to repo,
             but that is not the case for derivatives.
@@ -248,7 +249,7 @@
         Finance theory states that the risk of a project 
         should determine the discount rate for the cash flows, 
         and that the funding rates are irrelevant.
-        Traders, however, are subject to the funding rates of their funding desk;
+        Dealers, however, are subject to the funding rates of their funding desk;
         if they do not account for funding costs, they will lose on trades that requires financing.
 
 \end{document}
