@@ -160,7 +160,7 @@
         Since the liabilities have two different terms, 
         it will be useful to also define two different credit spreads;
         one for the excess yield from time 0 to time 1,
-        and another for the excess yield from period 1 to period 2.
+        and another for the excess yield from time 1 to time 2.
         The former will be denoted by $s_{0}(q)$ and the latter by $s_{1}(q)$.
         \\
         The credit spreads must solve the following forward discounting relations
@@ -235,7 +235,7 @@
         \end{align*}
         
         Likewise, if the firm survives at time 1, 
-        the limiting spread from the interim period to period 2 is:
+        the limiting spread from the interim date to the maturity date is:
         \begin{equation*}
             S_1 =
             \frac{
@@ -244,7 +244,7 @@
                 1 - \mathbb{E}_{1}^{\rnmeasure}\left[\phi_2\right] 
             }
         \end{equation*}
-        where $\phi_{2}$ is the creditors' loss rate in period 2, given by:
+        where $\phi_{2}$ is the creditors' loss rate at time 2, given by:
         \begin{align*}
             \phi_2 
             &=
