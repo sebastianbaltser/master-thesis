@@ -71,7 +71,7 @@ def debt_financing_plot():
         # ax.text(price, shareholder_value, f"{shareholder_value:.2f}", ha="right", va="bottom")
         annotate_kwargs = dict(xytext=(4, 4), textcoords="offset points", fontsize=8)
         for value in [shareholder_value, creditor_value]:
-            ax.annotate(f"${value:.4f}$", (price, value), **annotate_kwargs)
+            ax.annotate(f"${value:.3f}$", (price, value), **annotate_kwargs)
 
     ax.set_xlabel("Project Price")
     ax.set_ylabel("Marginal Value")
@@ -119,7 +119,7 @@ def equity_financing_plot():
         # ax.text(price, shareholder_value, f"{shareholder_value:.2f}", ha="right", va="bottom")
         annotate_kwargs = dict(xytext=(4, 4), textcoords="offset points", fontsize=8)
         for value in [shareholder_value, creditor_value]:
-            ax.annotate(f"${value:.4f}$", (price, value), **annotate_kwargs)
+            ax.annotate(f"${value:.3f}$", (price, value), **annotate_kwargs)
 
     ax.set_xlabel("Project Price")
     ax.set_ylabel("Marginal Value")
@@ -167,7 +167,7 @@ def cash_financing_plot():
         # ax.text(price, shareholder_value, f"{shareholder_value:.2f}", ha="right", va="bottom")
         annotate_kwargs = dict(xytext=(4, 4), textcoords="offset points", fontsize=8)
         for value in [shareholder_value, creditor_value]:
-            ax.annotate(f"${value:.4f}$", (price, value), **annotate_kwargs)
+            ax.annotate(f"${value:.3f}$", (price, value), **annotate_kwargs)
 
     ax.set_xlabel("Project Price")
     ax.set_ylabel("Marginal Value")
@@ -189,9 +189,9 @@ def marginal_shareholder_value_plot():
     option = Asset(States(states, [10, 10, 10, 10, 10]))
     option_price = 9.90
     marginal_shareholder_value = marginal_shareholder_value_of_debt_financing(economy, firm, option, option_price)
-    print(f"Marginal Shareholder Value Debt Financing: {marginal_shareholder_value:.4f}")
+    print(f"Marginal Shareholder Value Debt Financing: {marginal_shareholder_value:.3f}")
     marginal_shareholder_value = marginal_shareholder_value_of_equity_financing(economy, firm, option, option_price)
-    print(f"Marginal Shareholder Value Equity Financing: {marginal_shareholder_value:.4f}")
+    print(f"Marginal Shareholder Value Equity Financing: {marginal_shareholder_value:.3f}")
 
     option_price_range = np.arange(1, 30, 0.01)
     fig = plot_marginal_shareholder_value(economy, firm, option, option_price_range)

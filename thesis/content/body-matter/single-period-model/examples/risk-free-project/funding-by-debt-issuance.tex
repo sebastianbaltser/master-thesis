@@ -21,7 +21,7 @@
                 \phi
                 &=
                     \frac{
-                        \tilde{D}_{1} + L - A + Y
+                        \tilde{D}_{1} + L - (A + Y)
                     }{
                         \tilde{D}_{1} + L
                     }
@@ -29,11 +29,11 @@
                 \nonumber \\
                 &=
                     \frac{
-                        \num{80} + \tilde{D}_{1} - A + Y
+                        \tilde{D}_{1} + \num{80} - (A + Y)
                     }{
-                        \num{80} + \tilde{D}_{1}
+                        \tilde{D}_{1} + \num{80}
                     }
-                    \mathbbm{1}_{\{A + Y < \num{80} + \tilde{D}_{1}\}} 
+                    \mathbbm{1}_{\{A + Y < \tilde{D}_{1} + \num{80}\}} 
             \end{align*}
         The random payoff of the new pari passu debt is denoted by $\tilde{D}$ and given as:
             \begin{align*}
@@ -160,20 +160,20 @@
         therefore, investing in the project is of negative value to the shareholders.
         If the firm defaults, the shareholders still receive nothing, 
         but in all other states where the firm does not default, 
-        the shareholders pay the present value of the interest owed to the new creditors 
+        the shareholders pay the interest owed to the new creditors 
         due to the credit risk in the firm.
-        The legacy creditors observe their debt claim with face value $\num{80}$ increase by an amount of
+        The legacy creditors observe their debt claim with face value $\num{80}$ increase by an amount
         $\num{76.826874} - \num{76.80} = \num{0.026874}$.
 
         Evidently, while the project is a negative net present value investment for the shareholders,
         the investment is a positive net present value investment for the legacy creditors.
         When the firm does not default, the creditors still receive their promised payoff 
         corresponding to the face value of their debt.
-        The new project has increased the asset base of the firm; if the firm defaults, 
-        the legacy creditors will share part of the payoff from the option with the new creditors.
+        However, the new project has increased the asset base of the firm; if the firm defaults, 
+        the legacy creditors will share part of the payoff from the project with the new creditors.
         Hence, the legacy creditors are receiving a larger amount at the default compared to the pre-project amount, and their claim increases in value.
-        Their increment in wealth also suggests that the conditions have improved in terms of their exposure to the firm's credit risk.
-        This is also justified, as the loss rate has decreased from the pre-project value of \pct{0.25}.
+        Their increasing wealth also suggests that the conditions have improved in terms of their exposure to the firm's credit risk.
+        This is also justified, as the loss rate given default has decreased from the pre-project value of \pct{0.25}.
         Correspondingly, the new credit spread is lower than the pre-project credit spread.
 
         The Modigliani-Miller invariance proposition assures that making a zero net present value investment 
@@ -191,7 +191,7 @@
         or perhaps the new creditors, the shareholders would benefit from a share of this discount,
         and the value gained by legacy creditors would not be entirely from the shareholders.
 
-        The wealth transfer from shareholders to legacy creditors due to the new project 
+        The wealth transfer from shareholders to legacy creditors, due to the new project,
         suggests quantifying the \FVA/ of the project.
         Using \cref{eqn:shareholders-breakeven-debt-financing}, the price needed for breakeven is:
             \begin{align*}
@@ -227,13 +227,25 @@
         The first price to consider is the price that was analysed so far, $\num{0.99}$.
         At this price the entire gain for creditors can be attributed the loss for shareholders.
 
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+                \input{\graphicsfolder/marginal-value/debt-financing.pgf}
+            }
+            \caption{
+                Marginal valuation of debt financing 
+                assuming that new creditors break even.
+            }
+            \label{fig:marginal-value-debt-financing}
+        \end{figure}
+
         Suppose that the counterparty has some additional incentive to sell the derivative,
         such that it quotes a lower price than the theoretical, say $\num{0.97}$.
         Selling the derivative is now a negative net present value investment for the counterparty;
         in other words, the counterparty has made a donation to the firm. 
         The marginal valuation of the project to the shareholders is then $\num{-0.008734}$,
         and to the creditors $\num{0.028734}$.
-        The donation from the counterparty has made an increase to the shareholders' 
+        The donation from the counterparty has made an increase in the shareholders' 
         \textit{and} to the creditors' marginal valuation relative to the price of $\num{0.99}$.
         Still, for a firm maximising shareholder value, the issue is the same as before;
         the project is a negative net present value investment for the shareholders,
@@ -245,7 +257,7 @@
         to $\num{79.98}$, that would leave a wealth gain for the creditors and shareholders
         of $\num{0.011313}$ and $\num{0.008687}$ respectively.
         This leaves all stakeholders economically happy, 
-        except of course from the counterparty who may have other incentives.
+        except of course from the counterparty who has other incentives.
 
         Recall \cref{fig:hw-example} describing the argument of \textcite{HullWhite2012FVA}.
         By their conviction, if a bond with a discount rate of risk-free rate plus $30\basispoint$ 
@@ -253,7 +265,7 @@
         This example shows exactly why that does not work in reality.
         At $u=\num{0.97}$, the risk-free project in this example trades at 
         an excess yield of approximately $100\basispoint$.
-        Even then, the firm will not be able to get its shareholders on-board.
+        Even then, the firm will not be able to get its shareholders on board.
 
         From the perspective of a social planner this problem seems to be a no-brainer. 
         However, the operation relies solely on the willingness of creditors to 
@@ -266,18 +278,6 @@
         but they do not reap the benefits.
         The creditors, on the other hand, pay nothing 
         but still see the value of their claim increase.
-
-        \begin{figure}
-            \centering
-            \resizebox{\textwidth}{!}{%
-                \input{\graphicsfolder/marginal-value/debt-financing.pgf}
-            }
-            \caption{
-                Marginal valuation of debt financing 
-                assuming that new creditors break even.
-            }
-            \label{fig:marginal-value-debt-financing}
-        \end{figure}
 
         Another observation from the graph in \cref{fig:marginal-value-debt-financing} is that the donation from the counterparty 
         is distributed between creditors and shareholders.

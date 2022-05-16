@@ -72,9 +72,10 @@
                 \alpha
                 (A + Y - L)^{+}
             \end{align*}
-        
-        After the transaction, the firm's balance sheet has increased with an amount equal to the premium of the derivative. 
-        The firm has a new asset on the asset side, the derivative receivable worth $\num{0.989994}$, which funded by $\num{0.989994}$ worth of new equity.
+        \indent
+        After the transaction, the firm's balance sheet has increased with an amount equal to the upfront price. 
+        The firm has a new asset on the asset side, the project receivable worth $\num{0.989994}$, 
+        which is funded by $\num{0.989994}$ worth of new equity.
         The resulting payoffs of the example are shown in \cref{tbl:equity-funding-payoff},
         where the realised asset values include the expected payoff of the project.
         \begin{table}[H]
@@ -104,7 +105,7 @@
         \end{equation*}
         This amount corresponds to the transfer of wealth 
         from the legacy shareholders to the creditors,
-        since the project is a zero net present value investment.
+        since the project is a zero net present value investment for the counterparty.
         Evidently, in accordance with the pecking order theory in 
         \cref{eqn:pecking-order-of-financing-preferences},
         the value lost by the legacy shareholders 
@@ -112,14 +113,15 @@
 
         With the wealth transfer from the shareholders,
         the project is a positive net present value investment for the creditors;
-        their wealth increase by:
+        their wealth increases by:
         \begin{equation*}\label{eqn:wealth-transfer-equality}
             -G_{\text{equity}} = \num{76.92} - \num{76.80} = \num{0.120001}
         \end{equation*}
         The value of the debt increases, 
-        since the creditors get the entire derivative's receivables in the default state. 
+        since the creditors get the entire project receivable in the default state. 
         Following this, the loss rate as well as the credit spread decreases significantly 
         compared to the pre-project metrics. 
+        \\ 
         The new loss rate in the default state is 
         $\phi(\omega_{5}) = (\num{80}-\num{61})/\num{80} = \pct{0.2375}$, 
         and the new credit spread is $\num{80}/\num{76.92} - \grossrfrate = \pct{0.029941}$.
@@ -147,14 +149,14 @@
                 =
                     \num{0.869999}
             \end{equation*}
-        meaning 
+        and the adjustment needed is then: 
         \begin{equation*}
             \FVA/ = u^{\ast}_{\text{equity}} - u =
             \num{0.989994}-\num{0.869999} =
             \num{0.12}
         \end{equation*}
         Notice that this amount is the same as the wealth transfer.
-        This is because the donation from the counterparty does not affect the total asset value of the firm.
+        This happens because the donation from the counterparty does not affect the total asset value of the firm.
         Hence, the loss rate of the creditors remains unchanged from before the donation, and therefore so does the creditors' present value.
 
         \begin{figure}
@@ -191,7 +193,7 @@
         However, donations from the counterparty are more effective
         when the project is funded by equity issuance.
         When funded by debt, a share of the donation from the counterparty goes to the creditors;
-        therefore, that share are not earned by the shareholders.
+        therefore, that share is not earned by the shareholders.
         As already covered, this is evident from \cref{fig:marginal-value-debt-financing}
         by the slope on the line showing the creditors' marginal value.
         Under equity financing the entire donation goes to the legacy shareholders;
