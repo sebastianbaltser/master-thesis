@@ -4,10 +4,11 @@
 \begin{document}
     \subsection{Funding Value Adjustments}
         A Funding Value Adjustment, \FVA/, is a quantity meant for accounting for the funding costs 
-        experienced by a firm due to their acquisition of a financial instrument.
-        Funding risks and costs arise wherever there is a cash flow in the firm. 
+        experienced by a dealer due to her acquisition of a financial instrument.
+        Funding risks and costs arise wherever there is a cash flow in the instrument. 
         Outgoing cash flows will need to be financed while incoming cash flows
-        can be used to retire debt elsewhere in the firm, thus reducing the need for funding.
+        can be used to retire debt elsewhere in the dealer's institution, 
+        thus reducing the need for funding.
 
         Again, funding costs, and the valuation adjustment that accounts for them,
         are best introduced by an example.
@@ -16,19 +17,19 @@
         Assume a dealer wants to purchase an asset with low risk and high liquidity, 
         e.g. to keep the security for the purpose of always having access to liquid assets.
         Assume also, for simplicity, that the risk-free rate, \OIS/, is zero.
-        Suppose the dealer purchases 100\$ worth of face value in 1-Year T-Bills,
-        at an upfront price of 100\$. 
+        Suppose the dealer purchases \$100 worth of face value in 1-Year T-Bills,
+        at an upfront price of \$100. 
         The upfront price is funded by the dealer issuing unsecured debt, 
         for which she pays an unsecured credit spread of, say, $50\basispoint$.
-        One year later, the T-Bills mature and pay the face value of $100\$$.
-        The dealer's debt also matures and the dealer pays $100\$ * (1 + 50\basispoint) = 100.50\$$.
-        Through this operation, the dealer has costed her shareholders a one year loss of $0.50\$$.
+        One year later, the T-Bills mature and pay the face value of $\$100$.
+        The dealer's debt also matures and the dealer pays $\$100 * (1 + 50\basispoint) = \$100.50$.
+        Through this operation, the dealer has costed her shareholders a one year loss of $\$0.50$.
         At a glance, it seems like a rather poor decision for any institution to do this trade,
         but again it should be emphasised, that the dealer might have regulatory reasons to do so.
 
         Since the dealer does not want her shareholders to lose value on their claim,
         she will reduce her valuation of the T-Bills to account for the value lost.
-        However, the price of the T-Bills is set by the market at $100\$$;
+        However, the price of the T-Bills is set by the market at $\$100$;
         if the dealer had no regulatory incentives, 
         she would not purchase the T-Bills at the market price. 
         By considering her financing costs when valuing the T-Bills, 
@@ -38,8 +39,9 @@
         
         This valuation adjustment can also work in the opposite direction, 
         for example if the dealer was to sell an instrument instead.
-        The sale proceeds could be used by the firm to lower its financing needs elsewhere,
-        and therefore the dealer would value the instrument higher. 
+        The sale proceeds could be used by the dealer 
+        to lower the financing needs elsewhere in her organization,
+        and therefore she would value the instrument higher. 
         \end{example}
         
         From the example, it is clear that \FVA/ conceptually can be thought of 
@@ -48,13 +50,10 @@
             \FVA/ = \FCA/ + \FBA/
         \end{equation*}
         \FCA/, also known as Funding Cost Adjustment, FCA, 
-        is a negative contribution of funding costs to the price of the financial instrument.
+        is a negative contribution of funding costs to the value of the financial instrument.
         It captures the effect of outgoing cash flows, which will require funding and generate costs.
         On the other hand, \FBA/, also known as Funding Benefit Adjustment, FBA, 
-        captures the positive impact on the instrument price, from the incoming cash flows.
-        Without going too much into details of their calculation, which will be covered later,
-        \FCA/ is calculated based on the expected positive exposure, 
-        while \FBA/ is calculated based on the expected negative exposure. 
+        captures the positive impact on the instrument value, from the incoming cash flows.
 
         \FVA/ could be decomposed in multiple other ways, than shown here. 
         To mention one, \textcite{KPMGFVA} suggests introducing another term in the decomposition, 
@@ -74,31 +73,32 @@
         will be introduced later.
 
         \subsection*{Margin Requirements}
-            Suppose an OTC derivatives transaction between the firm and a counterparty requires the firm to post collateral.
-            The firm may necessarily be obliged to fund the margin postings on top of the price of the derivative.
+            Suppose an OTC derivatives transaction between a dealer 
+            and a counterparty requires the dealer to post collateral.
+            The dealer may necessarily be obliged to fund the margin postings on top of the price of the derivative.
             To understand this setup,
-            consider a single interest rate swap between a firm and a counterparty that have in place a CSA agreement.
-            If the value of the firm's leg is lower than the counterparty's,
-            the firm is required to post collateral, 
-            which it must necessarily fund by some method of financing.
+            consider a single interest rate swap between a dealer and a counterparty that have in place a CSA agreement.
+            If the value of the dealers's leg is lower than the counterparty's,
+            she is required to post collateral, 
+            which she must necessarily fund by some method of financing.
             This type of funding is a category within the \FVA/ framework, 
-            hence the use of it should be treated as a funding cost to the firm.
+            hence the use of it should be treated as a funding cost to the dealer.
             The funding costs occur due to the posting of margin as a consequence of the swap contract,
             and not directly from the price of an OTC derivatives transaction,
             as described in the earlier example.
             Later in this paper the issue is discussed further, 
             where in \cref{sec:example-secured-derivative} a numerical example is analysed.
             
-            Assume that the firm chooses to fund the collateral by obtaining debt
-            that is borrowed at the firm's unsecured borrowing rate.
-            When posting the funds as collateral, the firm earns the OIS rate.
+            Assume that the dealer chooses to fund the collateral by obtaining debt
+            that is borrowed at her unsecured borrowing rate.
+            When posting the funds as collateral, the dealer earns the OIS rate.
             The asymmetry between the cost of borrowing and the rate earned on collateral postings
             adds additional costs to the swap transaction; 
             these are funding costs and an \FVA/ is a price alteration made to account for these.
 
-            On the contrary, if the firm must receive collateral that can be rehypothecated,
-            they pay the OIS rate and can receive a higher rate
-            by reducing funding elsewhere in the organization.
+            On the contrary, if the dealer must receive collateral that can be rehypothecated,
+            she pays the OIS rate and can receive a higher rate
+            by reducing funding elsewhere in her organization.
             This asymmetry can be referred to as funding benefit rather than a cost.
 
 \end{document}
