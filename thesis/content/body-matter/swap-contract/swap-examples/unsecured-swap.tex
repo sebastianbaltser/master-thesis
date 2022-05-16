@@ -116,6 +116,7 @@
         Solving this system of equations yields a swap price of $u=\num{0.158655}$,
         and a loss rate in the default state of 
         $\phi(\omega_{\mathscr{d},\mathscr{d}})=\pct{0.112180}$.
+        \\
         Using the loss rate, the value of the legacy creditors' long term claim can be calculated.
         At time 2 the payoff in the default state is 
         $L_{2}*(1-\phi(\omega_{\mathscr{d},\mathscr{d}})) = \num{62.14739601}$.
@@ -124,7 +125,7 @@
 
         The credit spread in each period is the debt's no-default value one period ahead
         divided by its current value less the risk-free rate.
-        Hence the post-project actual credit spreads for time 0 and time 1 are respectively:
+        Hence, the post-project actual credit spreads for time 0 and time 1 are respectively:
         \begin{align*}
             \frac{
                 \num{67.61791744}
@@ -163,7 +164,7 @@
         \end{align*}
 
         Turning to the shareholder valuation of the project.
-        Cash flows from the swap contract may have an impact on the shareholders' valuation of the project.
+        Cash flows from the swap contract may have an impact on the shareholders' wealth.
         Since the price of the swap is its risk-neutral value adjusted for credit risk,
         the project is a zero net present value investment for the counterparty.
         If a wealth transfer has happened, it is bound to be between the shareholders and the long-term creditors.
@@ -172,7 +173,7 @@
         $\mathbb{E}_{0}^{\rnmeasure}\left[\mathcal{C}_2\right]=\num{-0.05}$,
         $u=\num{0.158655}$,
         and the assumption that the counterparty is credit risk-free,
-        the total impact on the shareholders' benefit is calculated using \cref{eqn:shareholders-value-multi-period-swap}:
+        the total impact on the shareholders' claim is calculated using \cref{eqn:shareholders-value-multi-period-swap}:
         \begin{equation*}
             G_{\text{swap}} = \num{-0.00906097}
         \end{equation*}
@@ -205,7 +206,7 @@
         the firm can obtain funding in the first period at a credit spread of \pct{0}.
         However, the intermediate incoming cash flow can retire debt
         that would otherwise have appreciated 
-        by the firm's credit spread at time 1 of \pct{0.011298}.
+        by the firm's credit spread at time 1 of \pct{0.0112246}.
         Therefore, the time 1 cash flow provides a funding benefit,
         but the time 0 cash flow has no funding cost.
         Of course, the setup considered here is incredible simplistic,
@@ -262,7 +263,7 @@
         to funding costs or benefits.
         Since the original swap is assumed completely unsecured, 
         any collateral calls from the hedge counterparty would require funding.
-        Likewise, any collateral postings would yield funding benefits.
+        Likewise, any collateral postings to the firm would yield funding benefits.
         Again, trading unsecured derivatives provides the most extreme examples of funding costs.
 
         Extending the portfolio in this example with a hedge,

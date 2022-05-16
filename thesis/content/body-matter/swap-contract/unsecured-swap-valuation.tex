@@ -39,21 +39,22 @@
             \right]
             \label{eqn:swap-value-multi-period}
         \end{align}
-        where $Y_{1} = \mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]/R_{2}$, $Y_{2} = \mathcal{C}_{2}$, and $V_{rf}$ is the credit risk free value.
+        where $Y_{1} = \mathbb{E}_{1}^{\rnmeasure}\left[\mathcal{C}_{2}\right]/R_{2}$, $Y_{2} = \mathcal{C}_{2}$, and $V_{rf}$ is the credit risk free swap value.
         The swap value takes into account the credit risks of both the firm and the counterparty.
-        Therefore, two adjustments are performed on the credit risk-free value, $V_rf$.
+        Therefore, two adjustments are performed on the credit risk-free value, $V_{rf}$.
         From the firm's point of view,
         the \DVA/ is the second term in \cref{eqn:swap-value-multi-period} describing the lost amount of the outstanding liability related to the swap in case the firm defaults.
         Additionally, the \CVA/ is the third term describing the recovered outstanding positive cash flow in case the counterparty defaults.
-        As a result of that, the total swap value for the swap counterparty is $-V$.
+        \\
+        As a result of this formulation, the total swap value for the swap counterparty is $-V$.
 
-        In this section it is assumed that the firm always use debt funding for financing financial instruments.
+        In this section it is assumed that the firm always uses debt funding for financing financial instruments.
         Many established companies have a high credit score,
         hence they have no issues obtaining debt and become leveraged.
         It is not unusual for large firms to have multiple creditors.
         This common use of taking on loans constitutes the decision of the above assumption.
         By financing the upfront with new short-term debt, the marginal valuation of the firm's shareholders of entering the swap contract is now analysed.
-        The net positive cash flows stemming from the swap are perceived as funding benefits as they will be used to retire some of the firm's short-term debt.
+        The net positive cash flows stemming from the swap are perceived as funding benefits as they will be used to retire some of the firm's existing short-term debt.
         
         To finance the upfront price, the firm issues new debt.
         The face value of the new debt is the upfront price including a spread, 
@@ -259,12 +260,12 @@
         \\
         Since the cash flow at time 2 is 0 if the counterparty defaults at the interim date,
         and the marginal investment cost is constant regardless of the default times of either counterparties,
-        the indicator of $\{\tau_{C}>1\}$ has been removed from the first term.
+        the indicator of $\{\tau_{C}>1\}$ is redundant and has been removed from the first term.
 
         To find the value of the swap contract that makes the shareholders indifferent to entering the project,
         the marginal shareholder valuation in 
         \cref{eqn:shareholders-value-multi-period-swap}
-        can be set equal to zero and solved for $u$:
+        can be set equal to 0 and solved for $u$:
         \begin{equation*}
             G_{\text{debt}} = 0
         \end{equation*}
@@ -303,6 +304,6 @@
         For the purpose of quantifying \FVA/ in a multi-period framework,
         this paper sticks to the numerical computations of only an unsecured swap,
         and then draw comparisons to the idea of the hedged position.
-        This is the purpose of the following section.
+        This is the motive of the following section.
         
 \end{document}
