@@ -2,6 +2,7 @@
 Icon[
 ]
 
+presentation/**/*.pdf
 thesis/**/*.pdf
 notes/**/*.pdf
 
@@ -30,6 +31,8 @@ tempCodeRunnerFile.py
 *.lof
 *.lot
 *.maf
+*.nav
+*.snm
 *.mtc
 *.mtc1
 *.out
