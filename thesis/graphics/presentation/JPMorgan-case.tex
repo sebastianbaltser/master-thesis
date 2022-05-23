@@ -1,0 +1,97 @@
+\colorlet{funding-color}{wtf-blue}
+\colorlet{rate-color}{wtf-red}
+
+\tikzmath{
+    \arrowyoffset = 7;
+    \arrowcenteryoffset = 7;
+    \toparrowyoffset = \arrowcenteryoffset + \arrowyoffset;
+    \bottomarrowyoffset = \arrowcenteryoffset - \arrowyoffset;
+    \arrowtoboxpadding = 5;
+}
+\coordinate (center) at (0,0);
+\node (dealer) at (center) [
+    draw,
+    fill=white!80!gray,
+    very thick,
+    minimum width=3cm,
+    minimum height=2cm,
+    align=center,
+    rounded corners=.50cm,
+] {JP Morgan};
+
+\node (counterparty) at ($(dealer.west) + (-5, 0)$) [
+    draw,
+    very thick,
+    minimum width=3cm,
+    minimum height=2cm
+] {Counterparty};
+
+\node (exchange) at ($(dealer.east) + (5, 0)$) [
+    draw,
+    dashed,
+    very thick,
+    minimum width=3cm,
+    minimum height=2cm,
+] {Exchange};
+
+\node (funding) at ($(dealer.south) + (0, -4)$) [
+    draw,
+    very thick,
+    minimum width=3cm,
+    minimum height=2cm,
+] {Funding desk};
+
+% Dealer - Counterparty relations
+\draw[->, thick] 
+    ([yshift=\bottomarrowyoffset pt, xshift=-\arrowtoboxpadding pt]dealer.south west) -- 
+    ([yshift=\bottomarrowyoffset pt, xshift= \arrowtoboxpadding pt]counterparty.south east)
+    node[pos = 0.35, fill=white, inner sep=2pt] {\footnotesize
+        floating leg
+    };
+\draw[<-, thick] 
+    ([yshift=\toparrowyoffset pt, xshift=-\arrowtoboxpadding pt]dealer.south west) -- 
+    ([yshift=\toparrowyoffset pt, xshift= \arrowtoboxpadding pt]counterparty.south east)
+    node[pos = 0.65, fill=white, inner sep=2pt] {\footnotesize
+        fixed leg
+    };
+
+% Dealer - Exchange relations
+\draw[<-, thick] 
+    ([yshift=\bottomarrowyoffset, xshift= \arrowtoboxpadding pt]dealer.south east) -- 
+    ([yshift=\bottomarrowyoffset, xshift=-\arrowtoboxpadding pt]exchange.south west)
+    node[pos = 0.65, fill=white, inner sep=2pt] {\footnotesize
+        floating leg
+    };
+\draw[->, thick] 
+    ([yshift=\toparrowyoffset, xshift= \arrowtoboxpadding pt]dealer.south east) -- 
+    ([yshift=\toparrowyoffset, xshift=-\arrowtoboxpadding pt]exchange.south west)
+    node[pos = 0.35, fill=white, inner sep=2pt] {\footnotesize
+        fixed leg
+    };
+
+\draw[->, thick, draw=funding-color] 
+    ([yshift=-\bottomarrowyoffset, xshift= \arrowtoboxpadding pt]dealer.north east) -- 
+    ([yshift=-\bottomarrowyoffset, xshift=-\arrowtoboxpadding pt]exchange.north west)
+    node [pos=0.4, fill=white, inner sep=0pt] {
+        \includegraphics[width=0.5cm]{\graphicsfolder/source-of-funding-costs/collateral}
+    };
+\draw[<-, thick, draw=rate-color] 
+    ([yshift=-\toparrowyoffset, xshift= \arrowtoboxpadding pt]dealer.north east) -- 
+    ([yshift=-\toparrowyoffset, xshift=-\arrowtoboxpadding pt]exchange.north west)
+    node [pos=0.6, fill=white, inner xsep=2pt, inner ysep=0] {
+        \footnotesize OIS
+    };
+
+% Dealer - Funding desk relations
+\draw[<-, thick, draw=funding-color]
+    ([xshift=-\arrowyoffset, yshift=-\arrowtoboxpadding]dealer.south) --
+    ([xshift=-\arrowyoffset, yshift= \arrowtoboxpadding]funding.north)
+    node[midway, fill=white, inner xsep=2pt, inner ysep=0, align=center, rotate=90] {
+        \footnotesize Funding
+    };
+\draw[->, thick, draw=rate-color]
+    ([xshift=\arrowyoffset, yshift=-\arrowtoboxpadding]dealer.south) --
+    ([xshift=\arrowyoffset, yshift= \arrowtoboxpadding]funding.north)
+    node[midway, fill=white, inner xsep=2pt, inner ysep=0, align=center, rotate=90] {
+        \footnotesize OIS + S
+    };
