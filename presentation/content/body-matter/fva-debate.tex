@@ -1,0 +1,57 @@
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \section{The FVA Debate}
+
+    \begin{frame}
+        \frametitle{Conclusions on the FVA Debate}
+
+        \begin{enumerate}
+            \item Funding costs became non-negligible after the financial crisis.
+                \note[item]{
+                    With the increase in borrowing rates after the Financial Crisis in 2008,
+                    institutions saw their funding costs rise as well. 
+                    This led them to start applying FVA's.
+                }
+            \item Dealers will necessarily incur funding costs.
+                \note[item]{
+                    The dealers in an institutions 
+                    will be charged the funding rate by the funding desk.
+                    If they do not apply FVAs, they ignore the funding costs,
+                    which could have influenced the trading decision.
+                    We argue that this is a sensible argument,
+                    and that institutions should in fact be using FVAs 
+                    to determine the values of projects.
+                }
+            \item Theoreticians argue that a project's riskiness should determine the discount rate.
+                \note[item]{
+                    Theoreticians seem to disagree with the current market practice. 
+                    The project's riskiness determines the discount rate; 
+                    not the institutions funding rate.
+                }
+                \vspace{.5cm}
+                \begin{center}
+                    \resizebox{5cm}{!}{%
+                    \begin{tikzpicture}
+                        \import{\graphicsfolder/hw-example}{hw-example-simple}
+                    \end{tikzpicture}        
+                    }   
+                \end{center}
+                \note[item]{
+                    HW's argument was shown by an example. 
+                    A project with a PV of 100 is trading at 99.50.
+                    This leaves a NPV of 0.50. 
+                    HW argue that this project should be undertaken due to its positive NPV,
+                    regardless of the funding rate of the institution.
+                    Theoretically that seems right 
+                    as the project looks like an arbitrage opportunity.
+                    However, as was shown by examples, 
+                    the NPV cannot simply be distributed to whoever finances the project.
+                    There are frictions in institutions which creates a free rider problem. 
+                }
+        \end{enumerate}
+
+    \end{frame}
+
+\end{document}
