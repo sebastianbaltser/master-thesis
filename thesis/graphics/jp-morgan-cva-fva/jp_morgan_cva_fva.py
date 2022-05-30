@@ -24,9 +24,9 @@ with open(PATH / "jp_morgan_cva_fva.csv", "r") as file:
     # Pop the header
     next(reader)
     for date, spread in reader:
-        quarter = date[:2]
+        quarter = date[1]
         year = date[-2:]
-        date = f"{quarter} '{year}"
+        date = f"{quarter}Q{year}"
 
         dates.append(date)
         spreads.append(float(spread.replace(",", "")))
@@ -40,13 +40,19 @@ def million_formatter(x, pos):
     x_in_millions = abs(x * 1e-6)
     return f"{sign}\${x_in_millions:.0f}M"
 
-ax.set_ylim([-1e9, 0.4e9])
+ax.set_ylim([-1e9, 0.6e9])
 ax.yaxis.set_major_formatter(million_formatter)
 
-ax.tick_params(axis="x", rotation=45)
 ax.set_title("JP Morgan Credit Adjustments \& Other")
 
 ax.plot(dates, spreads, color=[i / 255 for i in [255, 68, 61]])
+x_start, x_end = ax.get_xlim()
+ax.plot([x_start, x_end], [0, 0], color="black", linestyle="--", linewidth=0.5)
+ax.set_xlim(x_start, x_end)
+
+for i, label in enumerate(ax.get_xticklabels()):
+    if (i % 4) != 0:
+        label.set_visible(False)
 
 plt.tight_layout()
 plt.savefig(PATH / "jp-morgan-cva-fva.pgf")
