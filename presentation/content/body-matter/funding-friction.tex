@@ -9,11 +9,65 @@
         \begin{center}
             \resizebox{\textwidth}{!}{%
             \begin{tikzpicture}
-                \input{\graphicsfolder/funding-examples/funding-examples.tex}
+                \input{\graphicsfolder/funding-examples/funding-examples-with-cash.tex}
             \end{tikzpicture}
             }
         \end{center}
-
+        \note[item]<1>{
+            We presented a simple structural model for capturing the effects of funding costs
+            when a firm obtained projects.
+            In the figure a firm is operating in a single-period binomial tree, 
+            and it considers obtaining a project yielding a payoff.
+            This figure can to some extent most of the analysis we did.
+        }
+        \note[item]<1>{
+            We considered three different funding methods:
+            \begin{enumerate}
+                \item \textit{Debt funding}
+                    where the firm issues debt to new creditors.
+                \item \textit{Equity funding} 
+                    where the firm issues new shares.
+                \item \textit{Cash funding} 
+                    where the firm uses existing cash from its balance sheet.
+            \end{enumerate}
+        }
+        \note<2>{
+            The workings of the different funding methods:
+            \begin{enumerate}
+                \item Under debt funding, the new creditors charges a credit spread.
+                      Shareholders pays this credit spread when the firm does not default,
+                      and in the no-default state they receive a lower payoff.
+                \item Under equity funding, the required return from the new shareholders
+                      is even larger than that of the new creditors. 
+                      New shareholders are not compensated in the default state;
+                      hence they must have a higher payoff in the no-default state.
+                \item Under cash funding, there is not financing cost, 
+                      since the firm "borrows" from its balance sheet at the risk-free rate.
+                      When the project payoff is positively correlated to the no-default event,
+                      the project essentially moves asset value 
+                      from the default state no-default state. 
+                      The shareholder ends up with a higher payoff in the no-default state.
+            \end{enumerate}
+        }
+        \note<3>{
+            A couple of results can be derived from this.
+            \begin{enumerate}
+                \item \textit{The pecking order theory:}
+                      Since borrowing cash from the balance sheet is the cheapest method of funding,
+                      the shareholders will prefer this method.
+                      As new shareholders gain no payoff in the default state,
+                      they require a higher return than new creditors. 
+                      Hence, legacy shareholders prefer debt funding over equity funding.
+                \item \textit{The Free Rider Problem:}
+                      Evidently, the shareholders are the ones financing the funding of the project
+                      since they pay the return of the funding entity.
+                      However, the shareholders do not reap the benefits of the project.
+                      This is why Hull \& White's example does not work in reality.
+                      If the project's price were to be reduced,
+                      the blue and yellow striped bars would shrink,
+                      but that would not necessarily make the shareholders content.
+            \end{enumerate}
+        }
     \end{frame}
 
 \end{document}
