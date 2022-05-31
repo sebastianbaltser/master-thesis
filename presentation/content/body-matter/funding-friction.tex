@@ -9,11 +9,92 @@
         \begin{center}
             \resizebox{\textwidth}{!}{%
             \begin{tikzpicture}
-                \input{\graphicsfolder/funding-examples/funding-examples.tex}
+                \input{\graphicsfolder/funding-examples/funding-examples-with-cash.tex}
             \end{tikzpicture}
             }
         \end{center}
-
+        \note[item]<1>{
+            We presented a simple structural model for capturing the effects of funding costs
+            when a firm obtained projects.
+            In the figure, a firm is operating in a single-period binomial tree, 
+            and it considers obtaining a project yielding some payoff.
+            This figure can to some extent explain most of the analysis we did.
+        }
+        \note[item]<1>{
+            We considered three different funding methods:
+            \begin{enumerate}
+                \item \textit{Debt funding}
+                    where the firm issues debt to new creditors.
+                \item \textit{Equity funding} 
+                    where the firm issues new shares.
+                \item \textit{Cash funding} 
+                    where the firm uses existing cash from its balance sheet.
+            \end{enumerate}
+        }
+        \note<2>{
+            The workings of the different funding methods:
+            \begin{enumerate}
+                \item Under debt funding, the new creditors charge a credit spread.
+                      Shareholders pay this credit spread when the firm does not default,
+                      and in the no-default state they receive a lower payoff.
+                \item Under equity funding, the required return from the new shareholders
+                      is even larger than that of the new creditors. 
+                      New shareholders are not compensated in the default state;
+                      hence they require a higher payoff in the no-default state.
+                      Otherwise, this would not be a zero NPV investment for them.
+                      The position of the legacy shareholders then deteriorates
+                      compared to the the pre-project value.
+                \item Under cash funding, there is no financing cost 
+                      since the firm "borrows" from its balance sheet at the risk-free rate.
+                      When the project's payoff is positively correlated with the no-default event,
+                      the project essentially moves asset value 
+                      from the default state to the no-default state. 
+                      The shareholders end up with a higher payoff in the no-default state.
+            \end{enumerate}
+        }
+        \note<3>{
+            \begin{enumerate}
+                \item \textit{The pecking order of financing preferences:}
+                      Since borrowing cash from the balance sheet is the cheapest method of funding,
+                      the shareholders will prefer this method.
+                      As new shareholders gain no payoff in the default state
+                      when issuing new shares,
+                      they require a higher return than the new creditors do
+                      when issuing new debt.
+                      In other words, the legacy shareholders lose more wealth
+                      to the funding entity by equity funding than debt funding.
+                      Hence, legacy shareholders prefer debt funding over equity funding.
+                \item \textit{The Free Rider Problem:}
+                      Evidently, the shareholders are the ones financing the funding of the project
+                      since they pay the return of the funding entity.
+                      However, the shareholders do not reap the benefits of the project.
+                      % cspell: ignore HW
+                      This is why HW's example does not work in reality. 
+                      If the project's price were to be reduced,
+                      the blue and yellow striped bars would shrink,
+                      but that would not necessarily make the shareholders content.
+                \item \textit{The use of FVAs:}
+                      A firm preserving its shareholders' valuation should not accept
+                      buying the project at the price that leads to the payoffs in the graphic.
+                      By applying FVAs to its valuation the firm can ensure that
+                      the wealth of its shareholders is preserved,
+                      as an FVA considers the funding costs that the shareholders incur.
+                      Hence, FVAs are a way for the firm 
+                      to align its incentives with its shareholders.
+            \end{enumerate}
+        }
+        \note<4>{
+            The size of the adjustment depends on a couple of factors:
+            \begin{enumerate}
+                \item The funding method due to the pecking order.
+                \item How much the project's price is discounted in the first place. 
+                \item How the projects payoff is structured. 
+                      The correlation between the payoff and the default event 
+                      has an impact on the shareholders' wealth loss.
+                      The shareholders would rather not finance projects with cash flows
+                      that are paid out when the firm defaults. 
+            \end{enumerate}
+        }
     \end{frame}
 
 \end{document}
