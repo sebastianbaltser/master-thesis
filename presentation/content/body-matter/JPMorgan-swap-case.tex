@@ -1,0 +1,111 @@
+% !TEX root = sub-main.tex
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+    \begin{frame}
+        \frametitle{What Can Explain JP Morgan's XVA Loss?}
+        
+        \begin{figure}
+            \centering
+            \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \input{\graphicsfolder/presentation/JPMorgan-case.tex}
+            \end{tikzpicture}
+            }   
+        \end{figure}
+
+        \begin{tikzpicture}
+            [
+                remember picture,
+                overlay,
+                shift={([yshift=3.3cm,xshift=3cm]current page.south west)},
+                align=left
+            ]
+            \node[font=\small]{
+                \textbf{The rate effect} \\
+                
+                floating leg $\downarrow$
+
+                \\[0.2cm]
+
+                \hspace{0.8em} \rotatebox[origin=c]{180}{$\Lsh$}
+                \hspace{0.4em} 
+                \raisebox{-.45em}{\includegraphics[width=0.4cm]{\graphicsfolder/source-of-funding-costs/collateral}}
+                $\uparrow$
+
+                \\[0.2cm]
+
+                \hspace{1.6em} \rotatebox[origin=c]{180}{$\Lsh$}
+                \hspace{0.4em} funding $\uparrow$
+            };
+        \end{tikzpicture}
+
+        \begin{tikzpicture}
+            [
+                remember picture,
+                overlay,
+                shift={([yshift=3.3cm,xshift=-3cm]current page.south east)},
+                align=left
+            ]
+            \node[font=\small]{
+                \textbf{The funding effect} \\
+                
+                default intensity $\uparrow$
+
+                \\[0.2cm]
+
+                \hspace{0.8em} \rotatebox[origin=c]{180}{$\Lsh$}
+                \hspace{0.4em} S $\uparrow$
+
+                \\[0.2cm]
+
+                \hspace{1.6em} \rotatebox[origin=c]{180}{$\Lsh$}
+                \hspace{0.4em} funding rate $\uparrow$
+            };
+        \end{tikzpicture}
+
+        \note<1>[item]{
+            Risk.net speculates that a contributing factor to the loss 
+            may have been uncollateralised swap agreements.
+        }
+        \note<1>[item]{
+            We explained in the paper how asymmetrical collateral agreements 
+            can be a source of funding costs,
+            and the corresponding graphic can explain the hypothesis of Risk.net.
+        }
+        \note<1>[item]{
+            Not all corporate clients has the ability 
+            to offer the large amount of collateral that banks need,
+            and therefore the trades with those clients would be uncollateralised.
+            Since corporate clients are mostly hedging loan exposures,
+            banks are often biased towards having more uncollateralised pay-floating trades.
+            These swaps are hedged with other financial institutions, 
+            who require collateralisation.
+        }
+        \note<1>[item]{
+            Central banks decreasing rates will decrease the value of floating legs. 
+            This increases the value of JP Morgan's trade with its corporate clients.
+            It decreases the mark-to-market of the hedges however;
+            therefore, JP Morgan will receive calls for collateral.
+            If the portfolio had a somewhat equal amount of payer- and receiver-swaps,
+            the effect would be close to zero.
+        }
+        \note<2>[item]{
+            Since creditworthiness is decreasing, 
+            JP Morgan will have to fund itself at increasing rates.
+            Evidently, having these uncollateralised pay-floating swaps,
+            is a source of WWR as the mark-to-market of the hedges is negatively correlated
+            with the funding rate. 
+            The opposite of that is shown in our swap example, 
+            where our imaginary firm had a low funding spread 
+            from period 0 to 1, 
+            such that funding were cheap during this period. 
+        }
+        \note<2>[item]{
+            This shows a very common way of funding costs appearing in derivatives portfolios.
+            Another source that we covered thoroughly could appear
+            if for example the payment dates of the hedging swap differed from the actual swap,
+            such that the cash flows from market movements were unaligned.
+        }
+    \end{frame}
+\end{document}
