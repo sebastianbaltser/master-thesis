@@ -82,7 +82,7 @@
     ([yshift=-\toparrowyoffset, xshift= \arrowtoboxpadding pt]dealer.north east) -- 
     ([yshift=-\toparrowyoffset, xshift=-\arrowtoboxpadding pt]exchange.north west)
     node [pos=0.6, fill=white, inner xsep=2pt, inner ysep=0] {
-        \footnotesize OIS
+        \footnotesize $r_f$
     };
 
 % Dealer - Funding desk relations
@@ -90,11 +90,11 @@
     ([xshift=-\arrowyoffset, yshift=-\arrowtoboxpadding]dealer.south) --
     ([xshift=-\arrowyoffset, yshift= \arrowtoboxpadding]funding.north)
     node[midway, fill=white, inner xsep=2pt, inner ysep=0, align=center, rotate=90] {
-        \footnotesize Funding%
+        \footnotesize funding%
     };
 \draw[->, thick, draw=rate-color]
     ([xshift=\arrowyoffset, yshift=-\arrowtoboxpadding]dealer.south) --
     ([xshift=\arrowyoffset, yshift= \arrowtoboxpadding]funding.north)
     node[midway, fill=white, inner xsep=2pt, inner ysep=0, align=center, rotate=90] {
-        \footnotesize OIS + S%
+        \footnotesize $r_f$ + S%
     };
