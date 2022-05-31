@@ -23,7 +23,8 @@
     draw,
     very thick,
     minimum width=3cm,
-    minimum height=2cm
+    minimum height=2cm,
+    align=center
 ] {Counterparty};
 
 \node (exchange) at ($(dealer.east) + (5, 0)$) [
@@ -32,6 +33,7 @@
     very thick,
     minimum width=3cm,
     minimum height=2cm,
+    align=center
 ] {Exchange};
 
 \node (funding) at ($(dealer.south) + (0, -4)$) [
@@ -39,6 +41,7 @@
     very thick,
     minimum width=3cm,
     minimum height=2cm,
+    align=center
 ] {Funding desk};
 
 % Dealer - Counterparty relations
