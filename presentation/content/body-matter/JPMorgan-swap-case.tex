@@ -14,5 +14,51 @@
             }   
         \end{figure}
 
+        \begin{tikzpicture}
+            [
+                remember picture,
+                overlay,
+                shift={([yshift=2.2cm,xshift=3cm]current page.south west)},
+                align=left
+            ]
+            \node{
+                \small
+                floating leg $\downarrow$
+
+                \\[0.2cm]
+
+                \small
+                \hspace{0.8em} \rotatebox[origin=c]{180}{$\Lsh$} \includegraphics[width=0.25cm]{\graphicsfolder/source-of-funding-costs/collateral} $\uparrow$
+
+                \\[0.2cm]
+
+                \small
+                \hspace{1.6em} \rotatebox[origin=c]{180}{$\Lsh$} funding $\uparrow$
+            };
+        \end{tikzpicture}
+
+        \begin{tikzpicture}
+            [
+                remember picture,
+                overlay,
+                shift={([yshift=2.2cm,xshift=-3cm]current page.south east)},
+                align=left
+            ]
+            \node{
+                \small
+                default intensity $\uparrow$
+
+                \\[0.2cm]
+
+                \small
+                \hspace{0.8em} \rotatebox[origin=c]{180}{$\Lsh$} S $\uparrow$
+
+                \\[0.2cm]
+
+                \small
+                \hspace{1.6em} \rotatebox[origin=c]{180}{$\Lsh$} funding rate $\uparrow$
+            };
+        \end{tikzpicture}
+
     \end{frame}
 \end{document}
